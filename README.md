@@ -3,7 +3,7 @@
  <img width=150px height=150px src="https://www.hackyourfuture.dk/static/logo-dark.svg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Boilerplate for Final projects
+<h3 align="center"> Class18 Final Project - Interior Design Webshop
 </h3>
 
 ---
@@ -11,8 +11,6 @@
 ## 📝 Table of Contents
 
 - [About](#about)
-  - [Setting up the boilerplate](/setting-up-instructions.md)
-  - [Plan the project](/planning.md)
 - [Project's Calendar](#-projects-calendar)
 - [Class Daily Agenda](#-class-daily-agenda-)
 - [The Customer](#-the-customer)
@@ -36,18 +34,11 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This repository is a boilerplate and set-up instructions for the Final Project.
+This repository is for Class18 Final Project - Interior Design Webshop
 
-To setup the boilerplate for a New Final project you MUST read this first [HERE](/setting-up-instructions.md)
+Production website: 
 
-After the previous steps, you have new repository ready but you need plan the project,
-check [HERE](/planning.md) before you go more down.
-
-🚨Delete the About Topic from you new repository README.MD file  
-🚨Delete the instructions files:
-
-- [Setting up Instructions](/setting-up-instructions.md)
-- [Planning](/planning.md)
+Staging website: 
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -62,9 +53,14 @@ check [HERE](/planning.md) before you go more down.
 
 ## 📅 Project's Calendar
 
-_Add the dates for the project and study groups_
-_Class Dates_  
-_Study groups dates_
+- 31-Oct-2021	- 12:00 to 16:00
+- 07-Nov-2021 - 12:00 to 16:00	
+- 14-Nov-2021 - 12:00 to 16:00	
+- 21-Nov-2021 - 12:00 to 16:00	
+- 28-Nov-2021 - 12:00 to 16:00	
+- 05-Dec-2021	- 12:00 to 16:00
+- 12-Dec-2021- 12:00 to 16:00
+- 15-Dec-2021 - Graduation (Wednesday from 16:00 to 20:00) 
 
 ## 🕛 Class Daily Agenda 🕓
 
@@ -77,16 +73,19 @@ _Add the Class schedule for the project_
 
 ## 👩🏻‍💼💡👨🏽‍💼 The Customer
 
-_Add here information about the customer/partner_
+We will mock an interior design shop customer that needs a webshop
 
 #### 💼 Business Glossary
 
 _Add here information about the Business Glossary_
 [Business Glossary](/BusinessGlossary.md)
 
+#### 🖼 Wireframes
+Check the mockup here https://www.figma.com/file/lMeDy1n608SLjsKYrKu1nc/HYF-WebShop?node-id=2%3A4
+
 #### 🗄️ Database Model Diagram
 
-_Add here the DB Model Diagram_ - Use https://dbdiagram.io/
+DB Model Diagram_ - https://dbdiagram.io/d/616ae287940c4c4eec9881e3
 
 - [How to make changes on the diagram](/diagram.md)
 
