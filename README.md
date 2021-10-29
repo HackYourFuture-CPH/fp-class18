@@ -15,6 +15,7 @@
 - [Class Daily Agenda](#-class-daily-agenda-)
 - [The Customer](#-the-customer)
   - [Business Glossary](/BusinessGlossary.md)
+  - [🖼 Wireframes](#-wireframes)
   - [Database Model Diagram](#️-database-model-diagram)
 - [Process](#-process-)
   - [Working with code](#-working-with-code)
