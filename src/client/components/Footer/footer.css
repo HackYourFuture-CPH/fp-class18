@@ -1,0 +1,48 @@
+footer {
+  width: 100%;
+  background-color: #929B90;
+}
+
+footer .footer {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-right: 10%;
+}
+
+footer .footer .column {
+  padding: 4%;
+}
+
+footer h3 {
+  color: white;
+}
+
+footer ul {
+  list-style-type: none;
+  display: inline;
+}
+
+footer li {
+  line-height: 28px;
+  color: white;
+  text-decoration: none;
+  transition: 0.75s;
+  font-family: inter;
+  cursor: pointer;
+}
+
+footer li:hover {
+  color: #8E0EF2;
+}
+
+@media screen and (max-width: 768px) {
+  footer .footer {
+    display: block;
+    text-align: center;
+  }
+
+  footer .column {
+    padding: 30px 0;
+  }
+}
