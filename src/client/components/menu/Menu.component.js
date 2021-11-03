@@ -10,34 +10,36 @@ export const Menu = () => {
         <div className="logo_container">
           <div className="user-icon">
             <div className="dropdown">
-              <img src={faUser} />
+              <img src={faUser} alt="login" />
 
               <div id="login" className="dropdown-content">
-                <a>LOGIN / SIGNUP</a>
+                <a href="login">LOGIN / SIGNUP</a>
               </div>
             </div>
           </div>
           <div className="icons">
-            <img src={faHeart} />
+            <img src={faHeart} alt="favorite" />
           </div>
           <div className="icons">
-            <img src={faShoppingCart} />
+            <img src={faShoppingCart} alt="shoppingcart" />
           </div>
         </div>
-        <div class="navbar">
+        <div className="navbar">
           <div className="dropdown">
-            <button className="dropbtn">CATEGORIES</button>
+            <button type="submit" className="dropbtn">
+              CATEGORIES
+            </button>
 
             <div className="dropdown-content">
-              <a>FURNITURE</a>
-              <a>LAMPS </a>
-              <a>HOME DECOR</a>
-              <a>LINEN</a>
+              <a href="furniture">FURNITURE</a>
+              <a href="lamps">LAMPS </a>
+              <a href="homedecor">HOME DECOR</a>
+              <a href="linen">LINEN</a>
             </div>
           </div>
-          <a>MONTHLY ARIVALS</a>
-          <a>ABOUT</a>
-          <a>CONTACT US</a>
+          <a href="monthlyarrivals">MONTHLY ARIVALS</a>
+          <a href="about">ABOUT</a>
+          <a href="contactus">CONTACT US</a>
         </div>
       </header>
     </menu>
