@@ -3,6 +3,7 @@ import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
+
 export const Menu = () => {
   return (
     <menu>
