@@ -1,0 +1,95 @@
+header {
+  justify-content: space-between;
+  background-color: black;
+  height: fit-content;
+  overflow: hidden;
+}
+header #login {
+  padding: 10px;
+}
+header .user-icon {
+  float: left;
+  cursor: pointer;
+}
+header .icons {
+  float: right;
+  margin-right: 10px;
+  justify-content: space-around;
+  cursor: pointer;
+}
+header .logo_container {
+  background-color: white;
+  display: block;
+  padding-bottom: 30px;
+}
+header img {
+  height: 20px;
+  width: 20px;
+}
+
+header .navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+header .navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The dropdown container */
+header .dropdown {
+  margin-left: 20%;
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+header .dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+header .navbar a:hover,
+header .dropdown:hover .dropbtn,
+header #login:hover {
+  background-color: purple;
+}
+
+/* Dropdown content (hidden by default) */
+header .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  padding: 5px;
+}
+
+/* Links inside the dropdown */
+header .dropdown-content a {
+  color: white;
+  text-decoration: none;
+  display: inline-flexbox;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Add a grey background color to dropdown links on hover */
+header .dropdown-content a:hover {
+  background-color: purple;
+}
+
+/* Show the dropdown menu on hover */
+header .dropdown:hover .dropdown-content {
+  display: block;
+}
