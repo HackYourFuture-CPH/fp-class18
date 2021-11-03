@@ -1,0 +1,22 @@
+.quantity {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity input[type='button'] {
+  background: inherit;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.quantity input {
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+}
