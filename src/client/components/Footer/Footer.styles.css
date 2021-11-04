@@ -1,16 +1,12 @@
 footer {
   width: 100%;
   background-color: #929B90;
-}
-
-footer .footer {
   display: flex;
   justify-content: right;
-  align-items: center;
   padding-right: 10%;
 }
 
-footer .footer .column {
+footer .column {
   padding: 4%;
 }
 
@@ -24,25 +20,27 @@ footer ul {
 }
 
 footer li {
-  line-height: 28px;
+  line-height: 1.8em;
+}
+
+footer li a{
   color: white;
   text-decoration: none;
   transition: 0.75s;
-  font-family: inter;
   cursor: pointer;
 }
 
-footer li:hover {
+footer li a:hover {
   color: #8E0EF2;
 }
 
 @media screen and (max-width: 768px) {
-  footer .footer {
+  footer {
     display: block;
     text-align: center;
   }
 
   footer .column {
-    padding: 30px 0;
+    padding: 1.6em 0;
   }
 }
