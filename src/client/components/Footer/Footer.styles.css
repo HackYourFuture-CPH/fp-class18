@@ -17,13 +17,13 @@ footer ul {
   line-height: 1.8em;
 }
 
-footer li a {
+footer li span {
   text-decoration: none;
   transition: 0.75s;
   cursor: pointer;
 }
 
-footer li a:hover {
+footer li span:hover {
   color: #8E0EF2;
 }
 
