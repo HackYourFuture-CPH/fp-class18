@@ -4,27 +4,20 @@ footer {
   display: flex;
   justify-content: right;
   padding-right: 10%;
+  color: white;
 }
 
 footer .column {
   padding: 4%;
 }
 
-footer h3 {
-  color: white;
-}
-
 footer ul {
   list-style-type: none;
   display: inline;
-}
-
-footer li {
   line-height: 1.8em;
 }
 
-footer li a{
-  color: white;
+footer li a {
   text-decoration: none;
   transition: 0.75s;
   cursor: pointer;
