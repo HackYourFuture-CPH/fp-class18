@@ -12,7 +12,7 @@ export default function Button({ label, onClick }) {
   );
 }
 // eslint-disable-next-line react/no-typos
-Button.PropTypes = {
+Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };

@@ -4,21 +4,23 @@ import heroImg from '../../../assets/images/hero-image.png';
 import Button from '../buttonComponent/button';
 import PropTypes from 'prop-types';
 
+function onClickHandler() {
+  // eslint-disable-next-line no-console
+  console.log('Sign up button is clicked');
+}
 export default function HeroImage({ heroText }) {
   return (
     <div className="hero-image">
-      <img className="heroImage" src={heroImg}></img>
-      <div class="hero-text">
+      <img src={heroImg} alt="" />
+      <div className="hero-text">
         <h3 className="title-text">{heroText}</h3>
-        <Button
-          label="Sign Up"
-          onClick={() => console.log('Sign up button is clicked')}
-        />
+        <Button label="Sign Up" onClick={() => onClickHandler()} />
       </div>
     </div>
   );
 }
 
-HeroImage.PropTypes = {
+// eslint-disable-next-line react/no-typos
+HeroImage.propTypes = {
   heroText: PropTypes.string.isRequired,
 };
