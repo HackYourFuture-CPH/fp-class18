@@ -30,15 +30,15 @@ const ProductsPagiantion = () => {
       <div className="displayImgs">
         {displayProducts}
         <ReactPaginate
-          previousLabel={'Previous'}
-          nextLabel={'Next'}
+          previousLabel="Previous"
+          nextLabel="Next"
           pageCount={pageCount}
           onPageChange={handlePageClick}
-          containerClassName={'paginationButtons'}
-          previousLinkClassName={'previousBttn'}
-          nextLinkClassName={'nextBttn'}
-          disabledClassName={'paginationDisabled'}
-          activeClassName={'paginationActive'}
+          containerClassName="paginationButtons"
+          previousLinkClassName="previousBttn"
+          nextLinkClassName="nextBttn"
+          disabledClassName="paginationDisabled"
+          activeClassName="paginationActive"
         />
       </div>
     </>
