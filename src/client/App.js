@@ -10,6 +10,7 @@ import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
+import ProductsPagiantion from './components/ProductsPagination/ProductsPagination.component';
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -37,6 +38,7 @@ function App() {
           <Profile />
         </AuthenticatedRoute>
       </Switch>
+      <ProductsPagiantion />
     </Router>
   );
 }
