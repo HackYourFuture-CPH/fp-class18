@@ -6,5 +6,5 @@ import SortingOptions from './SortingOptions.component';
 export default { title: 'Some title' };
 
 export const sorting = () => <Sorting />;
-export const sortingOptions = () => <SortingOptions />;
 export const sortingCategories = () => <SortingCategories />;
+export const sortingOptions = () => <SortingOptions />;

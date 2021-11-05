@@ -1,17 +1,8 @@
-.link-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  text-decoration: underline;
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: 1rem;
-  text-align: center;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 10px;
+select {
+  width: 130px;
 }
 
-.option-button {
+.input-button {
   cursor: pointer;
   border: 0;
   line-height: 2.5;
@@ -22,22 +13,16 @@
   text-shadow: 1px 1px 1px #000;
   border-radius: 10px;
   background-color: transparent;
+  width: 130px;
 }
 
-.option-button:hover {
+.input-button:hover {
   background-color: royalblue;
   color: white;
 }
 
-.option-button:active {
+.input-button:active {
   box-shadow:
     inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-}
-
-.sorting-div {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  padding: 2px;
 }
