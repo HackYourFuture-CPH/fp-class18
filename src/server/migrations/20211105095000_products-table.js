@@ -1,6 +1,3 @@
-//migrations for products table, also contains categories table since products table have foreign -
-//key constraint with categories table
-
 exports.up = function (knex) {
   return knex.schema
     .createTable('categories', (table) => {
