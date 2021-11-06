@@ -7,13 +7,13 @@ const usersController = require('../controllers/users.controller');
 
 /**
  * @swagger
- * /modules:
+ * /users:
  *  get:
  *    tags:
- *    - Modules
- *    summary: Get all modules
+ *    - Users
+ *    summary: Get all users
  *    description:
- *      Will return all modules.
+ *      Will return all users.
  *    produces: application/json
  *    responses:
  *      200:
@@ -30,13 +30,13 @@ router.get('/', (req, res, next) => {
 
 /**
  * @swagger
- * /modules/{ID}:
+ * /users/{ID}:
  *  get:
  *    tags:
- *    - Modules
- *    summary: Get module by ID
+ *    - Users
+ *    summary: Get user by ID
  *    description:
- *      Will return single module with a matching ID.
+ *      Will return single user with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
