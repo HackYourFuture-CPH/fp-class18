@@ -13,7 +13,7 @@ exports.up = function (knex) {
       .enum('status', ['out_of_stock', 'in_stock', 'running_low'])
       .notNullable();
     table.datetime('created_at').defaultTo(knex.fn.now()).notNullable();
-    table.binary('picture').notNullable();
+    table.string('picture').notNullable();
     table.integer('stock_amount').notNullable();
     table
       .integer('category_id')
