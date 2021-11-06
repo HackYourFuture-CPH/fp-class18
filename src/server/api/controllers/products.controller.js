@@ -5,7 +5,7 @@ const getProducts = async () => {
   return knex('products');
 };
 
-const getProductsById = async (id) => {
+const getProductById = async (id) => {
   if (!id) {
     throw new HttpError('Id should be a number', 400);
   }
@@ -23,5 +23,5 @@ const getProductsById = async (id) => {
 
 module.exports = {
   getProducts,
-  getProductsById,
+  getProductById,
 };
