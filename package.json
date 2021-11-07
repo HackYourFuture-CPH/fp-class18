@@ -75,7 +75,9 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-controls": "^6.3.12",
     "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-links": "^6.3.12",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",

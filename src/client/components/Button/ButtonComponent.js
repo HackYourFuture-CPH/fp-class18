@@ -8,7 +8,7 @@ export default function ButtonComponent({ title, backgroundColor, onClick }) {
       <button
         type="button"
         onClick={onClick}
-        className="button button--primary button--medium"
+        className="button"
         style={{ backgroundColor }}
       >
         {title}
@@ -24,6 +24,8 @@ ButtonComponent.propTypes = {
 };
 
 ButtonComponent.defaultProps = {
-  onClick: null,
-  backgroundColor: 'purple',
+  onClick: () => {
+    return 'clicked';
+  },
+  backgroundColor: '#8E0EF2',
 };
