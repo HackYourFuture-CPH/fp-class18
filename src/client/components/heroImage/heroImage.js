@@ -1,6 +1,6 @@
 import React from 'react';
 import './heroImage.css';
-import heroImg from '../../../assets/images/hero-image.png';
+import heroImg from '../../assets/images/hero-image.png';
 import PropTypes from 'prop-types';
 
 export default function HeroImage({ heroText }) {
