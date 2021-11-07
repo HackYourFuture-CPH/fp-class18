@@ -1,13 +1,11 @@
 import React from 'react';
-
-import { BrowserRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
 
-export const Menu = ({ isUserAuthenticated }) => {
+export const Menu = () => {
   return (
     <menu>
       <header>
