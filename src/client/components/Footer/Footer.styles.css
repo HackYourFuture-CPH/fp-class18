@@ -1,8 +1,8 @@
 footer {
   width: 100%;
-  background-color: #929B90;
+  background-color: #929b90;
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   padding-right: 10%;
   color: white;
 }
@@ -24,7 +24,7 @@ footer li span {
 }
 
 footer li span:hover {
-  color: #8E0EF2;
+  color: #8e0ef2;
 }
 
 @media screen and (max-width: 768px) {
