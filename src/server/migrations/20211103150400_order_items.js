@@ -7,6 +7,7 @@ exports.up = function (knex) {
       .notNullable()
       .references('id')
       .inTable('products');
+    table.integer('quantity').defaultTo(1).notNullable();
   });
 };
 
