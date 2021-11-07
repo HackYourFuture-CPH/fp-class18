@@ -7,13 +7,13 @@ const ordersController = require('../controllers/orders.controller');
 
 /**
  * @swagger
- * /modules:
+ * /orders:
  *  get:
  *    tags:
- *    - Modules
- *    summary: Get all modules
+ *    - Orders
+ *    summary: Get all orders
  *    description:
- *      Will return all modules.
+ *      Will return all orders.
  *    produces: application/json
  *    responses:
  *      200:
@@ -23,20 +23,20 @@ const ordersController = require('../controllers/orders.controller');
  */
 router.get('/', (req, res, next) => {
   ordersController
-    .getModules()
+    .getOrders()
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /modules/{ID}:
+ * /orders/{ID}:
  *  get:
  *    tags:
- *    - Modules
- *    summary: Get module by ID
+ *    - Orders
+ *    summary: Get order by ID
  *    description:
- *      Will return single module with a matching ID.
+ *      Will return single order with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
@@ -44,7 +44,7 @@ router.get('/', (req, res, next) => {
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the module to get
+ *         description: The ID of the order to get
  *
  *    responses:
  *      200:
