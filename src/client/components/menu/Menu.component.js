@@ -86,7 +86,7 @@ export const MenuLogin = () => {
                 <img src={faUser} alt="login" />
 
                 <div id="login" className="dropdown-content">
-                  <Link className="text-link" className="text-link" to="/login">
+                  <Link className="text-link" to="/login">
                     LOGOUT
                   </Link>
                 </div>
