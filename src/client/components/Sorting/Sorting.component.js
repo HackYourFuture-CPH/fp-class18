@@ -1,8 +1,6 @@
 import React from 'react';
 import './Sorting.styles.css';
 import { options } from './helper';
-import SortingCategories from './SortingCategories.component';
-import SortingOptions from './SortingOptions.component';
 import PropTypes from 'prop-types';
 
 export default function Sorting({ products, categories }) {
@@ -36,20 +34,28 @@ export default function Sorting({ products, categories }) {
 
   return (
     <div className="sorting-div">
-      <select onChange={(e) => handleSort(e.target.value)}>
+      <select onChange={(e) => handleSort(e.target.value)} className="select">
         {options.map((option) => {
-          return <SortingOptions option={option} key={option.value} />;
+          return (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          );
         })}
       </select>
       <div>
         {showCategories &&
           categories.map((category) => {
             return (
-              <SortingCategories
-                category={category}
-                key={category.id}
-                onSort={onSort}
-              />
+              <div>
+                <input
+                  className="input-button"
+                  type="button"
+                  key={category.id}
+                  onClick={(e) => onSort(e.target.value)}
+                  value={category.name}
+                />
+              </div>
             );
           })}
       </div>
