@@ -9,7 +9,7 @@ exports.up = function (knex) {
       .inTable('orders');
     table
       .integer('product_id')
-      .unsirgned()
+      .unsigned()
       .notNullable()
       .references('id')
       .inTable('products');
