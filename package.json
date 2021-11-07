@@ -8,7 +8,7 @@
     "node": "12.9.1"
   },
   "scripts": {
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook",
     "build": "webpack --mode production",
     "start": "npm run build && node ./src/server/bin/server",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
@@ -17,7 +17,7 @@
     "db:clean": "cd ./src/server/ && knex migrate:rollback",
     "db:setup": "cd ./src/server/ && knex migrate:latest && knex seed:run",
     "db:reset": "npm run db:clean && npm run db:setup",
-    "storybook": "cd ./src/client/ && start-storybook -p 3007 -s",
+    "storybook": "cd ./src/client/ && start-storybook -p 3007",
     "test": "jest",
     "test:watch": "jest --watch",
     "code:check": "npm run code:lint && npm run code:format -- --check",
