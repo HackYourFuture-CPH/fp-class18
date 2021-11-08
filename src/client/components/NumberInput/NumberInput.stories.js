@@ -10,7 +10,8 @@ export default {
   },
   parameters: { actions: { argTypesRegex: '^on.*' } },
 };
-
+// storybook-controls works with spread, but `Prop spreading is forbidden eslint(react/jsx-props-no-spreading)`
+// eslint-disable-next-line
 export const QuantityChanger = (args) => <NumberInput {...args} />;
 
 QuantityChanger.args = {
