@@ -2,17 +2,26 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NumberInput.styles.css';
 
-export default function NumberInput({ initValue, maxAvailable }) {
+export default function NumberInput({
+  initValue,
+  maxAvailable,
+  getQuantity,
+  disabled,
+}) {
   const [inputValue, setInputValue] = useState(initValue);
 
   function decrementValue() {
     if (inputValue <= 1) return;
-    return setInputValue(Number(inputValue) - 1);
+    const newValue = Number(inputValue) - 1;
+    setInputValue(newValue);
+    getQuantity(newValue);
   }
 
   function incrementValue() {
     if (inputValue === maxAvailable) return;
-    return setInputValue(Number(inputValue) + 1);
+    const newValue = Number(inputValue) + 1;
+    setInputValue(newValue);
+    getQuantity(newValue);
   }
 
   return (
@@ -22,6 +31,7 @@ export default function NumberInput({ initValue, maxAvailable }) {
         name="decrement"
         value="-"
         onClick={decrementValue}
+        disabled={disabled}
       />
       <input
         type="text"
@@ -34,12 +44,14 @@ export default function NumberInput({ initValue, maxAvailable }) {
           Number(event.target.value > 0) &&
           setInputValue(Number(event.target.value))
         }
+        disabled={disabled}
       />
       <input
         type="button"
         name="increment"
         value="+"
         onClick={incrementValue}
+        disabled={disabled}
       />
     </div>
   );
