@@ -8,7 +8,6 @@
 .quantity input[type='button'] {
   background: inherit;
   color: inherit;
-  border: none;
   padding: 0;
   font: inherit;
   cursor: pointer;
@@ -19,4 +18,5 @@
   font-size: 20px;
   width: 40px;
   text-align: center;
+  border: none;
 }
