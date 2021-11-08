@@ -60,12 +60,13 @@ export default function NumberInput({
 NumberInput.propTypes = {
   initValue: PropTypes.number,
   maxAvailable: PropTypes.number,
-  getQuantity: PropTypes.func,
+  getQuantity: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
 };
 
 NumberInput.defaultProps = {
   initValue: 1,
   maxAvailable: 99,
+  getQuantity: (value) => value,
   disabled: false,
 };
