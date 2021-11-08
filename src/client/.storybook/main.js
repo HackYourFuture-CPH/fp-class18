@@ -4,5 +4,6 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-knobs',
     '@storybook/addon-essentials',
+    ['@storybook/addon-controls'],
   ],
 };
