@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import productsImages from './ProductsPaginationImages.component';
+import PropTypes from 'prop-types';
 import './ProductsPagination.styles.css';
 
-const ProductsPagiantion = () => {
-  const productsPerPage = 3;
+const ProductsPagiantion = ({ productsImages }) => {
+  const productsPerPage = 5;
   const [pageNumber, setPageNumber] = useState(0);
   const pagesVisited = pageNumber * productsPerPage;
 
@@ -13,7 +13,16 @@ const ProductsPagiantion = () => {
     .map((image) => {
       return (
         <div>
-          <img src={image} alt="products-img" />
+          <ul className="displayImgs">
+            <li key={image.id}>
+              <img
+                src={image}
+                alt="products-img"
+                width="300px"
+                height="280px"
+              />
+            </li>
+          </ul>
         </div>
       );
     });
@@ -43,6 +52,10 @@ const ProductsPagiantion = () => {
       </div>
     </>
   );
+};
+
+ProductsPagiantion.propTypes = {
+  productsImages: PropTypes.array.isRequired,
 };
 
 export default ProductsPagiantion;

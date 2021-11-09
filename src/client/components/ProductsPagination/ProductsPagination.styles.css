@@ -1,8 +1,10 @@
 .displayImgs {
+  list-style: none;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  row-gap: 20px;
+  align-content: center;
+  align-content: flex-start;
 }
 
 .paginationButtons {
@@ -17,10 +19,11 @@
 .paginationButtons a {
   padding: 10px;
   margin: 8px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid darkblue;
   color: darkblue;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .paginationButtons a:hover {
@@ -37,4 +40,5 @@ h3 {
   text-align: center;
   color: crimson;
   font-weight: 600;
+  font-size: 25px;
 }
