@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroImage from './heroImage';
+import HeroImage from './HeroImage.component.js';
 
 export default { title: 'components/heroImage' };
 

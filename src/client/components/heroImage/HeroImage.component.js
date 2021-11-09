@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export default function HeroImage({ heroText }) {
   return (
     <div className="hero-image">
-      <img src={heroImg} alt="" />
+      <img src={heroImg} alt="HeroImage" />
       <div className="hero-text">
         <h3 className="title-text">{heroText}</h3>
       </div>
