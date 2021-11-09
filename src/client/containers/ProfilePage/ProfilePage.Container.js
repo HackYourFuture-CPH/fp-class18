@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProfilePage.Style.css';
 
-const ProfilepageContainer = () => {
+const ProfilePageContainer = () => {
   return (
     <div>
       <h1>Profile page Container</h1>
@@ -9,4 +9,4 @@ const ProfilepageContainer = () => {
   );
 };
 
-export default ProfilepageContainer;
+export default ProfilePageContainer;

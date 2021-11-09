@@ -1,7 +1,7 @@
 import React from 'react';
 import './FavoritesPage.Style.css';
 
-const FavoritespageContainer = () => {
+const FavoritesPageContainer = () => {
   return (
     <div>
       <h1>Favorites page Container</h1>
@@ -9,4 +9,4 @@ const FavoritespageContainer = () => {
   );
 };
 
-export default FavoritespageContainer;
+export default FavoritesPageContainer;

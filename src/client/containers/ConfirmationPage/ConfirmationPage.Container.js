@@ -1,7 +1,7 @@
 import React from 'react';
 import './ConfirmationPage.Style.css';
 
-const ConfirmationpageContainer = () => {
+const ConfirmationPageContainer = () => {
   return (
     <div>
       <h1>Confirmation page Container</h1>
@@ -9,4 +9,4 @@ const ConfirmationpageContainer = () => {
   );
 };
 
-export default ConfirmationpageContainer;
+export default ConfirmationPageContainer;

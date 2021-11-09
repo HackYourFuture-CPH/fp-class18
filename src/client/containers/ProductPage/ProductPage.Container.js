@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductPage.Style.css';
 
-const ProductpageContainer = () => {
+const ProductPageContainer = () => {
   return (
     <div>
       <h1>Product page Container</h1>
@@ -9,4 +9,4 @@ const ProductpageContainer = () => {
   );
 };
 
-export default ProductpageContainer;
+export default ProductPageContainer;

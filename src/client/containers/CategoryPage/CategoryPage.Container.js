@@ -1,7 +1,7 @@
 import React from 'react';
 import './CategoryPage.Style.css';
 
-const CategorypageContainer = () => {
+const CategoryPageContainer = () => {
   return (
     <div>
       <h1>Category page Container</h1>
@@ -9,4 +9,4 @@ const CategorypageContainer = () => {
   );
 };
 
-export default CategorypageContainer;
+export default CategoryPageContainer;

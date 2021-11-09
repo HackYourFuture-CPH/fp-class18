@@ -1,7 +1,7 @@
 import React from 'react';
 import './OrderPage.Style.css';
 
-const OrderpageContainer = () => {
+const OrderPageContainer = () => {
   return (
     <div>
       <h1>Order page Container</h1>
@@ -9,4 +9,4 @@ const OrderpageContainer = () => {
   );
 };
 
-export default OrderpageContainer;
+export default OrderPageContainer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './404Page.Style.css';
 
-const page404Container = () => {
+const Page404Container = () => {
   return (
     <div>
       <h1>Page 404</h1>
@@ -9,4 +9,4 @@ const page404Container = () => {
   );
 };
 
-export default page404Container;
+export default Page404Container;

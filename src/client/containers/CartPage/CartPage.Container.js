@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartPage.Style.css';
 
-const CartpageContainer = () => {
+const CartPageContainer = () => {
   return (
     <div>
       <h1>Cart page container</h1>
@@ -9,4 +9,4 @@ const CartpageContainer = () => {
   );
 };
 
-export default CartpageContainer;
+export default CartPageContainer;

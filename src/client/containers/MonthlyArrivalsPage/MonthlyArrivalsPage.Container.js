@@ -1,6 +1,7 @@
 import React from 'react';
+import './MonthlyArrivalsPage.Style.css';
 
-const MonthlyarrivalspageContainer = () => {
+const MonthlyArrivalsPageContainer = () => {
   return (
     <div>
       <h1>Monthly arrivals page Container</h1>
@@ -8,4 +9,4 @@ const MonthlyarrivalspageContainer = () => {
   );
 };
 
-export default MonthlyarrivalspageContainer;
+export default MonthlyArrivalsPageContainer;
