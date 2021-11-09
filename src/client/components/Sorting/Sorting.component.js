@@ -9,8 +9,11 @@ export default function Sorting({ products, categories }) {
 
   const handleSort = (e) => {
     if (e === 'AlphabeticallyAZ') {
-      const ascSort = allProducts.sort((a, b) => a.name.localeCompare(b.name));
-      return setAllProducts(ascSort);
+      const ascSort = allProducts
+        .map((product) => product.name)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      setAllProducts(ascSort);
+      return setShowCategories(!showCategories);
     }
     if (e === 'AlphabeticallyZA') {
       const decSort = allProducts.sort((a, b) => b.name.localeCompare(a.name));
@@ -43,6 +46,7 @@ export default function Sorting({ products, categories }) {
           );
         })}
       </select>
+      {showCategories && <div>{allProducts}</div>}
       <div>
         {showCategories &&
           categories.map((category) => {
