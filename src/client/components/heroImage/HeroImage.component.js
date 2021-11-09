@@ -1,5 +1,5 @@
 import React from 'react';
-import './heroImage.css';
+import './HeroImage.styles.css';
 import heroImg from '../../assets/images/hero-image.png';
 import PropTypes from 'prop-types';
 
