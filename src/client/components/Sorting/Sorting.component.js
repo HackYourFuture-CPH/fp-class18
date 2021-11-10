@@ -2,11 +2,25 @@ import React from 'react';
 import './Sorting.styles.css';
 import { options } from './helper';
 import PropTypes from 'prop-types';
+import image01 from '../../assets/images/image01.png';
+
+// import image02 from '../../assets/images/image02.png';
+// import image03 from '../../assets/images/image03.png';
+// import image04 from '../../assets/images/image04.png';
 
 export default function Sorting({ products, categories }) {
   const [allProducts, setAllProducts] = React.useState(products);
   const [showSorting, setShowSorting] = React.useState(false);
   const [showCategories, setShowCategories] = React.useState(false);
+
+  // handle errors with props
+  React.useEffect(() => {
+    if (products.length < 1) {
+      throw Error('must have at least one product');
+    } else if (categories.length < 1) {
+      throw Error('must have at least one category');
+    }
+  }, [products, categories]);
 
   const handleSort = (e) => {
     if (e === 'AlphabeticallyAZ') {
@@ -41,6 +55,7 @@ export default function Sorting({ products, categories }) {
     );
     setAllProducts(productInCategory);
     setShowSorting(!showSorting);
+    setShowCategories(!showCategories);
   };
 
   return (
@@ -51,7 +66,7 @@ export default function Sorting({ products, categories }) {
       >
         {options.map((option) => {
           return (
-            <option key={option.value} value={option.value}>
+            <option key={option.value} value={option.value} className="options">
               {option.label}
             </option>
           );
@@ -62,10 +77,16 @@ export default function Sorting({ products, categories }) {
           return (
             <ul key={product.id}>
               <li className="sort-list">
-                <span>{product.name}</span> <br />
                 <span>
-                  {new Date(product.created_date).toLocaleDateString()}
+                  <img src={image01} alt="product" />
                 </span>
+                <br />
+                <h3>{product.name}</h3>
+                <h5>
+                  production date:
+                  {new Date(product.created_date).toLocaleDateString()}
+                </h5>
+                <br />
               </li>
             </ul>
           );
@@ -74,7 +95,7 @@ export default function Sorting({ products, categories }) {
         {showCategories &&
           categories.map((category) => {
             return (
-              <div key={category.id}>
+              <div key={category.id} className="input-div">
                 <input
                   className="input-button"
                   type="button"
