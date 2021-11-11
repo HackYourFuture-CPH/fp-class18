@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import './Carousel.style.css';
 import image01 from '../../assets/images/image01.png';
 import image02 from '../../assets/images/image02.png';
@@ -30,10 +29,9 @@ const productImages = [
 ];
 
 const Carousel = () => {
+  const show = 3;
   const [current, setCurrent] = useState(0);
-
   const imageArraLength = productImages.length;
-
   const prevSlide = () => {
     setCurrent(current === 0 ? imageArraLength - 1 : current - 1);
   };
@@ -44,11 +42,16 @@ const Carousel = () => {
   if (!Array.isArray(productImages) || imageArraLength <= 0) {
     return null;
   }
+
   return (
     <section className="slider">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
-      {productImages.slice(current, current + 3).map((image) => {
+      <button type="button" className="left-arrow" onClick={prevSlide}>
+        &lt;
+      </button>
+      <button type="button" className="right-arrow" onClick={nextSlide}>
+        &gt;
+      </button>
+      {productImages.slice(current, current + show).map((image) => {
         return <img src={image} alt="product images" className="image" />;
       })}
     </section>
