@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Carousel.style.css';
 
 const Carousel = ({ imageArray }) => {
-  console.log(imageArray);
   const show = 3;
   const [current, setCurrent] = useState(0);
   const imageArraLength = imageArray.length;
