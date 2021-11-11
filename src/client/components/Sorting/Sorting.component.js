@@ -4,64 +4,43 @@ import { options } from './helper';
 import PropTypes from 'prop-types';
 import image01 from '../../assets/images/image01.png';
 
-// import image02 from '../../assets/images/image02.png';
-// import image03 from '../../assets/images/image03.png';
-// import image04 from '../../assets/images/image04.png';
+const sortProducts = (sortMode, products) => {
+  if (sortMode === 'AlphabeticallyAZ') {
+    products.sort((a, b) => a.name.localeCompare(b.name));
+    return;
+  }
+  if (sortMode === 'AlphabeticallyZA') {
+    products.sort((a, b) => b.name.localeCompare(a.name));
+    return;
+  }
+
+  if (sortMode === 'created-at') {
+    return products.sort(
+      (a, b) => new Date(b.created_date) - new Date(a.created_date),
+    );
+  }
+};
 
 export default function Sorting({ products, categories }) {
-  const [allProducts, setAllProducts] = React.useState(products);
+  const [sortMode, setSortMode] = React.useState(undefined);
   const [showSorting, setShowSorting] = React.useState(false);
   const [showCategories, setShowCategories] = React.useState(false);
 
-  // handle errors with props
-  React.useEffect(() => {
-    if (products.length < 1) {
-      throw Error('must have at least one product');
-    } else if (categories.length < 1) {
-      throw Error('must have at least one category');
-    }
-  }, [products, categories]);
+  const currentProducts = sortProducts(sortMode, products);
 
-  const handleSort = (e) => {
-    if (e === 'AlphabeticallyAZ') {
-      const ascSort = allProducts.sort((a, b) => a.name.localeCompare(b.name));
-      setAllProducts(ascSort);
-      setShowSorting(!showSorting);
-      return;
-    }
-    if (e === 'AlphabeticallyZA') {
-      const decSort = allProducts.sort((a, b) => b.name.localeCompare(a.name));
-      setAllProducts(decSort);
-      setShowSorting(!showSorting);
-      return;
-    }
-
-    if (e === 'created-at') {
-      const newProducts = allProducts.sort(
-        (a, b) => new Date(b.created_date) - new Date(a.created_date),
-      );
-      setAllProducts(newProducts);
-      setShowSorting(!showSorting);
-      return;
-    }
-    if (e === 'category') {
-      setShowCategories(!showCategories);
-    }
-  };
-
-  const onSort = (id) => {
-    const productInCategory = allProducts.filter(
-      (product) => product.category_id === id,
-    );
-    setAllProducts(productInCategory);
-    setShowSorting(!showSorting);
-    setShowCategories(!showCategories);
-  };
+  //   const onSort = (id) => {
+  //     const productInCategory = allProducts.filter(
+  //       (product) => product.category_id === id,
+  //     );
+  //     setAllProducts(productInCategory);
+  //     setShowSorting(!showSorting);
+  //     setShowCategories(!showCategories);
+  //   };
 
   return (
     <div className="sorting-div">
       <select
-        onChange={(e) => handleSort(e.target.value)}
+        onChange={(e) => setSortMode(e.target.value)}
         className="sort-options"
       >
         {options.map((option) => {
@@ -72,8 +51,9 @@ export default function Sorting({ products, categories }) {
           );
         })}
       </select>
+
       {showSorting &&
-        allProducts.map((product) => {
+        currentProducts.map((product) => {
           return (
             <ul key={product.id}>
               <li className="sort-list">
