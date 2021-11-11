@@ -54,7 +54,7 @@ router.get('/', (req, res, next) => {
  */
 router.get('/:id', (req, res, next) => {
   productsController
-    .getProductsById(req.params.id)
+    .getProductById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
