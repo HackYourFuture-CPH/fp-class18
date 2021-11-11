@@ -1,119 +1,143 @@
 form {
-    display: grid;
-    padding: 1em;
-    background: #f9f9f9;
-    border: 1px solid #c1c1c1;
-    margin: 2rem auto 0 auto;
-    max-width: 600px;
-    padding: 1em;
+  display: grid;
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin: 2rem auto 0 auto;
+  max-width: 600px;
+  padding: 1em;
+}
+form input {
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+form button {
+  background: #8e0ef2;
+  padding: 0.7em;
+  width: 100%;
+  border: 0;
+}
+form button:hover {
+  background: grey;
+}
+
+label {
+  padding: 0.5em 0.5em 0.5em 0;
+}
+
+input {
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+input:focus {
+  outline: 3px solid #8e0ef2;
+}
+
+@media (min-width: 400px) {
+  form {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 6px;
+    font-family: Inter;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
   }
-  form input {
-    background: #fff;
-    border: 1px solid #9c9c9c;
+
+  .title {
+    text-align: center;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    font-weight: 600;
   }
-  form button {
-    background: #8e0ef2;
-    padding: 0.7em;
-    width: 100%;
-    border: 0;
+
+  .addressLabel {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 2;
   }
-  form button:hover {
-    background: grey;
+  .address {
+    text-align: left;
+    grid-column: 2 / span 1;
+    grid-row: 2;
   }
-  
-  label {
-    padding: 0.5em 0.5em 0.5em 0;
+  .addressVert {
+    text-align: left;
+    grid-column: 2 / span 2;
+    grid-row: 2;
   }
-  
-  input {
-    padding: 0.7em;
-    margin-bottom: 0.5rem;
+  .cityLabel {
+    text-align: right;
+    grid-column: 3 / span 1;
+    grid-row: 2;
   }
-  input:focus {
-    outline: 3px solid #8e0ef2;
+  .cityLabelVert {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 4;
   }
-  
-  @media (min-width: 400px) {
-    form {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-gap: 6px;
-      font-family: Inter;
-      font-style: normal;
-      font-size: 14px;
-      font-weight: 400;
-    }
-  
-    .title {
-      text-align: center;
-      grid-column: 1 / span 2;
-      grid-row: 1;
-      font-weight: 600;
-    }
-  
-    .addressLabel {
-      text-align: right;
-      grid-column: 1 / span 1;
-      grid-row: 2;
-    }
-    .address {
-      text-align: left;
-      grid-column: 2 / span 1;
-      grid-row: 2;
-    }
-    .cityLabel {
-      text-align: right;
-      grid-column: 3 / span 1;
-      grid-row: 2;
-    }
-    .city {
-      text-align: left;
-      grid-column: 4 / span 1;
-      grid-row: 2;
-    }
-    .zipLabel {
-      text-align: right;
-      grid-column: 1 / span 1;
-      grid-row: 3;
-    }
-    .zip {
-      text-align: left;
-      grid-column: 2 / span 1;
-      grid-row: 3;
-    }
-    .countryLabel {
-      text-align: right;
-      grid-column: 3 / span 1;
-      grid-row: 3;
-    }
-    .country {
-      text-align: left;
-      grid-column: 4 / span 1;
-      grid-row: 3;
-    }
-  
-    .saveButton {
-      grid-column: 2 / span 1;
-      grid-row: 4;
-    }
-    .cancelLink {
-      text-align: right;
-      grid-column: 4 / span 1;
-      grid-row: 4;
-      padding-top: 10px;
-    }
-    .editLink {
-      text-align: right;
-      grid-column: 4 / span 1;
-      grid-row: 1;
-    }
-    .link-button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      text-decoration: underline;
-      display: inline;
-      margin: 0;
-      padding: 0;
-    }
+  .city {
+    text-align: left;
+    grid-column: 4 / span 1;
+    grid-row: 2;
   }
-  
+  .cityVert {
+    text-align: left;
+    grid-column: 2 / span 2;
+    grid-row: 4;
+  }
+  .zipLabel {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 3;
+  }
+  .zip {
+    text-align: left;
+    grid-column: 2 / span 1;
+    grid-row: 3;
+  }
+  .countryLabel {
+    text-align: right;
+    grid-column: 3 / span 1;
+    grid-row: 3;
+  }
+  .countryLabelVert {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 5;
+  }
+  .country {
+    text-align: left;
+    grid-column: 4 / span 1;
+    grid-row: 3;
+  }
+  .countryVert {
+    text-align: left;
+    grid-column: 2 / span 2;
+    grid-row: 5;
+  }
+
+  .saveButton {
+    grid-column: 2 / span 1;
+    grid-row: 4;
+  }
+  .cancelLink {
+    text-align: right;
+    grid-column: 4 / span 1;
+    grid-row: 4;
+    padding-top: 10px;
+  }
+  .editLink {
+    text-align: right;
+    grid-column: 4 / span 1;
+    grid-row: 1;
+  }
+  .link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+}
