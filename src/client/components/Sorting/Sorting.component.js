@@ -6,12 +6,10 @@ import image01 from '../../assets/images/image01.png';
 
 const sortProducts = (sortMode, products) => {
   if (sortMode === 'AlphabeticallyAZ') {
-    products.sort((a, b) => a.name.localeCompare(b.name));
-    return;
+    return products.sort((a, b) => a.name.localeCompare(b.name));
   }
   if (sortMode === 'AlphabeticallyZA') {
-    products.sort((a, b) => b.name.localeCompare(a.name));
-    return;
+    return products.sort((a, b) => b.name.localeCompare(a.name));
   }
 
   if (sortMode === 'created-at') {
@@ -27,20 +25,25 @@ export default function Sorting({ products, categories }) {
   const [showCategories, setShowCategories] = React.useState(false);
 
   const currentProducts = sortProducts(sortMode, products);
-
-  //   const onSort = (id) => {
-  //     const productInCategory = allProducts.filter(
-  //       (product) => product.category_id === id,
-  //     );
-  //     setAllProducts(productInCategory);
-  //     setShowSorting(!showSorting);
-  //     setShowCategories(!showCategories);
-  //   };
+  if (sortMode === 'category') {
+    setShowCategories(!showCategories);
+  }
+  // const onSort = (id) => {
+  //   const productInCategory = products.filter(
+  //     (product) => product.category_id === id,
+  //   );
+  //   setAllProducts(productInCategory);
+  //   setShowSorting(!showSorting);
+  //   setShowCategories(!showCategories);
+  // };
 
   return (
     <div className="sorting-div">
       <select
-        onChange={(e) => setSortMode(e.target.value)}
+        onChange={(e) => {
+          setSortMode(e.target.value);
+          setShowSorting(!showSorting);
+        }}
         className="sort-options"
       >
         {options.map((option) => {
@@ -51,15 +54,12 @@ export default function Sorting({ products, categories }) {
           );
         })}
       </select>
-
       {showSorting &&
         currentProducts.map((product) => {
           return (
             <ul key={product.id}>
               <li className="sort-list">
-                <span>
-                  <img src={image01} alt="product" />
-                </span>
+                <span>{/* <img src={image01} alt="product" /> */}</span>
                 <br />
                 <h3>{product.name}</h3>
                 <h5>
@@ -72,19 +72,18 @@ export default function Sorting({ products, categories }) {
           );
         })}
       <div>
-        {showCategories &&
-          categories.map((category) => {
-            return (
-              <div key={category.id} className="input-div">
-                <input
-                  className="input-button"
-                  type="button"
-                  onClick={() => onSort(category.id)}
-                  value={category.name}
-                />
-              </div>
-            );
-          })}
+        {categories.map((category) => {
+          return (
+            <div key={category.id} className="input-div">
+              <input
+                className="input-button"
+                type="button"
+                onClick={() => onSort(category.id)}
+                value={category.name}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
