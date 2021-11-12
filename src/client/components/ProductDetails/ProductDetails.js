@@ -61,8 +61,8 @@ ProductDetails.propTypes = {
     ProductName: PropTypes.string,
     RemainingUnit: PropTypes.number,
     Price: PropTypes.number,
-    Color: PropTypes.string,
-    Size: PropTypes.string,
+    productColor: PropTypes.string,
+    productSize: PropTypes.string,
 }
 
 ProductDetails.defaultProps = {
@@ -70,6 +70,6 @@ ProductDetails.defaultProps = {
     ProductName: 'Modern table lamp',
     RemainingUnit: 20,
     Price: 200,
-    Color: 'black',
-    Size: 'XL',
+    productColor: 'black',
+    productSize: 'XL',
 }
