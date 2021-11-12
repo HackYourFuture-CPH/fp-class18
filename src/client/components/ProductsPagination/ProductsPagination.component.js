@@ -10,7 +10,7 @@ const ProductsPagination = ({ productsImages }) => {
   for (
     let i = 1;
     i <= Math.ceil(productsImages.length / productsPerPage);
-    i++
+    i += 1
   ) {
     pages.push(i);
   }
@@ -29,7 +29,7 @@ const ProductsPagination = ({ productsImages }) => {
       <li
         key={number}
         onClick={() => paginate(number)}
-        className={currentPage == number ? 'active' : null}
+        className={currentPage === number ? 'active' : null}
       >
         {number}
       </li>
@@ -41,7 +41,7 @@ const ProductsPagination = ({ productsImages }) => {
     currentProducts.map((image) => {
       return (
         <div>
-          <img src={image} alt="product-image" height="300px" width="280px" />
+          <img src={image} alt="product-img" height="300px" width="280px" />
         </div>
       );
     });
@@ -57,8 +57,10 @@ const ProductsPagination = ({ productsImages }) => {
 };
 
 ProductsPagination.propTypes = {
-  productsImages: PropTypes.array.isRequired,
-  productsPerPage: PropTypes.number,
-  paginate: PropTypes.func,
+  productsImages: PropTypes.arrayOf,
+};
+
+ProductsPagination.defaultProps = {
+  productsImages: [],
 };
 export default ProductsPagination;
