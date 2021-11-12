@@ -4,7 +4,11 @@ import './ProductView.styles.css';
 import Pagination from './Pagination.component';
 import Sorting from './Sorting.component';
 
-export default function ProductView({ products, productsPerPage = 6 }) {
+export default function ProductView({
+  products,
+  productsPerPage = 6,
+  categoriesList,
+}) {
   const [sortedProducts, setSortedProducts] = useState(products);
   const [currentRange, setCurrentRange] = useState(products);
 
@@ -13,6 +17,7 @@ export default function ProductView({ products, productsPerPage = 6 }) {
       <h3>All Products</h3>
       <Sorting
         arrayToSort={products}
+        categoriesList={categoriesList}
         onSortChange={(sortedArray) => setSortedProducts(sortedArray)}
       />
       {currentRange.map((product) => {
@@ -46,9 +51,11 @@ export default function ProductView({ products, productsPerPage = 6 }) {
 ProductView.propTypes = {
   products: PropTypes.array,
   productsPerPage: PropTypes.number,
+  categoriesList: PropTypes.arrayOf(String),
 };
 
 ProductView.defaultProps = {
   products: [],
   productsPerPage: 6,
+  categoriesList: ['Catgory1', 'Catgory2', 'Catgory2'],
 };
