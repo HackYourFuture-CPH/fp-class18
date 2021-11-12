@@ -1,5 +1,5 @@
 const options = [
-  { value: 'sort by', label: 'SORT BY' },
+  { value: '', label: 'SORT BY' },
   { value: 'AlphabeticallyAZ', label: 'A-Z' },
   { value: 'AlphabeticallyZA', label: 'Z-A' },
   { value: 'created-at', label: 'New Products' },

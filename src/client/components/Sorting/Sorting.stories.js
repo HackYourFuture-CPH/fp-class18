@@ -14,11 +14,11 @@ export default {
 // eslint-disable-next-line react/jsx-props-no-spreading
 const template = (args) => <Sorting {...args} />;
 
-export const showSortung = template.bind({});
+export const showSorting = template.bind({});
 
-showSortung.args = {
+showSorting.args = {
   // onclick: {action ()},
-  categories: [
+  categoriesList: [
     {
       id: 1,
       name: 'Furniture',
@@ -40,7 +40,7 @@ showSortung.args = {
       created_at: '2020-05-11 00:00:00',
     },
   ],
-  products: [
+  arrayToSort: [
     {
       id: 1,
       name: 'Ceramic pot',
@@ -78,6 +78,7 @@ showSortung.args = {
       picture: 'src/client/assets/images/image04.png',
       stock_amount: 2,
       category_id: 3,
+      created_date: '2019-11-28 00:00:00',
     },
     {
       id: 5,
@@ -96,6 +97,7 @@ showSortung.args = {
       picture: 'src/client/assets/images/image06.png',
       stock_amount: 134,
       category_id: 4,
+      created_date: '2020-12-10 00:00:00',
     },
     {
       id: 7,
