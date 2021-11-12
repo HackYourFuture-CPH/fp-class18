@@ -1,0 +1,32 @@
+.displayImgs {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 40px;
+  align-items: flex-start;
+}
+
+.displayImgs > * {
+  flex: 0 0 20%;
+}
+
+.pageNumbers {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pageNumbers li {
+  padding: 10px;
+  border: 1px solid blue;
+  cursor: pointer;
+}
+
+.pageNumbers li.active {
+  background-color: blue;
+  color: white;
+}
