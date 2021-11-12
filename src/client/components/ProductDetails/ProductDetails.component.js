@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import heart from '../../assets/images/heart.png'
-import heart2 from '../../assets/images/heart2.png'
 import NumberInput from '../NumberInput/NumberInput.component'
 import ButtonComponent from '../Button/Button.component'
 import './ProductDetails.style.css'
@@ -25,13 +23,13 @@ export const ProductDetails = (
 
     return <div id="product-details">
         <div className='product-image'>
-            <img src={imgSource} alt='product'/>
+            <img src={imgSource} alt='product' />
         </div>
         <div className='details-column'>
             <div>
                 <div className='product-name'>
                     {ProductName}
-                    <button type='button' onClick={changeHeart} className='icon-button'><img src={iconSource === true ? heart : heart2} id='favorite-icon' alt='favorite'/></button>
+                    <button type='button' className={iconSource ? 'like-button' : 'like-button liked'} onClick={changeHeart}></button>
                 </div>
                 <small>({RemainingUnit} units left)</small>
             </div>
@@ -39,17 +37,23 @@ export const ProductDetails = (
                 <b>{Price} DKK</b>
             </div>
             <div className='input-row'>
-                <select>
-                    <option>Color</option>
-                    <option>{productColor}</option>
-                </select>
+                <div className='select-item'>
+                    <select>
+                        <option>Color</option>
+                        <option>{productColor}</option>
+                    </select>
+                    <div class="arrow-right"></div>
+                </div>
                 <NumberInput initValue={1} maxAvailable={RemainingUnit} />
             </div>
             <div className='input-row'>
-                <select>
-                    <option>Size</option>
-                    <option>{productSize}</option>
-                </select>
+                <div className='select-item'>
+                    <select>
+                        <option>Size</option>
+                        <option>{productSize}</option>
+                    </select>
+                    <div class="arrow-right"></div>
+                </div>
                 <ButtonComponent title='ADD TO CARD' onClick={onClick} />
             </div>
         </div>

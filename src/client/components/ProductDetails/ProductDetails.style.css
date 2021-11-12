@@ -6,6 +6,8 @@
 }
 
 #product-details .product-name {
+  display: flex;
+  align-items: center;
   font-size: 2rem;
   font-weight: bold;
 }
@@ -18,15 +20,38 @@
   color: #6D706C;
 }
 
-#product-details #favorite-icon {
-  height: 1.5rem;
-}
-
-.icon-button {
-  margin-left: 1.4rem;
+#product-details .like-button {
+  display: inline-block;
+  position: relative;
+  font-size: 32px;
   cursor: pointer;
   background: transparent;
-  border: none;
+  border: 0px;
+}
+
+#product-details .like-button::before {
+  font-size: 1.8em;
+  color: darkgray;
+  content: "♥";
+  position: absolute;
+  left: 200%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+#product-details .like-button::after {
+  font-size: 1.8em;
+  color: #ff3252;
+  content: "♥";
+  position: absolute;
+  left: 200%;
+  top: 40%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s;
+}
+
+#product-details .like-button.liked::after {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 #product-details .details-column {
@@ -43,6 +68,12 @@
   display: flex;
 }
 
+#product-details .select-item {
+  display: flex;
+  margin-right: 2rem;
+  position: relative;
+}
+
 #product-details .input-row button {
   width: 10rem;
 }
@@ -57,18 +88,36 @@
   cursor: pointer;
   font-weight: bold;
   appearance: none;
-  background-image: url('../../assets/images/arrow-down.png');
-  background-position-x: 90%;
-  background-size: 1rem;
-  background-repeat: no-repeat;
-  background-position-y: center;
+}
+
+#product-details .arrow-right {
+  position: absolute;
+  left: 5rem;
+  top: 0.7rem;
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-top: 2px solid #8E0EF2;
+  border-left: 2px solid #8E0EF2;
+}
+
+#product-details .arrow-right {
+  transform: rotate(225deg);
 }
 
 @media screen and (max-width: 768px) {
+  #product-details .product-image img{
+    width: 100%;
+  }
+
   #product-details {
     width: unset;
     display: block;
     text-align: center;
+  }
+
+  #product-details .product-name {
+    justify-content: center;
   }
 
   #product-details .price {
@@ -82,6 +131,11 @@
   }
 
   #product-details select {
-    margin: 1rem 2.5rem;
+    margin: 0.6rem 2.5rem;
+  }
+
+  #product-details .arrow-right {
+    left: 7.2rem;
+    top: 1.4rem;
   }
 }
