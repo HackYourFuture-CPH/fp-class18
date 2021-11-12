@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import './ProductsPagination.styles.css';
 
 const ProductsPagination = ({ productsImages }) => {
-  const [productsPerPage] = useState(5);
+  const [productsPerPage] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
   const pages = [];
   for (
@@ -25,15 +29,18 @@ const ProductsPagination = ({ productsImages }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const renderPageNumbers = pages.map((number) => {
-    return (
-      <li
-        key={number}
-        onClick={() => paginate(number)}
-        className={currentPage === number ? 'active' : null}
-      >
-        {number}
-      </li>
-    );
+    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+      return (
+        <li
+          key={number}
+          onClick={() => paginate(number)}
+          className={currentPage === number ? 'active' : null}
+        >
+          {number}
+        </li>
+      );
+    }
+    return null;
   });
 
   const displayProducts =
@@ -46,12 +53,73 @@ const ProductsPagination = ({ productsImages }) => {
       );
     });
 
+  const handleNextBtn = () => {
+    setCurrentPage(currentPage + 1);
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    }
+  };
+
+  const handlePrevBtn = () => {
+    setCurrentPage(currentPage - 1);
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+    }
+  };
+
+  let pageIncrementBtn = null;
+  if (pages.length > maxPageNumberLimit) {
+    pageIncrementBtn = (
+      <li
+        onClick={handleNextBtn}
+        disabled={currentPage === pages[pages.length - 1] ? true : false}
+      >
+        &hellip;
+      </li>
+    );
+  }
+  let pageDecrementBtn = null;
+  if (pages.length > maxPageNumberLimit) {
+    pageDecrementBtn = (
+      <li
+        onClick={handlePrevBtn}
+        disabled={currentPage === pages[0] ? true : false}
+      >
+        &hellip;
+      </li>
+    );
+  }
+
   return (
     <>
       <h3>ALL PRODUCTS</h3>
       <br />
       <div className="displayImgs">{displayProducts}</div>
-      <div className="pageNumbers">{renderPageNumbers}</div>
+      <ul className="pageNumbers">
+        <li>
+          <button
+            type="button"
+            onClick={handlePrevBtn}
+            disabled={currentPage === pages[0] ? true : false}
+          >
+            Prev
+          </button>
+        </li>
+        {pageDecrementBtn}
+        {renderPageNumbers}
+        {pageIncrementBtn}
+        <li>
+          <button
+            type="button"
+            onClick={handleNextBtn}
+            disabled={currentPage === pages[pages.length - 1] ? true : false}
+          >
+            Next
+          </button>
+        </li>
+      </ul>
     </>
   );
 };
