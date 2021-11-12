@@ -1,8 +1,16 @@
 const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
-const getProducts = async () => {
-  return knex('products');
+const getProducts = async (request) => {
+  let products = knex('products');
+
+  if (request.query.category) {
+    products = products
+      .join('categories', 'categories.id', 'category_id')
+      .select('products.*')
+      .where('categories.name', 'like', `%${request.query.category}%`);
+  }
+  return await products;
 };
 
 const getProductById = async (id) => {
