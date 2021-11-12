@@ -1,13 +1,14 @@
 import React from 'react';
 import Sorting from './Sorting.component';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Components / Sorting',
   component: Sorting,
-  // argTypes: {
-  //   categories: { control: '' },
-  //   products: { control: '' },
-  // },
+  argTypes: {
+    categories: { control: '' },
+    products: { control: '' },
+  },
 };
 
 // eslint-disable-next-line react/jsx-props-no-spreading
@@ -16,6 +17,7 @@ const template = (args) => <Sorting {...args} />;
 export const showSortung = template.bind({});
 
 showSortung.args = {
+  // onclick: {action ()},
   categories: [
     {
       id: 1,

@@ -2,7 +2,6 @@ import React from 'react';
 import './Sorting.styles.css';
 import { options } from './helper';
 import PropTypes from 'prop-types';
-import image01 from '../../assets/images/image01.png';
 
 const sortProducts = (sortMode, products) => {
   if (sortMode === 'AlphabeticallyAZ') {
@@ -25,9 +24,12 @@ export default function Sorting({ products, categories }) {
   const [showCategories, setShowCategories] = React.useState(false);
 
   const currentProducts = sortProducts(sortMode, products);
+
   if (sortMode === 'category') {
-    setShowCategories(!showCategories);
+    console.log(sortMode);
+    // setShowCategories(!showCategories);
   }
+
   // const onSort = (id) => {
   //   const productInCategory = products.filter(
   //     (product) => product.category_id === id,
@@ -72,18 +74,19 @@ export default function Sorting({ products, categories }) {
           );
         })}
       <div>
-        {categories.map((category) => {
-          return (
-            <div key={category.id} className="input-div">
-              <input
-                className="input-button"
-                type="button"
-                onClick={() => onSort(category.id)}
-                value={category.name}
-              />
-            </div>
-          );
-        })}
+        {showCategories &&
+          (categories && categories).map((category) => {
+            return (
+              <div key={category.id} className="input-div">
+                <input
+                  className="input-button"
+                  type="button"
+                  onClick={() => onSort(category.id)}
+                  value={category.name}
+                />
+              </div>
+            );
+          })}
       </div>
     </div>
   );
