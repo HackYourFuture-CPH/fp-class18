@@ -10,7 +10,7 @@ const getProducts = async (request) => {
       .select('products.*')
       .where('categories.name', 'like', `%${request.query.category}%`);
   }
-  return await products;
+  return products;
 };
 
 const getProductById = async (id) => {
