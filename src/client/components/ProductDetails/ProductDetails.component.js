@@ -31,7 +31,7 @@ export const ProductDetails = (
             <div>
                 <div className='product-name'>
                     {ProductName}
-                    <img src={iconSource === true ? heart : heart2} onClick={changeHeart} alt='icon image' id='favorite-icon' role='button'/>
+                    <button onClick={changeHeart} className='icon-button'><img src={iconSource === true ? heart : heart2} id='favorite-icon'/></button>
                 </div>
                 <small>({RemainingUnit} units left)</small>
             </div>
