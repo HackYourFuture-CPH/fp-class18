@@ -25,13 +25,13 @@ export const ProductDetails = (
 
     return <div id="product-details">
         <div className='product-image'>
-            <img src={imgSource} alt='product image'/>
+            <img src={imgSource} alt='product'/>
         </div>
         <div className='details-column'>
             <div>
                 <div className='product-name'>
                     {ProductName}
-                    <button onClick={changeHeart} className='icon-button'><img src={iconSource === true ? heart : heart2} id='favorite-icon'/></button>
+                    <button type='button' onClick={changeHeart} className='icon-button'><img src={iconSource === true ? heart : heart2} id='favorite-icon' alt='favorite'/></button>
                 </div>
                 <small>({RemainingUnit} units left)</small>
             </div>
