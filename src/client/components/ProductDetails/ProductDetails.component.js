@@ -29,7 +29,7 @@ export const ProductDetails = (
             <div>
                 <div className='product-name'>
                     {ProductName}
-                    <button type='button' className={iconSource ? 'like-button' : 'like-button liked'} onClick={changeHeart} />
+                    <button type='button' className={iconSource ? 'like-button' : 'like-button liked'} onClick={changeHeart} aria-label="Favorite"/>
                 </div>
                 <small>({RemainingUnit} units left)</small>
             </div>
