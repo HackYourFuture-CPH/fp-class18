@@ -29,7 +29,7 @@ export const ProductDetails = (
             <div>
                 <div className='product-name'>
                     {ProductName}
-                    <button type='button' className={iconSource ? 'like-button' : 'like-button liked'} onClick={changeHeart}></button>
+                    <button type='button' className={iconSource ? 'like-button' : 'like-button liked'} onClick={changeHeart} />
                 </div>
                 <small>({RemainingUnit} units left)</small>
             </div>
@@ -42,7 +42,7 @@ export const ProductDetails = (
                         <option>Color</option>
                         <option>{productColor}</option>
                     </select>
-                    <div class="arrow-right"></div>
+                    <div className="arrow-right" />
                 </div>
                 <NumberInput initValue={1} maxAvailable={RemainingUnit} />
             </div>
@@ -52,7 +52,7 @@ export const ProductDetails = (
                         <option>Size</option>
                         <option>{productSize}</option>
                     </select>
-                    <div class="arrow-right"></div>
+                    <div className="arrow-right" />
                 </div>
                 <ButtonComponent title='ADD TO CARD' onClick={onClick} />
             </div>
