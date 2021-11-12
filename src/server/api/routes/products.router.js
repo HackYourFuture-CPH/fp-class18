@@ -51,6 +51,10 @@ router.get('/', (req, res, next) => {
  *        description: Successful request
  *      5XX:
  *        description: Unexpected error.
+ *      400:
+ *        description: ID is not a number.
+ *      404:
+ *        description: ID not found.
  */
 router.get('/:id', (req, res, next) => {
   productsController
