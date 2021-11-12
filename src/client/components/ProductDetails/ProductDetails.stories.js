@@ -2,7 +2,7 @@ import { number, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 
-import { ProductDetails } from './ProductDetails';
+import { ProductDetails } from './ProductDetails.component';
 
 export default {
     title: 'Components / ProductDetails Component',

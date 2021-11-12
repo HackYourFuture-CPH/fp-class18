@@ -25,13 +25,13 @@ export const ProductDetails = (
 
     return <div id="product-details">
         <div className='product-image'>
-            <img src={imgSource} />
+            <img src={imgSource} alt='product image'/>
         </div>
         <div className='details-column'>
             <div>
                 <div className='product-name'>
                     {ProductName}
-                    <img src={iconSource === true ? heart : heart2} onClick={changeHeart} id='favorite-icon' />
+                    <img src={iconSource === true ? heart : heart2} onClick={changeHeart} alt='icon image' id='favorite-icon' role='button'/>
                 </div>
                 <small>({RemainingUnit} units left)</small>
             </div>
@@ -43,7 +43,7 @@ export const ProductDetails = (
                     <option>Color</option>
                     <option>{productColor}</option>
                 </select>
-                <NumberInput initValue={1} maxAvailable={RemainingUnit} disabled={RemainingUnit < 1 ? true : false} />
+                <NumberInput initValue={1} maxAvailable={RemainingUnit} />
             </div>
             <div className='input-row'>
                 <select>
