@@ -67,6 +67,7 @@ ProductDetails.propTypes = {
     Price: PropTypes.number,
     productColor: PropTypes.string,
     productSize: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 ProductDetails.defaultProps = {
@@ -76,4 +77,5 @@ ProductDetails.defaultProps = {
     Price: 200,
     productColor: 'black',
     productSize: 'XL',
+    onClick: () => 'clicked'
 }
