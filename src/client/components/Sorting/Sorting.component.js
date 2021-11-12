@@ -26,8 +26,7 @@ export default function Sorting({ products, categories }) {
   const currentProducts = sortProducts(sortMode, products);
 
   if (sortMode === 'category') {
-    console.log(sortMode);
-    // setShowCategories(!showCategories);
+    setShowCategories(!showCategories);
   }
 
   // const onSort = (id) => {
@@ -74,8 +73,8 @@ export default function Sorting({ products, categories }) {
           );
         })}
       <div>
-        {showCategories &&
-          (categories && categories).map((category) => {
+        {showSorting &&
+          categories.map((category) => {
             return (
               <div key={category.id} className="input-div">
                 <input
