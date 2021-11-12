@@ -8,6 +8,7 @@
     "node": "12.9.1"
   },
   "scripts": {
+    "build-storybook": "build-storybook --no-dll -s public -c ./src/client/.storybook --quiet",
     "build": "webpack --mode production",
     "start": "npm run build && node ./src/server/bin/server",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
@@ -75,6 +76,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-controls": "^6.1.14",
     "@storybook/addon-essentials": "^6.1.14",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
