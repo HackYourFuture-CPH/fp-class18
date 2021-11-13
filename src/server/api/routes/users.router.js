@@ -18,8 +18,6 @@ const usersController = require('../controllers/users.controller');
  *    responses:
  *      200:
  *        description: Successful request
- *      401:
- *        description: Authorization information is missing or invalid.
  *      5XX:
  *        description: Unexpected error.
  */
@@ -55,8 +53,6 @@ router.get('/', (req, res, next) => {
  *        description: Unexpected error.
  *      400:
  *        description: Bad request. User ID must be an integer and larger than 0.
- *      401:
- *        description: Authorization information is missing or invalid.
  *      404:
  *        description: A user with the specified ID was not found
  */
