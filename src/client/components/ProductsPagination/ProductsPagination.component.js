@@ -2,27 +2,21 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './ProductsPagination.styles.css';
 
-const ProductsPagination = ({ products, productsPerPage, onPageChange }) => {
-  // const productsPerPage = 3;
+const ProductsPagination = () => {
+  const productsPerPage = 3;
 
   const [currentPage, setCurrentPage] = useState(1);
-
+  // i have hard coded the products array length and the productsPerPage, since i will get these as props
+  // from another component which is not yet merged
+  const productsLen = 37;
   const pageNumberLimit = 5;
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
   const pages = [];
-  for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i += 1) {
+  for (let i = 1; i <= Math.ceil(productsLen / productsPerPage); i += 1) {
     pages.push(i);
   }
-
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct,
-  );
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const displayPageNumbers = pages.map((number) => {
@@ -39,25 +33,6 @@ const ProductsPagination = ({ products, productsPerPage, onPageChange }) => {
     }
     return null;
   });
-
-  const displayProducts =
-    currentProducts &&
-    currentProducts.map((product) => {
-      return (
-        <ul key={product.id}>
-          <li>
-            <img
-              src={product.picture}
-              alt="product-img"
-              height="300px"
-              width="280px"
-            />
-            <br />
-            <h3>{product.name}</h3>
-          </li>
-        </ul>
-      );
-    });
 
   const handleNextBtn = () => {
     setCurrentPage(currentPage + 1);
@@ -77,37 +52,23 @@ const ProductsPagination = ({ products, productsPerPage, onPageChange }) => {
 
   let pageIncrementBtn = null;
   if (pages.length > maxPageNumberLimit) {
-    pageIncrementBtn = (
-      <li
-        onClick={handleNextBtn}
-        disabled={currentPage === pages[pages.length - 1]}
-      >
-        &hellip;
-      </li>
-    );
+    pageIncrementBtn = <li onClick={handleNextBtn}> &hellip;</li>;
   }
   let pageDecrementBtn = null;
-  if (pages.length > maxPageNumberLimit) {
-    pageDecrementBtn = (
-      <li onClick={handlePrevBtn} disabled={currentPage === 0}>
-        &hellip;
-      </li>
-    );
+  if (minPageNumberLimit >= 1) {
+    pageDecrementBtn = <li onClick={handlePrevBtn}> &hellip;</li>;
   }
 
   return (
     <>
-      <h3>ALL PRODUCTS</h3>
-      <br />
-      <div className="displayImgs">{displayProducts}</div>
       <ul className="pageNumbers">
         <li>
           <button
             type="button"
             onClick={handlePrevBtn}
-            disabled={currentPage === 0}
+            disabled={currentPage === pages[0] ? true : false}
           >
-            Prev
+            &#10094; Prev
           </button>
         </li>
         {pageDecrementBtn}
@@ -117,9 +78,9 @@ const ProductsPagination = ({ products, productsPerPage, onPageChange }) => {
           <button
             type="button"
             onClick={handleNextBtn}
-            disabled={currentPage === pages[pages.length - 1]}
+            disabled={currentPage === pages[pages.length - 1] ? true : false}
           >
-            Next
+            Next &#10095;
           </button>
         </li>
       </ul>
@@ -128,7 +89,9 @@ const ProductsPagination = ({ products, productsPerPage, onPageChange }) => {
 };
 
 ProductsPagination.propTypes = {
-  productsImages: PropTypes.arrayOf,
+  products: PropTypes.arrayOf,
+  productsPerPage: PropTypes.number,
+  onPageChange: PropTypes.func,
 };
 
 ProductsPagination.defaultProps = {
