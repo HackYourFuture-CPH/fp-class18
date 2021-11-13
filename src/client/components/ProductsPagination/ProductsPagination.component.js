@@ -2,33 +2,30 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './ProductsPagination.styles.css';
 
-const ProductsPagination = ({ productsImages }) => {
-  const [productsPerPage] = useState(2);
+const ProductsPagination = ({ products, productsPerPage, onPageChange }) => {
+  // const productsPerPage = 3;
+
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const pageNumberLimit = 5;
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
   const pages = [];
-  for (
-    let i = 1;
-    i <= Math.ceil(productsImages.length / productsPerPage);
-    i += 1
-  ) {
+  for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i += 1) {
     pages.push(i);
   }
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = productsImages.slice(
+  const currentProducts = products.slice(
     indexOfFirstProduct,
     indexOfLastProduct,
   );
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const renderPageNumbers = pages.map((number) => {
+  const displayPageNumbers = pages.map((number) => {
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       return (
         <li
@@ -45,11 +42,20 @@ const ProductsPagination = ({ productsImages }) => {
 
   const displayProducts =
     currentProducts &&
-    currentProducts.map((image) => {
+    currentProducts.map((product) => {
       return (
-        <div>
-          <img src={image} alt="product-img" height="300px" width="280px" />
-        </div>
+        <ul key={product.id}>
+          <li>
+            <img
+              src={product.picture}
+              alt="product-img"
+              height="300px"
+              width="280px"
+            />
+            <br />
+            <h3>{product.name}</h3>
+          </li>
+        </ul>
       );
     });
 
@@ -74,7 +80,7 @@ const ProductsPagination = ({ productsImages }) => {
     pageIncrementBtn = (
       <li
         onClick={handleNextBtn}
-        disabled={currentPage === pages[pages.length - 1] ? true : false}
+        disabled={currentPage === pages[pages.length - 1]}
       >
         &hellip;
       </li>
@@ -83,10 +89,7 @@ const ProductsPagination = ({ productsImages }) => {
   let pageDecrementBtn = null;
   if (pages.length > maxPageNumberLimit) {
     pageDecrementBtn = (
-      <li
-        onClick={handlePrevBtn}
-        disabled={currentPage === pages[0] ? true : false}
-      >
+      <li onClick={handlePrevBtn} disabled={currentPage === 0}>
         &hellip;
       </li>
     );
@@ -102,19 +105,19 @@ const ProductsPagination = ({ productsImages }) => {
           <button
             type="button"
             onClick={handlePrevBtn}
-            disabled={currentPage === pages[0] ? true : false}
+            disabled={currentPage === 0}
           >
             Prev
           </button>
         </li>
         {pageDecrementBtn}
-        {renderPageNumbers}
+        {displayPageNumbers}
         {pageIncrementBtn}
         <li>
           <button
             type="button"
             onClick={handleNextBtn}
-            disabled={currentPage === pages[pages.length - 1] ? true : false}
+            disabled={currentPage === pages[pages.length - 1]}
           >
             Next
           </button>

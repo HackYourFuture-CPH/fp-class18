@@ -1,6 +1,6 @@
 import React from 'react';
-import productsImages from './ProductsImages.component';
 import ProductsPagination from './ProductsPagination.component';
+import ProductView from '../ProductView/ProductView.component';
 
 export default {
   title: 'Components / Products Pagination',
@@ -8,5 +8,9 @@ export default {
 };
 
 export const Component = () => (
-  <ProductsPagination productsImages={productsImages} />
+  <ProductsPagination
+    products={arrayToFilter}
+    productsPerPage={productsPerPage}
+    onPageChange={(range) => setCurrentRange(range)}
+  />
 );
