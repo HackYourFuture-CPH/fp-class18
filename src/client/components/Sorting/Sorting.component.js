@@ -2,52 +2,46 @@ import React from 'react';
 import './Sorting.styles.css';
 import { options } from './helper';
 import PropTypes from 'prop-types';
-import { visible } from 'chalk';
 
-const sortProducts = (sortMode, arrayToSort) => {
-  if (sortMode === 'AlphabeticallyAZ') {
-    return arrayToSort.sort((a, b) => a.name.localeCompare(b.name));
-  }
-  if (sortMode === 'AlphabeticallyZA') {
-    return arrayToSort.sort((a, b) => b.name.localeCompare(a.name));
-  }
-
-  if (sortMode === 'created-at') {
-    return arrayToSort.sort(
-      (a, b) => new Date(b.created_date) - new Date(a.created_date),
-    );
-  }
-};
-
-const sortCategories = (sortMode, arrayToSort) => {
-  return arrayToSort.filter((product) => product.category_id === sortMode);
-};
-
-export default function Sorting({ arrayToSort, categoriesList }) {
-  const [sortMode, setSortMode] = React.useState('AlphabeticallyAZ');
+export default function Sorting({ arrayToSort, categoriesList, onSortChange }) {
   const [showSorting, setShowSorting] = React.useState(false);
   const [showCategories, setShowCategories] = React.useState(false);
 
-  const sortedProducts = sortProducts(sortMode, arrayToSort);
-  const sortedCategory = sortCategories(sortMode, arrayToSort);
+  function sortProducts(option) {
+    if (option === 'category') {
+      setShowCategories(true);
+      setShowSorting(false);
+    } else {
+      setShowSorting(true);
+      setShowCategories(false);
+    }
+    if (option === 'AlphabeticallyAZ') {
+      return arrayToSort.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    if (option === 'AlphabeticallyZA') {
+      return arrayToSort.sort((a, b) => b.name.localeCompare(a.name));
+    }
+
+    if (option === 'created-at') {
+      return arrayToSort.sort(
+        (a, b) => new Date(b.created_date) - new Date(a.created_date),
+      );
+    }
+  }
+
+  function sortCategories(option) {
+    setShowSorting(true);
+    return arrayToSort.filter((product) => product.category_id === option);
+  }
 
   return (
     <div className="sorting-div">
       <select
-        onChange={(e) => {
-          setSortMode(e.target.value);
-
-          if (e.target.value === 'category') {
-            setShowCategories(true);
-            setShowSorting(false);
-          } else {
-            setShowSorting(true);
-            setShowCategories(false);
-          }
-        }}
+        defaultValue="DEFAULT"
+        onChange={(e) => onSortChange(sortProducts(e.target.value))}
         className="sort-options"
       >
-        <option value="" selected disabled hidden>
+        <option value="DEFAULT" disabled hidden>
           SORT BY
         </option>
         {options.map((option) => {
@@ -58,38 +52,6 @@ export default function Sorting({ arrayToSort, categoriesList }) {
           );
         })}
       </select>
-      {showSorting &&
-        sortedCategory.map((product) => {
-          return (
-            <ul key={product.id}>
-              <li className="sort-list">
-                <h3>{product.name}</h3>
-                <h5>
-                  production date:
-                  {new Date(product.created_date).toLocaleDateString()}
-                </h5>
-                <br />
-              </li>
-            </ul>
-          );
-        })}
-
-      {showSorting &&
-        !showCategories &&
-        sortedProducts.map((product) => {
-          return (
-            <ul key={product.id}>
-              <li className="sort-list">
-                <h3>{product.name}</h3>
-                <h5>
-                  production date:
-                  {new Date(product.created_date).toLocaleDateString()}
-                </h5>
-                <br />
-              </li>
-            </ul>
-          );
-        })}
       <div>
         {showCategories &&
           !showSorting &&
@@ -99,10 +61,7 @@ export default function Sorting({ arrayToSort, categoriesList }) {
                 <input
                   className="input-button"
                   type="button"
-                  onClick={() => {
-                    setSortMode(category.id);
-                    setShowSorting(true);
-                  }}
+                  onClick={() => onSortChange(sortCategories(category.id))}
                   value={category.name}
                 />
               </div>
@@ -129,4 +88,5 @@ Sorting.propTypes = {
       created_at: PropTypes.instanceOf(Date),
     }),
   ).isRequired,
+  onSortChange: PropTypes.func.isRequired,
 };

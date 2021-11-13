@@ -1,6 +1,5 @@
 import React from 'react';
 import Sorting from './Sorting.component';
-import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Components / Sorting',
@@ -17,7 +16,9 @@ const template = (args) => <Sorting {...args} />;
 export const showSorting = template.bind({});
 
 showSorting.args = {
-  // onclick: {action ()},
+  onSortChange: (arr) => {
+    console.log(arr);
+  },
   categoriesList: [
     {
       id: 1,
