@@ -7,13 +7,19 @@ const getUsers = async () => {
 
 const getUsersById = async (id) => {
   if (!id) {
-    throw new HttpError('Bad request. User ID must be an integer and larger than 0', 400);
+    throw new HttpError(
+      'Bad request. User ID must be an integer and larger than 0',
+      400,
+    );
   }
 
   try {
     const users = await knex('users').where({ id });
     if (users.length === 0) {
-      throw new Error(`A user with the specified ID was not found : ${id}`, 404);
+      throw new Error(
+        `A user with the specified ID was not found : ${id}`,
+        404,
+      );
     }
     return users;
   } catch (error) {
@@ -21,8 +27,17 @@ const getUsersById = async (id) => {
   }
 };
 
+const saveUser = async (data) => {
+  await knex('users').insert(data);
+};
+
+const updateUser = async (idValue, data) => {
+  await knex('users').where({ id: idValue }).update(data);
+};
+
 module.exports = {
   getUsers,
   getUsersById,
+  saveUser,
+  updateUser,
 };
-
