@@ -124,7 +124,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image09.png',
       stock_amount: 7,
       category_id: 1,
-      created_date: '2021-08-16 00:00:00',
+      created_date: '2021-08-12 00:00:00',
     },
     {
       id: 10,
