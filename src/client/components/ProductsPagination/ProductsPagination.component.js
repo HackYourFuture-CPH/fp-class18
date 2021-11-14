@@ -39,13 +39,14 @@ const ProductsPagination = ({
   const displayPageNumbers = pages.map((number) => {
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       return (
-        <li
+        <button
+          type="button"
           key={number}
           onClick={() => onPageChange(paginate(number))}
           className={currentPage === number ? 'active' : null}
         >
           {number}
-        </li>
+        </button>
       );
     }
     return null;
@@ -72,51 +73,57 @@ const ProductsPagination = ({
   let pageIncrementBtn = null;
   if (pages.length > maxPageNumberLimit) {
     pageIncrementBtn = (
-      <li onClick={() => onPageChange(handleNextBtn())}> &hellip;</li>
+      <button type="button" onClick={() => onPageChange(handleNextBtn())}>
+        {' '}
+        &hellip;
+      </button>
     );
   }
   let pageDecrementBtn = null;
   if (minPageNumberLimit >= 1) {
     pageDecrementBtn = (
-      <li onClick={() => onPageChange(handlePrevBtn())}> &hellip;</li>
+      <button type="button" onClick={() => onPageChange(handlePrevBtn())}>
+        {' '}
+        &hellip;
+      </button>
     );
   }
 
   return (
     <>
-      <nav>
-        <ul className="pagination">
-          <li>
-            <button
-              type="button"
-              onClick={() => onPageChange(handlePrevBtn())}
-              disabled={currentPage === 1}
-            >
-              &laquo; Prev
-            </button>
-          </li>
-          {pageDecrementBtn}
-          {displayPageNumbers}
-          {pageIncrementBtn}
-          <li>
-            <button
-              type="button"
-              onClick={() => onPageChange(handleNextBtn())}
-              disabled={currentPage === pages.length}
-            >
-              Next &raquo;
-            </button>
-          </li>
-        </ul>
+      <nav className="pagination">
+        <button
+          type="button"
+          onClick={() => onPageChange(handlePrevBtn())}
+          disabled={currentPage === 1}
+        >
+          &laquo; Prev
+        </button>
+        {pageDecrementBtn}
+        {displayPageNumbers}
+        {pageIncrementBtn}
+        <button
+          type="button"
+          onClick={() => onPageChange(handleNextBtn())}
+          disabled={currentPage === pages.length}
+        >
+          Next &raquo;
+        </button>
       </nav>
     </>
   );
 };
 
 ProductsPagination.propTypes = {
-  arrayToFilter: PropTypes.array,
+  arrayToFilter: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      created_date: PropTypes.string,
+    }),
+  ),
   productsPerPage: PropTypes.number,
-  onPageChange: PropTypes.func,
+  onPageChange: PropTypes.func.isRequired,
 };
 
 ProductsPagination.defaultProps = {
