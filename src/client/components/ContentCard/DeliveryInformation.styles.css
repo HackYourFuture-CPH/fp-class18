@@ -1,0 +1,14 @@
+.DeliveryInfo {
+  background-color: #f6f5f5;
+  width: 40%;
+  padding: 2%;
+}
+
+.addressTitle {
+  font-weight: bolder;
+}
+
+.DeliveryInfo ul li {
+  list-style-type: none;
+  line-height: 1.8em;
+}
