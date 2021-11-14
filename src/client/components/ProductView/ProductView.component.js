@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './ProductView.styles.css';
 import Pagination from '../ProductsPagination/ProductsPagination.component';
 import Sorting from '../Sorting/Sorting.component';
+
 export default function ProductView({
   products,
   productsPerPage,
@@ -34,7 +35,7 @@ export default function ProductView({
           return (
             <li className="product-item" key={product.id}>
               <img
-                src={require('../../assets/images/' + product.picture)}
+                src={require(`../../assets/images/${product.picture}`)}
                 alt={`${product.name}`}
               />
             </li>
@@ -59,12 +60,12 @@ ProductView.propTypes = {
       created_date: PropTypes.string,
     }),
   ).isRequired,
-  productsPerPage: PropTypes.number,
+  productsPerPage: PropTypes.number.isRequired,
   categoriesList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string,
       map: PropTypes.func,
-    }),
+    }).isRequired,
   ),
 };
