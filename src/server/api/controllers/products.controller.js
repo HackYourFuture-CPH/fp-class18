@@ -3,14 +3,12 @@ const HttpError = require('../lib/utils/http-error');
 
 const getProducts = async (request) => {
   let products = knex('products');
-  // const today = new Date().toISOString().slice(0, 10);
-  const num = parseInt(request.query.daysBeforeToday, 10);
-  const reqDate = knex
-    .select(knex.raw('date_add(?, INTERVAL ? day)', [knex.fn.now(), -num]))
-    .whereRaw("date_format(date, '%Y-%m-%d') BETWEEN ? AND ?", []);
-  // const reqDate = knex.select(knex.raw(`(DATE(NOW()) - INTERVAL -${num} DAY)`))
-  if (request.query.daysBeforeToday && !isNaN(num)) {
-    products = products.where('products.created_at', '>=', `${reqDate}`);
+  if (request.query.daysBeforeToday && !isNaN(request.query.daysBeforeToday)) {
+    const createdMinDate = new Date();
+    createdMinDate.setDate(
+      createdMinDate.getDate() - request.query.daysBeforeToday,
+    );
+    products = products.where('created_at', '>=', createdMinDate);
   }
   return products;
 };
