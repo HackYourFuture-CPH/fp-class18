@@ -31,7 +31,7 @@ export const ProductDetails = (
                 <div className='product-name' >
                     {ProductName}
                     <button type='button' onClick={checkFavorite}>
-                        <div className={isFavorite ? 'heart' : 'purple-heart'}></div>
+                        <div className={isFavorite ? 'heart' : 'purple-heart'} />
                     </button>
                 </div>
                 <small>({RemainingUnit} units left)</small>
