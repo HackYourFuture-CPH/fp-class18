@@ -22,10 +22,10 @@ const getUsersById = async (id) => {
 };
 
 const editUser = async (UserId, updatedUser) => {
-  if (!parseInt(UserId)) {
+  if (!parseFloat(UserId)) {
     throw new HttpError('UserId should be a number', 400);
   }
-  return await knex('users').where({ id: UserId }).update({
+  return knex('users').where({ id: UserId }).update({
     address: updatedUser.address,
     city: updatedUser.city,
     zipcode: updatedUser.zipcode,
