@@ -5,7 +5,7 @@ import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
 
-export const MenuLogin = (isAuthenticated) => {
+export const Menu = (isAuthenticated) => {
   return (
     <nav>
       <header>
@@ -14,9 +14,9 @@ export const MenuLogin = (isAuthenticated) => {
             <div className="dropdown">
               {isAuthenticated ? (
                 <>
-                  <img src={faUser} alt="login" />
+                  <img src={faUser} alt="logout" />
                   <div id="login" className="dropdown-content">
-                    <Link className="text-link" to="/login">
+                    <Link className="text-link" to="/logout">
                       LOGOUT
                     </Link>
                   </div>

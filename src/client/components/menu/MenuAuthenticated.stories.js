@@ -3,10 +3,10 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { Menu } from './Menu.component';
 
-export default { title: 'Components / Menu' };
+export default { title: 'Components / MenuAuthenticated' };
 
-export const MenuBar = () => (
+export const MenuBarAuthenticated = () => (
   <MemoryRouter>
-    <Menu isAuthenticated={false} />
+    <Menu isAuthenticated={true} />
   </MemoryRouter>
 );
