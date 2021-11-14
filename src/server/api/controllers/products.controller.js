@@ -10,6 +10,12 @@ const getProducts = async (request) => {
     );
     products = products.where('created_at', '>=', createdMinDate);
   }
+  if (request.query.category) {
+    products = products
+      .join('categories', 'categories.id', 'category_id')
+      .select('products.*')
+      .where('categories.name', 'like', `%${request.query.category}%`);
+  }
   return products;
 };
 
