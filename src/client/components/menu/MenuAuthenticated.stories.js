@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { MemoryRouter } from 'react-router-dom';
 
 import { Menu } from './Menu.component';
