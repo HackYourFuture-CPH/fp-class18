@@ -1,36 +1,52 @@
-.pageNumbers {
-  list-style: none;
+nav {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
 
-.pageNumbers li {
+.pagination {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  column-gap: 4px;
+}
+
+.pagination li {
   padding: 12px;
-  border: 1px dotted gray;
+  border: 1px solid gray;
   cursor: pointer;
   height: auto;
   font-weight: bold;
+  border-radius: 8px;
 }
 
-.pageNumbers li.active {
+.pagination li.active {
   background-color: blue;
   color: white;
 }
 
-.pageNumbers li button {
+.pagination li:hover:not(.active) {
+  background-color: lightgray;
+  color: black;
+}
+
+.pagination li button {
   background-color: transparent;
   border: none;
-  font-size: 1 rem;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  border-radius: 8px;
 }
 
-.pageNumbers li button:hover {
-  background-color: blue;
-  color: white;
+.pagination li button:hover {
+  background-color: lightgray;
+  color: black;
 }
 
-.pageNumbers li button[disabled]:hover {
+.pagination li button[disabled]:hover {
   background-color: transparent;
+  color: transparent;
   cursor: none;
 }

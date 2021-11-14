@@ -84,29 +84,31 @@ const ProductsPagination = ({
 
   return (
     <>
-      <ul className="pageNumbers">
-        <li>
-          <button
-            type="button"
-            onClick={() => onPageChange(handlePrevBtn())}
-            disabled={currentPage === 1}
-          >
-            &#10094; Prev
-          </button>
-        </li>
-        {pageDecrementBtn}
-        {displayPageNumbers}
-        {pageIncrementBtn}
-        <li>
-          <button
-            type="button"
-            onClick={() => onPageChange(handleNextBtn())}
-            disabled={currentPage === pages.length}
-          >
-            Next &#10095;
-          </button>
-        </li>
-      </ul>
+      <nav>
+        <ul className="pagination">
+          <li>
+            <button
+              type="button"
+              onClick={() => onPageChange(handlePrevBtn())}
+              disabled={currentPage === 1}
+            >
+              &laquo; Prev
+            </button>
+          </li>
+          {pageDecrementBtn}
+          {displayPageNumbers}
+          {pageIncrementBtn}
+          <li>
+            <button
+              type="button"
+              onClick={() => onPageChange(handleNextBtn())}
+              disabled={currentPage === pages.length}
+            >
+              Next &raquo;
+            </button>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 };
