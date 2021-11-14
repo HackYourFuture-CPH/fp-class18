@@ -4,7 +4,6 @@ nav {
 }
 
 .pagination {
-  list-style: none;
   display: flex;
   flex-direction: row;
   margin: 0;
@@ -12,7 +11,7 @@ nav {
   column-gap: 4px;
 }
 
-.pagination li {
+.pagination button {
   padding: 12px;
   border: 1px solid gray;
   cursor: pointer;
@@ -21,32 +20,12 @@ nav {
   border-radius: 8px;
 }
 
-.pagination li.active {
+.pagination button.active {
   background-color: blue;
   color: white;
 }
 
-.pagination li:hover:not(.active) {
+.pagination button:hover:not(.active):not(button[disabled]) {
   background-color: lightgray;
   color: black;
-}
-
-.pagination li button {
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-.pagination li button:hover {
-  background-color: lightgray;
-  color: black;
-}
-
-.pagination li button[disabled]:hover {
-  background-color: transparent;
-  color: transparent;
-  cursor: none;
 }
