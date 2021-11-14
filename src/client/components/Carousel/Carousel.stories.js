@@ -30,5 +30,7 @@ const productImages = [
 export default {
   title: 'components/Carousel for monthly and similar products',
 };
-
-export const component = () => <Carousel imageArray={productImages} />;
+const show = 3;
+export const component = () => (
+  <Carousel imageArray={productImages} show={show} />
+);

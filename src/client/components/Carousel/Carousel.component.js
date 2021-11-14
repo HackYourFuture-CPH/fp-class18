@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Carousel.style.css';
+import PropTypes from 'prop-types';
 
-const Carousel = ({ imageArray }) => {
-  const show = 3;
+const Carousel = ({ imageArray, show }) => {
   const [current, setCurrent] = useState(0);
   const imageArrayLength = imageArray.length;
   const prevSlide = () => {
@@ -31,4 +31,12 @@ const Carousel = ({ imageArray }) => {
   );
 };
 
+Carousel.propTypes = {
+  imageArray: PropTypes.arrayOf,
+  show: PropTypes.number,
+};
+Carousel.defaultProps = {
+  imageArray: [],
+  show: 3,
+};
 export default Carousel;
