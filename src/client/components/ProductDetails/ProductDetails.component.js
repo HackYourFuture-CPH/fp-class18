@@ -72,7 +72,7 @@ ProductDetails.propTypes = {
     productColor: PropTypes.string.isRequired,
     productSize: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    isFavorite: PropTypes.bool.isRequired,
+    isFavorite: PropTypes.bool,
     imageAlt: PropTypes.string,
 }
 
