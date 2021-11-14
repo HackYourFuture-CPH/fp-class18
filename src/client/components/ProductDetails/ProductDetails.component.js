@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import NumberInput from '../NumberInput/NumberInput.component'
 import ButtonComponent from '../Button/Button.component'
 import './ProductDetails.style.css'
-import defaultImage from '../../assets/images/image01.png'
 
 
 export const ProductDetails = (
@@ -15,21 +14,25 @@ export const ProductDetails = (
         productColor,
         productSize,
         onClick,
+        isFavorite,
+        imageAlt,
     }
 ) => {
-    const [iconSource, setIconSource] = React.useState(true)
-    const changeHeart = () => setIconSource(!iconSource)
-    // The icon can then be used to favorite the product
+    const checkFavorite = () => {
+        console.log('checked') // This function need to be check from the database whether the product is in favorites or not.
+    }
 
     return <div id="product-details">
         <div className='product-image'>
-            <img src={imgSource} alt='product' />
+            <img src={imgSource} alt={imageAlt} />
         </div>
         <div className='details-column'>
             <div>
-                <div className='product-name'>
+                <div className='product-name' >
                     {ProductName}
-                    <button type='button' className={iconSource ? 'like-button' : 'like-button liked'} onClick={changeHeart} aria-label="Favorite"/>
+                    <button type='button' onClick={checkFavorite}>
+                        <div className={isFavorite ? 'heart' : 'purple-heart'}></div>
+                    </button>
                 </div>
                 <small>({RemainingUnit} units left)</small>
             </div>
@@ -61,21 +64,17 @@ export const ProductDetails = (
 }
 
 ProductDetails.propTypes = {
-    imgSource: PropTypes.string,
-    ProductName: PropTypes.string,
-    RemainingUnit: PropTypes.number,
-    Price: PropTypes.number,
-    productColor: PropTypes.string,
-    productSize: PropTypes.string,
-    onClick: PropTypes.func,
+    imgSource: PropTypes.string.isRequired,
+    ProductName: PropTypes.string.isRequired,
+    RemainingUnit: PropTypes.number.isRequired,
+    Price: PropTypes.number.isRequired,
+    productColor: PropTypes.string.isRequired,
+    productSize: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    imageAlt: PropTypes.string,
 }
 
 ProductDetails.defaultProps = {
-    imgSource: defaultImage,
-    ProductName: 'Modern table lamp',
-    RemainingUnit: 20,
-    Price: 200,
-    productColor: 'black',
-    productSize: 'XL',
-    onClick: () => 'clicked'
+    imageAlt: 'Product Image'
 }
