@@ -34,9 +34,9 @@ router.get('/', (req, res, next) => {
  *  get:
  *    tags:
  *    - Categories
- *    summary: Get module by ID
+ *    summary: Get category by ID
  *    description:
- *      Will return single module with a matching ID.
+ *      Will return single category with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
@@ -44,7 +44,7 @@ router.get('/', (req, res, next) => {
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the module to get
+ *         description: The ID of the category to get
  *
  *    responses:
  *      200:
@@ -58,3 +58,4 @@ router.get('/:id', (req, res, next) => {
     .then((result) => res.json(result))
     .catch(next);
 });
+module.exports = router;
