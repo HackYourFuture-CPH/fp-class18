@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import NumberInput from '../NumberInput/NumberInput.component'
 import ButtonComponent from '../Button/Button.component'
 import './ProductDetails.style.css'
+import Heart from './Heart';
 
 
 export const ProductDetails = (
@@ -19,7 +20,7 @@ export const ProductDetails = (
     }
 ) => {
     const checkFavorite = () => {
-        console.log('checked') // This function need to be check from the database whether the product is in favorites or not.
+        console.log('checked') // This function need to be change database for add or remove from favorite.
     }
 
     return <div id="product-details">
@@ -31,7 +32,7 @@ export const ProductDetails = (
                 <div className='product-name' >
                     {ProductName}
                     <button type='button' onClick={checkFavorite}>
-                        <div className={isFavorite ? 'heart' : 'purple-heart'} />
+                        <div className='heart'> {isFavorite ? <Heart height='30'/> : <Heart height='30' fill='#8E0EF2' strokeWidth='0'/>} </div>
                     </button>
                 </div>
                 <small>({RemainingUnit} units left)</small>
@@ -76,5 +77,6 @@ ProductDetails.propTypes = {
 }
 
 ProductDetails.defaultProps = {
-    imageAlt: 'Product Image'
+    imageAlt: 'Product Image',
+    isFavorite: true,
 }
