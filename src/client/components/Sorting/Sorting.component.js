@@ -4,15 +4,12 @@ import { options } from './helper';
 import PropTypes from 'prop-types';
 
 export default function Sorting({ arrayToSort, categoriesList, onSortChange }) {
-  const [showSorting, setShowSorting] = React.useState(false);
   const [showCategories, setShowCategories] = React.useState(false);
 
   function sortProducts(option) {
     if (option === 'category') {
       setShowCategories(true);
-      setShowSorting(false);
     } else {
-      setShowSorting(true);
       setShowCategories(false);
     }
     if (option === 'AlphabeticallyAZ') {
@@ -24,13 +21,12 @@ export default function Sorting({ arrayToSort, categoriesList, onSortChange }) {
 
     if (option === 'created-at') {
       return arrayToSort.sort(
-        (a, b) => new Date(b.created_date) - new Date(a.created_date),
+        (a, b) => new Date(b.created_at) - new Date(a.created_at),
       );
     }
   }
 
   function sortCategories(option) {
-    setShowSorting(true);
     return arrayToSort.filter((product) => product.category_id === option);
   }
 
@@ -54,7 +50,6 @@ export default function Sorting({ arrayToSort, categoriesList, onSortChange }) {
       </select>
       <div>
         {showCategories &&
-          !showSorting &&
           categoriesList.map((category) => {
             return (
               <div key={category.id} className="input-div">
@@ -85,7 +80,7 @@ Sorting.propTypes = {
       id: PropTypes.number,
       name: PropTypes.string,
       // eslint-disable-next-line @typescript-eslint/camelcase
-      created_at: PropTypes.instanceOf(Date),
+      created_date: PropTypes.instanceOf(Date),
     }),
   ).isRequired,
   onSortChange: PropTypes.func.isRequired,
