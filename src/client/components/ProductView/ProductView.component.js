@@ -1,46 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './ProductView.styles.css';
-import Pagination from './Pagination.component';
-import Sorting from './Sorting.component';
-
+import Pagination from '../ProductsPagination/ProductsPagination.component';
+import Sorting from '../Sorting/Sorting.component';
 export default function ProductView({
   products,
-  productsPerPage = 6,
+  productsPerPage,
   categoriesList,
 }) {
-  const [sortedProducts, setSortedProducts] = useState(products);
-  const [currentRange, setCurrentRange] = useState(products);
+  const [productsToShow, setProductsToShow] = useState(products);
+  const [currentRange, setCurrentRange] = useState(
+    productsToShow.slice(0, productsPerPage),
+  );
+
+  function handleSort(sortedArray) {
+    if (sortedArray === undefined) return;
+    setProductsToShow(sortedArray);
+    setCurrentRange(sortedArray.slice(0, productsPerPage));
+  }
 
   return (
-    <div>
+    <div className="product-view">
       <h3>All Products</h3>
       <Sorting
         arrayToSort={products}
         categoriesList={categoriesList}
-        onSortChange={(sortedArray) => setSortedProducts(sortedArray)}
+        onSortChange={(sortedArray) => {
+          handleSort(sortedArray);
+        }}
       />
-      {currentRange.map((product) => {
-        return (
-          <ul key={product.id}>
-            <li className="products-list">
-              <span>
-                <img src={product.picture} alt={`${product.name}`} />
-              </span>
-              <br />
-              <h3>{product.name}</h3>
-              <h5>
-                production date:
-                {new Date(product.created_date).toLocaleDateString()}
-              </h5>
-              <br />
+      <ul className="product-list">
+        {currentRange.map((product) => {
+          return (
+            <li className="product-item" key={product.id}>
+              <img
+                src={require('../../assets/images/' + product.picture)}
+                alt={`${product.name}`}
+              />
             </li>
-          </ul>
-        );
-      })}
+          );
+        })}
+      </ul>
 
       <Pagination
-        arrayToFilter={sortedProducts}
+        arrayToFilter={productsToShow}
         productsPerPage={productsPerPage}
         onPageChange={(range) => setCurrentRange(range)}
       />
@@ -49,13 +52,20 @@ export default function ProductView({
 }
 
 ProductView.propTypes = {
-  products: PropTypes.array,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      created_at: PropTypes.string,
+    }),
+  ).isRequired,
   productsPerPage: PropTypes.number,
-  categoriesList: PropTypes.arrayOf(String),
-};
-
-ProductView.defaultProps = {
-  products: [],
-  productsPerPage: 6,
-  categoriesList: ['Catgory1', 'Catgory2', 'Catgory2'],
+  categoriesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      map: PropTypes.func,
+    }),
+  ),
 };
