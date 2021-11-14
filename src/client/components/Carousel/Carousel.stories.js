@@ -27,6 +27,8 @@ const productImages = [
   image11,
   image12,
 ];
-export default { title: 'Carousel for monthly and similar products' };
+export default {
+  title: 'components/Carousel for monthly and similar products',
+};
 
 export const component = () => <Carousel imageArray={productImages} />;

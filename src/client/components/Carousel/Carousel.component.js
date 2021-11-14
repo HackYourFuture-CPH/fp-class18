@@ -4,15 +4,15 @@ import './Carousel.style.css';
 const Carousel = ({ imageArray }) => {
   const show = 3;
   const [current, setCurrent] = useState(0);
-  const imageArraLength = imageArray.length;
+  const imageArrayLength = imageArray.length;
   const prevSlide = () => {
-    setCurrent(current === 0 ? imageArraLength - 1 : current - 1);
+    setCurrent(current === 0 ? imageArrayLength - 1 : current - 1);
   };
   const nextSlide = () => {
-    setCurrent(current === imageArraLength - 1 ? 0 : current + 1);
+    setCurrent(current === imageArrayLength - 1 ? 0 : current + 1);
   };
 
-  if (!Array.isArray(imageArray) || imageArraLength <= 0) {
+  if (!Array.isArray(imageArray) || imageArrayLength <= 0) {
     return null;
   }
 
