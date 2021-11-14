@@ -40,6 +40,7 @@ const ProductsPagination = ({
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       return (
         <button
+          type="button"
           key={number}
           onClick={() => onPageChange(paginate(number))}
           className={currentPage === number ? 'active' : null}
@@ -53,7 +54,6 @@ const ProductsPagination = ({
 
   const handleNextBtn = () => {
     setCurrentPage(currentPage + 1);
-    console.log(currentPage);
     if (currentPage + 1 > maxPageNumberLimit) {
       setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
       setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
@@ -73,13 +73,19 @@ const ProductsPagination = ({
   let pageIncrementBtn = null;
   if (pages.length > maxPageNumberLimit) {
     pageIncrementBtn = (
-      <button onClick={() => onPageChange(handleNextBtn())}> &hellip;</button>
+      <button type="button" onClick={() => onPageChange(handleNextBtn())}>
+        {' '}
+        &hellip;
+      </button>
     );
   }
   let pageDecrementBtn = null;
   if (minPageNumberLimit >= 1) {
     pageDecrementBtn = (
-      <button onClick={() => onPageChange(handlePrevBtn())}> &hellip;</button>
+      <button type="button" onClick={() => onPageChange(handlePrevBtn())}>
+        {' '}
+        &hellip;
+      </button>
     );
   }
 
@@ -109,7 +115,7 @@ const ProductsPagination = ({
 };
 
 ProductsPagination.propTypes = {
-  arrayToFilter: PropTypes.array,
+  arrayToFilter: PropTypes.arrayOf(),
   productsPerPage: PropTypes.number,
   onPageChange: PropTypes.func,
 };
@@ -117,5 +123,6 @@ ProductsPagination.propTypes = {
 ProductsPagination.defaultProps = {
   arrayToFilter: [],
   productsPerPage: 6,
+  onPageChange: () => console.log('On page change function'),
 };
 export default ProductsPagination;
