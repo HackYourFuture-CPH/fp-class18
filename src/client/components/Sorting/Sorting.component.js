@@ -21,7 +21,7 @@ export default function Sorting({ arrayToSort, categoriesList, onSortChange }) {
 
     if (option === 'created-at') {
       return arrayToSort.sort(
-        (a, b) => new Date(b.created_date) - new Date(a.created_date),
+        (a, b) => new Date(b.created_at) - new Date(a.created_at),
       );
     }
   }
@@ -80,7 +80,7 @@ Sorting.propTypes = {
       id: PropTypes.number,
       name: PropTypes.string,
       // eslint-disable-next-line @typescript-eslint/camelcase
-      created_at: PropTypes.instanceOf(Date),
+      created_date: PropTypes.instanceOf(Date),
     }),
   ).isRequired,
   onSortChange: PropTypes.func.isRequired,

@@ -49,7 +49,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image01.png',
       stock_amount: 20,
       category_id: 3,
-      created_date: '2020-02-11 00:00:00',
+      created_at: '2020-02-11 00:00:00',
     },
     {
       id: 2,
@@ -59,7 +59,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image02.png',
       stock_amount: 58,
       category_id: 2,
-      created_date: '2020-04-16 00:00:00',
+      created_at: '2020-04-16 00:00:00',
     },
     {
       id: 3,
@@ -69,7 +69,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image03.png',
       stock_amount: 140,
       category_id: 3,
-      created_date: '2020-11-28 00:00:00',
+      created_at: '2020-11-28 00:00:00',
     },
     {
       id: 4,
@@ -79,7 +79,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image04.png',
       stock_amount: 2,
       category_id: 3,
-      created_date: '2019-11-28 00:00:00',
+      created_at: '2019-11-28 00:00:00',
     },
     {
       id: 5,
@@ -89,7 +89,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image05.png',
       stock_amount: 2,
       category_id: 4,
-      created_date: '2020-12-16 00:00:00',
+      created_at: '2020-12-16 00:00:00',
     },
     {
       id: 6,
@@ -98,7 +98,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image06.png',
       stock_amount: 134,
       category_id: 4,
-      created_date: '2020-12-10 00:00:00',
+      created_at: '2020-12-10 00:00:00',
     },
     {
       id: 7,
@@ -107,7 +107,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image07.png',
       stock_amount: 12,
       category_id: 3,
-      created_date: '2021-04-16 00:00:00',
+      created_at: '2021-04-16 00:00:00',
     },
     {
       id: 8,
@@ -116,7 +116,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image08.png',
       stock_amount: 321,
       category_id: 3,
-      created_date: '2021-10-16 00:00:00',
+      created_at: '2021-10-16 00:00:00',
     },
     {
       id: 9,
@@ -125,7 +125,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image09.png',
       stock_amount: 7,
       category_id: 1,
-      created_date: '2021-08-12 00:00:00',
+      created_at: '2021-08-12 00:00:00',
     },
     {
       id: 10,
@@ -135,7 +135,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image10.png',
       stock_amount: 12,
       category_id: 3,
-      created_date: '2020-04-17 00:00:00',
+      created_at: '2020-04-17 00:00:00',
     },
     {
       id: 11,
@@ -145,7 +145,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image11.png',
       stock_amount: 12,
       category_id: 3,
-      created_date: '2021-11-07 00:00:00',
+      created_at: '2021-11-07 00:00:00',
     },
     {
       id: 12,
@@ -154,7 +154,7 @@ showSorting.args = {
       picture: 'src/client/assets/images/image12.png',
       stock_amount: 12,
       category_id: 3,
-      created_date: '2021-11-09 00:00:00',
+      created_at: '2021-11-09 00:00:00',
     },
   ],
 };
