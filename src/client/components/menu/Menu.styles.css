@@ -6,7 +6,7 @@ header {
 }
 
 header #login {
-  padding: 10px;
+  padding: 1em;
 }
 
 header .user-icon {
@@ -16,7 +16,7 @@ header .user-icon {
 
 header .icons {
   float: right;
-  margin-right: 10px;
+  margin-right: 1em;
   justify-content: space-around;
   cursor: pointer;
 }
@@ -24,27 +24,26 @@ header .icons {
 header .logo_container {
   background-color: white;
   display: block;
-  padding-bottom: 30px;
+  padding-bottom: 3em;
 }
 
 header img {
-  height: 20px;
-  width: 20px;
+  height: 2em;
+  width: 2em;
 }
 
 header .navbar {
   overflow: hidden;
   background-color: #333;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* lis inside the navbar */
 header .navbar li {
   float: left;
-  font-size: 16px;
+  font-size: 1.2em;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 0.8em 0.8em;
   cursor: pointer;
 }
 
@@ -57,10 +56,10 @@ header .dropdown {
 
 /* Dropdown button */
 header .dropbtn {
-  font-size: 18px;
+  font-size: 1.2em;
   border: none;
   color: white;
-  padding: 14px 16px;
+  padding: 0.8em 0.8em;
   background-color: inherit;
   cursor: pointer;
 }
