@@ -35,7 +35,7 @@ export default function ProductView({
           return (
             <li className="product-item" key={product.id}>
               <img
-                // eslint-disable-next-line: use require to load images
+                // eslint-disable-next-line
                 src={require(`../../assets/images/${product.picture}`)}
                 alt={`${product.name}`}
               />
@@ -58,7 +58,7 @@ ProductView.propTypes = {
     PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string,
-      created_date: PropTypes.string,
+      created_at: PropTypes.string,
     }),
   ).isRequired,
   productsPerPage: PropTypes.number.isRequired,
