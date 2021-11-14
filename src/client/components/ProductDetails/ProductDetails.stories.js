@@ -19,6 +19,6 @@ export const Product = () => (
         productColor={text('Color', 'Black')}
         productSize={text('Size', 'XL')}
         onClick={action('Clicked add button')}
-        isFavorite={boolean('Change Favorite Heart')}
+        isFavorite={boolean('Change Favorite Heart',true)}
     /> 
     )
