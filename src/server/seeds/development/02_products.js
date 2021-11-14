@@ -1,33 +1,7 @@
 exports.seed = function (knex) {
-  return knex('categories')
+  return knex('products')
     .del()
-    .then(() => {
-      return knex('products').del();
-    })
-    .then(() => {
-      return knex('categories').insert([
-        {
-          id: 1,
-          name: 'Furniture',
-          created_at: '2020-05-11 00:00:00',
-        },
-        {
-          id: 2,
-          name: 'Lamps',
-          created_at: '2020-05-11 00:00:00',
-        },
-        {
-          id: 3,
-          name: 'Home decor',
-          created_at: '2020-05-11 00:00:00',
-        },
-        {
-          name: 'Linens',
-          created_at: '2020-05-11 00:00:00',
-        },
-      ]);
-    })
-    .then(() => {
+    .then(function () {
       return knex('products').insert([
         {
           name: 'Ceramic pot',
@@ -102,7 +76,7 @@ exports.seed = function (knex) {
           color: 'black',
           picture: 'src/client/assets/images/image10.png',
           stock_amount: 12,
-          category_id: 3,
+          category_id: 2,
         },
         {
           name: 'Silk pillow case',
@@ -117,7 +91,7 @@ exports.seed = function (knex) {
           price: 520,
           picture: 'src/client/assets/images/image12.png',
           stock_amount: 12,
-          category_id: 3,
+          category_id: 1,
         },
       ]);
     });
