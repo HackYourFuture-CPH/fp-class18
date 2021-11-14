@@ -3,6 +3,9 @@ const HttpError = require('../lib/utils/http-error');
 
 const getProducts = async (request) => {
   let products = knex('products');
+  if (!request.query.category && !request.query.daysBeforeToday) {
+    return products;
+  }
   if (request.query.daysBeforeToday && !isNaN(request.query.daysBeforeToday)) {
     const createdMinDate = new Date();
     createdMinDate.setDate(
