@@ -6,13 +6,7 @@ export default {
   component: ProductsPagination,
 };
 
-export const Pagination = (args) => (
-  <ProductsPagination
-    arrayToFilter={args.arrayToFilter}
-    productsPerPage={args.productsPerPage}
-    onPageChange={args.onPageChange}
-  />
-);
+export const Pagination = (args) => <ProductsPagination {...args} />;
 Pagination.args = {
   arrayToFilter: [
     {

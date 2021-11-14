@@ -115,14 +115,19 @@ const ProductsPagination = ({
 };
 
 ProductsPagination.propTypes = {
-  arrayToFilter: PropTypes.arrayOf(),
+  arrayToFilter: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      created_date: PropTypes.string,
+    }),
+  ),
   productsPerPage: PropTypes.number,
-  onPageChange: PropTypes.func,
+  onPageChange: PropTypes.func.isRequired,
 };
 
 ProductsPagination.defaultProps = {
   arrayToFilter: [],
   productsPerPage: 6,
-  onPageChange: () => console.log('On page change function'),
 };
 export default ProductsPagination;
