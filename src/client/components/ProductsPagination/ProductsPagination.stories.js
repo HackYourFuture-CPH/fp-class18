@@ -5,7 +5,7 @@ export default {
   title: 'Components / Products Pagination',
   component: ProductsPagination,
 };
-// eslint-disable-next-line
+// eslint-disable-next-line react/jsx-props-no-spreading
 export const Pagination = (args) => <ProductsPagination {...args} />;
 Pagination.args = {
   arrayToFilter: [
@@ -95,7 +95,7 @@ Pagination.args = {
     },
     {
       id: 8,
-      name: 'Ceramic candliers',
+      name: 'Ceramic candles',
       price: '150.00',
       color: 'red',
       size: 'small',
@@ -143,7 +143,7 @@ Pagination.args = {
     },
     {
       id: 12,
-      name: 'Modern dinig table',
+      name: 'Modern dining table',
       price: '520.00',
       color: 'red',
       size: 'small',

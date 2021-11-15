@@ -119,7 +119,8 @@ ProductsPagination.propTypes = {
     PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string,
-      created_date: PropTypes.string,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      created_at: PropTypes.instanceOf(Date),
     }),
   ),
   productsPerPage: PropTypes.number,
