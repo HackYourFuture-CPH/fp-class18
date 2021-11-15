@@ -121,13 +121,12 @@ ProductsPagination.propTypes = {
       name: PropTypes.string,
       created_at: PropTypes.string,
     }),
-  ),
+  ).isRequired,
   productsPerPage: PropTypes.number,
   onPageChange: PropTypes.func.isRequired,
 };
 
 ProductsPagination.defaultProps = {
-  arrayToFilter: [],
   productsPerPage: 6,
 };
 export default ProductsPagination;
