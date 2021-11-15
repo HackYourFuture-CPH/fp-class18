@@ -64,6 +64,8 @@
   cursor: pointer;
   font-weight: bold;
   appearance: none;
+  background: transparent;
+  z-index: 2;
 }
 
 #product-details .arrow-right {
@@ -75,6 +77,7 @@
   height: 0.7rem;
   border-top: 2px solid #8E0EF2;
   border-left: 2px solid #8E0EF2;
+  z-index: 1;
 }
 
 #product-details .arrow-right {
