@@ -120,15 +120,14 @@ ProductsPagination.propTypes = {
       id: PropTypes.number,
       name: PropTypes.string,
       // eslint-disable-next-line @typescript-eslint/camelcase
-      created_at: PropTypes.instanceOf(Date),
+      created_at: PropTypes.string,
     }),
-  ),
+  ).isRequired,
   productsPerPage: PropTypes.number,
   onPageChange: PropTypes.func.isRequired,
 };
 
 ProductsPagination.defaultProps = {
-  arrayToFilter: [],
   productsPerPage: 6,
 };
 export default ProductsPagination;
