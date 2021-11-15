@@ -23,7 +23,7 @@ const productsController = require('../controllers/products.controller');
  */
 router.get('/', (req, res, next) => {
   productsController
-    .getProducts(req)
+    .getProducts()
     .then((result) => res.json(result))
     .catch(next);
 });

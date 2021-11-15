@@ -1,0 +1,27 @@
+.product-view h3 {
+  text-transform: uppercase;
+}
+
+.sorting-div {
+  width: fit-content;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.product-list {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.product-item {
+  flex: 1 0 21%;
+  margin: 2%;
+}
+
+.product-list::after {
+  content: '';
+  flex: 1 0 32%;
+}
