@@ -5,7 +5,7 @@ export default {
   title: 'Components / Products Pagination',
   component: ProductsPagination,
 };
-
+// eslint-disable-next-line react/jsx-props-no-spreading
 export const Pagination = (args) => <ProductsPagination {...args} />;
 Pagination.args = {
   arrayToFilter: [
