@@ -120,7 +120,7 @@ ProductsPagination.propTypes = {
       id: PropTypes.number,
       name: PropTypes.string,
       // eslint-disable-next-line @typescript-eslint/camelcase
-      created_date: PropTypes.string,
+      created_at: PropTypes.instanceOf(Date),
     }),
   ),
   productsPerPage: PropTypes.number,
