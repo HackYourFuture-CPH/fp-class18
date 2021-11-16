@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { Menu } from './Menu.component';
 
-export default { title: 'Components / MenuAuthenticated' };
+export default { title: 'Components / Menu' };
 
 export const MenuBarAuthenticated = () => (
   <MemoryRouter>
