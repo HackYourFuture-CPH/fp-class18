@@ -10,3 +10,8 @@ export const MenuBar = () => (
     <Menu isAuthenticated={false} />
   </MemoryRouter>
 );
+export const MenuBarAuthenticated = () => (
+  <MemoryRouter>
+    <Menu isAuthenticated={true} />
+  </MemoryRouter>
+);
