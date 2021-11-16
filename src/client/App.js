@@ -21,11 +21,11 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         {/* Home page */}
         <Route exact path="/">
-          <Home />
+          {/* <Home /> */}
           <LandingPageContainer />
         </Route>
 

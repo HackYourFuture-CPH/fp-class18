@@ -1,5 +1,6 @@
 import React from 'react';
 import './LandingPage.Style.css';
+import { Menu } from '../../components/menu/Menu.component'
 import HeroImage from '../../components/HeroImage/HeroImage.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ProductView from '../../components/ProductView/ProductView.component';
@@ -14,7 +15,7 @@ const LandingPageContainer = () => {
     fetch('/api/products')
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
+        setProducts(data)
         setProductsImages(data.map((product) => product.picture));
       });
     // fetch('/api/categories')   We Dont have categories backend yet
@@ -24,16 +25,19 @@ const LandingPageContainer = () => {
 
   return (
     <div>
-      <div>
+      <div className='menu'>
+        <Menu isAuthenticated={false} />
+      </div>
+      <div className='hero-image'>
         <HeroImage heroText="WELCOME" />
       </div>
       <div>
         <Carousel imageArray={productsImages} show={3} />
       </div>
       <div>
-        <ProductView products={products} categoriesList={categories} />
+        <ProductView products={products} productsPerPage={6} categoriesList={categories} />
       </div>
-      <div>
+      <div className='footer'>
         <Footer />
       </div>
     </div>

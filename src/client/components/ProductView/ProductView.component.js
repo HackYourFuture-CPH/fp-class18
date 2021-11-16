@@ -31,12 +31,12 @@ export default function ProductView({
         }}
       />
       <ul className="product-list">
-        {currentRange.map((product) => {
+        {products.map((product) => {
           return (
             <li className="product-item" key={product.id}>
               <img
                 // eslint-disable-next-line
-                src={require(`../../assets/images/${product.picture}`)}
+                src={product.picture}
                 alt={`${product.name}`}
               />
             </li>
