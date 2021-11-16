@@ -79,7 +79,8 @@ Sorting.propTypes = {
     PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string,
-      created_at: PropTypes.string,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      created_date: PropTypes.instanceOf(Date),
     }),
   ).isRequired,
   onSortChange: PropTypes.func.isRequired,
