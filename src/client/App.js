@@ -10,6 +10,7 @@ import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
+import CategoryPageContainer from './containers/CategoryPage/CategoryPage.Container';
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -26,7 +27,10 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-
+        {/* Category page */}
+        <Route exact path="/category/:id">
+          <CategoryPageContainer />
+        </Route>
         {/* Anonymous pages */}
         <SignIn exact path="/sign-in" />
         <SignUp exact path="/sign-up" />
