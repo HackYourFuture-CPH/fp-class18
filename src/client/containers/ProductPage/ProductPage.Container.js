@@ -66,6 +66,7 @@ const ProductPageContainer = () => {
     // how to link category page
     history.push(`/explore-catgory/${product.category_id}`);
   };
+  // prodcut deatil
 
   const { render, color, size, quantity } = ProductDetails({
     imgSource: product.picture,
