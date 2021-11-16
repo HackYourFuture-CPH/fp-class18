@@ -13,25 +13,18 @@ export const Menu = ({ isAuthenticated }) => {
         <div className="logo_container">
           <div className="user-icon">
             <div className="dropdown">
-              {isAuthenticated ? (
-                <>
-                  <img src={faUser} alt="logout" />
-                  <div id="login" className="dropdown-content">
-                    <Link className="text-link" to="/logout">
-                      LOGOUT
-                    </Link>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <img src={faUser} alt="login" />
-                  <div id="login" className="dropdown-content">
-                    <Link className="text-link" to="/login">
-                      LOGIN / SIGNUP
-                    </Link>
-                  </div>
-                </>
-              )}
+              <img src={faUser} alt="logout" />
+              <div id="login" className="dropdown-content">
+                {isAuthenticated ? (
+                  <Link className="text-link" to="/logout">
+                    LOGOUT
+                  </Link>
+                ) : (
+                  <Link className="text-link" to="/login">
+                    LOGIN / SIGNUP
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
           <img className="icons" src={faHeart} alt="favorite" />

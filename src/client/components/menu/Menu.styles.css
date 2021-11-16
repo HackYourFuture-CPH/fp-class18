@@ -1,8 +1,5 @@
 header {
-  justify-content: space-between;
-  background-color: black;
-  height: fit-content;
-  overflow: hidden;
+  width: 100vw;
 }
 
 header #login {
@@ -17,7 +14,6 @@ header .user-icon {
 header .icons {
   float: right;
   margin-right: 1em;
-  justify-content: space-around;
   cursor: pointer;
 }
 
@@ -35,11 +31,12 @@ header img {
 header .navbar {
   overflow: hidden;
   background-color: #333;
+  display: flex;
+  justify-content: center;
 }
 
 /* lis inside the navbar */
 header .navbar li {
-  float: left;
   font-size: 1.2em;
   color: white;
   text-align: center;
@@ -49,7 +46,6 @@ header .navbar li {
 
 /* The dropdown container */
 header .dropdown {
-  margin-left: 20%;
   float: left;
   overflow: hidden;
 }
@@ -67,7 +63,7 @@ header .dropbtn {
 header .navbar button:hover,
 header .dropdown:hover .dropbtn,
 header #login:hover {
-  background-color: purple;
+  background-color: #8e0ef2;
 }
 
 /* Dropdown content (hidden by default) */
@@ -87,10 +83,26 @@ header .navbar li {
 
 /* Add a grey background color to dropdown lis on hover */
 header .dropdown-content li:hover {
-  background-color: purple;
+  background-color: #8e0ef2;
 }
 
 /* Show the dropdown menu on hover */
 header .dropdown:hover .dropdown-content {
   display: block;
+}
+
+header .dropdown:hover .dropdown-content ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 700px) {
+  header .navbar {
+    display: block;
+  }
+
+  header .dropdown:hover .dropdown-content ul {
+    display: block;
+  }
 }
