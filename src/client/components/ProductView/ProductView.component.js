@@ -17,8 +17,8 @@ export default function ProductView({
   }, [products]);
 
   React.useEffect(
-    () => setCurrentRange(productsToShow.slice(0, productsPerPage)), // eslint-disable-next-line
-    [productsToShow],
+    () => setCurrentRange(productsToShow.slice(0, productsPerPage)),
+    [productsToShow, productsPerPage],
   );
 
   function handleSort(sortedArray) {
@@ -41,11 +41,7 @@ export default function ProductView({
         {currentRange.map((product) => {
           return (
             <li className="product-item" key={product.id}>
-              <img
-                // eslint-disable-next-line
-                src={product.picture}
-                alt={product.name}
-              />
+              <img src={product.picture} alt={product.name} />
             </li>
           );
         })}
