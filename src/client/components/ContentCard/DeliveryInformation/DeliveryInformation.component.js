@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './DeliveryInformation.styles.css';
 
 export function DeliveryInformation({ sampleAddress }) {
@@ -38,8 +39,6 @@ DeliveryInformation.defaultProps = {
 };
 
 DeliveryInformation.propTypes = {
-  editMode: PropTypes.bool,
-  vertDisplay: PropTypes.bool,
   user: PropTypes.shape({
     address: PropTypes.string,
     city: PropTypes.string,
