@@ -7,3 +7,7 @@ main {
   margin: auto;
   padding: 2em 0;
 }
+
+.hero-image img {
+  width: 100%;
+}
