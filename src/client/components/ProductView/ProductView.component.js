@@ -10,9 +10,12 @@ export default function ProductView({
   categoriesList,
 }) {
   const [productsToShow, setProductsToShow] = useState(products);
-  const [currentRange, setCurrentRange] = useState(
-    productsToShow.slice(0, productsPerPage),
-  );
+  const [currentRange, setCurrentRange] = useState([]);
+
+  React.useEffect(() => {
+    setProductsToShow(products);
+    setCurrentRange(productsToShow.slice(0, productsPerPage));
+  }, [products]);
 
   function handleSort(sortedArray) {
     if (sortedArray === undefined) return;
@@ -31,13 +34,13 @@ export default function ProductView({
         }}
       />
       <ul className="product-list">
-        {products.map((product) => {
+        {currentRange.map((product) => {
           return (
             <li className="product-item" key={product.id}>
               <img
                 // eslint-disable-next-line
                 src={product.picture}
-                alt={`${product.name}`}
+                alt={product.name}
               />
             </li>
           );
