@@ -17,7 +17,7 @@ export default function ProductView({
   }, [products]);
 
   React.useEffect(
-    () => setCurrentRange(productsToShow.slice(0, productsPerPage)),
+    () => setCurrentRange(productsToShow.slice(0, productsPerPage)), // eslint-disable-next-line
     [productsToShow],
   );
 
