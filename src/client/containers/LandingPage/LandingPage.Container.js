@@ -24,10 +24,7 @@ const LandingPageContainer = () => {
   }, []);
 
   return (
-    <div>
-      <div className="menu">
-        <Menu isAuthenticated={false} />
-      </div>
+    <main>
       <div className="hero-image">
         <HeroImage heroText="WELCOME" />
       </div>
@@ -41,10 +38,7 @@ const LandingPageContainer = () => {
           categoriesList={categories}
         />
       </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
+    </main>
   );
 };
 
