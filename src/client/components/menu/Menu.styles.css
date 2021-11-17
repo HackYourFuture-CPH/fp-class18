@@ -1,6 +1,5 @@
 header {
   width: 100vw;
-  z-index: 5;
 }
 
 header #login {
@@ -21,7 +20,7 @@ header .icons {
 header .logo_container {
   background-color: white;
   display: block;
-  padding: 0.3em 0 2.5em 0;
+  padding-bottom: 3em;
 }
 
 header img {

@@ -1,10 +1,8 @@
 import React from 'react';
 import './LandingPage.Style.css';
-import { Menu } from '../../components/menu/Menu.component';
 import HeroImage from '../../components/HeroImage/HeroImage.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ProductView from '../../components/ProductView/ProductView.component';
-import { Footer } from '../../components/Footer/Footer.component';
 
 const LandingPageContainer = () => {
   const [products, setProducts] = React.useState([]);

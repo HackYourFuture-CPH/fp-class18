@@ -10,7 +10,9 @@ export default function ProductView({
   categoriesList,
 }) {
   const [productsToShow, setProductsToShow] = useState(products);
-  const [currentRange, setCurrentRange] = useState([]);
+  const [currentRange, setCurrentRange] = useState(
+    productsToShow.slice(0, productsPerPage),
+  );
 
   React.useEffect(() => {
     setProductsToShow(products);
