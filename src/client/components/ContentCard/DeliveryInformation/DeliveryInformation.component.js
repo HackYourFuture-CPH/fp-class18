@@ -39,10 +39,12 @@ DeliveryInformation.defaultProps = {
 };
 
 DeliveryInformation.propTypes = {
+  editMode: PropTypes.bool,
+  sampleAddress: PropTypes,
   user: PropTypes.shape({
     address: PropTypes.string,
     city: PropTypes.string,
     zip: PropTypes.number,
     country: PropTypes.string,
-  }),
+  }).isRequired,
 };
