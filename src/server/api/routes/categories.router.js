@@ -3,17 +3,17 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 
 // controllers
-const productsController = require('../controllers/products.controller');
+const categoriesController = require('../controllers/categories.controller');
 
 /**
  * @swagger
- * /products:
+ * /categories:
  *  get:
  *    tags:
- *    - Products
- *    summary: Get all products
+ *    - Categories
+ *    summary: Get all categories
  *    description:
- *      Will return all products.
+ *      Will return all categories.
  *    produces: application/json
  *    responses:
  *      200:
@@ -22,21 +22,21 @@ const productsController = require('../controllers/products.controller');
  *        description: Unexpected error.
  */
 router.get('/', (req, res, next) => {
-  productsController
-    .getProducts(req)
+  categoriesController
+    .getCategories()
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /products/{ID}:
+ * /categories/{ID}:
  *  get:
  *    tags:
- *    - Products
- *    summary: Get product by ID
+ *    - Categories
+ *    summary: Get category by ID
  *    description:
- *      Will return single product with a matching ID.
+ *      Will return single category with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
@@ -44,7 +44,7 @@ router.get('/', (req, res, next) => {
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the module to get
+ *         description: The ID of the category to get
  *
  *    responses:
  *      200:
@@ -52,15 +52,14 @@ router.get('/', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  *      400:
- *        description: ID is not a number.
+ *        description: Bad request. Category ID must be an integer and larger than 0.
  *      404:
- *        description: ID not found.
+ *        description: A category with the specified ID was not found.
  */
 router.get('/:id', (req, res, next) => {
-  productsController
-    .getProductById(req.params.id)
+  categoriesController
+    .getCategoryById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
-
 module.exports = router;
