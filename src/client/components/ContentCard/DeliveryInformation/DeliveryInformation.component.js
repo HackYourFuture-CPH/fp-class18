@@ -36,3 +36,14 @@ DeliveryInformation.defaultProps = {
     country: 'Denmark',
   },
 };
+
+DeliveryInformation.propTypes = {
+  editMode: PropTypes.bool,
+  vertDisplay: PropTypes.bool,
+  user: PropTypes.shape({
+    address: PropTypes.string,
+    city: PropTypes.string,
+    zip: PropTypes.number,
+    country: PropTypes.string,
+  }),
+};
