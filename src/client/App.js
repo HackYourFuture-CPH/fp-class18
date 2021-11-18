@@ -11,6 +11,7 @@ import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
 import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
+import CategoryPageContainer from './containers/CategoryPage/CategoryPage.Container';
 
 function App() {
   const { isLoading } = useAuthentication();

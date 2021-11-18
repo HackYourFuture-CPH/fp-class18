@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable radix */
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ButtonComponent from '../../components/Button/Button.component';
@@ -13,7 +13,7 @@ const ProductPageContainer = () => {
 
   const [product, setProduct] = React.useState({});
   const [similarProduct, setSimilarProduct] = React.useState([]);
-  const history = useHistory();
+  //const history = useHistory();
 
   React.useEffect(() => {
     fetch(`api/products/${id}`)
@@ -64,7 +64,7 @@ const ProductPageContainer = () => {
   const exploreCategoryHandler = () => {
     console.log('explore product category');
     // how to link category page
-    history.push(`/explore-catgory/${product.category_id}`);
+    //history.push(`/exploreCategory/CategoryPage.Container/${product.category_id}`);
   };
   // prodcut deatil
 
@@ -83,7 +83,7 @@ const ProductPageContainer = () => {
     <div>
       <div className="p-detail">
         {render}
-        <h1>SIMILAR PRODUCT</h1>
+        <h2>SIMILAR PRODUCT</h2>
       </div>
       <div>
         <Carousel imageArray={similarProduct} />
