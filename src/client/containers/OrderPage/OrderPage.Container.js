@@ -37,9 +37,7 @@ const OrderPageContainer = () => {
           </div>
           <div className="product">
             <div className="picture-name-quantity">
-              <div>{product.picture}</div>
-              <div>{product.name}</div>
-              <div>{product.quantity}</div>
+              <div>ProductItem</div>
             </div>
           </div>
         </div>
