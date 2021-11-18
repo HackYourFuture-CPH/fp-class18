@@ -1,17 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import { Home } from './containers/Home/Home';
-import SignIn from './containers/SignIn';
-import SignUp from './containers/SignUp';
-import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import { useAuthentication } from './hooks/useAuthentication';
-import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
 import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
-import CategoryPageContainer from './containers/CategoryPage/CategoryPage.Container';
+import { Menu } from './components/menu/Menu.component';
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -22,22 +17,16 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Menu />
       <Switch>
         {/* Home page */}
         <Route exact path="/">
           <Home />
         </Route>
-
         {/* product page */}
-        <Route exact path="/product-page/:id">
+        <Route exact path="/containter/ProductPage/:id">
           <ProductPageContainer />
         </Route>
-
-        {/* Anonymous pages */}
-        <SignIn exact path="/sign-in" />
-        <SignUp exact path="/sign-up" />
-        <ResetPassword exact path="/reset-password" />
 
         {/* All routes below are authenticated routes - a user must login first */}
         <AuthenticatedRoute exact path="/profile">

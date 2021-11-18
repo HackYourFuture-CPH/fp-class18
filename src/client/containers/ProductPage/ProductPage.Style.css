@@ -1,9 +1,13 @@
 .p-detail {
-  margin: auto;
+  margin: 50px auto;
   width: 80%;
 }
 
 .explore-btn {
   text-align: center;
   margin-bottom: 50px;
+}
+
+.similar-product > h1 {
+  margin-left: 10%;
 }

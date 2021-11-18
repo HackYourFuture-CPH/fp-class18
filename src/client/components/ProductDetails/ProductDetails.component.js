@@ -19,9 +19,11 @@ export const ProductDetails = ({
   const [color, setColor] = React.useState('');
   const [size, setSize] = React.useState('');
   const [quantity, setQuantity] = React.useState('');
+  const [checked, setChecked] = React.useState(isFavorite);
 
   const checkFavorite = () => {
-    console.log('checked'); // This function need to be change database for add or remove from favorite.
+    // This function need to be change database for add or remove from favorite.
+    setChecked(!checked);
   };
   const getQuantity = (val) => {
     setQuantity(val);
@@ -43,7 +45,7 @@ export const ProductDetails = ({
               <button type="button" onClick={checkFavorite}>
                 <div className="heart">
                   {' '}
-                  {isFavorite ? (
+                  {checked ? (
                     <Heart height="30" />
                   ) : (
                     <Heart height="30" fill="#8E0EF2" strokeWidth="0" />
@@ -78,7 +80,7 @@ export const ProductDetails = ({
               </select>
               <div className="arrow-right" />
             </div>
-            <ButtonComponent title="ADD TO CARD" onClick={onClick} />
+            <ButtonComponent title="ADD TO CART" onClick={onClick} />
           </div>
         </div>
       </div>

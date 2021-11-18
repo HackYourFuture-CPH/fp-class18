@@ -10,10 +10,8 @@ import './ProductPage.Style.css';
 const ProductPageContainer = () => {
   const { id } = useParams();
   console.log(id);
-
   const [product, setProduct] = React.useState({});
   const [similarProduct, setSimilarProduct] = React.useState([]);
-  //const history = useHistory();
 
   React.useEffect(() => {
     fetch(`api/products/${id}`)
@@ -46,7 +44,7 @@ const ProductPageContainer = () => {
 
   const addToCartHandler = () => {
     console.log('add to cart');
-    // if user is login, this product will add to cart and user can add in favorite
+    // if user is login, this product will add to cart but this functionality is not working now
 
     const item = {
       productId: product.id,
@@ -58,14 +56,12 @@ const ProductPageContainer = () => {
     };
 
     console.log(item);
-    // how to pass item to cart page ???
   };
 
   const exploreCategoryHandler = () => {
     console.log('explore product category');
-    // how to link category page
-    //history.push(`/exploreCategory/CategoryPage.Container/${product.category_id}`);
   };
+
   // prodcut deatil
 
   const { render, color, size, quantity } = ProductDetails({
@@ -81,11 +77,9 @@ const ProductPageContainer = () => {
 
   return (
     <div>
-      <div className="p-detail">
-        {render}
-        <h2>SIMILAR PRODUCT</h2>
-      </div>
-      <div>
+      <div className="p-detail">{render}</div>
+      <div className="similar-product">
+        <h1>SIMILAR PRODUCT</h1>
         <Carousel imageArray={similarProduct} />
       </div>
       <div className="explore-btn">
