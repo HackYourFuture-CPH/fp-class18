@@ -9,7 +9,6 @@ import './ProductPage.Style.css';
 
 const ProductPageContainer = () => {
   const { id } = useParams();
-  console.log(id);
   const [product, setProduct] = React.useState({});
   const [similarProduct, setSimilarProduct] = React.useState([]);
 
@@ -17,7 +16,6 @@ const ProductPageContainer = () => {
     fetch(`api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProduct(data[0]);
       })
       .catch((e) => {
