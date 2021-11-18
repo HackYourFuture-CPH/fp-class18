@@ -45,12 +45,12 @@ const ProductPageContainer = () => {
     // if user is login, this product will add to cart but this functionality is not working now
 
     const item = {
-      productId: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: quantity,
-      color: color,
-      size: size,
+      "productId": product.id,
+      "name": product.name,
+      "price": product.price,
+      "quantity": quantity,
+      "color": color,
+      "size": size,
     };
 
     console.log(item);
