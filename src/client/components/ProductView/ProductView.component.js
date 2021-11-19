@@ -17,7 +17,7 @@ export default function ProductView({
   React.useEffect(() => {
     setProductsToShow(products);
     setCurrentRange(products.slice(0, productsPerPage));
-  }, [products]);
+  }, [products, productsPerPage]);
 
   function handleSort(sortedArray) {
     if (sortedArray === undefined) return;
