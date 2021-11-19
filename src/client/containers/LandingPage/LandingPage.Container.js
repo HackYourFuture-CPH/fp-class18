@@ -8,7 +8,7 @@ const LandingPageContainer = () => {
   const [products, setProducts] = React.useState();
   const [productsImages, setProductsImages] = React.useState();
   const [categories, setCategories] = React.useState();
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     fetch('/api/products')
@@ -16,7 +16,7 @@ const LandingPageContainer = () => {
       .then((data) => {
         setProducts(data);
         setProductsImages(data.map((product) => product.picture));
-        setIsLoading(true);
+        setIsLoading(false);
       });
     fetch('/api/categories')
       .then((res) => res.json())
@@ -26,16 +26,16 @@ const LandingPageContainer = () => {
   return (
     <main>
       <div className="hero-image">
-        {isLoading && <HeroImage heroText="WELCOME" />}
+        {!isLoading && <HeroImage heroText="WELCOME" />}
       </div>
       <div>
-        {isLoading && <Carousel imageArray={productsImages} show={3} />}
+        {!isLoading && <Carousel imageArray={productsImages} show={3} />}
       </div>
       <div>
-        {isLoading && (
+        {!isLoading && (
           <ProductView
             products={products}
-            productsPerPage={6}
+            productsPerPage={9}
             categoriesList={categories}
           />
         )}
