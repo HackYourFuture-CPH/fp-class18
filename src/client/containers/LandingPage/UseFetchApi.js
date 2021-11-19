@@ -7,8 +7,10 @@ export const UseFetchApi = (url) => {
   React.useEffect(() => {
     fetch(`/api/${url}`)
       .then((res) => res.json())
-      .then((data) => setData(data))
-      .finally(() => setIsLoading(false));
-  }, [url]);
+      .then((allData) => {
+          setData(allData);
+          setIsLoading(false);
+        })
+  }, []);
   return { data, isLoading };
 };
