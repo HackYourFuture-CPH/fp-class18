@@ -11,3 +11,7 @@ main {
 .hero-image img {
   width: 100%;
 }
+
+.loading {
+  text-align: center;
+}

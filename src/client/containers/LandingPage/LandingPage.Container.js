@@ -3,40 +3,35 @@ import './LandingPage.Style.css';
 import HeroImage from '../../components/HeroImage/HeroImage.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ProductView from '../../components/ProductView/ProductView.component';
+import { UseFetchApi } from './UseFetchApi';
 
 const LandingPageContainer = () => {
-  const [products, setProducts] = React.useState();
-  const [productsImages, setProductsImages] = React.useState();
-  const [categories, setCategories] = React.useState();
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    fetch('/api/products')
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setProductsImages(data.map((product) => product.picture));
-        setIsLoading(false);
-      });
-    fetch('/api/categories')
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
+  const products = UseFetchApi('products');
+  const categories = UseFetchApi('categories');
 
   return (
     <main>
       <div className="hero-image">
-        {!isLoading && <HeroImage heroText="WELCOME" />}
+        <HeroImage heroText="WELCOME" />
       </div>
       <div>
-        {!isLoading && <Carousel imageArray={productsImages} show={3} />}
+        {products.isLoading ? (
+          <h2 className="loading">Loading...</h2>
+        ) : (
+          <Carousel
+            imageArray={products.data.map((product) => product.picture)}
+            show={3}
+          />
+        )}
       </div>
       <div>
-        {!isLoading && (
+        {categories.isLoading && products.isLoading ? (
+          <h2 className="loading">Loading...</h2>
+        ) : (
           <ProductView
-            products={products}
-            productsPerPage={9}
-            categoriesList={categories}
+            products={products.data}
+            productsPerPage={6}
+            categoriesList={categories.data}
           />
         )}
       </div>
