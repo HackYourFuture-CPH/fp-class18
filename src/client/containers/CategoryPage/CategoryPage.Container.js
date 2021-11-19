@@ -7,11 +7,13 @@ import { useState, useEffect } from 'react';
 
 const CategoryPageContainer = () => {
   const { id } = useParams();
+  console.log(id);
   const [product, setProduct] = React.useState([]);
+  const [category, setCategory] = React.useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/products/${id}`)
+    fetch(`/api/categories/${id}`)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -20,8 +22,27 @@ const CategoryPageContainer = () => {
         }
       })
       .then((data) => {
-        console.log(data);
+        console.log(data[0].name);
         setProduct(data[0]);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  }, [id]);
+  const catgr = 'Home decor';
+  useEffect(() => {
+    fetch(`/api/products`)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+          console.log('Products');
+        } else {
+          throw new Error('Something went wrong!');
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        setCategory(data[0]);
       })
       .catch((error) => {
         setError(error.message);
