@@ -14,7 +14,6 @@ export default function ContactForm({user}) {
                     <label className="email">e-mail address:  {
                         user.email
                     }</label>
-                    <span className="formPaddingBottom"/>
                 </form>
             </div>
         </div>

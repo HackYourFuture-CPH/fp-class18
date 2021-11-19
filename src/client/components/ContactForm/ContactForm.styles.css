@@ -3,45 +3,36 @@ form {
   padding: 1em;
   background: #f9f9f9;
   border: 1px solid #c1c1c1;
-  margin: 2rem auto 0 auto;
+  margin: 0.5em auto 0 auto;
   max-width: 400px;
-  padding: 1em;
+  padding-bottom: 60px;
+  background: #FFFFFF;
 }
 
 label {
-  padding: 0.5em 0.5em 0.5em 0;
+  padding: 0.5em 0 0.5em 0;
+  line-height: 20px;
 }
 
 @media (min-width: 400px) {
-  form {
-    grid-template-columns: 1fr 8fr;
-    grid-gap: 6px;
-    font-style: normal;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-  }
-
+ 
   .title {
-    text-align: left;
-    grid-column: 2 / span 1;
+    margin-left: 0.5em;
+    font-weight: bolder;
+    grid-column: 1 / span 1;
     grid-row: 1;
-    font-weight: bold;
   }
 
   .fullName {
-    text-align: left;
-    grid-column: 2 / span 1;
+    margin-left: 0.8em;
+    grid-column: 1 / span 1;
     grid-row: 2;
     padding-left: 10px;
   }
   .email {
-    text-align: left;
-    grid-column: 2 / span 1;
+    margin-left: 0.8em;
+    grid-column: 1 / span 1;
     grid-row: 3;
     padding-left: 10px;
-  }
-  .formPaddingBottom {
-    grid-column: 1 / span 2;
-    padding-bottom: 40px;
   }
 }
