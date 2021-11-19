@@ -14,7 +14,7 @@ const getOrderById = async (id) => {
     const orders = await knex('orders')
       .select('orders.id as id', 'status', 'quantity', 'name')
       .join('order_items', 'id', '=', 'order_items.order_id')
-      .join('proucts', 'products.id', '=', 'order_items.products_id')
+      .join('products', 'products.id', '=', 'order_items.products_id')
       .where({ id });
     if (orders.length === 0) {
       throw new Error(`incorrect entry with the id of ${id}`, 404);
