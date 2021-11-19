@@ -32,40 +32,40 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
         {edit ? (
           <form className="form" onSubmit={handleSubmit}>
             <label className="title">DELIVERY INFO</label>
-            <label className="addressLabel">Address</label>
+            <label className="addressInputLabel">Address:</label>
             <input
               defaultValue={user.address}
-              className="address"
+              className="addressInput"
               name="address"
               type="text"
             />
 
-            <label className="cityLabel">City</label>
+            <label className="cityInputLabel">City:</label>
             <input
               defaultValue={user.city}
-              className="city"
+              className="cityInput"
               name="city"
               type="text"
             />
 
-            <label className="zipLabel">Zip code</label>
+            <label className="zipInputLabel">Zip code:</label>
             <input
               defaultValue={user.zip}
-              className="zip"
+              className="zipInput"
               name="zipcode"
               type="number"
             />
 
-            <label className="countryLabel">Country</label>
+            <label className="countryInputLabel">Country:</label>
             <input
               defaultValue={user.country}
-              className="country"
+              className="countryInput"
               name="country"
             />
 
-            <button type="submit" className="saveButton">
-              Save
-            </button>
+            <div className="saveButtonDiv"><button className="saveButton" type="submit">
+              SAVE
+            </button></div>
             <span className="cancelLink">
               <button
                 type="button"
@@ -92,28 +92,18 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             ) : (
               ''
             )}
-            <label className="addressLabel">Address:</label>
-            <label className={`${vertDisplay ? 'addressVert' : 'address'}`}>
-              {user.address}
-            </label>
+            <label className="addressLabel">Address: {user.address}</label>
 
             <label className={`${vertDisplay ? 'cityLabelVert' : 'cityLabel'}`}>
-              City:
-            </label>
-            <label className={`${vertDisplay ? 'cityVert' : 'city'}`}>
-              {user.city}
+              City: {user.city}
             </label>
 
-            <label className="zipLabel">Zip code:</label>
-            <label className="zip">{user.zip}</label>
+            <label className="zipLabel">Zip code: {user.zip}</label>
 
             <label
               className={`${vertDisplay ? 'countryLabelVert' : 'countryLabel'}`}
             >
-              Country:
-            </label>
-            <label className={`${vertDisplay ? 'countryVert' : 'country'}`}>
-              {user.country}
+              Country: {user.country}
             </label>
           </form>
         )}{' '}

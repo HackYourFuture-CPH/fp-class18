@@ -3,7 +3,7 @@ form {
   padding: 1em;
   background: #f9f9f9;
   border: 1px solid #c1c1c1;
-  margin: 2rem auto 0 auto;
+  margin: 1rem auto 0 auto;
   max-width: 600px;
   padding: 1em;
 }
@@ -44,81 +44,66 @@ input:focus {
   }
 
   .title {
-    text-align: center;
+    text-align: left;
     grid-column: 1 / span 2;
     grid-row: 1;
     font-weight: 600;
+    margin-left: 3em;
   }
 
   .addressLabel {
-    text-align: right;
-    grid-column: 1 / span 1;
-    grid-row: 2;
-  }
-  .address {
     text-align: left;
-    grid-column: 2 / span 1;
+    grid-column: 1 / span 2;
     grid-row: 2;
+    margin-left: 4em;
   }
+
   .addressVert {
     text-align: left;
     grid-column: 2 / span 2;
     grid-row: 2;
   }
   .cityLabel {
-    text-align: right;
-    grid-column: 3 / span 1;
+    text-align: left;
+    grid-column: 3 / span 2;
     grid-row: 2;
+    margin-left: 4em;
   }
   .cityLabelVert {
-    text-align: right;
-    grid-column: 1 / span 1;
+    text-align: left;
+    grid-column: 1 / span 2;
     grid-row: 4;
-  }
-  .city {
-    text-align: left;
-    grid-column: 4 / span 1;
-    grid-row: 2;
-  }
-  .cityVert {
-    text-align: left;
-    grid-column: 2 / span 2;
-    grid-row: 4;
-  }
-  .zipLabel {
-    text-align: right;
-    grid-column: 1 / span 1;
-    grid-row: 3;
-  }
-  .zip {
-    text-align: left;
-    grid-column: 2 / span 1;
-    grid-row: 3;
-  }
-  .countryLabel {
-    text-align: right;
-    grid-column: 3 / span 1;
-    grid-row: 3;
-  }
-  .countryLabelVert {
-    text-align: right;
-    grid-column: 1 / span 1;
-    grid-row: 5;
-  }
-  .country {
-    text-align: left;
-    grid-column: 4 / span 1;
-    grid-row: 3;
-  }
-  .countryVert {
-    text-align: left;
-    grid-column: 2 / span 2;
-    grid-row: 5;
+    margin-left: 4em;
   }
 
-  .saveButton {
-    grid-column: 2 / span 1;
+  .zipLabel {
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    margin-left: 4em;
+  }
+
+  .countryLabel {
+    text-align: left;
+    grid-column: 3 / span 2;
+    grid-row: 3;
+    margin-left: 4em;
+  }
+  .countryLabelVert {
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 5;
+    margin-left: 4em;
+  }
+
+  .saveButtonDiv {
+    grid-column: 2 / span 2;
     grid-row: 4;
+    margin-left: 8em;
+    width: 40%;
+  }
+  .saveButton {
+    color: white;
   }
   .cancelLink {
     text-align: right;
@@ -139,5 +124,45 @@ input:focus {
     display: inline;
     margin: 0;
     padding: 0;
+  }
+  .addressInputLabel {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 2;
+  }
+  .addressInput {
+    text-align: left;
+    grid-column: 2 / span 1;
+    grid-row: 2;
+  }
+  .cityInputLabel {
+    text-align: right;
+    grid-column: 3 / span 1;
+    grid-row: 2;
+  }
+  .cityInput {
+    text-align: left;
+    grid-column: 4 / span 1;
+    grid-row: 2;
+  }
+  .zipInputLabel {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 3;
+  }
+  .zipInput {
+    text-align: left;
+    grid-column: 2 / span 1;
+    grid-row: 3;
+  }
+  .countryInputLabel {
+    text-align: right;
+    grid-column: 3 / span 1;
+    grid-row: 3;
+  }
+  .countryInput {
+    text-align: left;
+    grid-column: 4 / span 1;
+    grid-row: 3;
   }
 }
