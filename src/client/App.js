@@ -10,6 +10,7 @@ import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
+import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -26,6 +27,10 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+        {/* Order Page */}
+        <route exact path="/orders/:id">
+          <OrderPageContainer />
+        </route>
 
         {/* Anonymous pages */}
         <SignIn exact path="/sign-in" />

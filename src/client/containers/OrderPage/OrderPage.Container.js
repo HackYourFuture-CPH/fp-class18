@@ -1,21 +1,12 @@
 import React from 'react';
-import { useParams } from 'react-router';
 import ContactForm from '../..components/ContactForm/ContactForm.component';
 import DeliveryInformation from '../..components/ContentCard/DeliveryInformation/DeliveryInformation.component';
 import './OrderPage.Style.css';
 
 const OrderPageContainer = () => {
-  const [order, setOrder] = React.useState({});
+  const [order, setOrder] = React.useState([]);
   const [product, setProduct] = React.useState({});
-  const params = useParams();
-  React.useEffect =
-    (() => {
-      fetch(`api/orders`)
-        .then((res) => res.json())
-        .then((data) => setOrder(data))
-        .catch((error) => console.log(error));
-    },
-    [params]);
+  const params = React.useParams();
 
   React.useEffect =
     (() => {
