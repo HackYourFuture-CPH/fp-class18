@@ -28,9 +28,6 @@ function App() {
           <Home />
         </Route>
         {/* Order Page */}
-        <route exact path="/orders/:id">
-          <OrderPageContainer />
-        </route>
 
         {/* Anonymous pages */}
         <SignIn exact path="/sign-in" />
@@ -38,6 +35,10 @@ function App() {
         <ResetPassword exact path="/reset-password" />
 
         {/* All routes below are authenticated routes - a user must login first */}
+        <Route exact path="/orders/:id">
+          <OrderPageContainer />
+        </Route>
+
         <AuthenticatedRoute exact path="/profile">
           <Profile />
         </AuthenticatedRoute>
