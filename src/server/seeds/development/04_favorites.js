@@ -32,6 +32,11 @@ exports.seed = function (knex) {
           user_id: 9,
           product_id: 12,
         },
+        {
+          user_id: 2,
+          product_id: 7,
+          created_at: '2021-11-11 11:11:11',
+        },
       ]);
     });
 };
