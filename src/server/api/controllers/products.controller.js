@@ -1,8 +1,25 @@
 const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
-const getProducts = async () => {
-  return knex('products');
+const getProducts = async (request) => {
+  let products = knex('products');
+  if (!request.query.category && !request.query.daysBeforeToday) {
+    return products;
+  }
+  if (request.query.daysBeforeToday && !isNaN(request.query.daysBeforeToday)) {
+    const createdMinDate = new Date();
+    createdMinDate.setDate(
+      createdMinDate.getDate() - request.query.daysBeforeToday,
+    );
+    products = products.where('created_at', '>=', createdMinDate);
+  }
+  if (request.query.category) {
+    products = products
+      .join('categories', 'categories.id', 'category_id')
+      .select('products.*')
+      .where('categories.name', 'like', `%${request.query.category}%`);
+  }
+  return products;
 };
 
 const getProductById = async (id) => {
