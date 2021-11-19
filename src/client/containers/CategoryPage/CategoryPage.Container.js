@@ -29,9 +29,9 @@ const CategoryPageContainer = () => {
         setError(error.message);
       });
   }, [id]);
-  const catgr = 'Home decor';
+
   useEffect(() => {
-    fetch(`/api/products`)
+    fetch(`/api/products?category=lamp`)
       .then((res) => {
         if (res.ok) {
           return res.json();
