@@ -8,9 +8,9 @@ export const UseFetchApi = (url) => {
     fetch(`/api/${url}`)
       .then((res) => res.json())
       .then((allData) => {
-          setData(allData);
-          setIsLoading(false);
-        })
-  }, []);
+        setData(allData);
+        setIsLoading(false);
+      });
+  }, [url]);
   return { data, isLoading };
 };
