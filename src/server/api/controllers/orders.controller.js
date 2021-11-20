@@ -11,11 +11,20 @@ const getOrderById = async (id) => {
   }
 
   try {
-    const orders = await knex('orders')
-      .select('orders.id as id', 'status', 'quantity', 'name')
-      .join('order_items', 'id', '=', 'order_items.order_id')
-      .join('products', 'products.id', '=', 'order_items.products_id')
-      .where({ id });
+    const orders = await knex('orders AS o')
+      // .select('orders.id as id', 'status', 'quantity', 'name')
+      .select(
+        'o.id as orderId',
+        'o.status',
+        'o.user_id',
+        'oi.quantity',
+        'p.id as productId',
+        'p.name',
+        'p.picture',
+      )
+      .join('order_items AS oi ', 'o.id', '=', 'oi.order_id')
+      .join('products AS p', 'p.id', '=', 'oi.product_id')
+      .where('o.id', '=', id);
     if (orders.length === 0) {
       throw new Error(`incorrect entry with the id of ${id}`, 404);
     }
