@@ -3,7 +3,7 @@ import './LandingPage.Style.css';
 import HeroImage from '../../components/HeroImage/HeroImage.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ProductView from '../../components/ProductView/ProductView.component';
-import { UseFetchApi } from './UseFetchApi';
+import { UseFetchApi } from '../../hooks/UseFetchApi';
 
 const LandingPageContainer = () => {
   const products = UseFetchApi('products');
