@@ -8,18 +8,26 @@ import { UseFetchApi } from './UseFetchApi';
 const LandingPageContainer = () => {
   const products = UseFetchApi('products');
   const categories = UseFetchApi('categories');
+  const monthlyArrivals = UseFetchApi('products?daysBeforeToday=30');
+
+  const compareMonth = (date) => {
+    return new Date().getMonth() === new Date(date).getMonth();
+  };
 
   return (
-    <main>
+    <main id="landing-main">
       <div className="hero-image">
         <HeroImage heroText="WELCOME" />
       </div>
+      <h2>MONTHLY ARRIVALS</h2>
       <div>
         {products.isLoading ? (
           <h2 className="loading">Loading...</h2>
         ) : (
           <Carousel
-            imageArray={products.data.map((product) => product.picture)}
+            imageArray={monthlyArrivals.data.map((product) =>
+              compareMonth(product.created_at) ? product.picture : false,
+            )}
             show={3}
           />
         )}

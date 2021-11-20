@@ -2,16 +2,16 @@
   padding-top: 2em;
 }
 
-main {
+#landing-main {
   width: 95%;
   margin: auto;
   padding: 2em 0;
 }
 
-.hero-image img {
+#landing-main .hero-image img {
   width: 100%;
 }
 
-.loading {
+#landing-main .loading {
   text-align: center;
 }
