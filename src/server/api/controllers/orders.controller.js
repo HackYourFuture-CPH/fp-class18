@@ -21,6 +21,8 @@ const getOrderById = async (id) => {
         'p.id as productId',
         'p.name',
         'p.picture',
+        'p.stock_amount',
+        'p.price',
       )
       .join('order_items AS oi ', 'o.id', '=', 'oi.order_id')
       .join('products AS p', 'p.id', '=', 'oi.product_id')
