@@ -41,7 +41,7 @@ export default function ProductView({
             <li className="product-item" key={product.id}>
               <img
                 // eslint-disable-next-line
-                src={require(`../../assets/images/${product.picture}`)}
+                src={product.picture}
                 alt={`${product.name}`}
               />
             </li>
