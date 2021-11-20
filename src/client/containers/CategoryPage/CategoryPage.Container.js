@@ -1,58 +1,37 @@
 import React from 'react';
 import './CategoryPage.Style.css';
-import '../../components/menu/Menu.component';
 import { Menu } from '../../components/menu/Menu.component';
-import { useParams } from 'react-router';
-import { useState, useEffect } from 'react';
+import ProductView from '../../components/ProductView/ProductView.component';
+import { useParams } from 'react-router-dom';
 
 const CategoryPageContainer = () => {
-  const { id } = useParams();
-  console.log(id);
-  const [product, setProduct] = React.useState([]);
-  const [category, setCategory] = React.useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/categories/${id}`)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error('Something went wrong!');
-        }
-      })
+  const [products, setProducts] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+  let { name } = useParams();
+  React.useEffect(() => {
+    console.log(`id : ${name}`);
+    fetch(`api/products?category=${name}`)
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data[0].name);
-        setProduct(data[0]);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  }, [id]);
-
-  useEffect(() => {
-    fetch(`/api/products?category=lamp`)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-          console.log('Products');
-        } else {
-          throw new Error('Something went wrong!');
-        }
-      })
-      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
         console.log(data);
-        setCategory(data[0]);
       })
-      .catch((error) => {
-        setError(error.message);
+      .catch((e) => {
+        console.log(e);
       });
-  }, [id]);
-
+  }, [name]);
+  console.log(products);
   return (
     <div>
       <Menu isAuthenticated={true} />
       <h1>Category page Container</h1>
+      {/* {products.map(item => console.log(item.picture))} */}
+      <ProductView
+        products={products}
+        productsPerPage={8}
+        categoriesList={[]}
+      />
     </div>
   );
 };

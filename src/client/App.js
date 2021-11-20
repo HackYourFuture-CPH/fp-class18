@@ -28,7 +28,7 @@ function App() {
           <Home />
         </Route>
         {/* Category page */}
-        <Route exact path="/categories/:id">
+        <Route exact path="/category/:name">
           <CategoryPageContainer />
         </Route>
         {/* Anonymous pages */}
