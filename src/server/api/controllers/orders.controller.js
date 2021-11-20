@@ -15,7 +15,7 @@ const getOrderById = async (id) => {
       // .select('orders.id as id', 'status', 'quantity', 'name')
       .select(
         'o.id as orderId',
-        'o.status',
+        'o.status as orderStatus',
         'o.user_id',
         'oi.quantity',
         'p.id as productId',
