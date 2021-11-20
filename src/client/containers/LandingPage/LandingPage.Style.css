@@ -1,7 +1,3 @@
-.footer {
-  padding-top: 2em;
-}
-
 #landing-main {
   width: 95%;
   margin: auto;
@@ -10,4 +6,8 @@
 
 #landing-main .loading {
   text-align: center;
+}
+
+#landing-main .footer {
+  padding-top: 2em;
 }
