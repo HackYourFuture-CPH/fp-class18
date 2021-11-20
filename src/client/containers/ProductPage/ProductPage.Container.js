@@ -27,12 +27,9 @@ const ProductPageContainer = () => {
     fetch(`api/categories/${product.category_id}`)
       .then((res) => res.json())
       .then((category) => {
-        console.log(category);
-
         fetch(`api/products?category=${category[0].name}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             const images = data.map((item) => item.picture);
             setSimilarProduct(images);
           })
@@ -45,12 +42,12 @@ const ProductPageContainer = () => {
     // if user is login, this product will add to cart but this functionality is not working now
 
     const item = {
-      "productId": product.id,
-      "name": product.name,
-      "price": product.price,
-      "quantity": quantity,
-      "color": color,
-      "size": size,
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: quantity,
+      color: color,
+      size: size,
     };
 
     console.log(item);
