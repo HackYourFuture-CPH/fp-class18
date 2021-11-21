@@ -17,13 +17,11 @@ export default function Purchases({ orderId, date }) {
 }
 
 Purchases.defaultProps = {
-  order: {
-    orderId: '',
-    date: '',
-  },
+  orderId: '',
+  date: '',
 };
 
 Purchases.propTypes = {
-  orderid: PropTypes.number.isRequired,
-  date: PropTypes.number.isRequired,
+  orderId: PropTypes.number,
+  date: PropTypes.number,
 };
