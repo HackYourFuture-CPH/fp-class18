@@ -13,6 +13,7 @@ const LandingPageContainer = () => {
   const compareMonth = (date) => {
     return new Date().getMonth() === new Date(date).getMonth();
   };
+  
 
   return (
     <main id="landing-main">
