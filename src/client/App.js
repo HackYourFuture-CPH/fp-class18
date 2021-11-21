@@ -11,6 +11,7 @@ import Loader from './components/Loader';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
+import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -25,6 +26,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <LandingPageContainer />
+        </Route>
+        <Route exact path="/Container/ProductPage/:id">
+          <ProductPageContainer />
         </Route>
 
         {/* Anonymous pages */}

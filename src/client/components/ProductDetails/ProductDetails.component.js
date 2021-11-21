@@ -17,7 +17,7 @@ export const ProductDetails = ({
   imageAlt,
 }) => {
   const [checked, setChecked] = React.useState(isFavorite);
-  const checkFavorite = () => {
+  const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
     setChecked(!checked);
   };
@@ -31,7 +31,7 @@ export const ProductDetails = ({
         <div>
           <div className="product-name">
             {ProductName}
-            <button type="button" onClick={checkFavorite}>
+            <button type="button" onClick={checkFavoriteHandler}>
               <div className="heart">
                 {' '}
                 {checked ? (

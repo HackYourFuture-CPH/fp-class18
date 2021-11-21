@@ -6,29 +6,22 @@ import { ProductDetails } from '../../components/ProductDetails/ProductDetails.c
 import Carousel from '../../components/Carousel/Carousel.component';
 import ButtonComponent from '../../components/Button/Button.component';
 import './ProductPage.Style.css';
-import { useFetchApi } from '../../hooks/UseFetchApi.js';
 
 const ProductPageContainer = () => {
   const { id } = useParams();
-  // const [product, setProduct] = React.useState({});
+  const [product, setProduct] = React.useState({});
   const [similarProduct, setSimilarProduct] = React.useState([]);
 
-  const productFetch = useFetchApi(`products/${id}`);
-  console.log(productFetch);
-  const productArray = productFetch.data;
-  const product = productArray[0];
-  console.log(product);
-
-  // React.useEffect(() => {
-  //   fetch(`api/products/${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setProduct(data[0]);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // }, [id]);
+  React.useEffect(() => {
+    fetch(`api/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data[0]);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, [id]);
 
   React.useEffect(() => {
     fetch(`api/categories/${product.category_id}`)
@@ -54,6 +47,7 @@ const ProductPageContainer = () => {
   const exploreCategoryHandler = () => {
     console.log('explore product category');
   };
+
   return (
     <div>
       <div>
