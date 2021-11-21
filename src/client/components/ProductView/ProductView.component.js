@@ -5,6 +5,7 @@ import Pagination from '../ProductsPagination/ProductsPagination.component';
 import Sorting from '../Sorting/Sorting.component';
 
 export default function ProductView({
+  header,
   products,
   productsPerPage,
   categoriesList,
@@ -27,7 +28,7 @@ export default function ProductView({
 
   return (
     <div className="product-view">
-      <h3>All Products</h3>
+      <h3>{header}</h3>
       <Sorting
         arrayToSort={products}
         categoriesList={categoriesList}
@@ -39,7 +40,13 @@ export default function ProductView({
         {currentRange.map((product) => {
           return (
             <li className="product-item" key={product.id}>
-              <img src={product.picture} alt={product.name} />
+              <img
+                // eslint-disable-next-line
+                src={require(`../../assets/images/${
+                  product.picture.split('/')[4]
+                }`)}
+                alt={product.name}
+              />
             </li>
           );
         })}
@@ -55,6 +62,7 @@ export default function ProductView({
 }
 
 ProductView.propTypes = {
+  header: PropTypes.string,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -70,4 +78,8 @@ ProductView.propTypes = {
       map: PropTypes.func,
     }),
   ).isRequired,
+};
+
+ProductView.defaultProps = {
+  header: 'All Products',
 };

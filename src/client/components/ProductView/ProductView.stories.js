@@ -1,17 +1,5 @@
 import React from 'react';
 import ProductView from './ProductView.component';
-import image01 from '../../assets/images/image01.png';
-import image02 from '../../assets/images/image02.png';
-import image03 from '../../assets/images/image03.png';
-import image04 from '../../assets/images/image04.png';
-import image05 from '../../assets/images/image05.png';
-import image06 from '../../assets/images/image06.png';
-import image07 from '../../assets/images/image07.png';
-import image08 from '../../assets/images/image08.png';
-import image09 from '../../assets/images/image09.png';
-import image10 from '../../assets/images/image10.png';
-import image11 from '../../assets/images/image11.png';
-import image12 from '../../assets/images/image12.png';
 
 export default {
   title: 'Components / ProductView',
@@ -50,7 +38,7 @@ basicProductView.args = {
       id: 1,
       name: 'Ceramic pot',
       price: 50,
-      picture: image01,
+      picture: 'src/client/assets/images/image01.png',
       stock_amount: 20,
       category_id: 3,
       created_at: '2020-02-11 00:00:00',
@@ -60,7 +48,7 @@ basicProductView.args = {
       name: 'Table lamp',
       price: 150,
       color: 'white',
-      picture: image02,
+      picture: 'src/client/assets/images/image02.png',
       stock_amount: 58,
       category_id: 2,
       created_at: '2020-04-16 00:00:00',
@@ -70,7 +58,7 @@ basicProductView.args = {
       name: 'Ceramic pottery',
       price: 120,
       color: 'blue',
-      picture: image03,
+      picture: 'src/client/assets/images/image03.png',
       stock_amount: 140,
       category_id: 3,
       created_at: '2020-11-28 00:00:00',
@@ -80,7 +68,7 @@ basicProductView.args = {
       name: 'Picture frame',
       price: 80,
       color: 'white',
-      picture: image04,
+      picture: 'src/client/assets/images/image04.png',
       stock_amount: 2,
       category_id: 3,
       created_at: '2019-11-28 00:00:00',
@@ -90,7 +78,7 @@ basicProductView.args = {
       name: 'Pillow case',
       price: 65,
       color: 'white',
-      picture: image05,
+      picture: 'src/client/assets/images/image05.png',
       stock_amount: 2,
       category_id: 4,
       created_at: '2020-12-16 00:00:00',
@@ -99,16 +87,16 @@ basicProductView.args = {
       id: 6,
       name: 'Knitted plaid',
       price: 80,
-      picture: image06,
+      picture: 'src/client/assets/images/image06.png',
       stock_amount: 134,
       category_id: 4,
-      created_at: '2021-12-10 00:00:00',
+      created_at: '2020-12-10 00:00:00',
     },
     {
       id: 7,
       name: 'Mirror diamonds',
       price: 520,
-      picture: image07,
+      picture: 'src/client/assets/images/image07.png',
       stock_amount: 12,
       category_id: 3,
       created_at: '2021-04-16 00:00:00',
@@ -117,7 +105,7 @@ basicProductView.args = {
       id: 8,
       name: 'Ceramic candliers',
       price: 150,
-      picture: image08,
+      picture: 'src/client/assets/images/image08.png',
       stock_amount: 321,
       category_id: 3,
       created_at: '2021-10-16 00:00:00',
@@ -126,7 +114,7 @@ basicProductView.args = {
       id: 9,
       name: 'Retro chair',
       price: 850,
-      picture: image09,
+      picture: 'src/client/assets/images/image09.png',
       stock_amount: 7,
       category_id: 1,
       created_at: '2021-08-12 00:00:00',
@@ -136,7 +124,7 @@ basicProductView.args = {
       name: 'Modern table lamp',
       price: 430,
       color: 'black',
-      picture: image10,
+      picture: 'src/client/assets/images/image10.png',
       stock_amount: 12,
       category_id: 3,
       created_at: '2020-04-17 00:00:00',
@@ -146,7 +134,7 @@ basicProductView.args = {
       name: 'Silk pillow case',
       price: 120,
       color: 'black',
-      picture: image11,
+      picture: 'src/client/assets/images/image11.png',
       stock_amount: 12,
       category_id: 3,
       created_at: '2021-11-07 00:00:00',
@@ -155,7 +143,7 @@ basicProductView.args = {
       id: 12,
       name: 'Modern dinig table',
       price: 520,
-      picture: image12,
+      picture: 'src/client/assets/images/image12.png',
       stock_amount: 12,
       category_id: 3,
       created_at: '2021-11-09 00:00:00',
