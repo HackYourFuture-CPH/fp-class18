@@ -4,6 +4,7 @@ exports.seed = function (knex) {
     .then(function () {
       return knex('products').insert([
         {
+          id: 1,
           name: 'Ceramic pot',
           price: 50,
           picture: 'src/client/assets/images/image01.png',
@@ -11,6 +12,7 @@ exports.seed = function (knex) {
           category_id: 3,
         },
         {
+          id: 2,
           name: 'Table lamp',
           price: 150,
           color: 'white',
@@ -19,6 +21,7 @@ exports.seed = function (knex) {
           category_id: 2,
         },
         {
+          id: 3,
           name: 'Ceramic pottery',
           price: 120,
           color: 'blue',
@@ -27,6 +30,7 @@ exports.seed = function (knex) {
           category_id: 3,
         },
         {
+          id: 4,
           name: 'Picture frame',
           price: 80,
           color: 'white',
@@ -35,6 +39,7 @@ exports.seed = function (knex) {
           category_id: 3,
         },
         {
+          id: 5,
           name: 'Pillow case',
           price: 65,
           color: 'white',
@@ -43,6 +48,7 @@ exports.seed = function (knex) {
           category_id: 4,
         },
         {
+          id: 6,
           name: 'Knitted plaid',
           price: 80,
           picture: 'src/client/assets/images/image06.png',
@@ -50,6 +56,7 @@ exports.seed = function (knex) {
           category_id: 4,
         },
         {
+          id: 7,
           name: 'Mirror diamonds',
           price: 520,
           picture: 'src/client/assets/images/image07.png',
@@ -57,6 +64,7 @@ exports.seed = function (knex) {
           category_id: 3,
         },
         {
+          id: 8,
           name: 'Ceramic candliers',
           price: 150,
           picture: 'src/client/assets/images/image08.png',
@@ -64,6 +72,7 @@ exports.seed = function (knex) {
           category_id: 3,
         },
         {
+          id: 9,
           name: 'Retro chair',
           price: 850,
           picture: 'src/client/assets/images/image09.png',
@@ -71,6 +80,7 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
+          id: 10,
           name: 'Modern table lamp',
           price: 430,
           color: 'black',
@@ -79,6 +89,7 @@ exports.seed = function (knex) {
           category_id: 2,
         },
         {
+          id: 11,
           name: 'Silk pillow case',
           price: 120,
           color: 'black',
@@ -87,6 +98,7 @@ exports.seed = function (knex) {
           category_id: 3,
         },
         {
+          id: 12,
           name: 'Modern dinig table',
           price: 520,
           picture: 'src/client/assets/images/image12.png',
