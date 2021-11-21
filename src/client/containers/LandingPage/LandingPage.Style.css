@@ -11,3 +11,7 @@ main .loading {
 main .footer {
   padding-top: 2em;
 }
+
+main .product-view h3 {
+  text-align: center;
+}
