@@ -1,13 +1,13 @@
-#landing-main {
+main {
   width: 95%;
   margin: auto;
   padding: 2em 0;
 }
 
-#landing-main .loading {
+main .loading {
   text-align: center;
 }
 
-#landing-main .footer {
+main .footer {
   padding-top: 2em;
 }

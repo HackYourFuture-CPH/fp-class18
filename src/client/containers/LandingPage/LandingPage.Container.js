@@ -3,20 +3,19 @@ import './LandingPage.Style.css';
 import HeroImage from '../../components/HeroImage/HeroImage.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ProductView from '../../components/ProductView/ProductView.component';
-import { UseFetchApi } from '../../hooks/UseFetchApi';
+import { useFetchApi } from '../../hooks/UseFetchApi';
 
 const LandingPageContainer = () => {
-  const products = UseFetchApi('products');
-  const categories = UseFetchApi('categories');
-  const monthlyArrivals = UseFetchApi('products?daysBeforeToday=30');
+  const products = useFetchApi('products');
+  const categories = useFetchApi('categories');
+  const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
 
   const compareMonth = (date) => {
     return new Date().getMonth() === new Date(date).getMonth();
   };
-  
 
   return (
-    <main id="landing-main">
+    <main>
       <div className="hero-image">
         <HeroImage heroText="WELCOME" />
       </div>

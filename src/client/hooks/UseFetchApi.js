@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const UseFetchApi = (url) => {
+export const useFetchApi = (url) => {
   const [data, setData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
