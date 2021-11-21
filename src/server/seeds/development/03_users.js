@@ -11,6 +11,7 @@ exports.seed = function (knex) {
           zipcode: '1234',
           city: 'Copenhagen',
           country: 'Denmark',
+          created_at: '2021-11-21 00:00:00',
         },
         {
           id: 2,
@@ -20,6 +21,7 @@ exports.seed = function (knex) {
           zipcode: '2265',
           city: 'Copenhagen',
           country: 'Denmark',
+          created_at: '2021-11-18 00:00:00',
         },
         {
           id: 3,
@@ -29,6 +31,7 @@ exports.seed = function (knex) {
           zipcode: '2650',
           city: 'Hvidovre',
           country: 'Denmark',
+          created_at: '2021-11-17 00:00:00',
         },
         {
           id: 4,
@@ -38,6 +41,7 @@ exports.seed = function (knex) {
           zipcode: '2665',
           city: 'Vallensbæk',
           country: 'Denmark',
+          created_at: '2021-11-11 00:00:00',
         },
         {
           id: 5,
@@ -47,6 +51,7 @@ exports.seed = function (knex) {
           zipcode: '2675',
           city: 'Ishøj',
           country: 'Denmark',
+          created_at: '2021-11-03 00:00:00',
         },
         {
           id: 6,
@@ -56,6 +61,7 @@ exports.seed = function (knex) {
           zipcode: '2345',
           city: 'Odense',
           country: 'Denmark',
+          created_at: '2021-11-19 00:00:00',
         },
         {
           id: 7,
@@ -65,6 +71,7 @@ exports.seed = function (knex) {
           zipcode: '3434',
           city: 'London',
           country: 'England',
+          created_at: '2021-11-11 00:00:00',
         },
         {
           id: 8,
@@ -74,6 +81,7 @@ exports.seed = function (knex) {
           zipcode: '9878',
           city: 'Aarhus',
           country: 'Denmark',
+          created_at: '2021-11-20 00:00:00',
         },
         {
           id: 9,
@@ -83,6 +91,7 @@ exports.seed = function (knex) {
           zipcode: '3211',
           city: 'Copenhagen',
           country: 'Denmark',
+          created_at: '2021-11-13 00:00:00',
         },
       ]);
     });
