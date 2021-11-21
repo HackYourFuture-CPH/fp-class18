@@ -1,6 +1,5 @@
 exports.up = function (knex) {
   return knex.schema.createTable('order_items', (table) => {
-    table.integer('id').primary();
     table
       .integer('order_id')
       .unsigned()

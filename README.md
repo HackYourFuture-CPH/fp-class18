@@ -37,9 +37,9 @@
 
 This repository is for Class18 Final Project - Interior Design Webshop
 
-Production website: 
+Production website:
 
-Staging website: 
+Staging website:
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -54,14 +54,14 @@ Staging website:
 
 ## 📅 Project's Calendar
 
-- 31-Oct-2021	- 12:00 to 16:00
-- 07-Nov-2021 - 12:00 to 16:00	
-- 14-Nov-2021 - 12:00 to 16:00	
-- 21-Nov-2021 - 12:00 to 16:00	
-- 28-Nov-2021 - 12:00 to 16:00	
-- 05-Dec-2021	- 12:00 to 16:00
+- 31-Oct-2021 - 12:00 to 16:00
+- 07-Nov-2021 - 12:00 to 16:00
+- 14-Nov-2021 - 12:00 to 16:00
+- 21-Nov-2021 - 12:00 to 16:00
+- 28-Nov-2021 - 12:00 to 16:00
+- 05-Dec-2021 - 12:00 to 16:00
 - 12-Dec-2021- 12:00 to 16:00
-- 15-Dec-2021 - Graduation (Wednesday from 16:00 to 20:00) 
+- 15-Dec-2021 - Graduation (Wednesday from 16:00 to 20:00)
 
 ## 🕛 Class Daily Agenda 🕓
 
@@ -82,11 +82,12 @@ _Add here information about the Business Glossary_
 [Business Glossary](/BusinessGlossary.md)
 
 #### 🖼 Wireframes
+
 Check the mockup here https://www.figma.com/file/lMeDy1n608SLjsKYrKu1nc/HYF-WebShop?node-id=2%3A4
 
 #### 🗄️ Database Model Diagram
 
-DB Model Diagram_ - https://dbdiagram.io/d/616ae287940c4c4eec9881e3
+DB Model Diagram\_ - https://dbdiagram.io/d/616ae287940c4c4eec9881e3
 
 - [How to make changes on the diagram](/diagram.md)
 
@@ -104,18 +105,25 @@ DB Model Diagram_ - https://dbdiagram.io/d/616ae287940c4c4eec9881e3
 Generally there are 2 types of components: _presentational_ and _container_ components. Please review the differences below:
 
 |                       | Presentational components                           | Container components                                                                                                                                                      |
-| --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 | Also known as         | "dumb" components, functional stateless components  | "smart" components, stateful components                                                                                                                                   |
 | Lives in this folder  | `/components`                                       | `/containers`                                                                                                                                                             |
 | Purpose               | Determines what a component looks like              | Determines how the applications works                                                                                                                                     |
 | Communication         | Can only communicate by receiving and passing props | Can communicate via props, can call APIs, can manipulate the DOM with REFs, etc.                                                                                          |
 | Markup                | Contains most of the markup for the application     | Should generally have as little markup as possible. A container `<div>` or an `<ul>` tag is ok, but if you need more, consider making a separate presentational component |
 | Storybook             | Can easily be mocked in Storybook                   | Cannot easily be mocked in Storybook, would require mocking API calls, etc.                                                                                               |
-| Can have side effects | No                                                  | Yes                                                                                                                                                                       |  |
+| Can have side effects | No                                                  | Yes                                                                                                                                                                       |     |
 
 #### A note about React Hooks
 
 These are general distinctions. In the past you could only make container components as class components as functions could not have state, but with React Hooks functional components can now have state. And with the addition of Context API components can easily communicate with their siblings and jump multiple steps in the hierarchy outside of how props are used to communicate between components. This is very powerful and can be convenient, but can easily make the application overly complex, so the advice is to stick to the separation between Presentational and Container components as closely as possible and only apply for example Context API where there is a justified need.
+
+#### About useFetchApi Hooks
+
+- useFetchApi(url) We can use that hook function for get and render fetch directly in variables. With this hooks we dont need to use much states and loading. There is an example:
+  const fetchProducts = useFetchApi('products')
+  const products = fetchProducts.data
+  const isLoading = fetchProducts.isLoading
 
 #### Proptypes
 
