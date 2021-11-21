@@ -5,6 +5,7 @@ import Pagination from '../ProductsPagination/ProductsPagination.component';
 import Sorting from '../Sorting/Sorting.component';
 
 export default function ProductView({
+  header,
   products,
   productsPerPage,
   categoriesList,
@@ -27,7 +28,7 @@ export default function ProductView({
 
   return (
     <div className="product-view">
-      <h3>All Products</h3>
+      <h3>{header}</h3>
       <Sorting
         arrayToSort={products}
         categoriesList={categoriesList}
@@ -55,6 +56,7 @@ export default function ProductView({
 }
 
 ProductView.propTypes = {
+  header: PropTypes.string,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -69,5 +71,10 @@ ProductView.propTypes = {
       name: PropTypes.string,
       map: PropTypes.func,
     }),
-  ).isRequired,
+  ),
+};
+
+ProductView.defaultProps = {
+  header: 'All Products',
+  productsPerPage: 6,
 };
