@@ -40,7 +40,13 @@ export default function ProductView({
         {currentRange.map((product) => {
           return (
             <li className="product-item" key={product.id}>
-              <img src={product.picture} alt={product.name} />
+              <img
+                // eslint-disable-next-line
+                src={require(`../../assets/images/${
+                  product.picture.split('/')[4]
+                }`)}
+                alt={product.name}
+              />
             </li>
           );
         })}
@@ -71,10 +77,9 @@ ProductView.propTypes = {
       name: PropTypes.string,
       map: PropTypes.func,
     }),
-  ),
+  ).isRequired,
 };
 
 ProductView.defaultProps = {
   header: 'All Products',
-  productsPerPage: 6,
 };
