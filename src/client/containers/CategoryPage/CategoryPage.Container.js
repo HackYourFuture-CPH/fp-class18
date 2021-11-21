@@ -9,7 +9,6 @@ const CategoryPageContainer = () => {
 
   const { name } = useParams();
   React.useEffect(() => {
-    console.log(`id : ${name}`);
     fetch(`api/products?category=${name}`)
       .then((res) => res.json())
       .then((data) => {
