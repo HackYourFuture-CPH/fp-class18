@@ -1,8 +1,7 @@
-h1 {
-  color: rgb(0, 0, 0);
-  text-align: left;
-  font-size: 3em;
-  margin-left: 180px;
-  margin-top: 60px;
-  text-transform: uppercase;
+footer {
+  margin-top: 2em;
+}
+
+.product-view h3 {
+  padding-left: 5em;
 }

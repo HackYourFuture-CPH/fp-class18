@@ -6,15 +6,14 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 
 const CategoryPageContainer = () => {
   const { name } = useParams();
-  const products = useFetchApi(`products?category=${name}`);
-  console.log(products);
+  const products = useFetchApi(`products?category=${name}`).data;
   return (
     <div>
-      <h1 className="category">{name}</h1>
       {products.isLoading ? (
         <h2>Loading...</h2>
       ) : (
         <ProductView
+          header={name}
           products={products}
           productsPerPage={8}
           categoriesList={[]}
