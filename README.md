@@ -118,6 +118,8 @@ Generally there are 2 types of components: _presentational_ and _container_ comp
 
 These are general distinctions. In the past you could only make container components as class components as functions could not have state, but with React Hooks functional components can now have state. And with the addition of Context API components can easily communicate with their siblings and jump multiple steps in the hierarchy outside of how props are used to communicate between components. This is very powerful and can be convenient, but can easily make the application overly complex, so the advice is to stick to the separation between Presentational and Container components as closely as possible and only apply for example Context API where there is a justified need.
 
+#### About useFetchApi Hooks
+
 - useFetchApi(url) We can use that hook function for get and render fetch directly in variables. With this hooks we dont need to use much states and loading. There is an example:
   const fetchProducts = useFetchApi('products')
   const products = fetchProducts.data
