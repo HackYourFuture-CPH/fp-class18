@@ -27,7 +27,15 @@ const getUsersById = async (id) => {
   }
 };
 
+const getUserFavorites = async (user_id) => {
+  return knex('favorites')
+    .join('products', 'products.id', 'product_id')
+    .select('products.*')
+    .where({ user_id });
+};
+
 module.exports = {
   getUsers,
   getUsersById,
+  getUserFavorites,
 };
