@@ -5,7 +5,7 @@ const getOrders = async () => {
   return knex('orders');
 };
 
-const getOrderById = async (id) => {
+const getOrderByUserId = async (id) => {
   if (!id) {
     throw new HttpError(
       'Bad request. Order ID must be an integer and larger than 0',
@@ -14,7 +14,7 @@ const getOrderById = async (id) => {
   }
 
   try {
-    const orders = await knex('orders').select('orders').where({ id });
+    const orders = await knex('orders').select('orders').where({ user_id });
     if (orders.length === 0) {
       throw new Error(` order with the specified ID was not found`, 404);
     }
@@ -26,5 +26,5 @@ const getOrderById = async (id) => {
 
 module.exports = {
   getOrders,
-  getOrderById,
+  getOrderByUserId,
 };

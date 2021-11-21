@@ -11,9 +11,9 @@ const ordersController = require('../controllers/orders.controller');
  *  get:
  *    tags:
  *    - Orders
- *    summary: Get all orders
+ *    summary: Get all orders of specific user
  *    description:
- *      Will return all orders.
+ *      Will return all orders of specific user.
  *    produces: application/json
  *    responses:
  *      200:
@@ -34,9 +34,9 @@ router.get('/', (req, res, next) => {
  *  get:
  *    tags:
  *    - Orders
- *    summary: Get order by ID
+ *    summary: Get order by user_ID
  *    description:
- *      Will return single order with a matching ID.
+ *      Will return all orders with a matching user_ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
@@ -58,7 +58,7 @@ router.get('/', (req, res, next) => {
  */
 router.get('/:id', (req, res, next) => {
   ordersController
-    .getOrderById(req.params.id)
+    .getOrderByUserId(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
