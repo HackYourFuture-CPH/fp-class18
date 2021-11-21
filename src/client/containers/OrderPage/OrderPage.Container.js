@@ -2,34 +2,33 @@ import React from 'react';
 // import ContactForm from '../..components/ContactForm/ContactForm.component';
 // import DeliveryInformation from '../..components/ContentCard/DeliveryInformation/DeliveryInformation.component';
 import './OrderPage.Style.css';
+import { useParams } from 'react-router-dom';
 
 const OrderPageContainer = () => {
   const [products, setProducts] = React.useState([]);
-  const params = React.useParams();
-
-  const getProductsByOrderId = async (id) => {
-    const response = await fetch('api/orders/:id', {
-      method: 'GET',
-      data: { id },
-    });
-    return response.json();
-  };
+  const { id } = useParams();
 
   React.useEffect =
-    (async () => {
-      const products = getProductsByOrderId(params.id);
-      setProducts(products);
+    (() => {
+      fetch(`api/orders/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setProducts(data);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
-    [params.id]);
-
+    [id]);
   return (
     <div>
       <h1>Order page Container</h1>
       <div className="order-product-total">
         <div className="order-product">
           <div className="order">
-            <div>ORDER ID: {params.id}</div>
-            <div>ORDER STATUS: {order.status}</div>
+            <div>ORDER ID: {id}</div>
+            <div>ORDER STATUS: {products.orderStatus}</div>
           </div>
           <div className="product">
             <div className="picture-name-quantity">
