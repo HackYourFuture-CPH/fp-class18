@@ -8,13 +8,9 @@ import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import { useAuthentication } from './hooks/useAuthentication';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
-<<<<<<< HEAD
 import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
-=======
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
-import { Footer } from './components/Footer/Footer.component';
->>>>>>> develop
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -46,7 +42,6 @@ function App() {
           <Profile />
         </AuthenticatedRoute>
       </Switch>
-      <Footer />
     </Router>
   );
 }

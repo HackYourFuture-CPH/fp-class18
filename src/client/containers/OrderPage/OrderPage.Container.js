@@ -3,24 +3,13 @@ import React from 'react';
 // import DeliveryInformation from '../..components/ContentCard/DeliveryInformation/DeliveryInformation.component';
 import './OrderPage.Style.css';
 import { useParams } from 'react-router-dom';
+import { useFetchApi } from '../../hooks/UseFetchApi';
 
 const OrderPageContainer = () => {
-  const [products, setProducts] = React.useState([]);
   const { id } = useParams();
+  const order = useFetchApi(`orders/${id}`);
+  console.log(order.data);
 
-  React.useEffect =
-    (() => {
-      fetch(`api/orders/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setProducts(data);
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-    [id]);
   return (
     <div>
       <h1>Order page Container</h1>
@@ -28,7 +17,7 @@ const OrderPageContainer = () => {
         <div className="order-product">
           <div className="order">
             <div>ORDER ID: {id}</div>
-            <div>ORDER STATUS: {products.orderStatus}</div>
+            <div>ORDER STATUS: {order.orderStatus}</div>
           </div>
           <div className="product">
             <div className="picture-name-quantity">
