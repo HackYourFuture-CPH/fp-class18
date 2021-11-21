@@ -15,9 +15,7 @@ const CategoryPageContainer = () => {
         setProducts(data);
         setIsLoading(false);
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   }, [name]);
 
   return (
