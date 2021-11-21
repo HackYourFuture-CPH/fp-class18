@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Home } from './containers/Home/Home';
 import SignIn from './containers/SignIn';
 import SignUp from './containers/SignUp';
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import { useAuthentication } from './hooks/useAuthentication';
-import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
+import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
+import { Menu } from './components/menu/Menu.component';
+import { Footer } from './components/Footer/Footer.component';
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -20,11 +21,10 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Menu isAuthenticated={false} />
       <Switch>
-        {/* Home page */}
         <Route exact path="/">
-          <Home />
+          <LandingPageContainer />
         </Route>
 
         {/* Anonymous pages */}
@@ -37,6 +37,7 @@ function App() {
           <Profile />
         </AuthenticatedRoute>
       </Switch>
+      <Footer />
     </Router>
   );
 }
