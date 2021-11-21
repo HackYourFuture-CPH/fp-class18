@@ -52,9 +52,9 @@ router.get('/', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  *      400:
- *        description: Bad request. Category ID must be an integer and larger than 0.
+ *        description: Bad request. Order ID must be an integer and larger than 0.
  *      404:
- *        description: A category with the specified ID was not found.
+ *        description: A order with the specified ID was not found.
  */
 router.get('/:id', (req, res, next) => {
   ordersController
