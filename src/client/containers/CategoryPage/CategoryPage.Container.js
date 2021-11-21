@@ -4,20 +4,8 @@ import ProductView from '../../components/ProductView/ProductView.component';
 import { useParams } from 'react-router-dom';
 
 const CategoryPageContainer = () => {
-  const [products, setProducts] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
-
   const { name } = useParams();
-  React.useEffect(() => {
-    fetch(`api/products?category=${name}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setIsLoading(false);
-      })
-      .catch((e) => {});
-  }, [name]);
-
+  const products = useFetchApi('products?category=${name}');
   return (
     <div>
       <h1 className="category">{name}</h1>

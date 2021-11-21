@@ -6,11 +6,3 @@ h1 {
   margin-top: 60px;
   text-transform: uppercase;
 }
-
-.sorting-div {
-  display: none;
-}
-
-h3 {
-  visibility: hidden;
-}
