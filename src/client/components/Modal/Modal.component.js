@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Modal.styles.css';
-import { action } from '@storybook/addon-actions';
 import addedCart from '../../assets/images/addedCart.png';
 
 export default function ModalComponent({ show, handleLink, handleCloseModal }) {
@@ -54,7 +53,6 @@ ModalComponent.propTypes = {
 };
 
 ModalComponent.defaultProps = {
-  show: false,
   handleLink: () => {
     return 'clicked';
   },
