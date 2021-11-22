@@ -1,0 +1,23 @@
+* {
+  text-align: center;
+}
+
+.btnCart {
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  color: white;
+  background-color: #8e0ef2;
+  font-size: 14px;
+  padding: 11px 20px;
+  width: 200px;
+  margin: 3px;
+}
+
+.btnShopping {
+  color: #8e0ef2;
+  background-color: white;
+  border: 1px solid #8e0ef2;
+}
