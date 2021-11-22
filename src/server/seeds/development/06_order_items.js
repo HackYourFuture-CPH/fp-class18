@@ -6,11 +6,12 @@ exports.seed = function (knex) {
         {
           order_id: 1,
           product_id: 1,
-          quantity: 4,
+          quantity: 2,
         },
         {
           order_id: 1,
           product_id: 10,
+          quantity: 4,
         },
         {
           order_id: 2,
@@ -20,19 +21,22 @@ exports.seed = function (knex) {
         {
           order_id: 3,
           product_id: 7,
+          quantity: 1,
         },
         {
           order_id: 4,
           product_id: 5,
+          quantity: 7,
         },
         {
           order_id: 5,
           product_id: 10,
+          quantity: 1,
         },
         {
           order_id: 4,
           product_id: 12,
-          quantity: 5,
+          quantity: 3,
         },
         {
           order_id: 4,

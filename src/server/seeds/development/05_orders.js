@@ -13,7 +13,7 @@ exports.seed = function (knex) {
           id: 2,
           user_id: 5,
           created_at: '2021-09-12 12:00:00',
-          status: 'payed',
+          status: 'created',
         },
         {
           id: 3,
@@ -24,6 +24,7 @@ exports.seed = function (knex) {
         {
           id: 4,
           user_id: 1,
+          status: 'created',
           created_at: '2021-11-12 18:00:00',
         },
         {
@@ -35,11 +36,13 @@ exports.seed = function (knex) {
         {
           id: 6,
           user_id: 9,
+          status: 'payed',
           created_at: '2021-11-10 21:00:00',
         },
         {
           id: 7,
           user_id: 3,
+          status: 'confirmed',
           created_at: '2021-09-12 21:00:00',
         },
       ]);
