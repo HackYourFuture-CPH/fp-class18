@@ -38,7 +38,7 @@ const Carousel = ({ imageArray, show }) => {
 };
 
 Carousel.propTypes = {
-  imageArray: PropTypes.arrayOf,
+  imageArray: PropTypes.arrayOf(PropTypes.any),
   show: PropTypes.number,
 };
 Carousel.defaultProps = {
