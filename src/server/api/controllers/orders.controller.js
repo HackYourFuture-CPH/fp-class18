@@ -5,18 +5,18 @@ const getOrders = async () => {
   return knex('orders');
 };
 
-const getOrderByUserId = async (userId) => {
-  if (!userId) {
+const getOrderByUserId = async (user_id) => {
+  if (!user_id) {
     throw new HttpError(
-      'Bad request. Order ID must be an integer and larger than 0',
+      'Bad request.  user_id must be an integer and larger than 0',
       400,
     );
   }
 
   try {
-    const orders = await knex('orders').select('orders').where({ userId });
+    const orders = await knex('orders').select('orders').where({ user_id });
     if (orders.length === 0) {
-      throw new Error(` order with the specified ID was not found`, 404);
+      throw new Error(` order with the specified user_id was not found`, 404);
     }
     return orders;
   } catch (error) {

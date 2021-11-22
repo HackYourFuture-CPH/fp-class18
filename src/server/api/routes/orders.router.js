@@ -11,9 +11,9 @@ const ordersController = require('../controllers/orders.controller');
  *  get:
  *    tags:
  *    - Orders
- *    summary: Get all orders of specific user
+ *    summary: Get all orders
  *    description:
- *      Will return all orders of specific user.
+ *      Will return all orders.
  *    produces: application/json
  *    responses:
  *      200:
@@ -30,21 +30,21 @@ router.get('/', (req, res, next) => {
 
 /**
  * @swagger
- * /orders/{ID}:
+ * /orders/{user_id}:
  *  get:
  *    tags:
  *    - Orders
- *    summary: Get order by user_ID
+ *    summary: Get order by user_id
  *    description:
- *      Will return all orders with a matching user_ID.
+ *      Will return  order with a matching user_id.
  *    produces: application/json
  *    parameters:
  *     - in: path
- *       name: ID
+ *       name: user_id
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the order to get
+ *         description: The order of the user_id to get
  *
  *    responses:
  *      200:
@@ -52,13 +52,13 @@ router.get('/', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  *      400:
- *        description: Bad request. Order ID must be an integer and larger than 0.
+ *        description: Bad request. user_id must be an integer and larger than 0.
  *      404:
- *        description: A order with the specified ID was not found.
+ *        description: A order with the specified user_id was not found.
  */
-router.get('/:id', (req, res, next) => {
+router.get('/?{user_id}', (req, res, next) => {
   ordersController
-    .getOrderByUserId(req.params.id)
+    .getOrderByUserId(req.query.user_id)
     .then((result) => res.json(result))
     .catch(next);
 });
