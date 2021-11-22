@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import ModalComponent from './Modal.component';
 
 export default {
@@ -19,13 +19,15 @@ export const Component = () => {
   };
 
   return (
-    <Fragment>
-      <button onClick={handleClick}>view modal</button>
+    <>
+      <button type="button" onClick={handleClick}>
+        view modal
+      </button>
       <ModalComponent
         show={isShow}
         handleLink={handleLink}
         handleCloseModal={handleClose}
       />
-    </Fragment>
+    </>
   );
 };

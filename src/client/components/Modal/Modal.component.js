@@ -30,12 +30,16 @@ export default function ModalComponent({ show, handleLink, handleCloseModal }) {
             <img src={addedCart} alt="success" width="20%" />
           </div>
           <div>
-            <button onClick={handleLink} className="btnCart">
+            <button type="button" onClick={handleLink} className="btnCart">
               GO TO CART
             </button>
           </div>
           <div>
-            <button onClick={handleCloseModal} className="btnCart btnShopping">
+            <button
+              type="button"
+              onClick={handleCloseModal}
+              className="btnCart btnShopping"
+            >
               KEEP SHOPPING
             </button>
           </div>
