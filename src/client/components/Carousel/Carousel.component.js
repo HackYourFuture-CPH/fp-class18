@@ -27,6 +27,7 @@ const Carousel = ({ imageArray, show }) => {
       {imageArray.slice(current, current + show).map((image) => {
         return (
           <img
+            // eslint-disable-next-line
             src={require(`../../assets/images/${image.split('/')[4]}`)}
             alt="product images"
             className="image"
