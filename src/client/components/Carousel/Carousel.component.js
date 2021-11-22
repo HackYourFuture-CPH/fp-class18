@@ -16,6 +16,8 @@ const Carousel = ({ imageArray, show }) => {
     return null;
   }
 
+  console.log(imageArray);
+
   return (
     <section className="slider">
       <button type="button" className="left-arrow" onClick={prevSlide}>
@@ -25,7 +27,13 @@ const Carousel = ({ imageArray, show }) => {
         &gt;
       </button>
       {imageArray.slice(current, current + show).map((image) => {
-        return <img src={image} alt="product images" className="image" />;
+        return (
+          <img
+            src={require(`../../assets/images/${image.split('/')[4]}`)}
+            alt="product images"
+            className="image"
+          />
+        );
       })}
     </section>
   );
