@@ -16,8 +16,6 @@ const Carousel = ({ imageArray, show }) => {
     return null;
   }
 
-  console.log(imageArray);
-
   return (
     <section className="slider">
       <button type="button" className="left-arrow" onClick={prevSlide}>
