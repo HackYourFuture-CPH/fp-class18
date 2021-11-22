@@ -21,3 +21,19 @@
   background-color: white;
   border: 1px solid #8e0ef2;
 }
+
+.btn-close {
+  color: #aaa;
+  font-size: 50px;
+  position: relative;
+}
+
+.btn-close:hover {
+  color: #919191;
+  cursor: pointer;
+}
+
+.span {
+  text-align: right;
+  height: 50%;
+}

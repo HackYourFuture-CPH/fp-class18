@@ -25,7 +25,17 @@ export default function ModalComponent({ show, handleLink, handleCloseModal }) {
             margin: '10% auto',
           }}
         >
-          <div className="card-panel teal lighten-2 ">
+          <div className="span">
+            <span
+              className="btn-close"
+              onClick={handleCloseModal}
+              title="Click to close this dialog"
+            >
+              &times;
+            </span>
+          </div>
+
+          <div>
             <h2>ADDED TO THE CART</h2>
             <img src={addedCart} alt="success" width="20%" />
           </div>
