@@ -6,10 +6,12 @@ exports.seed = function (knex) {
         {
           user_id: 1,
           product_id: 1,
+          created_at: '2021-11-21 00:00:00',
         },
         {
           user_id: 1,
           product_id: 5,
+          created_at: '2021-11-20 00:00:00',
         },
         {
           user_id: 3,
@@ -19,18 +21,22 @@ exports.seed = function (knex) {
         {
           user_id: 8,
           product_id: 2,
+          created_at: '2021-11-19 00:00:00',
         },
         {
           user_id: 8,
           product_id: 5,
+          created_at: '2021-11-18 00:00:00',
         },
         {
           user_id: 9,
           product_id: 10,
+          created_at: '2021-11-17 00:00:00',
         },
         {
           user_id: 9,
           product_id: 12,
+          created_at: '2021-11-16 00:00:00',
         },
         {
           user_id: 2,
