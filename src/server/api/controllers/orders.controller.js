@@ -7,16 +7,17 @@ const getOrders = async () => {
 
 const getOrderById = async (id) => {
   if (!id) {
-    throw new HttpError('Id should be a number', 400);
+    throw new HttpError(
+      'Bad request. Order ID must be an integer and larger than 0',
+      400,
+    );
   }
 
   try {
     const orders = await knex('orders AS o')
-      // .select('orders.id as id', 'status', 'quantity', 'name')
       .select(
         'o.id as orderId',
         'o.status as orderStatus',
-        'o.user_id',
         'oi.quantity',
         'p.id as productId',
         'p.name',
@@ -28,7 +29,7 @@ const getOrderById = async (id) => {
       .join('products AS p', 'p.id', '=', 'oi.product_id')
       .where('o.id', '=', id);
     if (orders.length === 0) {
-      throw new Error(`incorrect entry with the id of ${id}`, 404);
+      throw new Error(`A order with the specified ID was not found`, 404);
     }
     return orders;
   } catch (error) {
