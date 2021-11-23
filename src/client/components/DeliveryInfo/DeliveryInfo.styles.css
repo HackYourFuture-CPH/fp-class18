@@ -109,7 +109,7 @@ input:focus {
     text-align: right;
     grid-column: 4 / span 1;
     grid-row: 4;
-    padding-top: 10px;
+    width: 80%;
   }
   .editLink {
     text-align: right;
@@ -123,7 +123,7 @@ input:focus {
     text-decoration: underline;
     display: inline;
     margin: 0;
-    padding: 0;
+    padding: 10px;
   }
   .addressInputLabel {
     text-align: right;

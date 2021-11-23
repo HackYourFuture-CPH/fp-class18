@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './DeliveryInfo.styles.css';
 
 export default function DeliveryInfo({ editMode, vertDisplay, user }) {
+  const { address, city, zip, country } = user;
   const [edit, setEdit] = React.useState(false);
   const handleEdit = () => setEdit(!edit);
   const handleSubmit = (event) => {
@@ -34,7 +35,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             <label className="title">DELIVERY INFO</label>
             <label className="addressInputLabel">Address:</label>
             <input
-              defaultValue={user.address}
+              defaultValue={address}
               className="addressInput"
               name="address"
               type="text"
@@ -42,7 +43,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
 
             <label className="cityInputLabel">City:</label>
             <input
-              defaultValue={user.city}
+              defaultValue={city}
               className="cityInput"
               name="city"
               type="text"
@@ -50,7 +51,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
 
             <label className="zipInputLabel">Zip code:</label>
             <input
-              defaultValue={user.zip}
+              defaultValue={zip}
               className="zipInput"
               name="zipcode"
               type="number"
@@ -58,7 +59,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
 
             <label className="countryInputLabel">Country:</label>
             <input
-              defaultValue={user.country}
+              defaultValue={country}
               className="countryInput"
               name="country"
             />
@@ -79,7 +80,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
         ) : (
           <form className="form">
             <label className="title">DELIVERY INFO</label>
-            {editMode ? (
+            {editMode && (
               <span className="editLink">
                 <button
                   type="button"
@@ -89,21 +90,19 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
                   Edit
                 </button>
               </span>
-            ) : (
-              ''
             )}
-            <label className="addressLabel">Address: {user.address}</label>
+            <label className="addressLabel">Address: {address}</label>
 
             <label className={`${vertDisplay ? 'cityLabelVert' : 'cityLabel'}`}>
-              City: {user.city}
+              City: {city}
             </label>
 
-            <label className="zipLabel">Zip code: {user.zip}</label>
+            <label className="zipLabel">Zip code: {zip}</label>
 
             <label
               className={`${vertDisplay ? 'countryLabelVert' : 'countryLabel'}`}
             >
-              Country: {user.country}
+              Country: {country}
             </label>
           </form>
         )}{' '}
@@ -115,12 +114,6 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
 DeliveryInfo.defaultProps = {
   editMode: false,
   vertDisplay: true,
-  user: {
-    address: '',
-    city: '',
-    zip: '',
-    country: '',
-  },
 };
 
 DeliveryInfo.propTypes = {
@@ -131,5 +124,5 @@ DeliveryInfo.propTypes = {
     city: PropTypes.string,
     zip: PropTypes.number,
     country: PropTypes.string,
-  }),
+  }).isRequired,
 };
