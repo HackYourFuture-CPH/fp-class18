@@ -29,7 +29,7 @@ const Carousel = ({ imageArray, show }) => {
           <img
             // eslint-disable-next-line
             src={require(`../../assets/images/${image.split('/')[4]}`)}
-            alt="product images"
+            alt={image}
             className="image"
           />
         );
