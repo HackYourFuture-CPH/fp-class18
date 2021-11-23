@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Numberinput from '../NumberInput/NumberInput.component';
 import { Heart } from './heart.js';
 import { Trash } from './Trash.js';
-// import { ImageProps } from 'react-native';
 import './ShoppingItem.styles.css';
 
 export default function ShoppingItem({
@@ -11,11 +10,8 @@ export default function ShoppingItem({
   productName,
   quantity,
   price,
-  // removeItem,
-  // addToFav,
 }) {
   const [itemValue, setItemValue] = React.useState(1);
-  // console.log(props);
   return (
     <div className="shopping-item">
       <img src={productImg} alt="" width="185px" height="145px" />
@@ -50,14 +46,4 @@ ShoppingItem.propTypes = {
   productName: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
-  // removeItem: PropTypes.func,
-  // addToFav: PropTypes.func,
 };
-
-// ShoppingItem.defaultProps = {
-//   productImg: itemImage,
-//   productName: 'Product Name',
-//   quantity: 20,
-//   price: 1000,
-
-// };
