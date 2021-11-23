@@ -26,7 +26,14 @@ const getUsersById = async (id) => {
     return error.message;
   }
 };
+// eslint-disable-next-line
 const getUserFavorites = async (user_id) => {
+   if (!user_id) {
+    throw new HttpError(
+      'Bad request. user_id must be an integer and larger than 0',
+      400,
+    );
+  }
   return knex('favorites')
     .join('products', 'products.id', 'product_id')
     .select('products.*')
