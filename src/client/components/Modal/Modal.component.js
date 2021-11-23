@@ -11,7 +11,7 @@ export default function ModalComponent({ show, handleLink, handleCloseModal }) {
           <div className="span">
             <span
               className="btn-close"
-              onClick={handleCloseModal}
+              onChange={handleCloseModal}
               title="Click to close this dialog"
             >
               &times;
