@@ -27,6 +27,18 @@ const getUsersById = async (id) => {
   }
 };
 
+const editUser = async (UserId, updatedUser) => {
+  if (!parseFloat(UserId)) {
+    throw new HttpError('UserId should be a number', 400);
+  }
+  return knex('users').where({ id: UserId }).update({
+    address: updatedUser.address,
+    city: updatedUser.city,
+    zipcode: updatedUser.zipcode,
+    country: updatedUser.country,
+  });
+};
+
 const saveUser = async (data) => {
   await knex('users').insert(data);
 };
@@ -34,5 +46,6 @@ const saveUser = async (data) => {
 module.exports = {
   getUsers,
   getUsersById,
+  editUser,
   saveUser,
 };
