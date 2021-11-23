@@ -3,7 +3,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { useFirebase } from '../../firebase';
 
-function AuthenticatedRoute({ children, ...rest }) {
+function NonAuthenticatedRoute({ children, ...rest }) {
   const { isAuthenticated } = useFirebase();
 
   return (
@@ -12,22 +12,22 @@ function AuthenticatedRoute({ children, ...rest }) {
       {...rest} // eslint-disable-line
       render={({ location }) =>
         isAuthenticated ? (
-          children
-        ) : (
           <Redirect
             to={{
-              pathname: '/sign-in',
+              pathname: '/',
               state: { from: location },
             }}
           />
+        ) : (
+          children
         )
       }
     />
   );
 }
 
-export default AuthenticatedRoute;
+export default NonAuthenticatedRoute;
 
-AuthenticatedRoute.propTypes = {
+NonAuthenticatedRoute.propTypes = {
   children: PropTypes.element.isRequired,
 };

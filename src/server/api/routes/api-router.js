@@ -4,8 +4,10 @@ const router = express.Router();
 
 // Router imports
 const modulesRouter = require('./modules.router');
+const categoriesRouter = require('./categories.router');
 const usersRouter = require('./users.router');
 const productsRouter = require('./products.router');
+const ordersRouter = require('./orders.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -32,7 +34,9 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Application routes
 router.use('/modules', modulesRouter);
+router.use('/categories', categoriesRouter);
 router.use('/users', usersRouter);
 router.use('/products', productsRouter);
+router.use('/orders', ordersRouter);
 
 module.exports = router;

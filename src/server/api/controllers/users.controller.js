@@ -39,6 +39,7 @@ const editUser = async (UserId, updatedUser) => {
   });
 };
 
+
 const saveUser = async (data) => {
   await knex('users').insert(data);
 };

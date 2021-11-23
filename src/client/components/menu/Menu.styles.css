@@ -1,0 +1,109 @@
+header {
+  width: 100vw;
+  z-index: 5;
+}
+
+header #login {
+  padding: 1em;
+}
+
+header .user-icon {
+  float: left;
+  cursor: pointer;
+}
+
+header .icons {
+  float: right;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+header .logo_container {
+  background-color: white;
+  display: block;
+  padding: 0.3em 0 2.5em 0;
+}
+
+header img {
+  height: 2em;
+  width: 2em;
+}
+
+header .navbar {
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+/* lis inside the navbar */
+header .navbar li {
+  font-size: 1.2em;
+  color: white;
+  text-align: center;
+  padding: 0.8em 0.8em;
+  cursor: pointer;
+}
+
+/* The dropdown container */
+header .dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+header .dropbtn {
+  font-size: 1.2em;
+  border: none;
+  color: white;
+  padding: 0.8em 0.8em;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+header .navbar button:hover,
+header .dropdown:hover .dropbtn,
+header #login:hover {
+  background-color: #8e0ef2;
+}
+
+/* Dropdown content (hidden by default) */
+header .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+}
+
+header .text-link,
+header .navbar li {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Add a grey background color to dropdown lis on hover */
+header .dropdown-content li:hover {
+  background-color: #8e0ef2;
+}
+
+/* Show the dropdown menu on hover */
+header .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+header .dropdown:hover .dropdown-content ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 700px) {
+  header .navbar {
+    display: block;
+  }
+
+  header .dropdown:hover .dropdown-content ul {
+    display: block;
+  }
+}
