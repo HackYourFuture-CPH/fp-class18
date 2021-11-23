@@ -31,6 +31,7 @@ const getUserFavorites = async (user_id) => {
     .join('products', 'products.id', 'product_id')
     .select('products.*')
     .where({ user_id });
+}
   
 const editUser = async (UserId, updatedUser) => {
   if (!parseFloat(UserId)) {
