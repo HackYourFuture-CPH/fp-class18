@@ -55,5 +55,8 @@
 
 .span {
   text-align: right;
-  height: 50%;
+}
+
+h2 {
+  margin: 0;
 }
