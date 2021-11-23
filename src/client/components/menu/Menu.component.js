@@ -20,7 +20,7 @@ export const Menu = ({ isAuthenticated }) => {
                     LOGOUT
                   </Link>
                 ) : (
-                  <Link className="text-link" to="/login">
+                  <Link className="text-link" to="/sign-in">
                     LOGIN / SIGNUP
                   </Link>
                 )}
