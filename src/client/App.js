@@ -15,7 +15,7 @@ import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 
 function App() {
-  const { isLoading } = useFirebase();
+  const { isLoading, isAuthenticated } = useFirebase();
 
   if (isLoading) {
     return <Loader />;
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Router history={reactRouterHistory}>
-      <Menu isAuthenticated={false} />
+      <Menu isAuthenticated={isAuthenticated} />
       <Switch>
         <Route exact path="/">
           <LandingPageContainer />
