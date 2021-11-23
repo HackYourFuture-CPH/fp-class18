@@ -16,7 +16,6 @@ import ProductPageContainer from './containers/ProductPage/ProductPage.Container
 import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 
-
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
 
@@ -31,7 +30,7 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
-        <Route exact path="/products/:id">
+        <Route exact path="/product/:id">
           <ProductPageContainer />
         </Route>
 
