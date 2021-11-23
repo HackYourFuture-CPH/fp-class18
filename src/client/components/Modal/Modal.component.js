@@ -6,25 +6,8 @@ import addedCart from '../../assets/images/addedCart.png';
 export default function ModalComponent({ show, handleLink, handleCloseModal }) {
   if (show) {
     return (
-      <div
-        style={{
-          zIndex: 999999,
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100vh',
-          backgroundColor: 'rgba(0,0,0,0.8)',
-        }}
-      >
-        <div
-          style={{
-            background: '#fff',
-            width: '30%',
-            padding: '1em',
-            margin: '10% auto',
-          }}
-        >
+      <div className="modalView">
+        <div className="modalVisible">
           <div className="span">
             <span
               className="btn-close"

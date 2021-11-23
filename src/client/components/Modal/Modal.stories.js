@@ -7,12 +7,9 @@ export default {
 };
 
 export const Component = () => {
-  const [isShow, setIsShow] = useState(false);
+  const [isShown, setIsShown] = useState(false);
   const handleClick = () => {
-    setIsShow(true);
-  };
-  const handleClose = () => {
-    setIsShow(false);
+    setIsShown(!isShown);
   };
   const handleLink = () => {
     window.location.href = '/';
@@ -24,9 +21,9 @@ export const Component = () => {
         view modal
       </button>
       <ModalComponent
-        show={isShow}
+        show={isShown}
         handleLink={handleLink}
-        handleCloseModal={handleClose}
+        handleCloseModal={handleClick}
       />
     </>
   );
