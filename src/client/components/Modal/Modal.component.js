@@ -9,13 +9,14 @@ export default function ModalComponent({ show, handleLink, handleCloseModal }) {
       <div className="modalView">
         <div className="modalVisible">
           <div className="span">
-            <span
+            <button
+              type="button"
               className="btn-close"
-              onChange={handleCloseModal}
+              onClick={handleCloseModal}
               title="Click to close this dialog"
             >
               &times;
-            </span>
+            </button>
           </div>
 
           <div>

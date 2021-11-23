@@ -43,6 +43,9 @@
   color: #aaa;
   font-size: 50px;
   position: relative;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .btn-close:hover {
