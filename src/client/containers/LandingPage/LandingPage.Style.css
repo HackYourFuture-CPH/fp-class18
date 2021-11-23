@@ -1,3 +1,17 @@
-h1 {
-  color: aqua;
+main {
+  width: 95%;
+  margin: auto;
+  padding: 2em 0;
+}
+
+main .loading {
+  text-align: center;
+}
+
+main .footer {
+  padding-top: 2em;
+}
+
+main .product-view h3 {
+  text-align: center;
 }

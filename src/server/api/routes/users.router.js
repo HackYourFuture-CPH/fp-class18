@@ -96,4 +96,46 @@ router.get('/:id/favorites/', (req, res, next) => {
     .then((result) => res.json(result))
     .catch(next);
 });
+
+/**
+ * @swagger
+ * /users/{ID}:
+ *  patch:
+ *    tags:
+ *    - Delivery Update
+ *    summary: Update Delivery Informations
+ *    description:
+ *      Will update user delivery infos.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the users to patch.
+ *      - in: body
+ *        name: Delivery Inputs
+ *        description: Delivery informations to update.
+ *        schema:
+ *          type: object
+ *          properties:
+ *            address:
+ *              type: string
+ *            city:
+ *              type: string
+ *            zipcode:
+ *              type: string
+ *            country:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: Delivery was patched
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.patch('/:id', (req, res, next) => {
+  usersController
+    .editUser(req.params.id, req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 module.exports = router;

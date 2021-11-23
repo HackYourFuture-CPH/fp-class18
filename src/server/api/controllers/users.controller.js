@@ -26,16 +26,27 @@ const getUsersById = async (id) => {
     return error.message;
   }
 };
-
 const getUserFavorites = async (user_id) => {
   return knex('favorites')
     .join('products', 'products.id', 'product_id')
     .select('products.*')
     .where({ user_id });
+  
+const editUser = async (UserId, updatedUser) => {
+  if (!parseFloat(UserId)) {
+    throw new HttpError('UserId should be a number', 400);
+  }
+  return knex('users').where({ id: UserId }).update({
+    address: updatedUser.address,
+    city: updatedUser.city,
+    zipcode: updatedUser.zipcode,
+    country: updatedUser.country,
+  });
 };
 
 module.exports = {
   getUsers,
   getUsersById,
   getUserFavorites,
+  editUser,
 };
