@@ -71,15 +71,29 @@ router.get('/:id', (req, res, next) => {
  *    - Users
  *    summary: Save user information
  *    description:
- *      Will return status of the operation true / false
+ *      To Save new user to the DB
  *    produces: application/json
  *    parameters:
- *     - in: path
+ *     - in: body
  *       name: user
+ *       description: create a new user
  *       schema:
- *         type: json
+ *         type: object
  *         required: true
  *         description: user json object
+ *         properties:
+ *            full_name:
+ *              type: string
+ *            email:
+ *              type: string
+ *            address:
+ *              type: string
+ *            zipcode:
+ *              type: integer
+ *            city:
+ *              type: string
+ *            country:
+ *              type: string
  *
  *    responses:
  *      200:
@@ -90,44 +104,6 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
   usersController
     .saveUser(req.body)
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-/**
- * @swagger
- * /users/{id}:
- *  put:
- *    tags:
- *    - Users
- *    summary: Update user information by id
- *    description:
- *      Will return status of the operation true / false
- *    produces: application/json
- *    parameters:
- *     - in: path
- *       name: id
- *       schema:
- *         type: integer
- *         required: true
- *         description: user id
- *     - in: path
- *       name: user
- *       schema:
- *         type: json
- *         required: true
- *         description: user json object
- *
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error.
- */
-router.put('/:id', (req, res, next) => {
-  const idValue = parseInt(req.params.id, 10);
-  usersController
-    .updateUser(idValue, req.body)
     .then((result) => res.json(result))
     .catch(next);
 });

@@ -31,13 +31,8 @@ const saveUser = async (data) => {
   await knex('users').insert(data);
 };
 
-const updateUser = async (idValue, data) => {
-  await knex('users').where({ id: idValue }).update(data);
-};
-
 module.exports = {
   getUsers,
   getUsersById,
   saveUser,
-  updateUser,
 };
