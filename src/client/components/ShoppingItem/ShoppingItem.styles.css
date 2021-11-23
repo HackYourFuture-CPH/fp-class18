@@ -1,0 +1,70 @@
+.shopping-item {
+  position: absolute;
+  padding: 30px;
+  padding-right: 10px;
+  /* background-color: aqua; */
+  display: flex;
+  max-width: 100%;
+  /* width: 100px; */
+}
+
+.item-settings {
+  padding-left: 30px;
+  align-items: left;
+}
+
+h2 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 29px;
+  /* letter-spacing: 0em; */
+  /* text-align: left; */
+  margin: 0px;
+}
+
+p {
+  margin-top: 5px;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 15px;
+  padding-left: 0px;
+  text-decoration: underline;
+  background-color: transparent;
+  border: 0px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.quantity-component {
+  display: flex;
+  justify-content: flex-end;
+  /* text-align: center; */
+  flex-direction: column;
+  right: 0px;
+  /* margin-right: 10px; */
+  text-align: center;
+  padding: 50px;
+  padding-left: 100px;
+  padding-right: 0px;
+}
+
+.quantity-component p {
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.trash {
+  align-items: left;
+}
