@@ -27,7 +27,7 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
-        <Route exact path="/product/:id">
+        <Route exact path="/products/:id">
           <ProductPageContainer />
         </Route>
 

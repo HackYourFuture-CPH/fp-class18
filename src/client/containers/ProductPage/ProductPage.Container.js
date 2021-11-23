@@ -6,39 +6,37 @@ import { ProductDetails } from '../../components/ProductDetails/ProductDetails.c
 import Carousel from '../../components/Carousel/Carousel.component';
 import ButtonComponent from '../../components/Button/Button.component';
 import './ProductPage.Style.css';
+import { useFetchApi } from '../../hooks/UseFetchApi';
 
 const ProductPageContainer = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState({});
+  const [category, setCategory] = React.useState('');
   const [similarProduct, setSimilarProduct] = React.useState([]);
 
-  React.useEffect(() => {
-    fetch(`api/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProduct(data[0]);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, [id]);
+  const productData = useFetchApi(`products/${id}`);
 
   React.useEffect(() => {
-    fetch(`api/categories/${product.category_id}`)
-      .then((res) => res.json())
-      .then((category) => {
-        console.log(category);
+    if (!productData.isLoading) {
+      setProduct(productData.data[0]);
+    }
+  }, [id, productData]);
 
-        fetch(`api/products?category=${category[0].name}`)
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            const images = data.map((item) => item.picture);
-            setSimilarProduct(images);
-          })
-          .catch((e) => console.log(e));
-      });
-  }, [product]);
+  const categoryData = useFetchApi(`categories/${product.category_id}`);
+
+  React.useEffect(() => {
+    if (!categoryData.isLoading) {
+      setCategory(categoryData.data[0]);
+    }
+  }, [product, categoryData]);
+
+  const similarProductData = useFetchApi(`products?category=${category.name}`);
+
+  React.useEffect(() => {
+    if (!similarProductData.isLoading) {
+      setSimilarProduct(similarProductData.data);
+    }
+  }, [similarProductData]);
 
   const addToCartHandler = () => {
     console.log('add to cart');
@@ -52,19 +50,27 @@ const ProductPageContainer = () => {
     <div>
       <div>
         <div className="p-detail">
-          <ProductDetails
-            imgSource={product.picture}
-            ProductName={product.name}
-            RemainingUnit={parseInt(product.stock_amount)}
-            Price={parseInt(product.price)}
-            productColor={product.color}
-            productSize={product.size}
-            onClick={addToCartHandler}
-          />
+          {productData.isLoading ? (
+            <h2 className="loading">Loading...</h2>
+          ) : (
+            <ProductDetails
+              imgSource={product.picture}
+              ProductName={product.name}
+              RemainingUnit={parseInt(product.stock_amount)}
+              Price={parseInt(product.price)}
+              productColor={product.color}
+              productSize={product.size}
+              onClick={addToCartHandler}
+            />
+          )}
         </div>
         <div className="similar-product">
           <h1>SIMILAR PRODUCT</h1>
-          <Carousel imageArray={similarProduct} />
+          {similarProductData.isLoading ? (
+            <h2 className="loading">Loading...</h2>
+          ) : (
+            <Carousel imageArray={similarProduct.map((item) => item.picture)} />
+          )}
         </div>
         <div className="explore-btn">
           <ButtonComponent
