@@ -49,7 +49,7 @@ const ProductPageContainer = () => {
     <div>
       <div>
         <div className="p-detail">
-          {productData.isLoading ? (
+          {!product.picture ? (
             <Loader />
           ) : (
             <ProductDetails

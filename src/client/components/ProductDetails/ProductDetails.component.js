@@ -25,7 +25,11 @@ export const ProductDetails = ({
   return (
     <div id="product-details">
       <div className="product-image">
-        <img src={imgSource} alt={imageAlt} />
+        <img
+          // eslint-disable-next-line
+          src={require(`../../assets/images/${imgSource.split('/')[4]}`)}
+          alt={imageAlt}
+        />
       </div>
       <div className="details-column">
         <div>
