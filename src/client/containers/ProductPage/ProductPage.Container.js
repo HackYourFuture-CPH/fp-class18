@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ButtonComponent from '../../components/Button/Button.component';
+import Loader from '../../components/Loader/index';
 import './ProductPage.Style.css';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 
@@ -51,7 +52,7 @@ const ProductPageContainer = () => {
       <div>
         <div className="p-detail">
           {productData.isLoading ? (
-            <h2 className="loading">Loading...</h2>
+            <Loader />
           ) : (
             <ProductDetails
               imgSource={product.picture}
@@ -67,7 +68,7 @@ const ProductPageContainer = () => {
         <div className="similar-product">
           <h1>SIMILAR PRODUCT</h1>
           {similarProductData.isLoading ? (
-            <h2 className="loading">Loading...</h2>
+            <Loader />
           ) : (
             <Carousel imageArray={similarProduct.map((item) => item.picture)} />
           )}
