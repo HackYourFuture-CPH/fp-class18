@@ -33,7 +33,7 @@ const Carousel = ({ imageArray, show, products }) => {
             )
           : false;
         return (
-          <Link to={productData ? `product/${productData[0].id}` : ''}>
+          <Link to={productData ? `/product/${productData[0].id}` : ''}>
             <img
               // eslint-disable-next-line
               src={require(`../../assets/images/${image.split('/')[4]}`)}
