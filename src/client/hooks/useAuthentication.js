@@ -17,7 +17,7 @@ export function useAuthentication({ auth }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!auth) {
+    if (!auth || (auth && auth.inStorybook)) {
       setIsLoading(false);
       return;
     }
