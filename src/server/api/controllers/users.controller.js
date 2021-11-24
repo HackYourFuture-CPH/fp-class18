@@ -38,7 +38,6 @@ const getUserFavorites = async (user_id) => {
   }
   try {
     const favorites = await knex('favorites')
-      // eslint-disable-next-line @typescript-eslint/camelcase
       .join('products', 'products.id', 'product_id')
       .select('products.*')
       // eslint-disable-next-line @typescript-eslint/camelcase
