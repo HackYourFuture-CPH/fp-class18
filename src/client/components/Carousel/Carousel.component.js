@@ -16,8 +16,6 @@ const Carousel = ({ imageArray, show }) => {
     return null;
   }
 
-  console.log(imageArray);
-
   return (
     <section className="slider">
       <button type="button" className="left-arrow" onClick={prevSlide}>
@@ -29,8 +27,9 @@ const Carousel = ({ imageArray, show }) => {
       {imageArray.slice(current, current + show).map((image) => {
         return (
           <img
+            // eslint-disable-next-line
             src={require(`../../assets/images/${image.split('/')[4]}`)}
-            alt="product images"
+            alt={image}
             className="image"
           />
         );
@@ -40,7 +39,7 @@ const Carousel = ({ imageArray, show }) => {
 };
 
 Carousel.propTypes = {
-  imageArray: PropTypes.arrayOf,
+  imageArray: PropTypes.arrayOf(PropTypes.any),
   show: PropTypes.number,
 };
 Carousel.defaultProps = {
