@@ -35,7 +35,10 @@ const getOrderById = async (id) => {
       .where('o.id', '=', id);
 
     if (orders.length === 0) {
-      throw new Error(`A order with the specified ID was not found`, 404);
+      throw new Error(
+        `A order with the specified ID was not found: ${id}`,
+        404,
+      );
     }
     return orders;
   } catch (error) {
