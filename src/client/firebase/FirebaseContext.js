@@ -56,7 +56,7 @@ export function FirebaseProvider({ children, initialAuth }) {
       resetPassword: (data) => resetPassword(auth, data),
       signInWithGoogle: () => signInWithGoogle(auth, googleProvider),
     }),
-    [auth, isLoading, isAuthenticated],
+    [auth, isLoading, isAuthenticated, googleProvider],
   );
 
   return (
