@@ -26,14 +26,14 @@ const Carousel = ({ imageArray, show, products }) => {
         &gt;
       </button>
       {imageArray.slice(current, current + show).map((image) => {
-        const product = products
+        const productData = products
           ? products.filter(
               (product) =>
                 product.picture.split('/')[4] === `${image.split('/')[4]}`,
             )
           : false;
         return (
-          <Link to={product ? `product/${product[0].id}` : ''}>
+          <Link to={productData ? `product/${productData[0].id}` : ''}>
             <img
               // eslint-disable-next-line
               src={require(`../../assets/images/${image.split('/')[4]}`)}
