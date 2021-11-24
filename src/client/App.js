@@ -35,7 +35,7 @@ function App() {
         <ResetPassword exact path="/reset-password" />
 
         {/* All routes below are authenticated routes - a user must login first */}
-        <Route exact path="/Container/OrderPage/:id">
+        <Route exact path="/order/:id">
           <OrderPageContainer />
         </Route>
 
