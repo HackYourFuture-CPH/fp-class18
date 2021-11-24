@@ -8,13 +8,14 @@ import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
-import CategoryPageContainer from './containers/CategoryPage/CategoryPage.Container';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
+
+import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
 import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
-
+import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
 
@@ -29,7 +30,12 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
-
+        <Route exact path="/product/:id">
+          <ProductPageContainer />
+        </Route>
+        <Route exact path="/category/:name">
+          <CategoryPage />
+        </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
          * user is logged in, if a user is logged in, they can't see the login page
