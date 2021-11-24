@@ -33,9 +33,11 @@ function App() {
         <Route exact path="/product/:id">
           <ProductPageContainer />
         </Route>
+
         <Route exact path="/category/:name">
           <CategoryPage />
         </Route>
+
         {/*
          * All routes below are only shown when you are not authenticated - if the
          * user is logged in, if a user is logged in, they can't see the login page
