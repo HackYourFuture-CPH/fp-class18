@@ -67,7 +67,7 @@ router.get('/:id', (req, res, next) => {
  * /users/{user_id}/favorites:
  *  get:
  *    tags:
- *    - Favorites
+ *    - Users
  *    summary: Getfavorite products for a user
  *    description:
  *      Will return the favorite products for a user

@@ -27,11 +27,34 @@ const getUsersById = async (id) => {
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/camelcase
 const getUserFavorites = async (user_id) => {
-  return knex('favorites')
-    .join('products', 'products.id', 'product_id')
-    .select('products.*')
-    .where({ user_id });
+  // eslint-disable-next-line @typescript-eslint/camelcase
+  if (!parseInt(user_id)) {
+    throw new HttpError(
+      'Bad request. user_id must be an integer and larger than 0',
+      400,
+    );
+  }
+  try {
+    const favorites = await knex('favorites')
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      .join('products', 'products.id', 'product_id')
+      .select('products.*')
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      .where({ user_id });
+    if (favorites.length === 0) {
+      throw new Error(
+        `The favorite products for the requested user_id was not found : Requested user_id : ${user_id}`,
+        404,
+      );
+    }
+    return favorites;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 const editUser = async (UserId, updatedUser) => {
   if (!parseFloat(UserId)) {
     throw new HttpError('UserId should be a number', 400);
@@ -44,15 +67,9 @@ const editUser = async (UserId, updatedUser) => {
   });
 };
 
-
-const saveUser = async (data) => {
-  await knex('users').insert(data);
-};
-
 module.exports = {
   getUsers,
   getUsersById,
   getUserFavorites,
   editUser,
-  saveUser,
 };
