@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable radix */
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
@@ -57,8 +55,8 @@ const ProductPageContainer = () => {
             <ProductDetails
               imgSource={product.picture}
               ProductName={product.name}
-              RemainingUnit={parseInt(product.stock_amount)}
-              Price={parseInt(product.price)}
+              RemainingUnit={parseInt(product.stock_amount, 10)}
+              Price={parseInt(product.price, 10)}
               productColor={product.color}
               productSize={product.size}
               onClick={addToCartHandler}
