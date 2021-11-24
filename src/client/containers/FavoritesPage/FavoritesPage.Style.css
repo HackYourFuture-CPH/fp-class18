@@ -1,3 +1,17 @@
 h1 {
   color: aqua;
 }
+
+.favorite-container {
+  display: flex;
+}
+
+#product-details {
+  padding: 2px;
+  margin-left: 20px;
+  flex: 1 0 35%;
+}
+
+#product-details .input-row button {
+  width: 8em;
+}

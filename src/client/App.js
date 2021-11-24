@@ -3,11 +3,13 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 import SignIn from './containers/SignIn';
 import SignUp from './containers/SignUp';
+
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
 import Loader from './components/Loader/Loader.component';
+import FavoritesPageContainer from './containers/FavoritesPage/FavoritesPage.Container';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
@@ -61,13 +63,15 @@ function App() {
           <SignIn />
         </NonAuthenticatedRoute>
 
-        <NonAuthenticatedRoute exact path="/sign-up">
-          <SignUp />
-        </NonAuthenticatedRoute>
+        {/* Favorites page */}
+        <Route exact path="/users/:id/favorites">
+          <FavoritesPageContainer />
+        </Route>
 
-        <NonAuthenticatedRoute exact path="/reset-password">
-          <ResetPassword />
-        </NonAuthenticatedRoute>
+        {/* Anonymous pages */}
+        <SignIn exact path="/sign-in" />
+        <SignUp exact path="/sign-up" />
+        <ResetPassword exact path="/reset-password" />
 
         {/* All routes below are authenticated routes - a user must login first */}
         <AuthenticatedRoute exact path="/profile">
