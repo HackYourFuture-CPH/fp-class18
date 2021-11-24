@@ -87,6 +87,7 @@ FirebaseProvider.defaultProps = {
  * @property {({email, password}) => Promise<void>} signUp - Signs in the user
  * @property {() => Promise<void>} signOut - Signs out the user
  * @property {({email}) => Promise<void>} resetPassword - Resets the password for the user with the specified e-mail
+ * @property {() => Promise<void>} signInWithGoogle - Signs in the user with Google account
  *
  * @returns {FirebaseContextType}
  */
