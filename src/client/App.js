@@ -11,6 +11,8 @@ import Loader from './components/Loader';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
+
+import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
 import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 
@@ -27,6 +29,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <LandingPageContainer />
+        </Route>
+        <Route exact path="/product/:id">
+          <ProductPageContainer />
         </Route>
 
         {/*
