@@ -5,7 +5,6 @@ const router = express.Router({ mergeParams: true });
 // controllers
 const ordersController = require('../controllers/orders.controller');
 
-
 /**
  * @swagger
  * /orders:
@@ -91,7 +90,7 @@ router.get('/:id', (req, res, next) => {
  *      404:
  *        description: A order with the specified user_id was not found.
  */
-router.get('/?{user_id}', (req, res, next) => {
+router.get('/?user={user_id}', (req, res, next) => {
   ordersController
     .getOrderByUserId(req.query.user_id)
     .then((result) => res.json(result))
@@ -126,6 +125,7 @@ router.get('/?{user_id}', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  */
+
 router.post('/', (req, res, next) => {
   ordersController
     .storeNewOrder(req.body)
