@@ -1,28 +1,25 @@
 .wrapper {
-  width: 18rem;
-  height: 10rem;
+  width: 14rem;
+  height: 9rem;
   border: 1px solid lightgray;
-  border-radius: 0.5rem;
-}
-
-.wrapper:hover {
-  border: 1px solid black;
 }
 
 .wrapper-content {
-  padding: 0 1rem;
+  padding: 0 0.7rem;
+  font-size: 0.8rem;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
+  padding: 0.2rem;
 }
 
 .text-right {
   text-align: right;
 }
 
-h3 {
+.wrapper h3 {
   font-size: 1.2rem;
-  padding-left: 1rem;
+  padding-left: 0.7rem;
 }

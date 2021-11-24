@@ -20,13 +20,8 @@ const TotalPrice = ({ quantity, price }) => {
             <div className="text-right">{deliveryCharge.toFixed(2)} DKK</div>
           </div>
           <hr />
-          <div className="row">
-            <div>
-              <strong>Grand Total:</strong>
-            </div>
-            <div className="text-right">
-              <strong>{grandTotal.toFixed(2)} DKK</strong>
-            </div>
+          <div className="text-right">
+            <strong>{grandTotal.toFixed(2)} DKK</strong>
           </div>
         </div>
       </aside>
