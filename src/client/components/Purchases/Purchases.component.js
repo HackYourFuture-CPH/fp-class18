@@ -22,6 +22,6 @@ Purchases.defaultProps = {
 };
 
 Purchases.propTypes = {
-  orderId: PropTypes.number.isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
+  orderId: PropTypes.number,
+  date: PropTypes.number,
 };
