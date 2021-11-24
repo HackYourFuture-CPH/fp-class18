@@ -57,3 +57,11 @@ export async function resetPassword(auth, { email }) {
 export function signOut(auth) {
   auth.signOut();
 }
+
+export async function signInWithGoogle(auth, provider) {
+  try {
+    await auth.signInWithPopup(provider);
+  } catch (error) {
+    handleAuthErrors(error);
+  }
+}

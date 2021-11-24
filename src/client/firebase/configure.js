@@ -18,6 +18,7 @@ export function initFirebase() {
   }
 
   const auth = firebase.auth();
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
   const firestore = firebase.firestore();
 
   /**
@@ -32,6 +33,7 @@ export function initFirebase() {
 
   return {
     auth,
+    googleProvider,
     firestore,
   };
 }
