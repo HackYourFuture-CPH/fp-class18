@@ -11,6 +11,7 @@ import Loader from './components/Loader';
 import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
+import { Footer } from './components/Footer/Footer.component';
 
 function App() {
   const { isLoading } = useAuthentication();
@@ -41,6 +42,7 @@ function App() {
         <AuthenticatedRoute exact path="/profile">
           <Profile />
         </AuthenticatedRoute>
+        <Footer />
       </Switch>
     </Router>
   );

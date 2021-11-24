@@ -1,6 +1,7 @@
 import React from 'react';
 import ShoppingItem from '../..components/ShoppingItem/ShoppingItem.component';
 import ContactForm from '../..components/ContactForm/ContactForm.component';
+import TotalPriceCard from '../..components/TotalPriceCard/TotalPriceCard.component';
 import DeliveryInformation from '../..components/ContentCard/DeliveryInformation/DeliveryInformation.component';
 import { useParams } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
@@ -10,15 +11,18 @@ const OrderPageContainer = () => {
   const [purchase, setPurchase] = React.useState([]);
   const [user, setUser] = React.useState([]);
   const { id } = useParams();
+
   const newPurchase = useFetchApi(`orders/${id}`);
   const userInfo = useFetchApi(`users/${purchase.user_id}`);
-  console.log(newPurchase.data[0]);
-  console.log(userInfo.data[0]);
   setPurchase(newPurchase.data[0]);
   setUser(userInfo);
+
+  console.log(newPurchase.data[0]);
+  console.log(userInfo.data[0]);
+
   return (
     <div>
-      <h1>Order page Container</h1>
+      <h1>ORDER SUMMARY</h1>
       <div className="order-product-total">
         <div className="order-product">
           <div className="order">
@@ -42,7 +46,9 @@ const OrderPageContainer = () => {
             </div>
           </div>
         </div>
-        <div className="total">total Component</div>
+        <div className="total">
+          <TotalPriceCard />
+        </div>
       </div>
       <div className="delivery-contact">
         <div className="delivery">
