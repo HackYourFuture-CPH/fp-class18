@@ -62,6 +62,7 @@ router.get('/:id', (req, res, next) => {
     .then((result) => res.json(result))
     .catch(next);
 });
+
 /**
  * @swagger
  * /users/{user_id}/favorites:

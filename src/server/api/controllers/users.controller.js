@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
@@ -27,9 +28,8 @@ const getUsersById = async (id) => {
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
 const getUserFavorites = async (user_id) => {
-  // eslint-disable-next-line @typescript-eslint/camelcase
+  // eslint-disable-next-line radix
   if (!parseInt(user_id)) {
     throw new HttpError(
       'Bad request. user_id must be an integer and larger than 0',
@@ -40,7 +40,6 @@ const getUserFavorites = async (user_id) => {
     const favorites = await knex('favorites')
       .join('products', 'products.id', 'product_id')
       .select('products.*')
-      // eslint-disable-next-line @typescript-eslint/camelcase
       .where({ user_id });
     if (favorites.length === 0) {
       throw new Error(
