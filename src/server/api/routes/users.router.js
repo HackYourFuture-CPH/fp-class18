@@ -68,7 +68,7 @@ router.get('/:id', (req, res, next) => {
  * /users/{ID}:
  *  patch:
  *    tags:
- *    - Delivery Update
+ *    - Users
  *    summary: Update Delivery Informations
  *    description:
  *      Will update user delivery infos.
