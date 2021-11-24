@@ -25,14 +25,21 @@ const Carousel = ({ imageArray, show }) => {
         &gt;
       </button>
       {imageArray.slice(current, current + show).map((image) => {
-        return <img src={image} alt="product images" className="image" />;
+        return (
+          <img
+            // eslint-disable-next-line
+            src={require(`../../assets/images/${image.split('/')[4]}`)}
+            alt={image}
+            className="image"
+          />
+        );
       })}
     </section>
   );
 };
 
 Carousel.propTypes = {
-  imageArray: PropTypes.arrayOf,
+  imageArray: PropTypes.arrayOf(PropTypes.any),
   show: PropTypes.number,
 };
 Carousel.defaultProps = {

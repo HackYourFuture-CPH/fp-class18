@@ -5,14 +5,20 @@ import Pagination from '../ProductsPagination/ProductsPagination.component';
 import Sorting from '../Sorting/Sorting.component';
 
 export default function ProductView({
+  header,
   products,
   productsPerPage,
   categoriesList,
 }) {
   const [productsToShow, setProductsToShow] = useState(products);
   const [currentRange, setCurrentRange] = useState(
-    productsToShow.slice(0, productsPerPage),
+    products.slice(0, productsPerPage),
   );
+
+  React.useEffect(() => {
+    setProductsToShow(products);
+    setCurrentRange(products.slice(0, productsPerPage));
+  }, [products, productsPerPage]);
 
   function handleSort(sortedArray) {
     if (sortedArray === undefined) return;
@@ -22,7 +28,7 @@ export default function ProductView({
 
   return (
     <div className="product-view">
-      <h3>All Products</h3>
+      <h3>{header}</h3>
       <Sorting
         arrayToSort={products}
         categoriesList={categoriesList}
@@ -36,8 +42,10 @@ export default function ProductView({
             <li className="product-item" key={product.id}>
               <img
                 // eslint-disable-next-line
-                src={require(`../../assets/images/${product.picture}`)}
-                alt={`${product.name}`}
+                src={require(`../../assets/images/${
+                  product.picture.split('/')[4]
+                }`)}
+                alt={product.name}
               />
             </li>
           );
@@ -54,6 +62,7 @@ export default function ProductView({
 }
 
 ProductView.propTypes = {
+  header: PropTypes.string,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -69,4 +78,8 @@ ProductView.propTypes = {
       map: PropTypes.func,
     }),
   ).isRequired,
+};
+
+ProductView.defaultProps = {
+  header: 'All Products',
 };

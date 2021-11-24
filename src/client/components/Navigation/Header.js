@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useFirebase } from '../../firebase/FirebaseContext';
-import { useAuthentication } from '../../hooks/useAuthentication';
 
 export default function Header() {
   const { signOut } = useFirebase();
-  const { isAuthenticated } = useAuthentication();
+  const { isAuthenticated } = useFirebase();
 
   if (isAuthenticated) {
     return (
