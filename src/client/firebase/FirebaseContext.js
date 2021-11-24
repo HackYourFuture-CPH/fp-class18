@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import { useAuthentication } from '../hooks/useAuthentication';
 
 import { resetPassword, signIn, signOut, signUp } from './auth';
 import { initFirebase } from './configure';
@@ -14,6 +15,8 @@ const FirebaseContext = createContext();
 
 export function FirebaseProvider({ children, initialAuth }) {
   const [auth, setAuth] = useState(initialAuth);
+
+  const { isAuthenticated, isLoading } = useAuthentication({ auth });
 
   useEffect(() => {
     if (auth) {
@@ -37,12 +40,14 @@ export function FirebaseProvider({ children, initialAuth }) {
     () => ({
       auth,
       isInitialized: !!auth,
+      isAuthenticated,
+      isLoading,
       signIn: (data) => signIn(auth, data),
       signUp: (data) => signUp(auth, data),
       signOut: () => signOut(auth),
       resetPassword: (data) => resetPassword(auth, data),
     }),
-    [auth],
+    [auth, isLoading, isAuthenticated],
   );
 
   return (
