@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-
-import { useAuthentication } from '../../hooks/useAuthentication';
+import { useFirebase } from '../../firebase';
 
 function AuthenticatedRoute({ children, ...rest }) {
-  const { isAuthenticated } = useAuthentication();
+  const { isAuthenticated } = useFirebase();
 
   return (
     <Route

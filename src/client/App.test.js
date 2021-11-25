@@ -12,6 +12,8 @@ it('renders without crashing', () => {
         inTest: true,
         onAuthStateChanged: () => {
           Promise.resolve(true);
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
+          return () => {};
         },
       }}
     >

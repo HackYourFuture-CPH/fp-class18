@@ -1,0 +1,120 @@
+#product-details {
+  width: 65rem;
+  display: flex;
+  padding: 3rem;
+  background-color: #F6F5F5;
+}
+
+#product-details .product-name {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#product-details .price {
+  font-size: 2rem;
+}
+
+#product-details small {
+  color: #6D706C;
+}
+
+#product-details .product-name button{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#product-details .heart{
+  padding-top: 20%;
+}
+
+#product-details .details-column {
+  width: 100%;
+  padding: 2% 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#product-details .input-row {
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+}
+
+#product-details .select-item {
+  display: flex;
+  margin-right: 2rem;
+  position: relative;
+}
+
+#product-details .input-row button {
+  width: 10rem;
+}
+
+#product-details .input-row select {
+  margin-right: 10%;
+  font-size: 1rem;
+  width: 7rem;
+  height: 2.5rem;
+  border: 1px solid #8E0EF2;
+  padding: 0.3rem;
+  cursor: pointer;
+  font-weight: bold;
+  appearance: none;
+  background: transparent;
+  z-index: 2;
+}
+
+#product-details .arrow-right {
+  position: absolute;
+  left: 5rem;
+  top: 0.7rem;
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-top: 2px solid #8E0EF2;
+  border-left: 2px solid #8E0EF2;
+  z-index: 1;
+}
+
+#product-details .arrow-right {
+  transform: rotate(225deg);
+}
+
+@media screen and (max-width: 768px) {
+  #product-details .product-image img{
+    width: 100%;
+  }
+
+  #product-details {
+    width: unset;
+    display: block;
+    text-align: center;
+  }
+
+  #product-details .product-name {
+    justify-content: center;
+  }
+
+  #product-details .price {
+    margin: 1rem 0;
+  }
+
+  #product-details .input-row {
+    flex-direction: column;
+    align-items: center;
+    margin: 1.3rem;
+  }
+
+  #product-details select {
+    margin: 0.6rem 2.5rem;
+  }
+
+  #product-details .arrow-right {
+    left: 7.2rem;
+    top: 1.4rem;
+  }
+}

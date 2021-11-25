@@ -1,0 +1,39 @@
+footer {
+  width: 100%;
+  background-color: #929b90;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10%;
+  color: white;
+}
+
+footer .column {
+  padding: 4%;
+}
+
+footer ul {
+  list-style-type: none;
+  display: inline;
+  line-height: 1.8em;
+}
+
+footer li span {
+  text-decoration: none;
+  transition: 0.75s;
+  cursor: pointer;
+}
+
+footer li span:hover {
+  color: #8e0ef2;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    display: block;
+    text-align: center;
+  }
+
+  footer .column {
+    padding: 1.6em 0;
+  }
+}
