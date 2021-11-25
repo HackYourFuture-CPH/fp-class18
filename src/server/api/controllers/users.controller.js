@@ -13,7 +13,6 @@ const getUsersById = async (id) => {
       400,
     );
   }
-
   try {
     const users = await knex('users').where({ id });
     if (users.length === 0) {
@@ -26,6 +25,22 @@ const getUsersById = async (id) => {
   } catch (error) {
     return error.message;
   }
+};
+
+const editUser = async (UserId, updatedUser) => {
+  if (!parseFloat(UserId)) {
+    throw new HttpError('UserId should be a number', 400);
+  }
+  return knex('users').where({ id: UserId }).update({
+    address: updatedUser.address,
+    city: updatedUser.city,
+    zipcode: updatedUser.zipcode,
+    country: updatedUser.country,
+  });
+};
+
+const saveUser = async (data) => {
+  await knex('users').insert(data);
 };
 
 const getUserFavorites = async (user_id) => {
@@ -53,21 +68,10 @@ const getUserFavorites = async (user_id) => {
   }
 };
 
-const editUser = async (UserId, updatedUser) => {
-  if (!parseFloat(UserId)) {
-    throw new HttpError('UserId should be a number', 400);
-  }
-  return knex('users').where({ id: UserId }).update({
-    address: updatedUser.address,
-    city: updatedUser.city,
-    zipcode: updatedUser.zipcode,
-    country: updatedUser.country,
-  });
-};
-
 module.exports = {
   getUsers,
   getUsersById,
-  getUserFavorites,
   editUser,
+  saveUser,
+  getUserFavorites,
 };

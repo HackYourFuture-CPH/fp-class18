@@ -65,41 +65,6 @@ router.get('/:id', (req, res, next) => {
 
 /**
  * @swagger
- * /users/{user_id}/favorites:
- *  get:
- *    tags:
- *    - Users
- *    summary: Getfavorite products for a user
- *    description:
- *      Will return the favorite products for a user
- *    produces: application/json
- *    parameters:
- *     - in: path
- *       name: user_id
- *       schema:
- *         type: integer
- *         required: true
- *         description: The user_id of the user to get its favorite products
- *
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error.
- *      400:
- *        description: Bad request. User_id must be an integer and larger than 0.
- *      404:
- *        description: The favorite products for the specified user_id did not found
- */
-router.get('/:id/favorites/', (req, res, next) => {
-  usersController
-    .getUserFavorites(req.params.id)
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-/**
- * @swagger
  * /users/{ID}:
  *  patch:
  *    tags:
@@ -180,6 +145,41 @@ router.patch('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
   usersController
     .saveUser(req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /users/{user_id}/favorites:
+ *  get:
+ *    tags:
+ *    - Users
+ *    summary: Getfavorite products for a user
+ *    description:
+ *      Will return the favorite products for a user
+ *    produces: application/json
+ *    parameters:
+ *     - in: path
+ *       name: user_id
+ *       schema:
+ *         type: integer
+ *         required: true
+ *         description: The user_id of the user to get its favorite products
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ *      400:
+ *        description: Bad request. User_id must be an integer and larger than 0.
+ *      404:
+ *        description: The favorite products for the specified user_id did not found
+ */
+router.get('/:id/favorites/', (req, res, next) => {
+  usersController
+    .getUserFavorites(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
