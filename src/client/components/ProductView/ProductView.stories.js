@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductView from './ProductView.component';
+import { MemoryRouter } from 'react-router';
 
 export default {
   title: 'Components / ProductView',
@@ -7,7 +8,7 @@ export default {
 };
 // storybook-controls works with spread, but `Prop spreading is forbidden eslint(react/jsx-props-no-spreading)`
 // eslint-disable-next-line
-export const basicProductView = (args) => <ProductView {...args} />;
+export const basicProductView = (args) => <MemoryRouter><ProductView {...args} /></MemoryRouter>;
 
 basicProductView.args = {
   productsPerPage: 6,

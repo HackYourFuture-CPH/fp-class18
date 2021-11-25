@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './Carousel.style.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Carousel = ({ imageArray, show }) => {
+const Carousel = ({ imageArray, show, products }) => {
   const [current, setCurrent] = useState(0);
   const imageArrayLength = imageArray.length;
   const prevSlide = () => {
@@ -25,13 +26,21 @@ const Carousel = ({ imageArray, show }) => {
         &gt;
       </button>
       {imageArray.slice(current, current + show).map((image) => {
+        const productData = products
+          ? products.filter(
+              (product) =>
+                product.picture.split('/')[4] === `${image.split('/')[4]}`,
+            )
+          : false;
         return (
-          <img
-            // eslint-disable-next-line
-            src={require(`../../assets/images/${image.split('/')[4]}`)}
-            alt={image}
-            className="image"
-          />
+          <Link to={productData ? `/product/${productData[0].id}` : ''}>
+            <img
+              // eslint-disable-next-line
+              src={require(`../../assets/images/${image.split('/')[4]}`)}
+              alt={image}
+              className="image"
+            />
+          </Link>
         );
       })}
     </section>
