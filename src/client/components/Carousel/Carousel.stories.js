@@ -21,8 +21,4 @@ const productImages = [
   'src/client/assets/images/image12.png',
 ];
 
-export const component = () => (
-  <MemoryRouter>
-    <Carousel imageArray={productImages} show={3} />
-  </MemoryRouter>
-);
+export const component = () => <MemoryRouter><Carousel imageArray={productImages} show={3} /></MemoryRouter>;
