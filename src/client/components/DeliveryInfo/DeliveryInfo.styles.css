@@ -4,7 +4,7 @@ form {
   background: #f9f9f9;
   border: 1px solid #c1c1c1;
   margin: 1rem auto 0 auto;
-  max-width: 600px;
+  max-width: 550px;
   padding: 1em;
 }
 form input {
@@ -17,9 +17,7 @@ form button {
   width: 100%;
   border: 0;
 }
-form button:hover {
-  background: grey;
-}
+
 
 label {
   padding: 0.5em 0.5em 0.5em 0;
@@ -36,11 +34,11 @@ input:focus {
 @media (min-width: 400px) {
   form {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 6px;
     font-family: Inter;
     font-style: normal;
     font-size: 14px;
     font-weight: 400;
+    grid-gap: 6px;
   }
 
   .title {
@@ -48,14 +46,15 @@ input:focus {
     grid-column: 1 / span 2;
     grid-row: 1;
     font-weight: 600;
-    margin-left: 3em;
+    margin-left: 2em;
+    padding-bottom: 1em;
   }
 
   .addressLabel {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 2;
-    margin-left: 4em;
+    margin-left: 30px;
   }
 
   .addressVert {
@@ -73,14 +72,14 @@ input:focus {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 4;
-    margin-left: 4em;
+    margin-left: 30px;
   }
 
   .zipLabel {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 3;
-    margin-left: 4em;
+    margin-left: 30px;
   }
 
   .countryLabel {
@@ -93,7 +92,7 @@ input:focus {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 5;
-    margin-left: 4em;
+    margin-left: 30px;
   }
 
   .saveButtonDiv {
@@ -123,8 +122,10 @@ input:focus {
     text-decoration: underline;
     display: inline;
     margin: 0;
-    padding: 10px;
+    padding: 0.7em 0;
+    text-align: right;
   }
+
   .addressInputLabel {
     text-align: right;
     grid-column: 1 / span 1;
@@ -165,4 +166,9 @@ input:focus {
     grid-column: 4 / span 1;
     grid-row: 3;
   }
+}
+.text-right{
+  padding-right: 3em;
+  text-align: right;
+
 }

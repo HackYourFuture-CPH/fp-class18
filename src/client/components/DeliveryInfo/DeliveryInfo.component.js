@@ -33,7 +33,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
       <div className="wrapper">
         {edit ? (
           <form className="form" onSubmit={handleSubmit}>
-            <label className="title">DELIVERY INFO</label>
+            <label className="title">DELIVERY INFO:</label>
             <label className="addressInputLabel">Address:</label>
             <input
               defaultValue={address}
@@ -80,9 +80,9 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
           </form>
         ) : (
           <form className="form">
-            <label className="title">DELIVERY INFO</label>
+            <label className="title">DELIVERY INFO:</label>
             {editMode && (
-              <span className="editLink">
+              <span className="editLink text-right">
                 <button
                   type="button"
                   onClick={handleEdit}
@@ -94,14 +94,14 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             )}
             <label className="addressLabel">Address: {address}</label>
 
-            <label className={`${vertDisplay ? 'cityLabelVert' : 'cityLabel'}`}>
+            <label className={`${vertDisplay ? 'cityLabelVert' : 'cityLabel text-right'}`}>
               City: {city}
             </label>
 
             <label className="zipLabel">Zip code: {zip}</label>
 
             <label
-              className={`${vertDisplay ? 'countryLabelVert' : 'countryLabel'}`}
+              className={`${vertDisplay ? 'countryLabelVert' : 'countryLabel text-right'}`}
             >
               Country: {country}
             </label>
