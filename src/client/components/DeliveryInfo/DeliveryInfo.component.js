@@ -21,6 +21,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
       }),
     }).then((response) => {
       if (response.ok) {
+        // eslint-disable-next-line no-alert
         alert('User saved Successfully');
       } else {
         throw new Error(response.status);
