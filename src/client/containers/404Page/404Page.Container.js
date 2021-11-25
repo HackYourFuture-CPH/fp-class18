@@ -12,7 +12,7 @@ const Page404Container = () => {
         <div className="page_deatails">
           <h3>Looks like... you are lost</h3>
 
-          <p>the page you are looking for not available!</p>
+          <p>the page you are looking for is not available!</p>
 
           <a href="/" className="link_404">
             Go to Home
