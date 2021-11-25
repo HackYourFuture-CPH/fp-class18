@@ -4,10 +4,24 @@
   width: 100%;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding: 2% 5%;
+  padding: 1%;
 }
 
 #product-details {
   padding: 1px;
   flex: 1 0 35%;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+#product-details .details-column {
+  padding: 2% 2%;
+}
+
+#product-details .select-item {
+  margin-right: 1rem;
+}
+
+#product-details .input-row button {
+  width: 8rem;
 }
