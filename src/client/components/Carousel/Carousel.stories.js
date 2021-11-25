@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from './Carousel.component';
-import { MemoryRouter } from 'react-router';
+import { MemoryRouter } from 'react-router'; // eslint-disable-line
 
 export default {
   title: 'components/Carousel for monthly and similar products',

@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductView from './ProductView.component';
-import { MemoryRouter } from 'react-router';
+import { MemoryRouter } from 'react-router'; // eslint-disable-line
 
 export default {
   title: 'Components / ProductView',
