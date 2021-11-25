@@ -39,8 +39,14 @@ const editUser = async (UserId, updatedUser) => {
   });
 };
 
+
+const saveUser = async (data) => {
+  await knex('users').insert(data);
+};
+
 module.exports = {
   getUsers,
   getUsersById,
   editUser,
+  saveUser,
 };
