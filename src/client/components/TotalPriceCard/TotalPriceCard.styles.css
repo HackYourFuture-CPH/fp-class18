@@ -1,0 +1,29 @@
+.wrapper {
+  width: 17rem;
+  height: 11.5rem;
+  border: 1px solid rgb(245, 240, 240);
+}
+
+.wrapper-content {
+  padding: 0 1.2rem;
+  font-size: 1rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.wrapper h3 {
+  font-size: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+.wrapper-content .line {
+  border-top: 1px solid lightgray;
+}

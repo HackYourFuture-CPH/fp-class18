@@ -1,0 +1,15 @@
+.p-detail {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.explore-btn {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.similar-product > h1 {
+  margin-left: 10%;
+}
