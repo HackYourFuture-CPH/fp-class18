@@ -5,7 +5,7 @@ exports.seed = function (knex) {
       return knex('products').insert([
         {
           id: 1,
-          name: 'Ceramic pot',
+          name: 'Ceramic pot simon',
           price: 50,
           color: 'Green',
           size: 'Small',
