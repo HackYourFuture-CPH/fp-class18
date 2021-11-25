@@ -2,24 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TotalPriceCard.styles.css';
 
-const TotalPrice = ({ quantity, price }) => {
-  const subTotal = quantity * price;
-  const deliveryCharge = subTotal >= 1000 ? 0 : 49.99;
-  const grandTotal = subTotal + deliveryCharge;
+const TotalPrice = ({ subTotal }) => {
+  const delivering = subTotal >= 1000 ? 0 : 49.99;
+  const grandTotal = subTotal > 0 ? subTotal + delivering : 0;
   return (
     <>
       <aside className="wrapper">
         <h3>Total</h3>
         <div className="wrapper-content">
           <div className="row">
-            <div>SubTotal:</div>
+            <div>Subtotal</div>
             <div className="text-right">{subTotal.toFixed(2)} DKK</div>
           </div>
           <div className="row">
-            <div>Delivery Charge:</div>
-            <div className="text-right">{deliveryCharge.toFixed(2)} DKK</div>
+            <div>Delivering</div>
+            <div className="text-right">{delivering.toFixed(2)} DKK</div>
           </div>
-          <hr />
+          <hr className="line" />
           <div className="text-right">
             <strong>{grandTotal.toFixed(2)} DKK</strong>
           </div>
@@ -29,12 +28,7 @@ const TotalPrice = ({ quantity, price }) => {
   );
 };
 TotalPrice.propTypes = {
-  quantity: PropTypes.number,
-  price: PropTypes.number,
+  subTotal: PropTypes.number.isRequired,
 };
 
-TotalPrice.defaultProps = {
-  quantity: 1,
-  price: 100,
-};
 export default TotalPrice;

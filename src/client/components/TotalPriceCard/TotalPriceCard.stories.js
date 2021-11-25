@@ -8,6 +8,5 @@ export default {
 // eslint-disable-next-line react/jsx-props-no-spreading
 export const GrandTotalPrice = (args) => <TotalPrice {...args} />;
 GrandTotalPrice.args = {
-  quantity: 3,
-  price: 149.99,
+  subTotal: 100,
 };
