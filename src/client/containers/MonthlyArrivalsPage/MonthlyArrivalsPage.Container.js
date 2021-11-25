@@ -6,7 +6,6 @@ import Loader from '../../components/Loader';
 
 const MonthlyArrivalsPageContainer = () => {
   const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
-  console.log(monthlyArrivals);
 
   return (
     <div>
