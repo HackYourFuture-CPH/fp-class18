@@ -11,17 +11,17 @@
   width: 100%;
 }
 
-.four_zero_four_bg {
+.page_bg {
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
   height: 400px;
   background-position: center;
 }
 
-.four_zero_four_bg h1 {
+.page_bg h1 {
   font-size: 80px;
 }
 
-.four_zero_four_bg h3 {
+.page_bg h3 {
   font-size: 80px;
 }
 
@@ -33,6 +33,6 @@
   display: inline-block;
 }
 
-.contant_box_404 {
+.page_deatails {
   margin-top: -50px;
 }
