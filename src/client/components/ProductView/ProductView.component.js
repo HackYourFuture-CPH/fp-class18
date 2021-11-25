@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './ProductView.styles.css';
 import Pagination from '../ProductsPagination/ProductsPagination.component';
 import Sorting from '../Sorting/Sorting.component';
+import { Link } from 'react-router-dom';
 
 export default function ProductView({
   header,
@@ -40,13 +41,15 @@ export default function ProductView({
         {currentRange.map((product) => {
           return (
             <li className="product-item" key={product.id}>
-              <img
-                // eslint-disable-next-line
-                src={require(`../../assets/images/${
-                  product.picture.split('/')[4]
-                }`)}
-                alt={product.name}
-              />
+              <Link to={`/product/${product.id}`}>
+                <img
+                  // eslint-disable-next-line
+                  src={require(`../../assets/images/${
+                    product.picture.split('/')[4]
+                  }`)}
+                  alt={product.name}
+                />
+              </Link>
             </li>
           );
         })}

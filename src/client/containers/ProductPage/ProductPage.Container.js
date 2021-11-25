@@ -68,7 +68,10 @@ const ProductPageContainer = () => {
           {similarProductData.isLoading ? (
             <Loader />
           ) : (
-            <Carousel imageArray={similarProduct.map((item) => item.picture)} />
+            <Carousel
+              imageArray={similarProduct.map((item) => item.picture)}
+              products={similarProductData.data}
+            />
           )}
         </div>
         <div className="explore-btn">
