@@ -68,7 +68,7 @@ router.get('/:id', (req, res, next) => {
  * /users/{ID}:
  *  patch:
  *    tags:
- *    - Delivery Update
+ *    - Users
  *    summary: Update Delivery Informations
  *    description:
  *      Will update user delivery infos.
@@ -100,6 +100,51 @@ router.get('/:id', (req, res, next) => {
 router.patch('/:id', (req, res, next) => {
   usersController
     .editUser(req.params.id, req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /users:
+ *  post:
+ *    tags:
+ *    - Users
+ *    summary: Save user information
+ *    description:
+ *      To Save new user to the DB
+ *    produces: application/json
+ *    parameters:
+ *     - in: body
+ *       name: user
+ *       description: create a new user
+ *       schema:
+ *         type: object
+ *         required: true
+ *         description: user json object
+ *         properties:
+ *            full_name:
+ *              type: string
+ *            email:
+ *              type: string
+ *            address:
+ *              type: string
+ *            zipcode:
+ *              type: integer
+ *            city:
+ *              type: string
+ *            country:
+ *              type: string
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.post('/', (req, res, next) => {
+  usersController
+    .saveUser(req.body)
     .then((result) => res.json(result))
     .catch(next);
 });
