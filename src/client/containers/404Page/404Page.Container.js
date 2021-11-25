@@ -6,7 +6,7 @@ const Page404Container = () => {
     <>
       <section className="page_404">
         <div className="four_zero_four_bg">
-          <h1 className="text-center ">404</h1>
+          <h1 className="text-center ">404: NOT FOUND</h1>
         </div>
 
         <div className="contant_box_404">
