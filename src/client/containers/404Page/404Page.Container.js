@@ -10,7 +10,7 @@ const Page404Container = () => {
         </div>
 
         <div className="page_deatails">
-          <h3>Look like you are lost</h3>
+          <h3>Looks like you are lost</h3>
 
           <p>the page you are looking for not available!</p>
 
