@@ -16,6 +16,7 @@ import ProductPageContainer from './containers/ProductPage/ProductPage.Container
 import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
+import Page404Container from './containers/404Page/404Page.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -38,7 +39,9 @@ function App() {
         <Route exact path="/category/:name">
           <CategoryPage />
         </Route>
-
+        <Route path="*">
+          <Page404Container />
+        </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
          * user is logged in, if a user is logged in, they can't see the login page

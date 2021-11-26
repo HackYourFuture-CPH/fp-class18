@@ -1,0 +1,38 @@
+form {
+  display: grid;
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin: 0.5em auto 0 auto;
+  max-width: 400px;
+  padding-bottom: 60px;
+  background: #FFFFFF;
+}
+
+label {
+  padding: 0.5em 0 0.5em 0;
+  line-height: 20px;
+}
+
+@media (min-width: 400px) {
+ 
+  .title {
+    margin-left: 0.5em;
+    font-weight: bolder;
+    grid-column: 1 / span 1;
+    grid-row: 1;
+  }
+
+  .fullName {
+    margin-left: 0.8em;
+    grid-column: 1 / span 1;
+    grid-row: 2;
+    padding-left: 10px;
+  }
+  .email {
+    margin-left: 0.8em;
+    grid-column: 1 / span 1;
+    grid-row: 3;
+    padding-left: 10px;
+  }
+}

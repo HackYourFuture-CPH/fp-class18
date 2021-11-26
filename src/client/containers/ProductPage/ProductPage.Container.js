@@ -49,7 +49,7 @@ const ProductPageContainer = () => {
     <div>
       <div>
         <div className="p-detail">
-          {productData.isLoading ? (
+          {!product.picture ? (
             <Loader />
           ) : (
             <ProductDetails
@@ -68,7 +68,10 @@ const ProductPageContainer = () => {
           {similarProductData.isLoading ? (
             <Loader />
           ) : (
-            <Carousel imageArray={similarProduct.map((item) => item.picture)} />
+            <Carousel
+              imageArray={similarProduct.map((item) => item.picture)}
+              products={similarProductData.data}
+            />
           )}
         </div>
         <div className="explore-btn">
