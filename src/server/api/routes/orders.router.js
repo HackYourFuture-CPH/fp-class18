@@ -64,7 +64,7 @@ router.get('/:id', (req, res, next) => {
 });
 /**
  * @swagger
- * /orders/{userid}:
+ * /orders/user/{userid}:
  *  get:
  *    tags:
  *    - Orders
