@@ -90,9 +90,10 @@ router.get('/:id', (req, res, next) => {
  *      404:
  *        description: A order with the specified userid was not found.
  */
-router.get('/?user={userid}', (req, res, next) => {
+
+router.get('/user/:userid', (req, res, next) => {
   ordersController
-    .getOrderByUserId(req.query.userid)
+    .getOrderByUserId(req.params.userid)
     .then((result) => res.json(result))
     .catch(next);
 });

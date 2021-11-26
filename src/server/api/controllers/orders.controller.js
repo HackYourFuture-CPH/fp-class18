@@ -4,6 +4,7 @@ const HttpError = require('../lib/utils/http-error');
 const getOrders = async () => {
   return knex('orders');
 };
+
 const getOrderByUserId = async (userid) => {
   if (!userid) {
     throw new HttpError(
@@ -12,7 +13,7 @@ const getOrderByUserId = async (userid) => {
     );
   }
   try {
-    const orders = await knex('orders').select('orders').where({ userid });
+    const orders = await knex('orders').where({ user_id: userid });
     if (orders.length === 0) {
       throw new Error(` order with the specified userid was not found`, 404);
     }
