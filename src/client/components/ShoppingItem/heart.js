@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Heart = ({
   height = 320,
@@ -22,3 +23,10 @@ export const Heart = ({
     />
   </svg>
 );
+
+Heart.propTypes = {
+  height: PropTypes.number.isRequired,
+  fill: PropTypes.string.isRequired,
+  stroke: PropTypes.string.isRequired,
+  strokeWidth: PropTypes.number.isRequired,
+};
