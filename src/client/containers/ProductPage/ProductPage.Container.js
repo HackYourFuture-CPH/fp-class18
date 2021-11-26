@@ -6,6 +6,7 @@ import ButtonComponent from '../../components/Button/Button.component';
 import Loader from '../../components/Loader/index';
 import './ProductPage.Style.css';
 import { useFetchApi } from '../../hooks/UseFetchApi';
+import Page404Container from '../404Page/404Page.Container';
 
 const ProductPageContainer = () => {
   const { id } = useParams();
@@ -48,39 +49,45 @@ const ProductPageContainer = () => {
   return (
     <div>
       <div>
-        <div className="p-detail">
-          {!product.picture ? (
-            <Loader />
-          ) : (
-            <ProductDetails
-              imgSource={product.picture}
-              ProductName={product.name}
-              RemainingUnit={parseInt(product.stock_amount, 10)}
-              Price={parseInt(product.price, 10)}
-              productColor={product.color}
-              productSize={product.size}
-              onClick={addToCartHandler}
-            />
-          )}
-        </div>
-        <div className="similar-product">
-          <h1>SIMILAR PRODUCT</h1>
-          {similarProductData.isLoading ? (
-            <Loader />
-          ) : (
-            <Carousel
-              imageArray={similarProduct.map((item) => item.picture)}
-              products={similarProductData.data}
-            />
-          )}
-        </div>
-        <div className="explore-btn">
-          <ButtonComponent
-            title="EXPLORE THIS CATEGORY"
-            onClick={exploreCategoryHandler}
-            backgroundColor="gray"
-          />
-        </div>
+        {!product.id ? (
+          <Page404Container />
+        ) : (
+          <>
+            <div className="p-detail">
+              {!product.picture ? (
+                <Loader />
+              ) : (
+                <ProductDetails
+                  imgSource={product.picture}
+                  ProductName={product.name}
+                  RemainingUnit={parseInt(product.stock_amount, 10)}
+                  Price={parseInt(product.price, 10)}
+                  productColor={product.color}
+                  productSize={product.size}
+                  onClick={addToCartHandler}
+                />
+              )}
+            </div>
+            <div className="similar-product">
+              <h1>SIMILAR PRODUCT</h1>
+              {similarProductData.isLoading ? (
+                <Loader />
+              ) : (
+                <Carousel
+                  imageArray={similarProduct.map((item) => item.picture)}
+                  products={similarProductData.data}
+                />
+              )}
+            </div>
+            <div className="explore-btn">
+              <ButtonComponent
+                title="EXPLORE THIS CATEGORY"
+                onClick={exploreCategoryHandler}
+                backgroundColor="gray"
+              />
+            </div>
+          </>
+        )}{' '}
       </div>
     </div>
   );
