@@ -1,7 +1,7 @@
 import React from 'react';
 import ShoppingItem from '../..components/ShoppingItem/ShoppingItem.component';
 import ContactForm from '../..components/ContactForm/ContactForm.component';
-import TotalPriceCard from '../..components/TotalPriceCard/TotalPriceCard.component';
+import TotalPrice from '../..components/TotalPriceCard/TotalPriceCard.component';
 import DeliveryInformation from '../..components/ContentCard/DeliveryInformation/DeliveryInformation.component';
 import { useParams } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
@@ -14,11 +14,11 @@ const OrderPageContainer = () => {
 
   const newPurchase = useFetchApi(`orders/${id}`);
   const userInfo = useFetchApi(`users/${purchase.user_id}`);
-  setPurchase(newPurchase.data[0]);
+  setPurchase(newPurchase);
   setUser(userInfo);
 
-  console.log(newPurchase.data[0]);
-  console.log(userInfo.data[0]);
+  console.log(newPurchase);
+  console.log(userInfo);
 
   return (
     <div>
@@ -47,7 +47,7 @@ const OrderPageContainer = () => {
           </div>
         </div>
         <div className="total">
-          <TotalPriceCard />
+          <TotalPrice />
         </div>
       </div>
       <div className="delivery-contact">
