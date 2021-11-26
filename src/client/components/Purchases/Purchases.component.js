@@ -22,6 +22,6 @@ Purchases.defaultProps = {
 };
 
 Purchases.propTypes = {
-  orderId: PropTypes.number,
-  date: PropTypes.number,
+  orderId: PropTypes.string,
+  date: PropTypes.string,
 };
