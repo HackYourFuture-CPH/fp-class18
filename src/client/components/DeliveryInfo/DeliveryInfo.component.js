@@ -29,7 +29,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
     });
   };
   return (
-    <div className="infoBox">
+      <div className="wrapperDelivery">
         {edit ? (
           <form className="form" onSubmit={handleSubmit}>
             <label className="titleDelivery">DELIVERY INFO:</label>

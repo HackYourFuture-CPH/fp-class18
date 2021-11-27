@@ -171,3 +171,8 @@ input:focus {
   text-align: right;
 
 }
+
+.wrapperDelivery {
+  width: 36rem;
+  height: 11.5rem;
+}
