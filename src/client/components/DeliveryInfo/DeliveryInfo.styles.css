@@ -4,7 +4,6 @@ form {
   background: #f9f9f9;
   border: 1px solid #c1c1c1;
   margin: 1rem auto 0 auto;
-  max-width: 550px;
   padding: 1em;
 }
 form input {
@@ -41,7 +40,7 @@ input:focus {
     grid-gap: 6px;
   }
 
-  .title {
+  .titleDelivery {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 1;

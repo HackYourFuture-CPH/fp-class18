@@ -30,10 +30,9 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
   };
   return (
     <div className="infoBox">
-    
         {edit ? (
           <form className="form" onSubmit={handleSubmit}>
-            <label className="title">DELIVERY INFO:</label>
+            <label className="titleDelivery">DELIVERY INFO:</label>
             <label className="addressInputLabel">Address:</label>
             <input
               defaultValue={address}
@@ -80,7 +79,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
           </form>
         ) : (
           <form className="form">
-            <label className="title">DELIVERY INFO:</label>
+            <label className="titleDelivery">DELIVERY INFO:</label>
             {editMode && (
               <span className="editLink text-right">
                 <button
@@ -106,7 +105,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
               Country: {country}
             </label>
           </form>
-        )}{' '}
+        )}
       </div>
   );
 }
