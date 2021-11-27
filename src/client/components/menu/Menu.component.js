@@ -27,13 +27,13 @@ export const Menu = ({ isAuthenticated }) => {
               <img src={faUser} alt="logout" />
               <div id="login" className="dropdown-content">
                 {isAuthenticated ? (
-                  <a className="text-link" onClick={handleLogout}>
+                  <Link className="text-link" to="/logout">
                     LOGOUT
-                  </a>
+                  </Link>
                 ) : (
-                  <a className="text-link" onClick={handleLogin}>
+                  <Link className="text-link" to="/sign-in">
                     LOGIN / SIGNUP
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>
