@@ -51,8 +51,6 @@ router.get('/', (req, res, next) => {
  *        description: Successful request
  *      5XX:
  *        description: Unexpected error.
- *      400:
- *        description: Bad request. User ID must be an integer and larger than 0.
  *      404:
  *        description: A user with the specified ID was not found
  */
@@ -172,8 +170,6 @@ router.post('/', (req, res, next) => {
  *        description: Successful request
  *      5XX:
  *        description: Unexpected error.
- *      400:
- *        description: Bad request. User_id must be an integer and larger than 0.
  *      404:
  *        description: The favorite products for the specified user_id did not found
  */
