@@ -30,7 +30,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
   };
   return (
     <div className="infoBox">
-      <div className="wrapper">
+    
         {edit ? (
           <form className="form" onSubmit={handleSubmit}>
             <label className="title">DELIVERY INFO:</label>
@@ -108,7 +108,6 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
           </form>
         )}{' '}
       </div>
-    </div>
   );
 }
 
