@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 const knex = require('../../config/db');
-const HttpError = require('../lib/utils/http-error');
 
 const getUsers = async () => {
   return knex('users');
