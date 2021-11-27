@@ -79,7 +79,7 @@ function addUserToDatabase(userId) {
     .then(async (res) => {
       checkIfError(res);
       const data = await res.json();
-      //if not present add new user id to database
+      // if not present add new user id to database
       if (!data[0]) {
         fetch('api/users', {
           method: 'POST',
@@ -89,7 +89,7 @@ function addUserToDatabase(userId) {
           },
           body: JSON.stringify({ id: userId }),
         })
-          .then((res) => checkIfError(res))
+          .then((postRes) => checkIfError(postRes))
           .catch((e) => console.log('Could not add user to Database:', e));
       }
     })
