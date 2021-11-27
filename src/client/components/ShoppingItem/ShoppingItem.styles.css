@@ -1,9 +1,9 @@
 .shopping-item {
-  position: absolute;
+  /* position: absolute; */
   padding: 30px;
   padding-right: 10px;
   display: flex;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .item-settings {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Numberinput from '../NumberInput/NumberInput.component';
 import { Heart } from './heart.js';
@@ -11,7 +11,7 @@ export default function ShoppingItem({
   quantity,
   price,
 }) {
-  const [itemValue, setItemValue] = React.useState(1);
+  const [itemValue, setItemValue] = useState(1);
   return (
     <div className="shopping-item">
       <img src={productImg} alt="" width="185px" height="145px" />
