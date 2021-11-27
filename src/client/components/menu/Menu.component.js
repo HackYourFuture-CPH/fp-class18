@@ -50,22 +50,22 @@ export const Menu = ({ isAuthenticated }) => {
             <div className="dropdown-content">
               <ul>
                 <li>
-                  <Link className="text-link" to="/furniture">
+                  <Link className="text-link" to="/category/furniture">
                     FURNITURE
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-link" to="/lamps">
+                  <Link className="text-link" to="/category/lamps">
                     LAMPS
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-link" to="/homedecor">
+                  <Link className="text-link" to="/category/home decor">
                     HOME DECOR
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-link" to="/linen">
+                  <Link className="text-link" to="/category/linen">
                     LINEN
                   </Link>
                 </li>

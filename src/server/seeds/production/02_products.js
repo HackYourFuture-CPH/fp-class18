@@ -145,6 +145,30 @@ exports.seed = function (knex) {
           stock_amount: 12,
           category_id: 1,
         },
+        {
+          id: 13,
+          name: 'Flowerpot table lamp',
+          price: 610,
+          color: 'Blue',
+          size: 'Medium',
+          status: 'out_of_stock',
+          created_at: '2021-11-27 00:00:00',
+          picture: 'src/client/assets/images/image13.png',
+          stock_amount: 0,
+          category_id: 2,
+        },
+        {
+          id: 14,
+          name: 'Dining table chair',
+          price: 430,
+          color: 'Brown',
+          size: 'Medium',
+          status: 'out_of_stock',
+          created_at: '2021-11-27 00:00:00',
+          picture: 'src/client/assets/images/image14.png',
+          stock_amount: 0,
+          category_id: 1,
+        },
       ]);
     });
 };
