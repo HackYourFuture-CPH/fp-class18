@@ -10,7 +10,7 @@ const getUsersById = async (id) => {
   try {
     const users = await knex('users').where({ id });
     if (users.length === 0) {
-      throw new HttpError(
+      throw new Error(
         `A user with the specified ID was not found : ${id}`,
         404,
       );
