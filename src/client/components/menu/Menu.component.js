@@ -5,8 +5,19 @@ import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
+import { useFirebase } from '../../firebase/FirebaseContext';
 
 export const Menu = ({ isAuthenticated }) => {
+  const { signInWithGoogle, signOut } = useFirebase();
+
+  const handleLogin = async () => {
+    await signInWithGoogle();
+  };
+
+  const handleLogout = async () => {
+    await signOut();
+  };
+
   return (
     <nav>
       <header>
@@ -16,13 +27,13 @@ export const Menu = ({ isAuthenticated }) => {
               <img src={faUser} alt="logout" />
               <div id="login" className="dropdown-content">
                 {isAuthenticated ? (
-                  <Link className="text-link" to="/logout">
+                  <a className="text-link" onClick={handleLogout}>
                     LOGOUT
-                  </Link>
+                  </a>
                 ) : (
-                  <Link className="text-link" to="/sign-in">
+                  <a className="text-link" onClick={handleLogin}>
                     LOGIN / SIGNUP
-                  </Link>
+                  </a>
                 )}
               </div>
             </div>

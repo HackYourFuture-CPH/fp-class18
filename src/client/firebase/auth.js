@@ -61,7 +61,41 @@ export function signOut(auth) {
 export async function signInWithGoogle(auth, provider) {
   try {
     await auth.signInWithPopup(provider);
+    addUserToDatabase(auth.currentUser.uid);
   } catch (error) {
     handleAuthErrors(error);
+  }
+}
+
+function addUserToDatabase(userId) {
+  fetch(`api/users/${userId}`)
+    .then(async (res) => {
+      checkIfError(res);
+      const data = await res.json();
+      //if not present add new user id to database
+      if (!data[0]) {
+        fetch('api/users', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: userId }),
+        })
+          .then((res) => checkIfError(res))
+          .catch((e) => console.log('Could not add user to Database:', e));
+      }
+    })
+    .catch((e) =>
+      console.log('Could not check if user present in Database:', e),
+    );
+}
+
+async function checkIfError(res) {
+  console.log(res.ok);
+  if (!res.ok) {
+    const errorBody = await res.text();
+    console.log(errorBody);
+    throw new Error(res.statusText + errorBody);
   }
 }
