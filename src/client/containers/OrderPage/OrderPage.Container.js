@@ -1,8 +1,8 @@
 import React from 'react';
-import ShoppingItem from '../../components/ShoppingItem/ShoppingItem.component';
+import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
 import ContactForm from '../../components/ContactForm/ContactForm.component';
 import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
-import DeliveryInformation from '../../components/ContentCard/DeliveryInformation/DeliveryInformation.component';
+import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
 import { useParams } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import './OrderPage.Style.css';
@@ -16,6 +16,7 @@ const OrderPageContainer = () => {
   const userInfo = useFetchApi(`users/${purchase.user_id}`);
   setPurchase(newPurchase);
   setUser(userInfo);
+  const { address, zipcode, city, country, full_name: fullName, email } = user;
 
   console.log(newPurchase);
   console.log(userInfo);
@@ -52,15 +53,15 @@ const OrderPageContainer = () => {
       </div>
       <div className="delivery-contact">
         <div className="delivery">
-          <DeliveryInformation
-            address={user.address}
-            zipcode={user.zipcode}
-            city={user.city}
-            country={user.country}
+          <DeliveryInfo
+            address={address}
+            zipcode={zipcode}
+            city={city}
+            country={country}
           />{' '}
         </div>
         <div className="contact">
-          <ContactForm fullName={user.full_name} email={user.email} />{' '}
+          <ContactForm fullName={fullName} email={email} />
         </div>
       </div>
     </div>
