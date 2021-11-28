@@ -1,22 +1,16 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-
+import ProfilePageContainer from './containers/ProfilePage/ProfilePage.Container';
 import SignIn from './containers/SignIn';
 import SignUp from './containers/SignUp';
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
-import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
+import Profile from './containers/Profile';
 import Loader from './components/Loader';
-import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
-import { Footer } from './components/Footer/Footer.component';
-import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
 import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
-import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
-import Page404Container from './containers/404Page/404Page.Container';
-import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -29,20 +23,8 @@ function App() {
     <Router history={reactRouterHistory}>
       <Menu isAuthenticated={isAuthenticated} />
       <Switch>
-        <Route exact path="/">
-          <LandingPageContainer />
-        </Route>
-        <Route exact path="/product/:id">
-          <ProductPageContainer />
-        </Route>
-        <Route exact path="/monthly-arrivals">
-          <MonthlyArrivalsPageContainer />
-        </Route>
-        <Route exact path="/category/:name">
-          <CategoryPage />
-        </Route>
-        <Route path="*">
-          <Page404Container />
+        <Route exact path="/pp">
+          <ProfilePageContainer />
         </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
@@ -62,10 +44,9 @@ function App() {
 
         {/* All routes below are authenticated routes - a user must login first */}
         <AuthenticatedRoute exact path="/profile">
-          <ProfilePage />
+          <Profile />
         </AuthenticatedRoute>
       </Switch>
-      <Footer />
     </Router>
   );
 }
