@@ -99,7 +99,6 @@ function addUserToDatabase(userId) {
 }
 
 async function checkIfError(res) {
-  console.log(res.ok);
   if (!res.ok) {
     const errorBody = await res.text();
     console.log(errorBody);

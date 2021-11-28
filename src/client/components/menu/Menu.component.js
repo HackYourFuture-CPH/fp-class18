@@ -8,7 +8,7 @@ import faShoppingCart from '../../assets/images/shopping-cart.png';
 import { useFirebase } from '../../firebase/FirebaseContext';
 
 export const Menu = ({ isAuthenticated }) => {
-  const { signInWithGoogle, signOut } = useFirebase();
+  const { signInWithGoogle, signOut, auth } = useFirebase();
 
   const handleLogin = async () => {
     await signInWithGoogle();
@@ -24,24 +24,29 @@ export const Menu = ({ isAuthenticated }) => {
         <div className="logo_container">
           <div className="user-icon">
             <div className="dropdown">
-              <img src={faUser} alt="logout" />
+              <div className="name-div">
+                <img src={faUser} alt="logout" />
+                <span className="name-span">
+                  {isAuthenticated && `${auth.currentUser.displayName}`}
+                </span>
+              </div>
               <div id="login" className="dropdown-content">
                 {isAuthenticated ? (
-                  <Link
-                    className="text-link"
-                    to="/logout"
+                  <button
+                    type="submit"
+                    className="login-btn"
                     onClick={handleLogout}
                   >
                     LOGOUT
-                  </Link>
+                  </button>
                 ) : (
-                  <Link
-                    className="text-link"
-                    to="/sign-in"
+                  <button
+                    type="submit"
+                    className="login-btn"
                     onClick={handleLogin}
                   >
                     LOGIN / SIGNUP
-                  </Link>
+                  </button>
                 )}
               </div>
             </div>
