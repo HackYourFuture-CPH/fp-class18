@@ -13,6 +13,9 @@ const LandingPageContainer = () => {
   const compareMonth = (date) => {
     return new Date().getMonth() === new Date(date).getMonth();
   };
+  const imageArray = monthlyArrivals.data.filter((product) =>
+    compareMonth(product.created_at) ? product : false,
+  );
 
   return (
     <main>
@@ -25,9 +28,8 @@ const LandingPageContainer = () => {
           <h2 className="loading">Loading...</h2>
         ) : (
           <Carousel
-            imageArray={monthlyArrivals.data.map((product) =>
-              compareMonth(product.created_at) ? product.picture : false,
-            )}
+            imageArray={imageArray.map((product) => product.picture)}
+            products={products.data}
             show={3}
           />
         )}

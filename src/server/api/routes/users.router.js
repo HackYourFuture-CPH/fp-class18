@@ -44,7 +44,7 @@ router.get('/', (req, res, next) => {
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the module to get
+ *         description: The ID of the user to get
  *
  *    responses:
  *      200:
@@ -68,7 +68,7 @@ router.get('/:id', (req, res, next) => {
  * /users/{ID}:
  *  patch:
  *    tags:
- *    - Delivery Update
+ *    - Users
  *    summary: Update Delivery Informations
  *    description:
  *      Will update user delivery infos.
@@ -100,6 +100,86 @@ router.get('/:id', (req, res, next) => {
 router.patch('/:id', (req, res, next) => {
   usersController
     .editUser(req.params.id, req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /users:
+ *  post:
+ *    tags:
+ *    - Users
+ *    summary: Save user information
+ *    description:
+ *      To Save new user to the DB
+ *    produces: application/json
+ *    parameters:
+ *     - in: body
+ *       name: user
+ *       description: create a new user
+ *       schema:
+ *         type: object
+ *         required: true
+ *         description: user json object
+ *         properties:
+ *            full_name:
+ *              type: string
+ *            email:
+ *              type: string
+ *            address:
+ *              type: string
+ *            zipcode:
+ *              type: integer
+ *            city:
+ *              type: string
+ *            country:
+ *              type: string
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.post('/', (req, res, next) => {
+  usersController
+    .saveUser(req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /users/{user_id}/favorites:
+ *  get:
+ *    tags:
+ *    - Users
+ *    summary: Getfavorite products for a user
+ *    description:
+ *      Will return the favorite products for a user
+ *    produces: application/json
+ *    parameters:
+ *     - in: path
+ *       name: user_id
+ *       schema:
+ *         type: integer
+ *         required: true
+ *         description: The user_id of the user to get its favorite products
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ *      400:
+ *        description: Bad request. User_id must be an integer and larger than 0.
+ *      404:
+ *        description: The favorite products for the specified user_id did not found
+ */
+router.get('/:id/favorites/', (req, res, next) => {
+  usersController
+    .getUserFavorites(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });

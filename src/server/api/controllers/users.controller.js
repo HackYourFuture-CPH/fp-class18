@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
@@ -12,7 +13,6 @@ const getUsersById = async (id) => {
       400,
     );
   }
-
   try {
     const users = await knex('users').where({ id });
     if (users.length === 0) {
@@ -39,8 +39,39 @@ const editUser = async (UserId, updatedUser) => {
   });
 };
 
+const saveUser = async (data) => {
+  await knex('users').insert(data);
+};
+
+const getUserFavorites = async (user_id) => {
+  // eslint-disable-next-line radix
+  if (!parseInt(user_id)) {
+    throw new HttpError(
+      'Bad request. user_id must be an integer and larger than 0',
+      400,
+    );
+  }
+  try {
+    const favorites = await knex('favorites')
+      .join('products', 'products.id', 'product_id')
+      .select('products.*')
+      .where({ user_id });
+    if (favorites.length === 0) {
+      throw new Error(
+        `The favorite products for the requested user_id was not found : Requested user_id : ${user_id}`,
+        404,
+      );
+    }
+    return favorites;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 module.exports = {
   getUsers,
   getUsersById,
   editUser,
+  saveUser,
+  getUserFavorites,
 };
