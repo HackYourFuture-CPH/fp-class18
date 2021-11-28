@@ -16,6 +16,18 @@ const getOrderById = async (id) => {
   try {
     const orders = await knex('orders AS o')
       .select(
+        // {
+        //   orderId: 'o.id',
+        //   orderStatus: 'o.status',
+        //   orderDate: 'o.created',
+        //   userId: 'o.user_id',
+        //   items: {
+        //     quantity: 'oi.quantity',
+        //     productId: 'p.id',
+        //     name: 'p.name',
+        //     price: 'package.price',
+        //   },
+        // },
         'o.id as orderId',
         'o.status as orderStatus',
         'o.created_at as orderDate',
