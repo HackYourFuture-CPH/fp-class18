@@ -6,7 +6,7 @@ import SignUp from './containers/SignUp';
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
-import Profile from './containers/Profile';
+import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
 import Loader from './components/Loader';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
@@ -62,7 +62,7 @@ function App() {
 
         {/* All routes below are authenticated routes - a user must login first */}
         <AuthenticatedRoute exact path="/profile">
-          <Profile />
+          <ProfilePage />
         </AuthenticatedRoute>
       </Switch>
       <Footer />
