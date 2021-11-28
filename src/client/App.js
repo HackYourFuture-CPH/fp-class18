@@ -6,7 +6,7 @@ import SignUp from './containers/SignUp';
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
-import Profile from './containers/Profile';
+import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
 import Loader from './components/Loader';
 import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
@@ -17,6 +17,7 @@ import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
+import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -35,7 +36,9 @@ function App() {
         <Route exact path="/product/:id">
           <ProductPageContainer />
         </Route>
-
+        <Route exact path="/monthly-arrivals">
+          <MonthlyArrivalsPageContainer />
+        </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
         </Route>
@@ -64,7 +67,7 @@ function App() {
         </Route>
 
         <AuthenticatedRoute exact path="/profile">
-          <Profile />
+          <ProfilePage />
         </AuthenticatedRoute>
         <Footer />
       </Switch>
