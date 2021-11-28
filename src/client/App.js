@@ -6,7 +6,7 @@ import SignUp from './containers/SignUp';
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
-import Profile from './containers/Profile';
+
 import Loader from './components/Loader';
 import { Menu } from './components/menu/Menu.component';
 import reactRouterHistory from './router-history';
@@ -43,9 +43,6 @@ function App() {
         </NonAuthenticatedRoute>
 
         {/* All routes below are authenticated routes - a user must login first */}
-        <AuthenticatedRoute exact path="/profile">
-          <Profile />
-        </AuthenticatedRoute>
       </Switch>
     </Router>
   );
