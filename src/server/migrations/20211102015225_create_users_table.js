@@ -1,6 +1,11 @@
 exports.up = function (knex) {
   return knex.schema.createTable('users', (table) => {
-    table.string('id').primary().unique().notNullable();
+    table
+      .string('id')
+      .primary()
+      .unique()
+      .notNullable()
+      .defaultTo('EVJOWMzhWTYdqNGkyaBnn3LpINl2');
     table.string('address');
     table.string('zipcode');
     table.string('city');
