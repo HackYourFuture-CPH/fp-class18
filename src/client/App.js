@@ -16,6 +16,7 @@ import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
+import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -34,7 +35,9 @@ function App() {
         <Route exact path="/product/:id">
           <ProductPageContainer />
         </Route>
-
+        <Route exact path="/monthly-arrivals">
+          <MonthlyArrivalsPageContainer />
+        </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
         </Route>
