@@ -1,14 +1,22 @@
 import React from 'react';
-import { ContactForm } from '../..components/ContactForm/ContactForm.component.js';
-import DeliveryInformation from '../..components/ContentCard/DeliveryInformation/DeliveryInformation.component';
+import ContactForm from '../../components/ContactForm/ContactForm.component.js';
+import DeliveryInformation from '../../components/ContentCard/DeliveryInformation/DeliveryInformation.component';
+import Purchases from '../../components/Purchases/Purchases.component.js';
 import { useParams } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import './ProfilePage.Style.css';
 
 const ProfilePageContainer = () => {
+  const [purchase, setPurchase] = React.useState([]);
   const [user, setUser] = React.useState([]);
+  const { id } = useParams();
+
+  const newPurchase = useFetchApi(`orders/${id}`);
   const userInfo = useFetchApi(`users/${purchase.user_id}`);
+  setPurchase(newPurchase.data[0]);
   setUser(userInfo);
+
+  console.log(newPurchase.data[0]);
   console.log(userInfo.data[0]);
   return (
     <div>
@@ -26,6 +34,8 @@ const ProfilePageContainer = () => {
           <ContactForm fullName={user.full_name} email={user.email} />{' '}
         </div>
         <div className="purchases">
+          <div>ORDER ID: {id}</div>
+          <div>DATE: {purchase.date}</div>
           <Purchases />{' '}
         </div>
       </div>
