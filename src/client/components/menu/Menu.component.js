@@ -61,9 +61,11 @@ export const Menu = ({ isAuthenticated }) => {
               </ul>
             </div>
           </div>
-          <button type="submit" className="dropbtn">
-            MONTHLY ARIVALS
-          </button>
+          <Link to="/monthly-arrivals">
+            <button type="submit" className="dropbtn">
+              MONTHLY ARIVALS
+            </button>
+          </Link>
           <button type="submit" className="dropbtn">
             ABOUT
           </button>
