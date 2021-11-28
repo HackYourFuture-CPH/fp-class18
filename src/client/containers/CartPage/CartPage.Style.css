@@ -1,3 +1,46 @@
+.main {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  background-color: #f7f5f5;
+  margin: auto;
+  width: 80%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 h1 {
-  color: aqua;
+  text-align: left;
+  margin: 20px auto;
+  width: 80%;
+  color: black;
+}
+
+/*
+.total-price{
+  flex-direction: column;
+
+}
+.contact{
+  flex-direction: column;
+
+}
+*/
+.review-btn {
+  text-align: center;
+  margin: 20px;
+}
+
+.shopping-btn {
+  text-align: center;
+  margin: 20px;
 }
