@@ -87,7 +87,7 @@ const ProductPageContainer = () => {
               />
             </div>
           </>
-        )}{' '}
+        )}
       </div>
     </div>
   );
