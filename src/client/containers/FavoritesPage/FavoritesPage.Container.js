@@ -14,7 +14,7 @@ const FavoritesPageContainer = () => {
       .then((data) => {
         setFavorites(data);
       })
-      .catch((e) => {});
+      .catch((e) => console.log(e));
   }, [id]);
   console.log('render favorite page');
   return (
