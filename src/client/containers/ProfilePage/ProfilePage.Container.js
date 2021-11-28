@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactForm from '../../components/ContactForm/ContactForm.component.js';
-import DeliveryInformation from '../../components/ContentCard/DeliveryInformation/DeliveryInformation.component';
+import DeliveryInformation from '../../components/DeliveryInfo/DeliveryInfo.component';
 import Purchases from '../../components/Purchases/Purchases.component.js';
 import { useParams } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
