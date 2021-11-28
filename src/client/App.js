@@ -41,9 +41,6 @@ function App() {
         <Route exact path="/category/:name">
           <CategoryPage />
         </Route>
-        <Route path="*">
-          <Page404Container />
-        </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
          * user is logged in, if a user is logged in, they can't see the login page
@@ -64,6 +61,10 @@ function App() {
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
+        {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
+        <Route path="*">
+          <Page404Container />
+        </Route>
       </Switch>
       <Footer />
     </Router>
