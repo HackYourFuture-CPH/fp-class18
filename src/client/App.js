@@ -17,6 +17,7 @@ import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
 import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
+import FloatButtonComponent from './components/FloatButton/FloatButton.component';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -34,12 +35,14 @@ function App() {
         </Route>
         <Route exact path="/product/:id">
           <ProductPageContainer />
+          <FloatButtonComponent />
         </Route>
         <Route exact path="/monthly-arrivals">
           <MonthlyArrivalsPageContainer />
         </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
+          <FloatButtonComponent />
         </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
