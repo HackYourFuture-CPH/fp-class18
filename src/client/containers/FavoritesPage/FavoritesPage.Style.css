@@ -1,17 +1,9 @@
-h1 {
-  color: rgb(28, 29, 29);
-}
-
 .favorite-container {
   display: flex;
 }
 
 #product-details {
-  padding: 2px;
-  margin-left: 20px;
-  flex: 1 0 35%;
-}
-
-#product-details .input-row button {
-  width: 8em;
+  width: 100% !important;
+  display: block !important;
+  padding: 5px !important;
 }
