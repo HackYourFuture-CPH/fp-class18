@@ -6,13 +6,6 @@ const getUsers = async () => {
   return knex('users');
 };
 
-const getUserFavorites = async (user_id) => {
-  return knex('favorites')
-    .join('products', 'products.id', 'product_id')
-    .select('products.*')
-    .where({ user_id });
-};
-
 const getUsersById = async (id) => {
   checkIfCorrectId(id);
   try {

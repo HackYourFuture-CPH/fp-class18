@@ -11,3 +11,7 @@
 .product-image img {
   width: 300px;
 }
+
+h1 {
+  color: unset;
+}

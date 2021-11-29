@@ -1,48 +1,29 @@
 import { useParams } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 
 const FavoritesPageContainer = () => {
-  const [favorites, setFavorites] = React.useState([]);
-
   const { id } = useParams();
-  React.useEffect(() => {
-    fetch(`api/users/${id}/favorites`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFavorites(data);
-      })
-      .catch(() => {});
-  }, [id]);
-  console.log('render favorite page');
+  const favorites = useFetchApi(`/users/${id}/favorites`);
   return (
     <div>
       <h1>Favorites page</h1>
       <div className="favorite-container">
-        {favorites.map((product) => {
-          const {
-            id,
-            picture,
-            name,
-            stock_amount,
-            price,
-            color,
-            size,
-          } = product;
-
+        {favorites.data.map((product) => {
           return (
             <ProductDetails
-              key={id}
-              imgSource={picture}
-              ProductName={name}
-              RemainingUnit={stock_amount}
-              Price={price}
-              productColor={color}
-              productSize={size}
+              key={product.id}
+              imgSource={product.picture}
+              ProductName={product.name}
+              RemainingUnit={product.stock_amount}
+              Price={product.price}
+              productColor={product.color}
+              productSize={product.size}
               onClick={() => console.log(product)}
               isFavorite={true}
-              imageAlt={name}
+              imageAlt={product.name}
             />
           );
         })}
