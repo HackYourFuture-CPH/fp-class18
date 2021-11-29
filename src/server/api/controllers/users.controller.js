@@ -75,7 +75,8 @@ module.exports = {
 };
 
 function checkIfCorrectId(id) {
-  if (!id || typeof id !== 'string' || id.length === 0) {
+  const reg = /^(?=.*?\d)[a-zA-Z\d]+$/;
+  if (!reg.test(id)) {
     throw new HttpError('Bad request. Incorrect user id', 400);
   }
 }
