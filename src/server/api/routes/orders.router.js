@@ -64,6 +64,41 @@ router.get('/:id', (req, res, next) => {
 });
 /**
  * @swagger
+ * /orders/user/{userid}:
+ *  get:
+ *    tags:
+ *    - Orders
+ *    summary: Get order by userid
+ *    description:
+ *      Will return  order with a matching userid.
+ *    produces: application/json
+ *    parameters:
+ *     - in: path
+ *       name: userid
+ *       schema:
+ *         type: integer
+ *         required: true
+ *         description: The order of the userid to get
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ *      400:
+ *        description: Bad request. userid must be an integer and larger than 0.
+ *      404:
+ *        description: A order with the specified userid was not found.
+ */
+
+router.get('/user/:userid', (req, res, next) => {
+  ordersController
+    .getOrderByUserId(req.params.userid)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+/**
+ * @swagger
  * /orders:
  *  post:
  *    tags:
@@ -83,7 +118,7 @@ router.get('/:id', (req, res, next) => {
  *              type: string
  *            created_at:
  *              type: string
- *            user_id:
+ *            userid:
  *              type: integer
  *    responses:
  *      200:
@@ -91,6 +126,7 @@ router.get('/:id', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  */
+
 router.post('/', (req, res, next) => {
   ordersController
     .storeNewOrder(req.body)
