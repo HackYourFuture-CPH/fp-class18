@@ -54,11 +54,11 @@ router.get('/', (req, res, next) => {
  *      400:
  *        description: Bad request. Order ID must be an integer and larger than 0.
  *      404:
- *        description: A order with the specified ID was not found
+ *        description: A order with the specified ID was not found.
  */
 router.get('/:id', (req, res, next) => {
   ordersController
-    .getOrdersById(req.params.id)
+    .getOrderById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -94,42 +94,6 @@ router.get('/:id', (req, res, next) => {
 router.get('/user/:userid', (req, res, next) => {
   ordersController
     .getOrderByUserId(req.params.userid)
-    .then((result) => res.json(result))
-    .catch(next);
-});
-/**
- * @swagger
- * /orders:
- *  post:
- *    tags:
- *    - Orders
- *    summary: Save new order information
- *    description:
- *     will save an order for a user
- *    produces: application/json
- *    parameters:
- *      - in: body
- *        name: Order
- *        description: create a new order for a user
- *        schema:
- *          type: object
- *          properties:
- *            status:
- *              type: string
- *            created_at:
- *              type: string
- *            userid:
- *              type: integer
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error.
- */
-
-router.post('/', (req, res, next) => {
-  ordersController
-    .storeNewOrder(req.body)
     .then((result) => res.json(result))
     .catch(next);
 });
