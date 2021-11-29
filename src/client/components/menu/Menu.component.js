@@ -87,7 +87,7 @@ export const Menu = ({ isAuthenticated }) => {
           </div>
           <Link to="/monthly-arrivals">
             <button type="submit" className="dropbtn">
-              MONTHLY ARIVALS
+              MONTHLY ARRIVALS
             </button>
           </Link>
           <button type="submit" className="dropbtn">
