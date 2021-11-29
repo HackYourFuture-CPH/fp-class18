@@ -28,7 +28,7 @@
   height: 60px;
   bottom: 40px;
   right: 40px;
-  background-color: #06c;
+  background-color: rgb(255, 255, 255);
   color: #fff;
   border-radius: 50px;
   text-align: center;
@@ -49,4 +49,9 @@ a.float + div.label-container {
 a.float:hover + div.label-container {
   visibility: visible;
   opacity: 1;
+}
+
+.float img {
+  padding-top: 15%;
+  width: 70%;
 }
