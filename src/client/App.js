@@ -9,6 +9,7 @@ import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
+import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
 import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
@@ -31,6 +32,9 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
+        <Route exact path="/order/:id">
+          <OrderPageContainer id="id" email="email" />
+        </Route>
         <Route exact path="/product/:id">
           <ProductPageContainer />
         </Route>
@@ -38,9 +42,7 @@ function App() {
         <Route exact path="/category/:name">
           <CategoryPage />
         </Route>
-        <Route path="*">
-          <Page404Container />
-        </Route>
+
         {/*
          * All routes below are only shown when you are not authenticated - if the
          * user is logged in, if a user is logged in, they can't see the login page
@@ -61,6 +63,9 @@ function App() {
         <AuthenticatedRoute exact path="/profile">
           <Profile />
         </AuthenticatedRoute>
+        <Route path="*">
+          <Page404Container />
+        </Route>
       </Switch>
       <Footer />
     </Router>
