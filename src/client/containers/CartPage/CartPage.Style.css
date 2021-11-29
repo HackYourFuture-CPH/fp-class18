@@ -12,10 +12,15 @@
   flex-direction: column;
 }
 
+.delivery-info {
+  margin: 20px 0;
+}
+
 .right {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+
+  /* justify-content: space-evenly; */
 }
 
 h1 {
@@ -25,22 +30,20 @@ h1 {
   color: black;
 }
 
-/*
-.total-price{
-  flex-direction: column;
-
+.total-price {
+  margin: 20px 0;
 }
-.contact{
-  flex-direction: column;
 
+.contact {
+  margin: 20px 0;
 }
-*/
+
 .review-btn {
   text-align: center;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .shopping-btn {
   text-align: center;
-  margin: 20px;
+  margin: 20px 0;
 }
