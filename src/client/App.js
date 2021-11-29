@@ -18,6 +18,7 @@ import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
 import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
 import CartPageContainer from './containers/CartPage/CartPage.Container';
+
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
 
