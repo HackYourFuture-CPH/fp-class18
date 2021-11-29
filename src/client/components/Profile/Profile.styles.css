@@ -1,0 +1,13 @@
+h1 {
+  color: aqua;
+}
+
+.contact {
+  display: inline-flex;
+  margin: 1em;
+}
+
+.delivery {
+  display: inline-flex;
+  margin: 4em;
+}
