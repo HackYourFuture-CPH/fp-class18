@@ -52,7 +52,7 @@ header .dropdown {
 }
 
 /* Dropdown button */
-header .dropbtn {
+header .navbar .dropbtn {
   font-size: 1.2em;
   border: none;
   color: white;
@@ -61,8 +61,22 @@ header .dropbtn {
   cursor: pointer;
 }
 
+.name-span {
+  font-size: 1.2em;
+  padding: 0.8em 0.8em;
+  text-transform: uppercase;
+}
+
+header .login-btn {
+  font-size: 1.2em;
+  border: none;
+  color: white;
+  background-color: inherit;
+  cursor: pointer;
+}
+
 header .navbar button:hover,
-header .dropdown:hover .dropbtn,
+header .dropdown:hover .dropbtn:hover,
 header #login:hover {
   background-color: #8e0ef2;
 }
