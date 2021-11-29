@@ -5,3 +5,7 @@ footer {
 .product-view h3 {
   padding-left: 5em;
 }
+
+.product-container {
+  padding-right: 2rem;
+}
