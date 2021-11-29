@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtonComponent from '../../components/Button/Button.component';
 import './ConfirmationPage.Style.css';
+import PropTypes from 'prop-types';
 
 const ConfirmationPageContainer = ({ id, email }) => {
   return (
@@ -23,6 +24,10 @@ const ConfirmationPageContainer = ({ id, email }) => {
       </div>
     </>
   );
+};
+ConfirmationPageContainer.propTypes = {
+  id: PropTypes.number.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default ConfirmationPageContainer;
