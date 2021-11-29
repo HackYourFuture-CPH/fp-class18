@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from './Carousel.component';
+import { MemoryRouter } from 'react-router'; // eslint-disable-line
 
 export default {
   title: 'components/Carousel for monthly and similar products',
@@ -20,4 +21,4 @@ const productImages = [
   'src/client/assets/images/image12.png',
 ];
 
-export const component = () => <Carousel imageArray={productImages} show={3} />;
+export const component = () => <MemoryRouter><Carousel imageArray={productImages} show={3} /></MemoryRouter>;
