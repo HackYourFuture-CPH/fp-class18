@@ -6,8 +6,8 @@ import { useFirebase } from '../../firebase';
 
 const ConfirmationPageContainer = () => {
   const { id } = useParams();
-  const { signInWithEmailAndPassword } = useFirebase();
-  const mailId = signInWithEmailAndPassword.email;
+  const { auth } = useFirebase();
+  const { email } = auth.currentUser;
   return (
     <>
       <div className="wrapper">
@@ -19,7 +19,7 @@ const ConfirmationPageContainer = () => {
             THANK YOU FOR YOUR ORDER NO. <strong>{id}</strong>
           </p>
           <p>
-            We have sent a receipt to the email: <strong>{mailId}</strong>
+            We have sent a receipt to the email: <strong>{email}</strong>
           </p>
         </div>
       </div>
