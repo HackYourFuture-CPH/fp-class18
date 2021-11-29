@@ -14,26 +14,14 @@ const getOrderById = async (id) => {
   }
 
   try {
-    const orders = await knex('orders AS o')
+    let orders = await knex('orders AS o')
       .select(
-        // {
-        //   orderId: 'o.id',
-        //   orderStatus: 'o.status',
-        //   orderDate: 'o.created',
-        //   userId: 'o.user_id',
-        //   items: {
-        //     quantity: 'oi.quantity',
-        //     productId: 'p.id',
-        //     name: 'p.name',
-        //     price: 'package.price',
-        //   },
-        // },
         'o.id as orderId',
         'o.status as orderStatus',
         'o.created_at as orderDate',
-        'o.user_id',
-        'oi.quantity',
+        'o.user_id as userId',
         'p.id as productId',
+        'oi.quantity',
         'p.name',
         'p.price',
         'p.color',
@@ -41,6 +29,7 @@ const getOrderById = async (id) => {
         'p.picture',
         'p.stock_amount',
         'p.price',
+        'p.status',
       )
       .join('order_items AS oi ', 'o.id', '=', 'oi.order_id')
       .join('products AS p', 'p.id', '=', 'oi.product_id')
@@ -52,6 +41,17 @@ const getOrderById = async (id) => {
         404,
       );
     }
+    // Restructuring order details to display it as an object with 2 keys.
+    const nesteditems = [];
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < orders.length; i++) {
+      const { orderId, orderStatus, orderDate, userId, ...other } = orders[i];
+      nesteditems.push(other);
+    }
+    const { orderId, orderStatus, orderDate, userId } = orders[0];
+    const order = { orderId, orderStatus, orderDate, userId };
+    const items = nesteditems;
+    orders = { order, items };
     return orders;
   } catch (error) {
     return error.message;
