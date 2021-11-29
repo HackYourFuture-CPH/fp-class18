@@ -3,7 +3,11 @@
 }
 
 #product-details {
-  width: 100% !important;
-  display: block !important;
-  padding: 5px !important;
+  margin: 10px;
+  width: 45rem;
+  padding: 5px;
+}
+
+.product-image img {
+  width: 300px;
 }
