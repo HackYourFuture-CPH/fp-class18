@@ -9,7 +9,6 @@ import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
-import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
 import ProductPageContainer from './containers/ProductPage/ProductPage.Container';
@@ -17,6 +16,7 @@ import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
+import ConfirmationPageContainer from './containers/ConfirmationPage/ConfirmationPage.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -33,7 +33,7 @@ function App() {
           <LandingPageContainer />
         </Route>
         <Route exact path="/order/:id">
-          <OrderPageContainer id="id" email="email" />
+          <ConfirmationPageContainer />
         </Route>
         <Route exact path="/product/:id">
           <ProductPageContainer />

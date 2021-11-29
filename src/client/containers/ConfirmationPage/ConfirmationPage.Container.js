@@ -1,9 +1,13 @@
 import React from 'react';
 import ButtonComponent from '../../components/Button/Button.component';
 import './ConfirmationPage.Style.css';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
+import { useFirebase } from '../../firebase';
 
-const ConfirmationPageContainer = ({ id, email }) => {
+const ConfirmationPageContainer = () => {
+  const { id } = useParams();
+  const { signInWithEmailAndPassword } = useFirebase();
+  const mailId = signInWithEmailAndPassword.email;
   return (
     <>
       <div className="wrapper">
@@ -15,7 +19,7 @@ const ConfirmationPageContainer = ({ id, email }) => {
             THANK YOU FOR YOUR ORDER NO. <strong>{id}</strong>
           </p>
           <p>
-            We have sent a receipt to the email: <strong>{email}</strong>
+            We have sent a receipt to the email: <strong>{mailId}</strong>
           </p>
         </div>
       </div>
@@ -24,10 +28,6 @@ const ConfirmationPageContainer = ({ id, email }) => {
       </div>
     </>
   );
-};
-ConfirmationPageContainer.propTypes = {
-  id: PropTypes.number.isRequired,
-  email: PropTypes.string.isRequired,
 };
 
 export default ConfirmationPageContainer;
