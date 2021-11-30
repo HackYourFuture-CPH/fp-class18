@@ -31,10 +31,29 @@ const getOrdersById = async (id) => {
   }
 
   try {
-    const orders = await knex('orders').where({ id });
+    const orders = await knex('orders AS o')
+      .select(
+        'o.id as orderId',
+        'o.status as orderStatus',
+        'o.created_at as orderDate',
+        'o.user_id',
+        'oi.quantity',
+        'p.id as productId',
+        'p.name',
+        'p.price',
+        'p.color',
+        'p.size',
+        'p.picture',
+        'p.stock_amount',
+        'p.price',
+      )
+      .join('order_items AS oi ', 'o.id', '=', 'oi.order_id')
+      .join('products AS p', 'p.id', '=', 'oi.product_id')
+      .where('o.id', '=', id);
+
     if (orders.length === 0) {
       throw new Error(
-        `An order with the specified ID was not found : ${id}`,
+        `A order with the specified ID was not found: ${id}`,
         404,
       );
     }

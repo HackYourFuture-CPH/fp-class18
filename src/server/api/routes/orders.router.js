@@ -58,7 +58,7 @@ router.get('/', (req, res, next) => {
  */
 router.get('/:id', (req, res, next) => {
   ordersController
-    .getOrdersById(req.params.id)
+    .getOrderById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -114,12 +114,29 @@ router.get('/user/:userid', (req, res, next) => {
  *        schema:
  *          type: object
  *          properties:
- *            status:
- *              type: string
- *            created_at:
+ *            orderId:
+ *              type: integer
+ *            orderStatus:
  *              type: string
  *            userid:
  *              type: integer
+ *            quantity:
+ *              type:integer
+ *            productId:
+ *              type:integer
+ *            name:
+ *              type:string
+ *            price:
+ *              type:number
+ *            color:
+ *              type:enum
+ *            size:
+ *              type:enum
+ *            picture:
+ *              type:string
+ *             stock_amount:
+ *                type:integer
+ *
  *    responses:
  *      200:
  *        description: Successful request
