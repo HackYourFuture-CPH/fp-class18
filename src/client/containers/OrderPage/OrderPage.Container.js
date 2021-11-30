@@ -13,9 +13,10 @@ const OrderPageContainer = () => {
   const { id } = useParams();
 
   const newPurchase = useFetchApi(`orders/${id}`);
-  const userInfo = useFetchApi(`users/${purchase.user_id}`);
   setPurchase(newPurchase);
+  const userInfo = useFetchApi(`users/${purchase.order.user_id}`);
   setUser(userInfo);
+
   const { address, zipcode, city, country, full_name: fullName, email } = user;
 
   console.log(newPurchase);
@@ -28,12 +29,12 @@ const OrderPageContainer = () => {
         <div className="order-product">
           <div className="order">
             <div>ORDER ID: {id}</div>
-            <div>ORDER STATUS: {purchase.orderStatus}</div>
+            <div>ORDER STATUS: {purchase.order.orderStatus}</div>
           </div>
           <div className="product">
             <div className="picture-name-quantity">
               <div>
-                {purchase.map((product) => (
+                {purchase.items.map((product) => (
                   <li>
                     <ShoppingItem
                       name={product.name}
@@ -42,7 +43,7 @@ const OrderPageContainer = () => {
                       price={product.price}
                     />
                   </li>
-                ))}{' '}
+                ))}
               </div>
             </div>
           </div>
@@ -58,7 +59,7 @@ const OrderPageContainer = () => {
             zipcode={zipcode}
             city={city}
             country={country}
-          />{' '}
+          />
         </div>
         <div className="contact">
           <ContactForm fullName={fullName} email={email} />
