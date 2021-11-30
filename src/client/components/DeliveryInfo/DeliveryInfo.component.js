@@ -31,7 +31,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
   return (
       <div className="wrapperDelivery">
         {edit ? (
-          <form className="form" onSubmit={handleSubmit}>
+          <form className="formDelivery" onSubmit={handleSubmit}>
             <label className="titleDelivery">DELIVERY INFO:</label>
             <label className="addressInputLabel">Address:</label>
             <input
@@ -78,7 +78,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             </span>
           </form>
         ) : (
-          <form className="form">
+          <form className="formDelivery">
             <label className="titleDelivery">DELIVERY INFO:</label>
             {editMode && (
               <span className="editLink text-right">

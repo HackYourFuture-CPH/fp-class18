@@ -1,10 +1,9 @@
-form {
+.formDelivery {
   display: grid;
   padding: 1em;
-  background: #f9f9f9;
+  background-color: #f0eeeef3;
   border: 1px solid #c1c1c1;
-  margin: 1rem auto 0 auto;
-  padding: 1em;
+  margin: 0.5em auto 0 auto;
 }
 form input {
   background: #fff;
@@ -24,19 +23,18 @@ label {
 
 input {
   padding: 0.7em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 input:focus {
   outline: 3px solid #8e0ef2;
 }
 
 @media (min-width: 400px) {
-  form {
+  .formDelivery {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     font-family: Inter;
     font-style: normal;
     font-size: 14px;
-    font-weight: 400;
     grid-gap: 6px;
   }
 
@@ -99,6 +97,7 @@ input:focus {
     grid-row: 4;
     margin-left: 8em;
     width: 40%;
+    padding-bottom: 1em;
   }
   .saveButton {
     color: white;
@@ -173,6 +172,6 @@ input:focus {
 }
 
 .wrapperDelivery {
-  width: 36rem;
-  height: 11.5rem;
+  width: 36em;
+  height: 14em;
 }
