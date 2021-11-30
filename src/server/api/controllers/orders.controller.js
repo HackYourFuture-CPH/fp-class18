@@ -76,8 +76,13 @@ const getOrderByUserId = async (userid) => {
   }
 };
 
+const storeNewOrder = async (data) => {
+  await knex('orders').insert(data);
+};
+
 module.exports = {
   getOrders,
   getOrderById,
   getOrderByUserId,
+  storeNewOrder,
 };

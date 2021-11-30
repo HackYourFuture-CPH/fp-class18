@@ -98,4 +98,40 @@ router.get('/user/:userid', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /orders:
+ *  post:
+ *    tags:
+ *    - Orders
+ *    summary: Save new order information
+ *    description:
+ *     will save an order for a user
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: Order
+ *        description: create a new order for a user
+ *        schema:
+ *          type: object
+ *          properties:
+ *            status:
+ *              type: string
+ *            created_at:
+ *              type: string
+ *            userid:
+ *              type: integer
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.post('/', (req, res, next) => {
+  ordersController
+    .storeNewOrder(req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
 module.exports = router;
