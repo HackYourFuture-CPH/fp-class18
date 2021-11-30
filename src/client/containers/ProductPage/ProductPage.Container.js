@@ -47,49 +47,48 @@ const ProductPageContainer = () => {
   };
 
   return (
-    <div>
-      <div>
-        {!product.id ? (
-          <Page404Container />
+    <>
+      <div className="p-detail">
+        {!product.picture ? (
+          <Loader />
         ) : (
           <>
-            <div className="p-detail">
-              {!product.picture ? (
-                <Loader />
-              ) : (
-                <ProductDetails
-                  imgSource={product.picture}
-                  ProductName={product.name}
-                  RemainingUnit={parseInt(product.stock_amount, 10)}
-                  Price={parseInt(product.price, 10)}
-                  productColor={product.color}
-                  productSize={product.size}
-                  onClick={addToCartHandler}
-                />
-              )}
-            </div>
-            <div className="similar-product">
-              <h1>SIMILAR PRODUCT</h1>
-              {similarProductData.isLoading ? (
-                <Loader />
-              ) : (
-                <Carousel
-                  imageArray={similarProduct.map((item) => item.picture)}
-                  products={similarProductData.data}
-                />
-              )}
-            </div>
-            <div className="explore-btn">
-              <ButtonComponent
-                title="EXPLORE THIS CATEGORY"
-                onClick={exploreCategoryHandler}
-                backgroundColor="gray"
+            {!product.id ? (
+              <Page404Container />
+            ) : (
+              <ProductDetails
+                imgSource={product.picture}
+                ProductName={product.name}
+                RemainingUnit={parseInt(product.stock_amount, 10)}
+                Price={parseInt(product.price, 10)}
+                productColor={product.color}
+                productSize={product.size}
+                onClick={addToCartHandler}
               />
-            </div>
+            )}
           </>
         )}
       </div>
-    </div>
+
+      <div className="similar-product">
+        <h1>SIMILAR PRODUCT</h1>
+        {similarProductData.isLoading ? (
+          <Loader />
+        ) : (
+          <Carousel
+            imageArray={similarProduct.map((item) => item.picture)}
+            products={similarProductData.data}
+          />
+        )}
+      </div>
+      <div className="explore-btn">
+        <ButtonComponent
+          title="EXPLORE THIS CATEGORY"
+          onClick={exploreCategoryHandler}
+          backgroundColor="gray"
+        />
+      </div>
+    </>
   );
 };
 export default ProductPageContainer;

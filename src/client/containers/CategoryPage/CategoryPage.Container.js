@@ -11,22 +11,25 @@ const CategoryPageContainer = () => {
   const products = useFetchApi(`products?category=${name}`);
   return (
     <>
-      {products.data.length === 0 ? (
-        <Page404Container />
-      ) : (
-        <div className="product-container">
-          {products.data.isLoading ? (
-            <Loader />
-          ) : (
-            <ProductView
-              header={name}
-              products={products.data}
-              productsPerPage={8}
-              categoriesList={[]}
-            />
-          )}
-        </div>
-      )}
+      <div className="product-container">
+        {products.data.isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            {' '}
+            {products.data.length === 0 ? (
+              <Page404Container />
+            ) : (
+              <ProductView
+                header={name}
+                products={products.data}
+                productsPerPage={8}
+                categoriesList={[]}
+              />
+            )}
+          </>
+        )}
+      </div>
     </>
   );
 };
