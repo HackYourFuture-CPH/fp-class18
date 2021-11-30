@@ -6,9 +6,9 @@ const getOrderItems = async () => {
   return knex('order_items');
 };
 
-const getOrderItemsByOrderId = async (order_id) => {
+const getOrderItemsByOrderId = async (orderId) => {
   // eslint-disable-next-line radix
-  if (!parseInt(order_id)) {
+  if (!orderId) {
     throw new HttpError(
       'Bad request. Order ID must be an integer and larger than 0',
       400,
@@ -16,15 +16,18 @@ const getOrderItemsByOrderId = async (order_id) => {
   }
 
   try {
-    const orderItems = await knex('order_items').where({ order_id });
-    return orderItems;
+    const order_items = await knex('order_items').where({ order_id: orderId });
+    if (order_items.length === 0) {
+      throw new Error(`order with the specified orderid was not found`, 404);
+    }
+    return order_items;
   } catch (error) {
     return error.message;
   }
 };
 
 const storeNewOrderItem = async (data) => {
-  await (await knex('order_items')).insert(data);
+  await knex('order_items').insert(data).returning('id').where('id');
 };
 module.exports = {
   getOrderItems,

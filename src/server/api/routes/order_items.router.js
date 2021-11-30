@@ -31,21 +31,21 @@ router.get('/', (req, res, next) => {
 
 /**
  * @swagger
- * /order_items/{order_id}:
+ * /order_items/{orderId}:
  *  get:
  *    tags:
  *    - Order_items
- *    summary: Get order's items by order_id
+ *    summary: Get order's items by orderId
  *    description:
  *      Will return all items in a order with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
- *       name: order_id
+ *       name: orderId
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the order to get
+ *         description: The id of the order to get
  *
  *    responses:
  *      200:
@@ -58,9 +58,9 @@ router.get('/', (req, res, next) => {
  *        description: A order with the specified ID was not found
  */
 
-router.get('/:{order_id}', (req, res, next) => {
+router.get('/:orderId', (req, res, next) => {
   orderItemsController
-    .getOrderItemsByOrderId(req.params.order_id)
+    .getOrderItemsByOrderId(req.params.orderId)
     .then((result) => res.json(result))
     .catch(next);
 });
