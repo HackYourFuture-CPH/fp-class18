@@ -19,9 +19,7 @@ const OrderPageContainer = () => {
   const newPurchase = useFetchApi(`orders/${id}`);
 
   React.useEffect(() => {
-    if (!newPurchase.isLoading) {
-      setPurchase(newPurchase);
-    }
+    setPurchase(newPurchase);
   }, [newPurchase]);
 
   const { order, items } = purchase.data;
@@ -29,9 +27,7 @@ const OrderPageContainer = () => {
   const userInfo = useFetchApi(`users/${order.userId}`);
 
   React.useEffect(() => {
-    if (!userInfo.isLoading) {
-      setUser(userInfo.data[0]);
-    }
+    setUser(userInfo.data[0]);
   }, [userInfo, user]);
 
   const { full_name: fullName, email } = user;
@@ -84,7 +80,7 @@ const OrderPageContainer = () => {
             <ButtonComponent
               title="PAYMENT"
               backgroundColor="blueviolet"
-              onClick={() => history.push(`confirmation/${id}`)}
+              onClick={() => history.push(`paymentSystem/${id}`)}
             />
           </div>
         </div>
