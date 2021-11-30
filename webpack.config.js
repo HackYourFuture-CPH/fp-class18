@@ -1,8 +1,9 @@
 require('dotenv').config();
-const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const outputDirectory = 'dist';
 
@@ -56,6 +57,12 @@ module.exports = {
     new CaseSensitivePathsPlugin(),
     new Dotenv({
       safe: false,
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        FIREBASE_APP_API_KEY: JSON.stringify(process.env.FIREBASE_APP_API_KEY),
+      },
     }),
   ],
 };
