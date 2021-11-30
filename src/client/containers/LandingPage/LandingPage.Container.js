@@ -29,6 +29,7 @@ const LandingPageContainer = () => {
         ) : (
           <Carousel
             imageArray={imageArray.map((product) => product.picture)}
+            products={products.data}
             show={3}
           />
         )}

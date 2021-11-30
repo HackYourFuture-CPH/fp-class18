@@ -6,7 +6,7 @@ import SignUp from './containers/SignUp';
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
-import Profile from './containers/Profile';
+import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
 import Loader from './components/Loader';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
@@ -16,6 +16,7 @@ import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
+import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -34,12 +35,11 @@ function App() {
         <Route exact path="/product/:id">
           <ProductPageContainer />
         </Route>
-
+        <Route exact path="/monthly-arrivals">
+          <MonthlyArrivalsPageContainer />
+        </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
-        </Route>
-        <Route path="*">
-          <Page404Container />
         </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
@@ -59,8 +59,12 @@ function App() {
 
         {/* All routes below are authenticated routes - a user must login first */}
         <AuthenticatedRoute exact path="/profile">
-          <Profile />
+          <ProfilePage />
         </AuthenticatedRoute>
+        {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
+        <Route path="*">
+          <Page404Container />
+        </Route>
       </Switch>
       <Footer />
     </Router>
