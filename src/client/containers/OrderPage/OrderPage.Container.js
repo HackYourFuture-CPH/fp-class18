@@ -60,8 +60,8 @@ const OrderPageContainer = () => {
                   items.map((product) => (
                     <li>
                       <ShoppingItem
-                        name={product.name}
-                        image={product.picture}
+                        productName={product.name}
+                        productImg={product.picture}
                         quantity={product.stock_amount}
                         price={product.price}
                       />
