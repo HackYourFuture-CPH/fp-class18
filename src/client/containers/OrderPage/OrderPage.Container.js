@@ -41,65 +41,66 @@ const OrderPageContainer = () => {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < subTotal.length; i++) {
       cost += subTotal[i];
+      console.log(subTotal[i]);
     }
     setTotal(cost);
   }, [items]);
-
+  console.log(total);
   return (
-    <div className="order-page-container">
+    <div>
       <h1>ORDER SUMMARY</h1>
-      <div className="order-product-total">
-        <div className="order-product">
-          <div className="order">
-            <div>ORDER ID: {id}</div>
-            <div>ORDER STATUS: {order.orderStatus}</div>
-          </div>
-          <div className="product">
-            <div className="picture-name-quantity">
-              <div>
-                {newItems.isLoading ? (
-                  <Loader />
-                ) : (
-                  items.map((product) => (
-                    <li key={product.productId}>
-                      <ShoppingItem
-                        productName={product.name}
-                        productImg={product.picture}
-                        quantity={product.stock_amount}
-                        price={product.price}
-                        initValue={product.quantity}
-                        isDisable={true}
-                      />
-                    </li>
-                  ))
-                )}
+      <div className="order-page-container">
+        <div className="top">
+          <div className="left">
+            <div className="orderInfo">
+              <div className="orderId">ORDER ID: {id}</div>
+              <div className="orderStatus">
+                ORDER STATUS: {order.orderStatus}
               </div>
+            </div>
+            <div className="product">
+              {newItems.isLoading ? (
+                <Loader />
+              ) : (
+                items.map((product) => (
+                  <li key={product.productId}>
+                    <ShoppingItem
+                      productName={product.name}
+                      productImg={product.picture}
+                      quantity={product.stock_amount}
+                      price={product.price}
+                      initValue={product.quantity}
+                      isDisable={true}
+                    />
+                  </li>
+                ))
+              )}
+            </div>
+          </div>
+          <div className="right">
+            <div className="total">
+              <TotalPrice subTotal={total} />
+            </div>
+            <div className="payment-btn">
+              <ButtonComponent
+                title="PAYMENT"
+                backgroundColor="blueviolet"
+                onClick={() => history.push(`paymentSystem/${id}`)}
+              />
             </div>
           </div>
         </div>
-        <div className="total-payment">
-          <div className="total">
-            <TotalPrice subTotal={total} />
+        <div className="botton">
+          <div className="delivery">
+            {userInfo.isLoading ? (
+              <Loader />
+            ) : (
+              <DeliveryInfo editMode={true} vertDisplay={false} user={user} />
+            )}
           </div>
-          <div className="payment-btn">
-            <ButtonComponent
-              title="PAYMENT"
-              backgroundColor="blueviolet"
-              onClick={() => history.push(`paymentSystem/${id}`)}
-            />
+          <div className="contact">
+            <ContactForm fullName={user.full_name} email={user.email} />
           </div>
-        </div>
-      </div>
-      <div className="delivery-contact">
-        <div className="delivery">
-          {userInfo.isLoading ? (
-            <Loader />
-          ) : (
-            <DeliveryInfo editMode={true} vertDisplay={false} user={user} />
-          )}
-        </div>
-        <div className="contact">
-          <ContactForm fullName={user.full_name} email={user.email} />
         </div>
       </div>
     </div>
