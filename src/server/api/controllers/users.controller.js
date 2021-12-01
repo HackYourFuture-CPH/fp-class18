@@ -66,12 +66,22 @@ const getUserFavorites = async (user_id) => {
   }
 };
 
+const deleteUserFavorite = (body) => {
+  return knex('favorites')
+    .where({
+      user_id: body.user_id,
+      product_id: body.product_id,
+    })
+    .del();
+};
+
 module.exports = {
   getUsers,
   getUsersById,
   editUser,
   saveUser,
   getUserFavorites,
+  deleteUserFavorite,
 };
 
 function checkIfCorrectId(id) {
