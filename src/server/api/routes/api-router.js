@@ -7,7 +7,6 @@ const categoriesRouter = require('./categories.router');
 const usersRouter = require('./users.router');
 const productsRouter = require('./products.router');
 const ordersRouter = require('./orders.router');
-const orderItemsRouter = require('./order_items.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -37,6 +36,6 @@ router.use('/categories', categoriesRouter);
 router.use('/users', usersRouter);
 router.use('/products', productsRouter);
 router.use('/orders', ordersRouter);
-router.use('/order_items', orderItemsRouter);
+router.use('/order_items', ordersRouter);
 
 module.exports = router;

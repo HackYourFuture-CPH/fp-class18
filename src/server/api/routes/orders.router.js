@@ -27,7 +27,6 @@ router.get('/', (req, res, next) => {
     .then((result) => res.json(result))
     .catch(next);
 });
-
 /**
  * @swagger
  * /orders/{ID}:
@@ -117,6 +116,15 @@ router.get('/user/:userid', (req, res, next) => {
  *          properties:
  *            user_id:
  *              type: integer
+ *            items:
+ *              type: array
+ *              items:
+ *                type: object
+ *                properties:
+ *                  product_id:
+ *                     type:integer
+ *                  quantity:
+ *                     type:integer
  *    responses:
  *      200:
  *        description: Successful request
