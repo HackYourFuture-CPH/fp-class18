@@ -3,7 +3,7 @@ exports.up = function (knex) {
     table.increments('id').primary();
     table.enum('status', ['created', 'confirmed', 'payed']).notNullable();
     table.string('created_at').notNullable();
-    table.integer('user_id').unsigned().notNullable();
+    table.string('user_id').notNullable();
     table.foreign('user_id').references('users.id');
   });
 };
