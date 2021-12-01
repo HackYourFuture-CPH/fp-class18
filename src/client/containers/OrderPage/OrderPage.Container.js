@@ -67,8 +67,8 @@ const OrderPageContainer = () => {
                         productImg={product.picture}
                         quantity={product.stock_amount}
                         price={product.price}
-                        // initValue={product.quantity}
-                        // isDisable={true}
+                        initValue={product.quantity}
+                        isDisable={true}
                       />
                     </li>
                   ))
