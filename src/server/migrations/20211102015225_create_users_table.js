@@ -1,12 +1,10 @@
 exports.up = function (knex) {
   return knex.schema.createTable('users', (table) => {
-    table.increments('id').primary();
-    table.string('full_name').notNullable();
-    table.string('email').notNullable();
-    table.string('address').notNullable();
-    table.string('zipcode').notNullable();
-    table.string('city').notNullable();
-    table.string('country').notNullable();
+    table.string('id').primary();
+    table.string('address');
+    table.string('zipcode');
+    table.string('city');
+    table.string('country');
     table.datetime('created_at').defaultTo(knex.fn.now()).notNullable();
   });
 };

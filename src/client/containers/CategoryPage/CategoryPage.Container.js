@@ -14,7 +14,7 @@ const CategoryPageContainer = () => {
       {products.data.length === 0 ? (
         <Page404Container />
       ) : (
-        <div>
+        <div className="product-container">
           {products.data.isLoading ? (
             <Loader />
           ) : (
