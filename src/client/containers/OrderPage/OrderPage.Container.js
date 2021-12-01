@@ -10,27 +10,29 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import './OrderPage.Style.css';
 
 const OrderPageContainer = () => {
-  const [purchase, setPurchase] = React.useState({});
+  const [items, setItems] = React.useState({});
+  const [order, setOrder] = React.useState({});
   const [user, setUser] = React.useState([]);
   const [total, setTotal] = React.useState(0);
   const { id } = useParams();
   const history = useHistory();
 
-  const newPurchase = useFetchApi(`orders/${id}`);
+  const newItems = useFetchApi(`orders/${id}`);
 
   React.useEffect(() => {
-    setPurchase(newPurchase);
-  }, [newPurchase]);
-
-  const { order, items } = purchase.data;
+    if (!newItems.isLoading) {
+      setItems(newItems.data.items);
+      setOrder(newItems.data.order);
+    }
+  }, [newItems]);
 
   const userInfo = useFetchApi(`users/${order.userId}`);
 
   React.useEffect(() => {
-    setUser(userInfo.data[0]);
+    if (!userInfo.isLoading) {
+      setUser(userInfo.data[0]);
+    }
   }, [userInfo, user]);
-
-  const { full_name: fullName, email } = user;
 
   React.useEffect(() => {
     let cost = 0;
@@ -54,7 +56,7 @@ const OrderPageContainer = () => {
           <div className="product">
             <div className="picture-name-quantity">
               <div>
-                {purchase.isLoading ? (
+                {newItems.isLoading ? (
                   <Loader />
                 ) : (
                   items.map((product) => (
@@ -64,6 +66,8 @@ const OrderPageContainer = () => {
                         productImg={product.picture}
                         quantity={product.stock_amount}
                         price={product.price}
+                        initValue={product.quantity}
+                        isDisable={true}
                       />
                     </li>
                   ))
@@ -94,7 +98,7 @@ const OrderPageContainer = () => {
           )}
         </div>
         <div className="contact">
-          <ContactForm fullName={fullName} email={email} />
+          <ContactForm fullName={user.full_name} email={user.email} />
         </div>
       </div>
     </div>

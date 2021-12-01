@@ -70,8 +70,8 @@ function App() {
         <Route path="*">
           <Page404Container />
         </Route>
+        <Footer />
       </Switch>
-      <Footer />
     </Router>
   );
 }
