@@ -32,7 +32,7 @@ export default function ShoppingItem({
               height="20"
               stroke={isDisable ? '#d3d3d3' : '#000000'}
               fill={isDisable ? '#d3d3d3' : '#000000'}
-            />{' '}
+            />
             Remove Item
           </button>
         </div>
