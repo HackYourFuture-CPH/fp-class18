@@ -5,7 +5,7 @@ import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
-
+import MobileMenu from './MobileMenu.Container';
 export const Menu = ({ isAuthenticated }) => {
   return (
     <nav>
@@ -70,6 +70,7 @@ export const Menu = ({ isAuthenticated }) => {
           <button type="submit" className="dropbtn">
             CONTACT US
           </button>
+          <MobileMenu />
         </div>
       </header>
     </nav>
