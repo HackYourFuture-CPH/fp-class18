@@ -36,6 +36,5 @@ router.use('/categories', categoriesRouter);
 router.use('/users', usersRouter);
 router.use('/products', productsRouter);
 router.use('/orders', ordersRouter);
-router.use('/order_items', ordersRouter);
 
 module.exports = router;
