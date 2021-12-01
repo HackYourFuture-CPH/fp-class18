@@ -46,9 +46,9 @@ const OrderPageContainer = () => {
   }, [items]);
 
   return (
-    <div>
+    <div className="order-page-container">
       <h1>ORDER SUMMARY</h1>
-      <div className="order-page-container">
+      <div className="order-product-total">
         <div className="order-product">
           <div className="order">
             <div>ORDER ID: {id}</div>
