@@ -10,9 +10,9 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import './OrderPage.Style.css';
 
 const OrderPageContainer = () => {
-  const [items, setItems] = React.useState({});
+  const [items, setItems] = React.useState([]);
   const [order, setOrder] = React.useState({});
-  const [user, setUser] = React.useState([]);
+  const [user, setUser] = React.useState({});
   const [total, setTotal] = React.useState(0);
   const { id } = useParams();
   const history = useHistory();
@@ -37,6 +37,7 @@ const OrderPageContainer = () => {
   React.useEffect(() => {
     let cost = 0;
     const subTotal = items.map((item) => item.price * item.quantity);
+
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < subTotal.length; i++) {
       cost += subTotal[i];
@@ -60,14 +61,14 @@ const OrderPageContainer = () => {
                   <Loader />
                 ) : (
                   items.map((product) => (
-                    <li>
+                    <li key={product.productId}>
                       <ShoppingItem
                         productName={product.name}
                         productImg={product.picture}
                         quantity={product.stock_amount}
                         price={product.price}
-                        initValue={product.quantity}
-                        isDisable={true}
+                        // initValue={product.quantity}
+                        // isDisable={true}
                       />
                     </li>
                   ))
