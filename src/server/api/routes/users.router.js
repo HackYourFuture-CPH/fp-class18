@@ -216,7 +216,7 @@ router.delete('/:id/favorites', (req, res) => {
   usersController
     .deleteUserFavorite(req.body)
     .then((result) => {
-      // If result is equal to 0, then that means the module id does not exist
+      // If result is equal to 0, then that means the user or product id does not exist
       if (result === 0) {
         res
           .status(404)
