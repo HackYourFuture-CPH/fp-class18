@@ -182,4 +182,41 @@ router.get('/:id/favorites/', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /users/{user_id}/favorites:
+ *  post:
+ *    tags:
+ *    - Users
+ *    summary: Save user favorites
+ *    description:
+ *      To Save new favorite from user to the DB
+ *    produces: application/json
+ *    parameters:
+ *     - in: body
+ *       name: user
+ *       description: create a new favorite item for user
+ *       schema:
+ *         type: object
+ *         required: true
+ *         description: user json object
+ *         properties:
+ *            user_id:
+ *              type: string
+ *            product_id:
+ *              type: string
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.post('/:id/favorites', (req, res, next) => {
+  usersController
+    .saveFavorite(req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 module.exports = router;

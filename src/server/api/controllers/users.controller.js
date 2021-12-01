@@ -66,12 +66,21 @@ const getUserFavorites = async (user_id) => {
   }
 };
 
+const saveFavorite = async (body) => {
+  checkIfCorrectId(body.user_id);
+  await knex('favorites').insert({
+    user_id: body.user_id,
+    product_id: body.product_id,
+  });
+};
+
 module.exports = {
   getUsers,
   getUsersById,
   editUser,
   saveUser,
   getUserFavorites,
+  saveFavorite,
 };
 
 function checkIfCorrectId(id) {
