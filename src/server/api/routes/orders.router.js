@@ -115,16 +115,16 @@ router.get('/user/:userid', (req, res, next) => {
  *          type: object
  *          properties:
  *            user_id:
- *              type: integer
+ *              type: string
  *            items:
  *              type: array
  *              items:
  *                type: object
  *                properties:
  *                  product_id:
- *                     type:integer
+ *                    type: integer
  *                  quantity:
- *                     type:integer
+ *                    type: integer
  *    responses:
  *      200:
  *        description: Successful request
