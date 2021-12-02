@@ -1,38 +1,45 @@
-form {
+.formContact {
   display: grid;
   padding: 1em;
-  background: #f9f9f9;
   border: 1px solid #c1c1c1;
   margin: 0.5em auto 0 auto;
-  max-width: 400px;
-  padding-bottom: 60px;
-  background: #FFFFFF;
+  max-width: 400em;
+  padding-bottom: 1.4em;
 }
 
-label {
-  padding: 0.5em 0 0.5em 0;
-  line-height: 20px;
+.wrapperContact {
+  width: 36em;
+  height: 15em;
 }
+
 
 @media (min-width: 400px) {
- 
-  .title {
-    margin-left: 0.5em;
+  .formContact {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-family: Inter;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+    grid-gap: 6px;
+  }
+  .titleContact {
+    margin-left: 1em;
     font-weight: bolder;
-    grid-column: 1 / span 1;
+    grid-column: 1 / span 4;
     grid-row: 1;
+    text-align: left;
   }
 
   .fullName {
-    margin-left: 0.8em;
-    grid-column: 1 / span 1;
+    margin-left: 1.5em;
+    grid-column: 1 / span 4;
     grid-row: 2;
-    padding-left: 10px;
+    text-align: left;
   }
   .email {
-    margin-left: 0.8em;
-    grid-column: 1 / span 1;
+    margin-left: 1.5em;
+    grid-column: 1 / span 4;
     grid-row: 3;
-    padding-left: 10px;
+    text-align: left;
   }
 }
