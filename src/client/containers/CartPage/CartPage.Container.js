@@ -8,12 +8,8 @@ import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component
 import ContactForm from '../../components/ContactForm/ContactForm.component';
 import ButtonComponent from '../../components/Button/Button.component';
 import { useFetchApi } from '../../hooks/UseFetchApi';
-import { useFirebase } from '../../firebase';
-import { func } from 'prop-types';
 
 const CartPageContainer = () => {
-  const { auth } = useFirebase();
-
   const [cartItem, setCartItem] = React.useState([]);
   const [user, setUser] = React.useState({});
   const [userId, setUserId] = React.useState('');
@@ -22,6 +18,15 @@ const CartPageContainer = () => {
   const { id } = useParams();
 
   const orderData = useFetchApi(`orders/${id}`);
+
+  React.useEffect(() => {
+    let totalCost = 0;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < subTotal.length; i++) {
+      totalCost += subTotal[i];
+    }
+    setTotal(totalCost);
+  }, [subTotal]);
 
   const getCost = (index, value) => {
     subTotal[index] = value;
@@ -50,7 +55,6 @@ const CartPageContainer = () => {
   React.useEffect(() => {
     if (!userInfo.isLoading) {
       setUser(userInfo.data[0]);
-      console.log(user);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
@@ -93,7 +97,7 @@ const CartPageContainer = () => {
             <TotalPrice subTotal={total} />
           </div>
           <div className="contact">
-            <ContactForm fullName="Varsha" email="verma.verma@gmail.com" />
+            <ContactForm fullName="Jon Doe" email="jdoe@gmail.com" />
           </div>
           <div>
             <div className="review-btn">
