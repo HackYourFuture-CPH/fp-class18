@@ -8,15 +8,35 @@ import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component
 import ContactForm from '../../components/ContactForm/ContactForm.component';
 import ButtonComponent from '../../components/Button/Button.component';
 import { useFetchApi } from '../../hooks/UseFetchApi';
+import { useFirebase } from '../../firebase';
+import { func } from 'prop-types';
 
 const CartPageContainer = () => {
+  const { auth } = useFirebase();
+
   const [cartItem, setCartItem] = React.useState([]);
   const [user, setUser] = React.useState({});
   const [userId, setUserId] = React.useState('');
   const [total, setTotal] = React.useState(0);
+  const [subTotal, setSubTotal] = React.useState([]);
   const { id } = useParams();
 
   const orderData = useFetchApi(`orders/${id}`);
+
+  const getCost = (index, value) => {
+    subTotal[index] = value;
+    const newSubTotal = [...subTotal];
+    setSubTotal(newSubTotal);
+  };
+
+  React.useEffect(() => {
+    let totalCost = 0;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < subTotal.length; i++) {
+      totalCost += subTotal[i];
+    }
+    setTotal(totalCost);
+  }, [subTotal]);
 
   React.useEffect(() => {
     if (!orderData.isLoading) {
@@ -30,18 +50,10 @@ const CartPageContainer = () => {
   React.useEffect(() => {
     if (!userInfo.isLoading) {
       setUser(userInfo.data[0]);
+      console.log(user);
     }
-  }, [userInfo, user]);
-
-  React.useEffect(() => {
-    let cost = 0;
-    const subTotal = cartItem.map((item) => item.price * item.quantity);
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < subTotal.length; i++) {
-      cost += subTotal[i];
-    }
-    setTotal(cost);
-  }, [cartItem]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInfo]);
 
   return (
     <div>
@@ -52,7 +64,7 @@ const CartPageContainer = () => {
             {orderData.isLoading ? (
               <Loader />
             ) : (
-              cartItem.map((item) => {
+              cartItem.map((item, index) => {
                 return (
                   <ShoppingItem
                     productName={item.name}
@@ -60,6 +72,9 @@ const CartPageContainer = () => {
                     price={item.price}
                     productImg={item.picture}
                     initValue={item.quantity}
+                    getCost={(value) => {
+                      getCost(index, value);
+                    }}
                   />
                 );
               })
@@ -78,7 +93,7 @@ const CartPageContainer = () => {
             <TotalPrice subTotal={total} />
           </div>
           <div className="contact">
-            <ContactForm fullName="Varsha" email="varsha.verma@gmail.com" />
+            <ContactForm fullName="Varsha" email="verma.verma@gmail.com" />
           </div>
           <div>
             <div className="review-btn">
