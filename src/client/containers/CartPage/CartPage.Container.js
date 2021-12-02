@@ -59,6 +59,7 @@ const CartPageContainer = () => {
                     quantity={item.stock_amount}
                     price={item.price}
                     productImg={item.picture}
+                    initValue={item.quantity}
                   />
                 );
               })
