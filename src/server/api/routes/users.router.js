@@ -42,7 +42,7 @@ router.get('/', (req, res, next) => {
  *     - in: path
  *       name: ID
  *       schema:
- *         type: integer
+ *         type: string
  *         required: true
  *         description: The ID of the user to get
  *
@@ -52,7 +52,7 @@ router.get('/', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  *      400:
- *        description: Bad request. User ID must be an integer and larger than 0.
+ *        description: Bad request. Incorrect user id.
  *      404:
  *        description: A user with the specified ID was not found
  */
@@ -123,9 +123,7 @@ router.patch('/:id', (req, res, next) => {
  *         required: true
  *         description: user json object
  *         properties:
- *            full_name:
- *              type: string
- *            email:
+ *            id:
  *              type: string
  *            address:
  *              type: string
@@ -163,7 +161,7 @@ router.post('/', (req, res, next) => {
  *     - in: path
  *       name: user_id
  *       schema:
- *         type: integer
+ *         type: string
  *         required: true
  *         description: The user_id of the user to get its favorite products
  *
@@ -173,7 +171,7 @@ router.post('/', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  *      400:
- *        description: Bad request. User_id must be an integer and larger than 0.
+ *        description: Bad request. Incorrect user id.
  *      404:
  *        description: The favorite products for the specified user_id did not found
  */
