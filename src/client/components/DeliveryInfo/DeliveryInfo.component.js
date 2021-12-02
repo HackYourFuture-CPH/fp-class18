@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './DeliveryInfo.styles.css';
 
 export default function DeliveryInfo({ editMode, vertDisplay, user }) {
-  const { address, city, zip, country } = user;
+  const { address, city, zipcode, country } = user;
   const [edit, setEdit] = React.useState(false);
   const handleEdit = () => setEdit(!edit);
   const handleSubmit = (event) => {
@@ -51,7 +51,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
 
             <label className="zipInputLabel">Zip code:</label>
             <input
-              defaultValue={zip}
+              defaultValue={zipcode}
               className="zipInput"
               name="zipcode"
               type="number"
@@ -97,7 +97,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
               City: {city}
             </label>
 
-            <label className="zipLabel">Zip code: {zip}</label>
+            <label className="zipLabel">Zip code: {zipcode}</label>
 
             <label
               className={`${vertDisplay ? 'countryLabelVert' : 'countryLabel text-right'}`}
@@ -121,7 +121,7 @@ DeliveryInfo.propTypes = {
   user: PropTypes.shape({
     address: PropTypes.string,
     city: PropTypes.string,
-    zip: PropTypes.number,
+    zipcode: PropTypes.number,
     country: PropTypes.string,
   }).isRequired,
 };

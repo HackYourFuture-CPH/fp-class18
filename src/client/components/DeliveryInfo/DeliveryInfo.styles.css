@@ -1,7 +1,6 @@
 .formDelivery {
   display: grid;
   padding: 1em;
-  border: 1px solid #c1c1c1;
   margin: 0.5em auto 0 auto;
 }
 form input {
