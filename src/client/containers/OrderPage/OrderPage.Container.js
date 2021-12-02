@@ -41,11 +41,10 @@ const OrderPageContainer = () => {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < subTotal.length; i++) {
       cost += subTotal[i];
-      console.log(subTotal[i]);
     }
     setTotal(cost);
   }, [items]);
-  console.log(total);
+
   return (
     <div>
       <h1>ORDER SUMMARY</h1>
@@ -95,7 +94,7 @@ const OrderPageContainer = () => {
             {userInfo.isLoading ? (
               <Loader />
             ) : (
-              <DeliveryInfo editMode={false} vertDisplay={false} user={user} />
+              <DeliveryInfo editMode={false} vertDisplay={true} user={user} />
             )}
           </div>
           <div className="contact">
