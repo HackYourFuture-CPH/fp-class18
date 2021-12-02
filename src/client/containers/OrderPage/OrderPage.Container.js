@@ -95,7 +95,7 @@ const OrderPageContainer = () => {
             {userInfo.isLoading ? (
               <Loader />
             ) : (
-              <DeliveryInfo editMode={true} vertDisplay={false} user={user} />
+              <DeliveryInfo editMode={false} vertDisplay={false} user={user} />
             )}
           </div>
           <div className="contact">

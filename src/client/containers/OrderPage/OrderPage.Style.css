@@ -8,8 +8,7 @@
   width: 80%;
 }
 
-.top,
-.botton {
+.top {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -52,14 +51,26 @@ h1 {
 
 .botton {
   margin: 20px 0;
+
+  /* background-color: darkkhaki; */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 40px;
 }
 
 .delivery {
-  width: 50%;
+  width: 60%;
+  margin: 10px;
+
+  /* float: left; */
+  background-color: darkorange;
 }
 
 .contact {
-  width: 50%;
+  width: 100%;
+  margin: 10px;
+  background-color: deeppink;
 }
 
 .orderInfo {
