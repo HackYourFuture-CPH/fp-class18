@@ -90,12 +90,16 @@ export const Menu = ({ isAuthenticated }) => {
               MONTHLY ARRIVALS
             </button>
           </Link>
-          <button type="submit" className="dropbtn">
-            ABOUT
-          </button>
-          <button type="submit" className="dropbtn">
-            CONTACT US
-          </button>
+          <Link to="/about-us">
+            <button type="submit" className="dropbtn">
+              ABOUT
+            </button>
+          </Link>
+          <Link to="/contact-us">
+            <button type="submit" className="dropbtn">
+              CONTACT US
+            </button>
+          </Link>
         </div>
       </header>
     </nav>
