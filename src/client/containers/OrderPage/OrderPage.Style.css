@@ -83,6 +83,14 @@ h1 {
   margin-left: 20px;
 }
 
+.formDelivery {
+  background-color: #fff;
+}
+
+.formContact {
+  background-color: #fff;
+}
+
 .orderInfo {
   display: flex;
   flex-direction: row;
