@@ -2,7 +2,7 @@ import React from 'react';
 import './MonthlyArrivalsPage.Style.css';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
-import Loader from '../../components/Loader';
+import Loader from '../../components/Loader/Loader.component';
 
 const MonthlyArrivalsPageContainer = () => {
   const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
