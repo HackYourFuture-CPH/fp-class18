@@ -13,8 +13,11 @@ const CartPageContainer = () => {
   const [cartItem, setCartItem] = React.useState([]);
   const [user, setUser] = React.useState({});
   const [userId, setUserId] = React.useState('');
+
   const [total, setTotal] = React.useState(0);
-  const [subTotal, setSubTotal] = React.useState([]);
+
+  const [itemCost, setItemCost] = React.useState([]);
+
   const { id } = useParams();
 
   const orderData = useFetchApi(`orders/${id}`);
@@ -22,26 +25,17 @@ const CartPageContainer = () => {
   React.useEffect(() => {
     let totalCost = 0;
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < subTotal.length; i++) {
-      totalCost += subTotal[i];
+    for (let i = 0; i < itemCost.length; i++) {
+      totalCost += itemCost[i];
     }
     setTotal(totalCost);
-  }, [subTotal]);
+  }, [itemCost]);
 
-  const getCost = (index, value) => {
-    subTotal[index] = value;
-    const newSubTotal = [...subTotal];
-    setSubTotal(newSubTotal);
+  const getItemCost = (index, value) => {
+    itemCost[index] = value;
+    const newItemCost = [...itemCost];
+    setItemCost(newItemCost);
   };
-
-  React.useEffect(() => {
-    let totalCost = 0;
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < subTotal.length; i++) {
-      totalCost += subTotal[i];
-    }
-    setTotal(totalCost);
-  }, [subTotal]);
 
   React.useEffect(() => {
     if (!orderData.isLoading) {
@@ -77,7 +71,7 @@ const CartPageContainer = () => {
                     productImg={item.picture}
                     initValue={item.quantity}
                     getCost={(value) => {
-                      getCost(index, value);
+                      getItemCost(index, value);
                     }}
                   />
                 );
