@@ -19,6 +19,7 @@ const ProfilePageContainer = () => {
   const [order, setOrder] = React.useState({});
   const { id } = useParams();
   const newItems = useFetchApi(`orders/${id}`);
+  const { auth } = useFirebase();
 
   React.useEffect(() => {
     if (!newItems.isLoading) {
@@ -39,7 +40,7 @@ const ProfilePageContainer = () => {
       <h1>Profile page Container</h1>
       <div className="delivery-contact">
         <div className="contact">
-          <ContactForm fullName={user.full_name} email={user.email} />
+          <ContactForm fullName={authuser.full_name} email={auth.user.email} />
           {/* <ContactForm fullName="Jon Doe" email="jdoe@gmail.com" /> */}
         </div>
         <div className="delivery">
