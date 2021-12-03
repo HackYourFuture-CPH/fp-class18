@@ -8,6 +8,7 @@ import ButtonComponent from '../../components/Button/Button.component';
 import { useParams, useHistory } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import './OrderPage.Style.css';
+import { useFirebase } from '../../firebase/FirebaseContext';
 
 const OrderPageContainer = () => {
   const [items, setItems] = React.useState([]);
@@ -16,6 +17,7 @@ const OrderPageContainer = () => {
   const [total, setTotal] = React.useState(0);
   const { id } = useParams();
   const history = useHistory();
+  const { auth } = useFirebase();
 
   const newItems = useFetchApi(`orders/${id}`);
 
@@ -98,7 +100,10 @@ const OrderPageContainer = () => {
             )}
           </div>
           <div className="contact">
-            <ContactForm fullName={user.full_name} email={user.email} />
+            <ContactForm
+              fullName={auth.currentUser.displayName}
+              email={auth.currentUser.email}
+            />
           </div>
         </div>
       </div>
