@@ -7,7 +7,7 @@ import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
-import Loader from './components/Loader';
+import Loader from './components/Loader/Loader.component';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
