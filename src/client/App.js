@@ -7,7 +7,7 @@ import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
-import Loader from './components/Loader';
+import Loader from './components/Loader/Loader.component';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
@@ -19,6 +19,7 @@ import Page404Container from './containers/404Page/404Page.Container';
 import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
 import AboutpageContainer from './containers/AboutPage/AboutPage.Container';
 import ContactpageContainer from './containers/ContactPage/ContactPage.Container';
+import CartPageContainer from './containers/CartPage/CartPage.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
+        </Route>
+        <Route exact path="/cart/:id">
+          <CartPageContainer />
         </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
