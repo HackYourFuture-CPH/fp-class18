@@ -12,8 +12,13 @@ export default function ShoppingItem({
   price,
   initValue,
   isDisable,
+  getCost,
 }) {
-  const [itemValue, setItemValue] = useState(1);
+  const [itemValue, setItemValue] = useState(initValue);
+  React.useEffect(() => {
+    getCost(itemValue * price);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemValue]);
   const textColor = isDisable ? '#d3d3d3' : 'black';
   return (
     <div className="shopping-item">
@@ -63,9 +68,11 @@ ShoppingItem.propTypes = {
   price: PropTypes.number.isRequired,
   initValue: PropTypes.number,
   isDisable: PropTypes.bool,
+  getCost: PropTypes.func,
 };
 
 ShoppingItem.defaultProps = {
   initValue: 1,
   isDisable: false,
+  getCost: (value) => value,
 };
