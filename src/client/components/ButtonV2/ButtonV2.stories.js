@@ -12,18 +12,18 @@ export default {
   },
   parameters: { actions: { argTypesRegex: '^on.*' } },
 };
-
-export const AddToCartBtnComponent = () => (
-  <ButtonComponent2
-    title={text('', 'ADD TO CART')}
-    onClick={action('You have clicked the button')}
-  />
-);
-
-export const ExploreBtnComponent = () => (
-  <ButtonComponent2
-    title={text('', 'EXPLORE THIS CATEGORY')}
-    onClick={action('You have clicked the button')}
-    backgroundColor="gray"
-  />
-);
+// storybook-controls works with spread, but `Prop spreading is forbidden eslint(react/jsx-props-no-spreading)`
+// eslint-disable-next-line
+export const AddToCartBtnComponent = (args) => <ButtonComponent2 {...args} />;
+AddToCartBtnComponent.args = {
+  title: text('', 'ADD TO CART'),
+  onClick: action('You have clicked the button'),
+};
+// storybook-controls works with spread, but `Prop spreading is forbidden eslint(react/jsx-props-no-spreading)`
+// eslint-disable-next-line
+export const ExploreBtnComponent = (args) => <ButtonComponent2 {...args} />;
+ExploreBtnComponent.args = {
+  title: text('', 'EXPLORE THIS CATEGORY'),
+  onClick: action('You have clicked the button'),
+  backgroundColor: 'gray',
+};
