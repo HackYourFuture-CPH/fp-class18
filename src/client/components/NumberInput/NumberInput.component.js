@@ -24,9 +24,12 @@ export default function NumberInput({
     getQuantity(newValue);
   }
 
+  const buttonColor = disabled ? '#d3d3d3' : 'black';
+
   return (
     <div className="quantity">
       <input
+        style={{ color: buttonColor }}
         type="button"
         name="decrement"
         value="-"
@@ -34,6 +37,7 @@ export default function NumberInput({
         disabled={disabled}
       />
       <input
+        style={{ color: buttonColor }}
         type="text"
         maxLength={String(maxAvailable).length}
         min={1}
@@ -47,6 +51,7 @@ export default function NumberInput({
         disabled={disabled}
       />
       <input
+        style={{ color: buttonColor }}
         type="button"
         name="increment"
         value="+"

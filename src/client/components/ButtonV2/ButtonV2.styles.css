@@ -1,0 +1,11 @@
+.button2 {
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  color: white;
+  background-color: #1ea7fd;
+  font-size: 14px;
+  padding: 11px 20px;
+}
