@@ -13,7 +13,7 @@ const CategoryPageContainer = () => {
   return (
     <>
       <div className="product-container">
-        {products.data.isLoading ? (
+        {products.isLoading ? (
           <Loader />
         ) : (
           <>

@@ -50,13 +50,11 @@ const ProductPageContainer = () => {
   return (
     <>
       <div className="p-detail">
-        {!product.picture ? (
+        {productData.isLoading ? (
           <Loader />
         ) : (
           <>
-            {!product.id ? (
-              <Page404Container />
-            ) : (
+            {product.id ? (
               <ProductDetails
                 imgSource={product.picture}
                 ProductName={product.name}
@@ -66,6 +64,8 @@ const ProductPageContainer = () => {
                 productSize={product.size}
                 onClick={addToCartHandler}
               />
+            ) : (
+              <Page404Container />
             )}
           </>
         )}
