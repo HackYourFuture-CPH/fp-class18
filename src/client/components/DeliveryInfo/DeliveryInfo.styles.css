@@ -1,15 +1,14 @@
-form {
+.formDelivery {
   display: grid;
   padding: 1em;
-  background: #f9f9f9;
-  border: 1px solid #c1c1c1;
-  margin: 1rem auto 0 auto;
-  padding: 1em;
+  margin: 0.5em auto 0 auto;
 }
+
 form input {
   background: #fff;
   border: 1px solid #9c9c9c;
 }
+
 form button {
   background: #8e0ef2;
   padding: 0.7em;
@@ -17,26 +16,24 @@ form button {
   border: 0;
 }
 
-
 label {
   padding: 0.5em 0.5em 0.5em 0;
 }
 
-input {
+.wrapperDelivery input {
   padding: 0.7em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
+
 input:focus {
   outline: 3px solid #8e0ef2;
 }
 
 @media (min-width: 400px) {
-  form {
+  .formDelivery {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    font-family: Inter;
     font-style: normal;
     font-size: 14px;
-    font-weight: 400;
     grid-gap: 6px;
   }
 
@@ -61,12 +58,14 @@ input:focus {
     grid-column: 2 / span 2;
     grid-row: 2;
   }
+
   .cityLabel {
     text-align: left;
     grid-column: 3 / span 2;
     grid-row: 2;
     margin-left: 4em;
   }
+
   .cityLabelVert {
     text-align: left;
     grid-column: 1 / span 2;
@@ -87,6 +86,7 @@ input:focus {
     grid-row: 3;
     margin-left: 4em;
   }
+
   .countryLabelVert {
     text-align: left;
     grid-column: 1 / span 2;
@@ -99,21 +99,26 @@ input:focus {
     grid-row: 4;
     margin-left: 8em;
     width: 40%;
+    padding-bottom: 1em;
   }
+
   .saveButton {
     color: white;
   }
+
   .cancelLink {
     text-align: right;
     grid-column: 4 / span 1;
     grid-row: 4;
     width: 80%;
   }
+
   .editLink {
     text-align: right;
     grid-column: 4 / span 1;
     grid-row: 1;
   }
+
   .link-button {
     background-color: transparent;
     border: none;
@@ -130,49 +135,56 @@ input:focus {
     grid-column: 1 / span 1;
     grid-row: 2;
   }
+
   .addressInput {
     text-align: left;
     grid-column: 2 / span 1;
     grid-row: 2;
   }
+
   .cityInputLabel {
     text-align: right;
     grid-column: 3 / span 1;
     grid-row: 2;
   }
+
   .cityInput {
     text-align: left;
     grid-column: 4 / span 1;
     grid-row: 2;
   }
+
   .zipInputLabel {
     text-align: right;
     grid-column: 1 / span 1;
     grid-row: 3;
   }
+
   .zipInput {
     text-align: left;
     grid-column: 2 / span 1;
     grid-row: 3;
   }
+
   .countryInputLabel {
     text-align: right;
     grid-column: 3 / span 1;
     grid-row: 3;
   }
+
   .countryInput {
     text-align: left;
     grid-column: 4 / span 1;
     grid-row: 3;
   }
 }
-.text-right{
+
+.text-right {
   padding-right: 3em;
   text-align: right;
-
 }
 
 .wrapperDelivery {
-  width: 36rem;
-  height: 11.5rem;
+  width: 36em;
+  height: 14em;
 }
