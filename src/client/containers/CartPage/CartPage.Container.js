@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartPage.Style.css';
 import { useParams } from 'react-router-dom';
-import Loader from '../../components/Loader/index';
+import Loader from '../../components/Loader/Loader.component';
 import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
 import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
 import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
@@ -13,11 +13,8 @@ const CartPageContainer = () => {
   const [cartItem, setCartItem] = React.useState([]);
   const [user, setUser] = React.useState({});
   const [userId, setUserId] = React.useState('');
-
   const [total, setTotal] = React.useState(0);
-
   const [itemCost, setItemCost] = React.useState([]);
-
   const { id } = useParams();
 
   const orderData = useFetchApi(`orders/${id}`);
