@@ -4,7 +4,7 @@ import './ContactForm.styles.css';
 
 export default function ContactForm({ fullName, email }) {
   return (
-    <div className="wrapperParent wrapperContact">
+    <div className="wrapperContact">
       <form className="formContact">
         <label className="titleContact">CONTACT:</label>
         {fullName && <label className="fullName">Full-name: {fullName}</label>}
