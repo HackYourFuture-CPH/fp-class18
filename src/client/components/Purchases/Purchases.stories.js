@@ -3,12 +3,14 @@ import Purchases from './Purchases.component';
 
 export default { title: 'Components / Purchases', component: Purchases };
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Template = (args) => <Purchases {...args} />;
+const Template = () => (
+  <Purchases
+    orders={[
+      { orderId: 12398098, date: '30/09/2021' },
+      { orderId: 12398098, date: '30/09/2021' },
+      { orderId: 12398098, date: '30/09/2021' },
+    ]}
+  />
+);
 
 export const Info = Template.bind({});
-
-Info.args = {
-  orderId: '12398098',
-  date: '30/09/2021',
-};

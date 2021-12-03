@@ -1,28 +1,22 @@
-.purchases form {
-  display: block;
+.purchases .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   background-color: #f0eeeef3;
   border: 1px solid #c1c1c1;
-  max-width: 400em;
-  padding-bottom: 3em;
-  padding-top: 2em;
+  width: 70em;
+  padding: 1.5em 0 2em 3em;
 }
 
-.purchases label {
-  display: block;
+.purchases li {
+  list-style: none;
   text-align: left;
-  padding: 1em 0 0.5em 2em;
-  line-height: 20px;
+  padding: 0 8em 1em 0;
 }
 
 .purchases .title {
-  font: 1.4em bolder;
-  padding-bottom: 1em;
-}
-
-.purchases .orderid {
-  margin-left: 1.5em;
-}
-
-.purchases .date {
-  margin-left: 1.5em;
+  font: 1.5em bolder;
+  text-align: left;
+  flex-basis: 100%;
+  padding-left: 1.2em;
 }
