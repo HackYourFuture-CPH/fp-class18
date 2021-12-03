@@ -23,7 +23,7 @@ AddToCartBtnComponent.args = {
 // eslint-disable-next-line
 export const ExploreBtnComponent = (args) => <ButtonComponent2 {...args} />;
 ExploreBtnComponent.args = {
-  title: text('', 'EXPLORE THIS CATEGORY'),
+  title: 'EXPLORE THIS CATEGORY',
   onClick: action('You have clicked the button'),
   backgroundColor: 'gray',
 };
