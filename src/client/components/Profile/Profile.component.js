@@ -11,40 +11,20 @@ export const Profile = () => {
     zip: '2640',
     country: 'Denmark',
   };
-  // const { address, city, zip, country } = user;
-  // const [purchase, setPurchase] = React.useState([]);
-  // const [user, setUser] = React.useState([]);
-  // const { id } = useParams();
 
-  // const newPurchase = useFetchApi(`orders/${id}`);
-  // const userInfo = useFetchApi(`users/${purchase.user_id}`);
-  // setPurchase(newPurchase.data[0]);
-  // setUser(userInfo);
-
-  // console.log(newPurchase.data[0]);
-  // console.log(userInfo.data[0]);
   return (
     <div>
-      <h1>MY ACCOUNT</h1>
+      <h1>Profile page Component</h1>
       <div className="delivery-contact">
         <div className="contact">
-          {/* <ContactForm fullName={user.full_name} email={user.email} /> */}
           <ContactForm fullName="Jon Doe" email="jdoe@gmail.com" />
         </div>
         <div className="delivery">
-          {/*<DeliveryInformation
-            address={address}
-            zip={zipcode}
-            city={city}
-            country={country}
-          />*/}
           <DeliveryInfo user={user} editMode={true} vertDisplay={true} />
         </div>
-      </div>
-      <div className="purchases">
-        {/* <div>ORDER ID: {id}</div>
-          <div>DATE: {purchase.date}</div> */}
-        <Purchases orderId="12398098" date="30/09/2021" />
+        <div className="form">
+          <Purchases orderId="12398098" date="30/09/2021" />
+        </div>
       </div>
     </div>
   );
