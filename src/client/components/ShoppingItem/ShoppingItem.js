@@ -52,7 +52,7 @@ export default function ShoppingItem({
         <Numberinput
           maxAvailable={quantity}
           getQuantity={setItemValue}
-          initValue={itemValue}
+          initValue={initValue}
           disabled={isDisable}
         />
         <p style={{ color: textColor }}>{itemValue * price} DKK</p>
