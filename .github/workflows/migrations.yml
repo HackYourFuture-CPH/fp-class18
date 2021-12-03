@@ -43,6 +43,7 @@ jobs:
           DB_NAME: 'test'
           DB_USER: 'root'
           DB_PASSWORD: 'password'
+          TEST_USER_UID: 'EVJOWMzhWTYdqNGkyaBnn3LpINl2'
       - name: Run DB Migrations Rollback
         run: npm run db:clean
         env:
