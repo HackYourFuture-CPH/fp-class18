@@ -1,37 +1,28 @@
-form {
-  display: grid;
-  padding: 1em;
+.purchases form {
+  display: block;
   background-color: #f0eeeef3;
   border: 1px solid #c1c1c1;
-  margin: 0.5em auto 0 auto;
   max-width: 400em;
-  padding-bottom: 2em;
+  padding-bottom: 3em;
+  padding-top: 2em;
 }
 
-label {
-  padding: 0.5em 0 0.5em 0;
+.purchases label {
+  display: block;
+  text-align: left;
+  padding: 1em 0 0.5em 2em;
   line-height: 20px;
 }
 
-@media (min-width: 400px) {
-  .title {
-    margin-left: 0.5em;
-    font: 1.5em bolder;
-    grid-column: 1 / span 1;
-    grid-row: 1;
-  }
+.purchases .title {
+  font: 1.4em bolder;
+  padding-bottom: 1em;
+}
 
-  .orderid {
-    margin-left: 0.5em;
-    grid-column: 1 / span 1;
-    grid-row: 2;
-    padding-left: 10px;
-  }
+.purchases .orderid {
+  margin-left: 1.5em;
+}
 
-  .date {
-    margin-left: 0.5em;
-    grid-column: 1 / span 1;
-    grid-row: 3;
-    padding-left: 10px;
-  }
+.purchases .date {
+  margin-left: 1.5em;
 }
