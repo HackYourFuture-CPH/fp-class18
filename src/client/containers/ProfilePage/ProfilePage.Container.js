@@ -10,7 +10,7 @@ import Loader from '../../components/Loader/Loader.component';
 const ProfilePageContainer = ({ isAuthenticated }) => {
   const { auth } = useFirebase();
   console.log(auth);
-  // const [user, setUser] = React.useState([]);
+  const [user, setUser] = React.useState([]);
   // const [items, setItems] = React.useState([]);
   // const [order, setOrder] = React.useState({});
   // const orderItems = useFetchApi(`orders`);
@@ -21,13 +21,15 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
   //     setOrder(orderItems.data.order);
   //   }
   // }, [orderItems]);
-  // const userInfo = useFetchApi(`users/${order.userId}`);
+  const userInfo = useFetchApi(
+    isAuthenticated && `users/${auth.currentUser.uid}`,
+  );
 
-  // React.useEffect(() => {
-  //   if (!userInfo.isLoading) {
-  //     setUser(userInfo.data[0]);
-  //   }
-  // }, [userInfo, user]);
+  React.useEffect(() => {
+    if (!userInfo.isLoading) {
+      setUser(userInfo.data[0]);
+    }
+  }, [userInfo, user]);
 
   return (
     <div>
@@ -43,17 +45,13 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
             <Loader />
           )}
         </div>
-        {/* <div className="delivery">
-        {userInfo.isLoading ? (
-          <Loader />
-        ) : (
-          <DeliveryInfo
-            editMode={false}
-            vertDisplay={false}
-            user={isAuthenticated && `${auth.currentUser}`}
-          />
-        )}
-      </div> */}
+        <div className="delivery">
+          {userInfo.isLoading ? (
+            <Loader />
+          ) : (
+            <DeliveryInfo editMode={true} vertDisplay={false} user={user} />
+          )}
+        </div>
         {/* <div className="purchases">
         <Purchases orderId={orderID.id} date={orderDate.date} />
       </div> */}
