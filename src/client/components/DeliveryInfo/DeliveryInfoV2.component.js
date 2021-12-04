@@ -2,27 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './DeliveryInfo.styles.css';
 
-export default function DeliveryInfo({ editMode, vertDisplay, user }) {
-  const { address, city, zipcode, country } = user;
+export default function DeliveryInfoV2({ editMode, vertDisplay, user }) {
+  const { id, address, city, zipcode, country } = user;
+  const [newAddress, setNewAddress] = React.useState(address);
+  const [newCity, setNewCity] = React.useState(city);
+  const [newZipcode, setNewZipcode] = React.useState(zipcode);
+  const [newCountry, setNewCountry] = React.useState(country);
   const [edit, setEdit] = React.useState(false);
   const handleEdit = () => setEdit(!edit);
-  const handleSubmit = (event) => {
-    fetch('/api/users', {
-      method: 'post',
+  const handleSubmit = () => {
+    fetch(`/api/users/${id}`, {
+      method: 'PATCH',
       headers: {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        address: event.target.address.value,
-        zipcode: event.target.zipcode.value,
-        city: event.target.city.value,
-        country: event.target.country.value,
+        address: `${newAddress === undefined ? address : newAddress}`,
+        zipcode: `${newZipcode === undefined ? zipcode : newZipcode}`,
+        city: `${newCity === undefined ? city : newCity}`,
+        country: `${newCountry === undefined ? country : newCountry}`,
       }),
     }).then((response) => {
       if (response.ok) {
-        // eslint-disable-next-line no-alert
-        alert('User saved Successfully');
+        console.log('Success');
       } else {
         throw new Error(response.status);
       }
@@ -35,33 +38,38 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
           <label className="titleDelivery">DELIVERY INFO:</label>
           <label className="addressInputLabel">Address:</label>
           <input
-            defaultValue={address}
             className="addressInput"
             name="address"
             type="text"
+            defaultValue={address}
+            onChange={(e) => setNewAddress(e.target.value)}
           />
 
           <label className="cityInputLabel">City:</label>
           <input
-            defaultValue={city}
             className="cityInput"
             name="city"
             type="text"
+            defaultValue={city}
+            onChange={(e) => setNewCity(e.target.value)}
           />
 
           <label className="zipInputLabel">Zip code:</label>
           <input
-            defaultValue={zipcode}
             className="zipInput"
             name="zipcode"
             type="number"
+            defaultValue={zipcode}
+            onChange={(e) => setNewZipcode(e.target.value)}
           />
 
           <label className="countryInputLabel">Country:</label>
           <input
-            defaultValue={country}
+            type="text"
             className="countryInput"
             name="country"
+            defaultValue={country}
+            onChange={(e) => setNewCountry(e.target.value)}
           />
 
           <div className="saveButtonDiv">
@@ -114,15 +122,16 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
   );
 }
 
-DeliveryInfo.defaultProps = {
+DeliveryInfoV2.defaultProps = {
   editMode: false,
   vertDisplay: true,
 };
 
-DeliveryInfo.propTypes = {
+DeliveryInfoV2.propTypes = {
   editMode: PropTypes.bool,
   vertDisplay: PropTypes.bool,
   user: PropTypes.shape({
+    id: PropTypes.string,
     address: PropTypes.string,
     city: PropTypes.string,
     zipcode: PropTypes.number,

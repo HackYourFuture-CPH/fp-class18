@@ -1,26 +1,25 @@
 import React from 'react';
 import './ProfilePage.Style.css';
 import ContactForm from '../../components/ContactForm/ContactForm.component.js';
-import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
-// import Purchases from '../../components/Purchases/Purchases.component.js';
+import Purchases from '../../components/Purchases/Purchases.component.js';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import Loader from '../../components/Loader/Loader.component';
+import DeliveryInfoV2 from '../../components/DeliveryInfo/DeliveryInfoV2.component';
 
 const ProfilePageContainer = ({ isAuthenticated }) => {
   const { auth } = useFirebase();
   console.log(auth);
   const [user, setUser] = React.useState([]);
-  // const [items, setItems] = React.useState([]);
-  // const [order, setOrder] = React.useState({});
-  // const orderItems = useFetchApi(`orders`);
-  // console.log(orderItems);
-  // React.useEffect(() => {
-  //   if (!orderItems.isLoading) {
-  //     // setItems(orderItems.data.items);
-  //     setOrder(orderItems.data.order);
-  //   }
-  // }, [orderItems]);
+  const [orders, setOrders] = React.useState([]);
+  const orderItems = useFetchApi(`orders/user/EVJOWMzhWTYdqNGkyaBnn3LpINl2`);
+  console.log(orderItems);
+  React.useEffect(() => {
+    if (!orderItems.isLoading) {
+      // setItems(orderItems.data.items);
+      setOrders(orderItems.data[0]);
+    }
+  }, [orderItems]);
   const userInfo = useFetchApi(
     isAuthenticated && `users/${auth.currentUser.uid}`,
   );
@@ -49,12 +48,12 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
           {userInfo.isLoading ? (
             <Loader />
           ) : (
-            <DeliveryInfo editMode={true} vertDisplay={false} user={user} />
+            <DeliveryInfoV2 editMode={true} vertDisplay={false} user={user} />
           )}
         </div>
-        {/* <div className="purchases">
-        <Purchases orderId={orderID.id} date={orderDate.date} />
-      </div> */}
+      </div>
+      <div className="purchases">
+        <Purchases orders={orders} />
       </div>
     </div>
   );
