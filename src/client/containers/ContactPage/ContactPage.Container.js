@@ -1,30 +1,32 @@
 import React from 'react';
 import './ContactPage.Style.css';
-import contactUs from '../../assets/images/contactUs.png';
-import map from '../../assets/images/location-icon.png';
-import envelop from '../../assets/images/email-icon.png';
-import phone from '../../assets/images/Phone_icon.png';
-import clock from '../../assets/images/clock-icon.png';
+import contactUs from '../../assets/images/contactPoster.png';
+import contactRegion from '../../assets/images/contactRegion.png';
+import contactPhone from '../../assets/images/contactPhone.png';
+import contactEmail from '../../assets/images/contactEmail.png';
+import contactTimings from '../../assets/images/contactTimings.png';
 
 const ContactpageContainer = () => {
   return (
-    <div className="ContactpageContainer">
+    <div className="contactPageContainer">
       <img src={contactUs} alt="contact-us" />
-      <div>
-        <img src={map} alt="location" className="item" />
-        <h2>Copenhagen, Denmark</h2>
-      </div>
-      <div>
-        <img src={phone} alt="phoneNumber" className="item" />
-        <h2>+45 000 00000</h2>
-      </div>
-      <div>
-        <img src={envelop} alt="email" className="item" />
-        <h2>email@address.com</h2>
-      </div>
-      <div>
-        <img src={clock} alt="openingTimes" className="item" />
-        <h2>Mon - Fri 8:00 AM to 6:00 PM</h2>
+      <div className="flexContainerContact">
+        <div>
+          <img src={contactRegion} alt="Location" className="item" />
+          <h5>Copenhagen, Denmark</h5>
+        </div>
+        <div>
+          <img src={contactPhone} alt="Phone Number" className="item" />
+          <h5>+45 000 00000</h5>
+        </div>
+        <div>
+          <img src={contactEmail} alt="email" className="item" />
+          <h5>email@address.com</h5>
+        </div>
+        <div>
+          <img src={contactTimings} alt="openingTimes" className="item" />
+          <h5>Mon - Fri 8:00 AM to 6:00 PM</h5>
+        </div>
       </div>
     </div>
   );

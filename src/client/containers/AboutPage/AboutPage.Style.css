@@ -1,13 +1,30 @@
-.AboutpageContainer {
+.aboutContainer {
   padding: 15px;
 }
 
-.AboutpageContainer img {
+.aboutContainer img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
-.AboutpageContainer p {
+.aboutContainer p {
   text-indent: 50px;
   text-align: justify;
+}
+
+.flexContainerAbout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 6px;
+}
+
+.aboutPoster {
+  grid-row: 1 / span 10;
+  grid-column: 1 / span 1;
+}
+
+.aboutText {
+  grid-row: 3 / span 5;
+  grid-column: 2;
 }

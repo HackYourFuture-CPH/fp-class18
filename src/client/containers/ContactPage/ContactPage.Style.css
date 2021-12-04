@@ -1,17 +1,22 @@
-.ContactpageContainer {
+.contactPageContainer {
   padding: 15px;
   font-size: larger;
   text-align: center;
 }
 
-.ContactpageContainer img {
+.contactPageContainer img {
   width: 100%;
   height: auto;
   padding-bottom: 20px;
 }
 
-.ContactpageContainer .item {
-  width: 5%;
-  height: auto;
-  color: crimson;
+.contactPageContainer .item {
+  width: 25%;
+  height: 50%;
+}
+
+.flexContainerContact {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 6px;
 }
