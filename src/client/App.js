@@ -32,7 +32,6 @@ function App() {
   return (
     <Router history={reactRouterHistory}>
       <Menu isAuthenticated={isAuthenticated} />
-      <Paypal orderId="agdj12312eygj323" totalSum={120} />
       <Switch>
         <Route exact path="/">
           <LandingPageContainer />
