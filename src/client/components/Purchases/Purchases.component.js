@@ -10,8 +10,8 @@ export default function Purchases({ orders }) {
         {orders.map((order) => {
           return (
             <ul key={order.orderId}>
-              <li> ORDERID:{order.orderId}</li>
-              <li> DATE: {order.date}</li>
+              <li> ORDERID:{order.id}</li>
+              <li> DATE: {order.created_at}</li>
             </ul>
           );
         })}

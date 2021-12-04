@@ -17,7 +17,8 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
   React.useEffect(() => {
     if (!orderItems.isLoading) {
       // setItems(orderItems.data.items);
-      setOrders(orderItems.data[0]);
+      setOrders(orderItems.data);
+      console.log(orderItems);
     }
   }, [orderItems]);
   const userInfo = useFetchApi(
