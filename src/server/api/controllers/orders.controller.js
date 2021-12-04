@@ -82,8 +82,8 @@ const storeNewOrder = async (data) => {
     .insert({ user_id: data.user_id })
     .returning('id')
     .then((id) => {
-      data.items.forEach((item) => {
-        knex('order_items').insert({
+      data.items.forEach(async (item) => {
+        await knex('order_items').insert({
           order_id: id[0],
           product_id: item.product_id,
           quantity: item.quantity,
