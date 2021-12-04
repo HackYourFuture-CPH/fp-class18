@@ -34,4 +34,5 @@
 
 .purchases .container {
   margin-top: 3em;
+  column-gap: 4em;
 }
