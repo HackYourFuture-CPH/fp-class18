@@ -20,6 +20,7 @@ import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/Month
 import AboutpageContainer from './containers/AboutPage/AboutPage.Container';
 import ContactpageContainer from './containers/ContactPage/ContactPage.Container';
 import CartPageContainer from './containers/CartPage/CartPage.Container';
+import Paypal from './components/Paypal/Paypal.component';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -31,6 +32,7 @@ function App() {
   return (
     <Router history={reactRouterHistory}>
       <Menu isAuthenticated={isAuthenticated} />
+      <Paypal orderId="agdj12312eygj323" totalSum={120} />
       <Switch>
         <Route exact path="/">
           <LandingPageContainer />
