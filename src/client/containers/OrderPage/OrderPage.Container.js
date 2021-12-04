@@ -96,11 +96,11 @@ const OrderPageContainer = ({ isAuthenticated }) => {
         </div>
         <div className="botton">
           <div className="delivery">
-            {/* {userInfo.isLoading ? (
+            {userInfo.isLoading ? (
               <Loader />
             ) : (
               <DeliveryInfo editMode={false} vertDisplay={true} user={user} />
-            )} */}
+            )}
           </div>
           <div className="contact">
             <ContactForm
