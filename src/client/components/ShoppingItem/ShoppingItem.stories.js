@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, number } from '@storybook/addon-knobs';
+import { text, number, boolean } from '@storybook/addon-knobs';
 import itemImage from '../../assets/images/image01.png';
 import ShoppingItem from './ShoppingItem';
 
@@ -14,5 +14,6 @@ export const component = () => (
     quantity={number('number', 20)}
     price={number('priceNumber', 1000)}
     productImg={itemImage}
+    isDisable={boolean('Disable', false)}
   />
 );

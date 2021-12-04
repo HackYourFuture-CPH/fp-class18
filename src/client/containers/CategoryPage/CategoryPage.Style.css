@@ -9,3 +9,9 @@ footer {
 .product-container {
   padding-right: 2rem;
 }
+
+.corner {
+  width: fit-content;
+  margin-right: 2%;
+  margin-left: auto;
+}
