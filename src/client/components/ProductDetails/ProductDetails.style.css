@@ -125,13 +125,19 @@
   #product-details .inputs{
     flex-direction: column;
     margin-bottom: 0;
-    margin-top: -3rem;
   }
 
   #product-details .input-row {
-    flex-direction: column;
-    align-items: center;
-    margin: 2.8rem 0;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #product-details .input-row button {
+    width: 9rem;
+  }
+
+  #product-details .input-row .quantity{
+    padding: 2.7rem 3rem 0 1.2rem ;
   }
 
   #product-details .select-item{
