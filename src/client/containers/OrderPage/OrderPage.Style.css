@@ -54,11 +54,18 @@ li {
   margin-top: 40px;
 }
 
+.header {
+  margin: auto;
+  width: 90%;
+}
+
 h1 {
-  text-align: left;
-  margin: 20px auto;
-  width: 80%;
   color: black;
+  padding: 10px;
+}
+
+.header h1 {
+  margin-left: 0;
 }
 
 .botton {

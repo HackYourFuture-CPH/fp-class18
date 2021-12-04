@@ -50,7 +50,9 @@ const OrderPageContainer = ({ isAuthenticated }) => {
 
   return (
     <div>
-      <h1>ORDER SUMMARY</h1>
+      <div className="header">
+        <h1>ORDER SUMMARY</h1>
+      </div>
       <div className="order-page-container">
         <div className="top">
           <div className="left">
@@ -87,18 +89,18 @@ const OrderPageContainer = ({ isAuthenticated }) => {
               <ButtonComponent
                 title="PAYMENT"
                 backgroundColor="blueviolet"
-                onClick={() => history.push(`paymentSystem/${id}`)}
+                onClick={() => history.push(`payment/${id}`)}
               />
             </div>
           </div>
         </div>
         <div className="botton">
           <div className="delivery">
-            {userInfo.isLoading ? (
+            {/* {userInfo.isLoading ? (
               <Loader />
             ) : (
               <DeliveryInfo editMode={false} vertDisplay={true} user={user} />
-            )}
+            )} */}
           </div>
           <div className="contact">
             <ContactForm
