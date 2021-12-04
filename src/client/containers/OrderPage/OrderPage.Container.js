@@ -8,9 +8,10 @@ import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component
 import { useParams, useHistory } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import { useFirebase } from '../../firebase/FirebaseContext';
+import { PropTypes } from 'prop-types';
 import './OrderPage.Style.css';
 
-const OrderPageContainer = () => {
+const OrderPageContainer = ({ isAuthenticated }) => {
   const [items, setItems] = React.useState([]);
   const [order, setOrder] = React.useState({});
   const [user, setUser] = React.useState({});
@@ -101,14 +102,18 @@ const OrderPageContainer = () => {
           </div>
           <div className="contact">
             <ContactForm
-              fullName={auth.currentUser.displayName}
-              email={auth.currentUser.email}
+              fullName={isAuthenticated && `${auth.currentUser.displayName}`}
+              email={isAuthenticated && `${auth.currentUser.email}`}
             />
           </div>
         </div>
       </div>
     </div>
   );
+};
+
+OrderPageContainer.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default OrderPageContainer;
