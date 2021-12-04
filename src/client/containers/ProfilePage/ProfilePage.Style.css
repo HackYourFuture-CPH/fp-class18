@@ -1,15 +1,17 @@
 .delivery-contact {
-  margin: auto;
+  display: flex;
 }
 
 .contact {
-  float: left;
+  margin: auto;
 }
 
 .delivery {
-  float: right;
+  margin: 20px 0;
+  float: left;
 }
 
 .purchases {
+  display: inline-block;
   margin: auto;
 }
