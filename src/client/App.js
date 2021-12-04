@@ -18,6 +18,9 @@ import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
 import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
+import AboutpageContainer from './containers/AboutPage/AboutPage.Container';
+import ContactpageContainer from './containers/ContactPage/ContactPage.Container';
+import CartPageContainer from './containers/CartPage/CartPage.Container';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -33,6 +36,12 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
+        <Route exact path="/about-us">
+          <AboutpageContainer />
+        </Route>
+        <Route exact path="/contact-us">
+          <ContactpageContainer />
+        </Route>
         <Route exact path="/product/:id">
           <ProductPageContainer />
         </Route>
@@ -41,6 +50,9 @@ function App() {
         </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
+        </Route>
+        <Route exact path="/cart/:id">
+          <CartPageContainer />
         </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the
