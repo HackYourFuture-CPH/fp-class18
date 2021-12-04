@@ -36,3 +36,45 @@
   margin-top: 3em;
   column-gap: 4em;
 }
+
+@media screen and (max-width: 768px) {
+  .delivery-contact {
+    display: block;
+  }
+
+  .delivery {
+    margin-left: 8em;
+  }
+
+  .purchases .container {
+    display: flexbox;
+    max-width: fit-content;
+    column-gap: 4em;
+  }
+
+  .purchases li {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 70em) {
+  .delivery-contact {
+    display: block;
+  }
+
+  .delivery {
+    margin-left: 8em;
+    max-width: fit-content;
+  }
+
+  .purchases .container {
+    display: flexbox;
+    max-width: fit-content;
+    column-gap: 4em;
+  }
+
+  .purchases li {
+    flex-wrap: wrap;
+    max-width: fit-content;
+  }
+}
