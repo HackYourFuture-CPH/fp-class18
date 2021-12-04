@@ -22,30 +22,40 @@ export default function ShoppingItem({
   const textColor = isDisable ? '#d3d3d3' : 'black';
   return (
     <div className="shopping-item">
-      <img src={productImg} alt="" width="185px" height="145px" />
-      <div className="item-settings">
-        <h2>{productName}</h2>
-        <p style={{ color: textColor }}>({quantity} units left)</p>
-        <div className="trash">
-          <button
-            disabled={isDisable}
-            type="button"
-            onCLick=""
-            className="remove"
-          >
-            <Trash
-              height="20"
-              stroke={isDisable ? '#d3d3d3' : '#000000'}
-              fill={isDisable ? '#d3d3d3' : '#000000'}
-            />
-            Remove Item
-          </button>
+      <div className="product-picture">
+        <div className="picture">
+          <img src={productImg} alt="" width="185px" height="145px" />
         </div>
-        <div className="favorites">
-          <button disabled={isDisable} type="button" onClick="" className="add">
-            <Heart height="20" stroke={isDisable ? '#d3d3d3' : 'black'} /> Add
-            to favorites
-          </button>
+
+        <div className="item-settings">
+          <h2>{productName}</h2>
+          <p style={{ color: textColor }}>({quantity} units left)</p>
+          <div className="trash">
+            <button
+              disabled={isDisable}
+              type="button"
+              onCLick=""
+              className="remove"
+            >
+              <Trash
+                height="20"
+                stroke={isDisable ? '#d3d3d3' : '#000000'}
+                fill={isDisable ? '#d3d3d3' : '#000000'}
+              />
+              Remove Item
+            </button>
+          </div>
+          <div className="favorites">
+            <button
+              disabled={isDisable}
+              type="button"
+              onClick=""
+              className="add"
+            >
+              <Heart height="20" stroke={isDisable ? '#d3d3d3' : 'black'} /> Add
+              to favorites
+            </button>
+          </div>
         </div>
       </div>
       <div className="quantity-component">
