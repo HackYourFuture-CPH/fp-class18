@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
@@ -77,7 +78,18 @@ const getOrderByUserId = async (userid) => {
 };
 
 const storeNewOrder = async (data) => {
-  await knex('orders').insert(data);
+  await knex('orders')
+    .insert({ user_id: data.user_id })
+    .returning('id')
+    .then((id) => {
+      data.items.forEach(async (item) => {
+        await knex('order_items').insert({
+          order_id: id[0],
+          product_id: item.product_id,
+          quantity: item.quantity,
+        });
+      });
+    });
 };
 
 module.exports = {
