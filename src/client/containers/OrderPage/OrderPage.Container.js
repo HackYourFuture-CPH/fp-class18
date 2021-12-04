@@ -1,14 +1,14 @@
 import React from 'react';
-import Loader from '../../components/Loader/index';
-import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
-import ContactForm from '../../components/ContactForm/ContactForm.component';
-import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
-import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
 import ButtonComponent from '../../components/Button/Button.component';
+import ContactForm from '../../components/ContactForm/ContactForm.component';
+import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
+import Loader from '../../components/Loader/Loader.component';
+import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
+import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
 import { useParams, useHistory } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
-import './OrderPage.Style.css';
 import { useFirebase } from '../../firebase/FirebaseContext';
+import './OrderPage.Style.css';
 
 const OrderPageContainer = () => {
   const [items, setItems] = React.useState([]);
