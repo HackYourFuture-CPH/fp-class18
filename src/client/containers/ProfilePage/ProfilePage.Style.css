@@ -2,16 +2,36 @@
   display: flex;
 }
 
-.contact {
-  margin: auto;
+.wrapperContact .titleContact {
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+.wrapperContact .formContact {
+  width: 30em;
+  height: 18em;
+  font-size: 1em;
+  margin-left: 8em;
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
+}
+
+.wrapperDelivery .titleDelivery {
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+.wrapperDelivery .formDelivery {
+  font-size: 1em;
 }
 
 .delivery {
-  margin: 20px 0;
-  float: left;
+  margin: 1.6em 2em 0 5em;
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
+  height: 18em;
 }
 
-.purchases {
-  display: inline-block;
-  margin: auto;
+.purchases .container {
+  margin-top: 3em;
 }

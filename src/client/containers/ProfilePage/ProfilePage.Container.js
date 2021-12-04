@@ -33,7 +33,7 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
 
   return (
     <div>
-      <h1>Profile page Container</h1>
+      <h1>MY ACCOUNT</h1>
       <div className="delivery-contact">
         <div className="contact">
           {auth ? (
