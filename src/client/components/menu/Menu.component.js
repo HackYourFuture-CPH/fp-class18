@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
-import MobileMenu from './MobileMenu.Container';
 import { useFirebase } from '../../firebase/FirebaseContext';
+import MobileMenu from './MobileMenu.Container';
 
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   const handleLogin = async () => {
     await signInWithGoogle();
@@ -17,6 +18,11 @@ export const Menu = ({ isAuthenticated }) => {
 
   const handleLogout = async () => {
     await signOut();
+  };
+
+  const toggleHamburger = () => {
+    setHamburgerOpen(!hamburgerOpen);
+    hamburgerOpen ? (className = 'mobile-menu-active') : 'navbar';
   };
 
   return (
@@ -91,13 +97,19 @@ export const Menu = ({ isAuthenticated }) => {
               MONTHLY ARRIVALS
             </button>
           </Link>
-          <button type="submit" className="dropbtn">
-            ABOUT
-          </button>
-          <button type="submit" className="dropbtn">
-            CONTACT US
-          </button>
-          <MobileMenu />
+          <Link to="/about-us">
+            <button type="submit" className="dropbtn">
+              ABOUT
+            </button>
+          </Link>
+          <Link to="/contact-us">
+            <button type="submit" className="dropbtn">
+              CONTACT US
+            </button>
+          </Link>
+        </div>
+        <div className="hamburger">
+          <MobileMenu onClick={toggleHamburger} />
         </div>
       </header>
     </nav>

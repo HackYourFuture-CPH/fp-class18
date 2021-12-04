@@ -1,49 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './MobileMenu.style.css';
+import './Menu.styles.css';
 const MobileMenu = () => {
   return (
-    <div className="navbar">
-      <div className="dropdown">
-        <button type="submit" className="dropbtn">
-          CATEGORIES
-        </button>
-
-        <div className="dropdown-content">
-          <ul>
-            <li>
-              <Link className="text-link" to="/category/furniture">
-                FURNITURE
-              </Link>
-            </li>
-            <li>
-              <Link className="text-link" to="/category/lamps">
-                LAMPS
-              </Link>
-            </li>
-            <li>
-              <Link className="text-link" to="/category/home decor">
-                HOME DECOR
-              </Link>
-            </li>
-            <li>
-              <Link className="text-link" to="/category/linen">
-                LINEN
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <Link to="/monthly-arrivals">
-        <button type="submit" className="dropbtn">
-          MONTHLY ARRIVALS
-        </button>
-      </Link>
-      <button type="submit" className="dropbtn">
-        ABOUT
-      </button>
-      <button type="submit" className="dropbtn">
-        CONTACT US
-      </button>
+    <div className="hamburger">
+      <div className="burger burger1"></div>
+      <div className="burger burger2"></div>
+      <div className="burger burger3"></div>
     </div>
   );
 };
