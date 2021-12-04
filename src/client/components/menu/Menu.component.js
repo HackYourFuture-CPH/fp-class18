@@ -1,5 +1,5 @@
 import React from 'react';
-
+import menu from '../../assets/images/menu.png';
 import { Link } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
@@ -17,6 +17,12 @@ export const Menu = ({ isAuthenticated }) => {
   const handleLogout = async () => {
     await signOut();
   };
+  const [isMobile, setIsMoble] = React.useState(false);
+  React.useEffect(() => {
+    if (navigator.userAgentData.mobile) {
+      setIsMoble(true);
+    }
+  }, [isMobile]);
 
   return (
     <nav>
@@ -55,6 +61,7 @@ export const Menu = ({ isAuthenticated }) => {
           <img className="icons" src={faShoppingCart} alt="shoppingcart" />
         </div>
         <div className="navbar">
+          {isMobile && <img src={menu} alt="menu" />}
           <div className="dropdown">
             <button type="submit" className="dropbtn">
               CATEGORIES
