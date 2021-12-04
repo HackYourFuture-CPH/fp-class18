@@ -73,6 +73,14 @@ const deleteUserFavorite = (body) => {
       product_id: body.product_id,
     })
     .del();
+}
+
+const saveFavorite = async (user_id, body) => {
+  checkIfCorrectId(user_id);
+  await knex('favorites').insert({
+    user_id,
+    product_id: body.product_id,
+  });
 };
 
 module.exports = {
@@ -82,6 +90,7 @@ module.exports = {
   saveUser,
   getUserFavorites,
   deleteUserFavorite,
+  saveFavorite,
 };
 
 function checkIfCorrectId(id) {

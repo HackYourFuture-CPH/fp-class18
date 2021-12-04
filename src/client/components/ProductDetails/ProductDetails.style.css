@@ -42,12 +42,18 @@
   width: 100%;
   height: 2.5rem;
   display: flex;
+  flex-direction: column;
 }
 
 #product-details .select-item {
   display: flex;
   margin-right: 2rem;
   position: relative;
+}
+
+#product-details .inputs{
+  display: inline-flex;
+  margin-bottom: 3.5rem;
 }
 
 #product-details .input-row button {
@@ -84,6 +90,14 @@
   transform: rotate(225deg);
 }
 
+#product-details .select-item{
+  margin-bottom: 1rem;
+}
+
+#product-details .button-component{
+  margin-top: 1.5rem;
+}
+
 @media screen and (max-width: 768px) {
   #product-details .product-image img{
     width: 100%;
@@ -93,6 +107,11 @@
     width: unset;
     display: block;
     text-align: center;
+    height: auto;
+  }
+
+  #product-details .details-column{
+    margin-bottom: 4rem;
   }
 
   #product-details .product-name {
@@ -103,10 +122,26 @@
     margin: 1rem 0;
   }
 
-  #product-details .input-row {
+  #product-details .inputs{
     flex-direction: column;
-    align-items: center;
-    margin: 1.3rem;
+    margin-bottom: 0;
+  }
+
+  #product-details .input-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #product-details .input-row button {
+    width: 9rem;
+  }
+
+  #product-details .input-row .quantity{
+    padding: 2.7rem 3rem 0 1.2rem ;
+  }
+
+  #product-details .select-item{
+    margin: 0;
   }
 
   #product-details select {
@@ -116,5 +151,11 @@
   #product-details .arrow-right {
     left: 7.2rem;
     top: 1.4rem;
+  }
+  #product-details .text{
+    font-size: 1.5rem;
+  }
+  #product-details small{
+    font-size: 0.7rem;
   }
 }

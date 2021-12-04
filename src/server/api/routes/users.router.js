@@ -185,6 +185,44 @@ router.get('/:id/favorites/', (req, res, next) => {
 /**
  * @swagger
  * /users/{user_id}/favorites:
+ *  post:
+ *    tags:
+ *    - Users
+ *    summary: Save user favorites
+ *    description:
+ *      To Save new favorite from user to the DB
+ *    produces: application/json
+ *    parameters:
+ *     - in: path
+ *       name: user_id
+ *       description: For users favorite to post.
+ *     - in: body
+ *       name: user
+ *       description: create a new favorite item for user
+ *       schema:
+ *         type: object
+ *         required: true
+ *         description: user json object
+ *         properties:
+ *            product_id:
+ *              type: integer
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.post('/:id/favorites', (req, res, next) => {
+  usersController
+    .saveFavorite(req.params.id, req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /users/{user_id}/favorites:
  *  delete:
  *    tags:
  *    - Users
@@ -212,7 +250,7 @@ router.get('/:id/favorites/', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  */
-router.delete('/:id/favorites', (req, res) => {
+ router.delete('/:id/favorites', (req, res) => {
   usersController
     .deleteUserFavorite(req.body)
     .then((result) => {

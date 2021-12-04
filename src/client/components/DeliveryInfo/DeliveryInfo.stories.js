@@ -15,7 +15,7 @@ Info.args = {
   user: {
     address: 'Vildkildevej 21',
     city: 'Hedehusene',
-    zip: '2640',
+    zipcode: '2640',
     country: 'Denmark',
   },
 };
