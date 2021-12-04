@@ -66,10 +66,10 @@ const getUserFavorites = async (user_id) => {
   }
 };
 
-const saveFavorite = async (body) => {
-  checkIfCorrectId(body.user_id);
+const saveFavorite = async (user_id, body) => {
+  checkIfCorrectId(user_id);
   await knex('favorites').insert({
-    user_id: body.user_id,
+    user_id: user_id,
     product_id: body.product_id,
   });
 };

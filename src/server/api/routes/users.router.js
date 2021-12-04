@@ -193,6 +193,9 @@ router.get('/:id/favorites/', (req, res, next) => {
  *      To Save new favorite from user to the DB
  *    produces: application/json
  *    parameters:
+ *     - in: path
+ *       name: user_id
+ *       description: For users favorite to post.
  *     - in: body
  *       name: user
  *       description: create a new favorite item for user
@@ -201,10 +204,8 @@ router.get('/:id/favorites/', (req, res, next) => {
  *         required: true
  *         description: user json object
  *         properties:
- *            user_id:
- *              type: string
  *            product_id:
- *              type: string
+ *              type: integer
  *
  *    responses:
  *      200:
@@ -214,10 +215,9 @@ router.get('/:id/favorites/', (req, res, next) => {
  */
 router.post('/:id/favorites', (req, res, next) => {
   usersController
-    .saveFavorite(req.body)
+    .saveFavorite(req.params.id, req.body)
     .then((result) => res.json(result))
     .catch(next);
 });
-
 
 module.exports = router;
