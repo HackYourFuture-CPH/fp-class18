@@ -236,7 +236,7 @@ router.post('/:id/favorites', (req, res, next) => {
  *       description: For eliminate to users favorite.
  *     - in: body
  *       name: user
- *       description: create a new favorite item for user
+ *       description: delete a favorite item for user
  *       schema:
  *         type: object
  *         required: true
