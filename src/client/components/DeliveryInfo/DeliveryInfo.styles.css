@@ -14,7 +14,6 @@ form button {
   border: 0;
 }
 
-
 label {
   padding: 0.5em 0.5em 0.5em 0;
 }
@@ -30,7 +29,6 @@ input:focus {
 @media (min-width: 400px) {
   .formDelivery {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    font-family: Inter;
     font-style: normal;
     font-size: 14px;
     grid-gap: 6px;
@@ -119,7 +117,7 @@ input:focus {
     display: inline;
     margin: 0;
     padding: 0.7em 0;
-    text-align: right;
+    text-align: left;
   }
 
   .addressInputLabel {
@@ -163,10 +161,9 @@ input:focus {
     grid-row: 3;
   }
 }
-.text-right{
+.text-right {
   padding-right: 3em;
   text-align: right;
-
 }
 
 .wrapperDelivery {
