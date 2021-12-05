@@ -1,8 +1,11 @@
 exports.up = function (knex) {
   return knex.schema.createTable('orders', (table) => {
     table.increments('id').primary();
-    table.enum('status', ['created', 'confirmed', 'payed']).notNullable();
-    table.string('created_at').notNullable();
+    table
+      .enum('status', ['created', 'confirmed', 'payed'])
+      .defaultTo('created')
+      .notNullable();
+    table.datetime('created_at').defaultTo(knex.fn.now()).notNullable();
     table.string('user_id').notNullable();
     table.foreign('user_id').references('users.id');
   });
