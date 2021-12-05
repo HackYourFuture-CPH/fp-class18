@@ -4,14 +4,15 @@
   flex-wrap: wrap;
   background-color: #f0eeeef3;
   border: 1px solid #c1c1c1;
-  width: 70em;
-  padding: 1.5em 0 2em 3em;
+  width: 71em;
+  margin-left: 8em;
+  padding: 1.5em 0 2em 1em;
 }
 
 .purchases li {
   list-style: none;
   text-align: left;
-  padding: 0 8em 1em 0;
+  padding: 0 3em 1em 0;
 }
 
 .purchases .title {

@@ -34,7 +34,7 @@ export const ProductDetails = ({
       <div className="details-column">
         <div>
           <div className="product-name">
-            <span className='text'>{ProductName}</span>
+            <span className="text">{ProductName}</span>
             <button type="button" onClick={checkFavoriteHandler}>
               <div className="heart">
                 {' '}
@@ -49,20 +49,24 @@ export const ProductDetails = ({
           <small>({RemainingUnit} units left)</small>
         </div>
         <div className="price">
-          <b className='text'>{Price} DKK</b>
+          <b className="text">{Price} DKK</b>
         </div>
-        <div className='inputs'>
+        <div className="inputs">
           <div className="input-row">
             <div className="select-item">
               <select>
-                <option selected='true' disabled='disabled'>Color</option>
+                <option selected="true" disabled="disabled">
+                  Color
+                </option>
                 <option>{productColor}</option>
               </select>
               <div className="arrow-right" />
             </div>
             <div className="select-item">
               <select>
-                <option selected='true' disabled='disabled'>Size</option>
+                <option selected="true" disabled="disabled">
+                  Size
+                </option>
                 <option>{productSize}</option>
               </select>
               <div className="arrow-right" />

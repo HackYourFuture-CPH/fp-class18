@@ -76,7 +76,7 @@ function App() {
         </AuthenticatedRoute>
 
         <AuthenticatedRoute exact path="/profile">
-          <ProfilePage />
+          <ProfilePage isAuthenticated={isAuthenticated} />
         </AuthenticatedRoute>
         {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
         <Route path="*">
