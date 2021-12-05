@@ -49,7 +49,7 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
           {userInfo.isLoading ? (
             <Loader />
           ) : (
-            <DeliveryInfoV2 editMode={true} vertDisplay={false} user={user} />
+            <DeliveryInfoV2 editMode={true} vertDisplay={true} user={user} />
           )}
         </div>
       </div>
