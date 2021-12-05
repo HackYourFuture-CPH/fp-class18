@@ -7,6 +7,7 @@ import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
+import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 import Loader from './components/Loader/Loader.component';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
@@ -70,6 +71,10 @@ function App() {
         </NonAuthenticatedRoute>
 
         {/* All routes below are authenticated routes - a user must login first */}
+        <AuthenticatedRoute exact path="/order/:id">
+          <OrderPageContainer isAuthenticated={isAuthenticated} />
+        </AuthenticatedRoute>
+
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
