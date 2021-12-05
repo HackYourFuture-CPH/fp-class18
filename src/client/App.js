@@ -71,9 +71,9 @@ function App() {
         </NonAuthenticatedRoute>
 
         {/* All routes below are authenticated routes - a user must login first */}
-        <Route exact path="/order/:id">
+        <AuthenticatedRoute exact path="/order/:id">
           <OrderPageContainer isAuthenticated={isAuthenticated} />
-        </Route>
+        </AuthenticatedRoute>
 
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
