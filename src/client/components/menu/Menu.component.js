@@ -18,6 +18,12 @@ export const Menu = ({ isAuthenticated }) => {
     await signOut();
   };
 
+  function getIdIfPresent() {
+    return localStorage.getItem('user')
+      ? JSON.parse(localStorage.getItem('user')).uid
+      : '';
+  }
+
   return (
     <nav>
       <header>
@@ -51,7 +57,9 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          <img className="icons" src={faHeart} alt="favorite" />
+          <Link to={`/users/${getIdIfPresent()}/favorites`}>
+            <img className="icons" src={faHeart} alt="favorite" />
+          </Link>
           <img className="icons" src={faShoppingCart} alt="shoppingcart" />
         </div>
         <div className="navbar">

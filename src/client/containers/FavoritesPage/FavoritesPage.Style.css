@@ -15,3 +15,9 @@
 h1 {
   color: unset;
 }
+
+.favorites-error {
+  height: 10rem;
+  text-align: center;
+  margin: auto;
+}

@@ -77,6 +77,12 @@ function App() {
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
+
+        {/* Favorites page */}
+        <AuthenticatedRoute exact path="/users/:id/favorites">
+          <FavoritesPageContainer />
+        </AuthenticatedRoute>
+
         {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
         <Route path="*">
           <Page404Container />
