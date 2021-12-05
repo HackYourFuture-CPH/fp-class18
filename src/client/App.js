@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
-        <Route exact path="/order/:id">
+        <Route exact path="/order-confirmation">
           <ConfirmationPageContainer />
         </Route>
         <Route exact path="/product/:id">
@@ -65,7 +65,7 @@ function App() {
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
-        {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */
+        {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
         <Route path="*">
           <Page404Container />
         </Route>
