@@ -32,10 +32,10 @@ const OrderPageContainer = ({ isAuthenticated }) => {
   const userInfo = useFetchApi(`users/${order.userId}`);
 
   React.useEffect(() => {
-    if (!userInfo.isLoading) {
+    if (!userInfo.isLoading && !newItems.isLoading) {
       setUser(userInfo.data[0]);
     }
-  }, [userInfo, user]);
+  }, [userInfo, user, newItems.isLoading]);
 
   React.useEffect(() => {
     let cost = 0;
@@ -72,7 +72,7 @@ const OrderPageContainer = ({ isAuthenticated }) => {
                       productName={product.name}
                       productImg={product.picture}
                       quantity={product.stock_amount}
-                      price={product.price}
+                      price={Number(product.price)}
                       initValue={product.quantity}
                       isDisable={true}
                     />
@@ -96,7 +96,7 @@ const OrderPageContainer = ({ isAuthenticated }) => {
         </div>
         <div className="botton">
           <div className="delivery">
-            {userInfo.isLoading ? (
+            {userInfo.isLoading || user === undefined ? (
               <Loader />
             ) : (
               <DeliveryInfo editMode={false} vertDisplay={true} user={user} />
