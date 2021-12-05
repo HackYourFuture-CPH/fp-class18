@@ -74,12 +74,22 @@ const saveFavorite = async (user_id, body) => {
   });
 };
 
+const deleteUserFavorite = (user_id, body) => {
+  return knex('favorites')
+    .where({
+      user_id,
+      product_id: body.product_id,
+    })
+    .del();
+};
+
 module.exports = {
   getUsers,
   getUsersById,
   editUser,
   saveUser,
   getUserFavorites,
+  deleteUserFavorite,
   saveFavorite,
 };
 
