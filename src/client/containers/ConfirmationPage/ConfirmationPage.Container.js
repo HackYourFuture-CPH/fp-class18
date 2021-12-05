@@ -1,13 +1,10 @@
 import React from 'react';
 import ButtonComponent from '../../components/Button/Button.component';
 import './ConfirmationPage.Style.css';
-import { Link, useParams } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { useFirebase } from '../../firebase/FirebaseContext';
-import LandingPageContainer from '../LandingPage/LandingPage.Container';
 
-const ConfirmationPageContainer = ({ isAuthenticated }) => {
-  const { id } = useParams();
+const ConfirmationPageContainer = ({ isAuthenticated, id }) => {
   const { auth } = useFirebase();
   return (
     <>
@@ -39,5 +36,6 @@ const ConfirmationPageContainer = ({ isAuthenticated }) => {
 };
 ConfirmationPageContainer.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
 };
 export default ConfirmationPageContainer;
