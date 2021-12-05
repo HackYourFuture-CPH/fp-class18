@@ -1,19 +1,29 @@
-.favorite-container {
+.list {
+  list-style: none;
   display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 1%;
 }
 
-#product-details {
-  margin: 10px;
-  width: 45rem;
-  padding: 5px;
+.list #product-details {
+  padding: 1px;
+  flex: 1 0 35%;
+  font-size: 1rem;
+  margin: 1rem;
 }
 
-.product-image img {
-  width: 300px;
+.list #product-details .details-column {
+  padding: 2% 2%;
 }
 
-h1 {
-  color: unset;
+.list #product-details .select-item {
+  margin-right: 1rem;
+}
+
+.list #product-details .input-row button {
+  width: 8rem;
 }
 
 .favorites-error {

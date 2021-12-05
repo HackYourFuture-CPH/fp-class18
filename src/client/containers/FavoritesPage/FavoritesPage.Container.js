@@ -11,8 +11,8 @@ const FavoritesPageContainer = () => {
   const favorites = useFetchApi(`/users/${id}/favorites`);
   return (
     <div>
-      <h1>Favorites page</h1>
-      <div className="favorite-container">
+      <h1 className="h1-favorites">Favorites page</h1>
+      <div className="list">
         {favorites.isLoading ? (
           <Loader />
         ) : favorites.data.error ? (
