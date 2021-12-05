@@ -62,13 +62,21 @@ export async function resetPassword(auth, { email }) {
 }
 
 export function signOut(auth) {
-  auth.signOut();
+  auth
+    .signOut()
+    .then(() => {
+      localStorage.removeItem('user');
+    })
+    .catch((error) => {
+      handleAuthErrors(error);
+    });
 }
 
 export async function signInWithGoogle(auth, provider) {
   try {
     await auth.signInWithPopup(provider);
     addUserToDatabase(auth.currentUser.uid);
+    localStorage.setItem('user', JSON.stringify(auth.currentUser));
   } catch (error) {
     handleAuthErrors(error);
   }
