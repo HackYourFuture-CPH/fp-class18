@@ -112,12 +112,102 @@ header .dropdown:hover .dropdown-content ul {
   padding: 0;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 728px) {
   header .navbar {
     display: block;
   }
 
+  .logo_container {
+    margin-right: 40px;
+  }
+
+  header .dropdown {
+    overflow: visible;
+    padding: 13px 10px 13px 10px;
+  }
+
   header .dropdown:hover .dropdown-content ul {
     display: block;
+  }
+}
+
+.navbar > .nav-btn {
+  display: none;
+}
+
+.navbar > .nav-links {
+  overflow: hidden;
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.navbar > .nav-links > a {
+  display: inline-block;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.navbar > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar > #nav-check {
+  display: none;
+}
+
+@media (max-width: 728px) {
+  .navbar > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .navbar > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+    background-color: rgba(133, 78, 157, 0.79);
+  }
+
+  .navbar > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(131, 32, 174, 0.79);
+  }
+
+  .navbar > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid rgb(255, 255, 255);
+  }
+
+  .navbar > .nav-links {
+    position: absolute;
+    display: inline-grid;
+    width: 100%;
+    background-color: #333;
+    height: 0;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 53px;
+    left: 0;
+  }
+
+  .navbar > .nav-links > a {
+    display: block;
+    width: 100%;
+    padding: 13px 10px 13px 10px;
+  }
+
+  .navbar > #nav-check:not(:checked) ~ .nav-links {
+    height: 0;
+  }
+
+  .navbar > #nav-check:checked ~ .nav-links {
+    height: calc(60vh - 50px);
+    overflow-y: auto;
   }
 }
