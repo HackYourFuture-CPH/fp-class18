@@ -1,0 +1,13 @@
+.AboutpageContainer {
+  padding: 15px;
+}
+
+.AboutpageContainer img {
+  width: 100%;
+  height: auto;
+}
+
+.AboutpageContainer p {
+  text-indent: 50px;
+  text-align: justify;
+}

@@ -62,13 +62,21 @@ export async function resetPassword(auth, { email }) {
 }
 
 export function signOut(auth) {
-  auth.signOut();
+  auth
+    .signOut()
+    .then(() => {
+      localStorage.removeItem('user');
+    })
+    .catch((error) => {
+      handleAuthErrors(error);
+    });
 }
 
 export async function signInWithGoogle(auth, provider) {
   try {
     await auth.signInWithPopup(provider);
     addUserToDatabase(auth.currentUser.uid);
+    localStorage.setItem('user', JSON.stringify(auth.currentUser));
   } catch (error) {
     handleAuthErrors(error);
   }
@@ -76,9 +84,8 @@ export async function signInWithGoogle(auth, provider) {
 
 function addUserToDatabase(userId) {
   fetch(`api/users/${userId}`)
-    .then(async (res) => {
-      checkIfError(res);
-      const data = await res.json();
+    .then(async (res) => res.json())
+    .then((data) => {
       // if not present add new user id to database
       if (!data[0]) {
         fetch('api/users', {
@@ -88,20 +95,12 @@ function addUserToDatabase(userId) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ id: userId }),
-        })
-          .then((postRes) => checkIfError(postRes))
-          .catch((e) => console.log('Could not add user to Database:', e));
+        }).catch((e) => {
+          throw new Error('Could not add user to Database:', e.message);
+        });
       }
     })
-    .catch((e) =>
-      console.log('Could not check if user present in Database:', e),
-    );
-}
-
-async function checkIfError(res) {
-  if (!res.ok) {
-    const errorBody = await res.text();
-    console.log(errorBody);
-    throw new Error(res.statusText + errorBody);
-  }
+    .catch((e) => {
+      throw new Error('Could not check if user present in Database:', e);
+    });
 }

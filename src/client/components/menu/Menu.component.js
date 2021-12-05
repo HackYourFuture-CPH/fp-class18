@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
@@ -17,6 +16,12 @@ export const Menu = ({ isAuthenticated }) => {
   const handleLogout = async () => {
     await signOut();
   };
+
+  function getIdIfPresent() {
+    return localStorage.getItem('user')
+      ? JSON.parse(localStorage.getItem('user')).uid
+      : '';
+  }
 
   return (
     <nav>
@@ -51,51 +56,66 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          <img className="icons" src={faHeart} alt="favorite" />
+          <Link to={`/users/${getIdIfPresent()}/favorites`}>
+            <img className="icons" src={faHeart} alt="favorite" />
+          </Link>
           <img className="icons" src={faShoppingCart} alt="shoppingcart" />
         </div>
         <div className="navbar">
-          <div className="dropdown">
-            <button type="submit" className="dropbtn">
-              CATEGORIES
-            </button>
-
-            <div className="dropdown-content">
-              <ul>
-                <li>
-                  <Link className="text-link" to="/category/furniture">
-                    FURNITURE
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-link" to="/category/lamps">
-                    LAMPS
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-link" to="/category/home decor">
-                    HOME DECOR
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-link" to="/category/linen">
-                    LINEN
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <input type="checkbox" id="nav-check" />
+          <div className="nav-btn">
+            <label htmlFor="nav-check">
+              <span />
+              <span />
+              <span />
+            </label>
           </div>
-          <Link to="/monthly-arrivals">
-            <button type="submit" className="dropbtn">
-              MONTHLY ARIVALS
-            </button>
-          </Link>
-          <button type="submit" className="dropbtn">
-            ABOUT
-          </button>
-          <button type="submit" className="dropbtn">
-            CONTACT US
-          </button>
+          <div className="nav-links">
+            <div className="dropdown">
+              <button type="submit" className="dropbtn">
+                CATEGORIES
+              </button>
+              <div className="dropdown-content">
+                <ul>
+                  <li>
+                    <Link className="text-link" to="/category/furniture">
+                      FURNITURE
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-link" to="/category/lamps">
+                      LAMPS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-link" to="/category/home decor">
+                      HOME DECOR
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-link" to="/category/linen">
+                      LINEN
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <Link to="/monthly-arrivals">
+              <button type="submit" className="dropbtn">
+                MONTHLY ARRIVALS
+              </button>
+            </Link>
+            <Link to="/about-us">
+              <button type="submit" className="dropbtn">
+                ABOUT
+              </button>
+            </Link>
+            <Link to="/contact-us">
+              <button type="submit" className="dropbtn">
+                CONTACT US
+              </button>
+            </Link>
+          </div>
         </div>
       </header>
     </nav>

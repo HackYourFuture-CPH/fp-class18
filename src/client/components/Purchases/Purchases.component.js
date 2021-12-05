@@ -2,22 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Purchases.styles.css';
 
-export default function Purchases({ orderId, date }) {
+export default function Purchases({ orders }) {
   return (
-    <form>
-      <label className="title">PURCHASES:</label>
-      <label className="orderid">ORDER ID: {orderId}</label>
-      <label className="date">DATE: {date}</label>
-    </form>
+    <div className="purchases">
+      <div className="container">
+        <h1 className="title">PURCHASES:</h1>
+        {orders.map((order) => {
+          return (
+            <ul key={order.orderId}>
+              <li> ORDERID:{order.id}</li>
+              <li> DATE: {order.created_at}</li>
+            </ul>
+          );
+        })}
+      </div>
+    </div>
   );
 }
-
-Purchases.defaultProps = {
-  orderId: '',
-  date: '',
-};
-
 Purchases.propTypes = {
-  orderId: PropTypes.string,
-  date: PropTypes.string,
+  orders: PropTypes.arrayOf(
+    PropTypes.shape({
+      orderId: PropTypes.number,
+      date: PropTypes.string,
+    }),
+  ).isRequired,
 };

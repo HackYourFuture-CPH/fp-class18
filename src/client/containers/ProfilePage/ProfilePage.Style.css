@@ -1,3 +1,81 @@
-h1 {
-  color: aqua;
+.delivery-contact {
+  display: flex;
+}
+
+.wrapperContact .titleContact {
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+.wrapperContact .formContact {
+  width: 30em;
+  height: 18em;
+  font-size: 1em;
+  margin-left: 8em;
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
+}
+
+.wrapperDelivery .titleDelivery {
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+.wrapperDelivery .formDelivery {
+  font-size: 1em;
+  width: 40em;
+}
+
+.delivery {
+  margin: 1.6em 2em 0 5em;
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
+  height: 18em;
+}
+
+.purchases .container {
+  margin-top: 3em;
+  column-gap: 4em;
+}
+
+@media screen and (max-width: 768px) {
+  .delivery-contact {
+    display: block;
+  }
+
+  .delivery {
+    margin-left: 8em;
+  }
+
+  .purchases .container {
+    display: flexbox;
+    max-width: fit-content;
+    column-gap: 4em;
+  }
+
+  .purchases li {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 70em) {
+  .delivery-contact {
+    display: block;
+  }
+
+  .delivery {
+    margin-left: 8em;
+    max-width: fit-content;
+  }
+
+  .purchases .container {
+    display: flexbox;
+    max-width: fit-content;
+    column-gap: 4em;
+  }
+
+  .purchases li {
+    flex-wrap: wrap;
+    max-width: fit-content;
+  }
 }

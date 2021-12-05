@@ -1,3 +1,49 @@
+.main {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  background-color: #f7f5f5;
+  margin: auto;
+  width: 80%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.delivery-info {
+  margin: 20px 0;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+
+  /* justify-content: space-evenly; */
+}
+
 h1 {
-  color: aqua;
+  text-align: left;
+  margin: 20px auto;
+  width: 80%;
+  color: black;
+}
+
+.total-price {
+  margin: 20px 0;
+}
+
+.contact {
+  margin: 20px 0;
+}
+
+.review-btn {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.shopping-btn {
+  text-align: center;
+  margin: 20px 0;
 }

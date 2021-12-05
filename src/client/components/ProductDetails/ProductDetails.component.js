@@ -34,7 +34,7 @@ export const ProductDetails = ({
       <div className="details-column">
         <div>
           <div className="product-name">
-            {ProductName}
+            <span className="text">{ProductName}</span>
             <button type="button" onClick={checkFavoriteHandler}>
               <div className="heart">
                 {' '}
@@ -49,27 +49,33 @@ export const ProductDetails = ({
           <small>({RemainingUnit} units left)</small>
         </div>
         <div className="price">
-          <b>{Price} DKK</b>
+          <b className="text">{Price} DKK</b>
         </div>
-        <div className="input-row">
-          <div className="select-item">
-            <select>
-              <option>Color</option>
-              <option>{productColor}</option>
-            </select>
-            <div className="arrow-right" />
+        <div className="inputs">
+          <div className="input-row">
+            <div className="select-item">
+              <select>
+                <option selected="true" disabled="disabled">
+                  Color
+                </option>
+                <option>{productColor}</option>
+              </select>
+              <div className="arrow-right" />
+            </div>
+            <div className="select-item">
+              <select>
+                <option selected="true" disabled="disabled">
+                  Size
+                </option>
+                <option>{productSize}</option>
+              </select>
+              <div className="arrow-right" />
+            </div>
           </div>
-          <NumberInput initValue={1} maxAvailable={RemainingUnit} />
-        </div>
-        <div className="input-row">
-          <div className="select-item">
-            <select>
-              <option>Size</option>
-              <option>{productSize}</option>
-            </select>
-            <div className="arrow-right" />
+          <div className="input-row">
+            <NumberInput initValue={1} maxAvailable={RemainingUnit} />
+            <ButtonComponent title="ADD TO CART" onClick={onClick} />
           </div>
-          <ButtonComponent title="ADD TO CART" onClick={onClick} />
         </div>
       </div>
     </div>
