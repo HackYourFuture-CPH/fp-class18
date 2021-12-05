@@ -5,10 +5,22 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 const FavoritesPageContainer = () => {
   const { id } = useParams();
   const favorites = useFetchApi(`/users/${id}/favorites`);
+  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
+
+  const addToCartHandler = (product) => {
+    if (product) {
+      // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
+      const newQuantity = shoppingCart[product.id]
+        ? shoppingCart[product.id] + 1
+        : 1;
+      changeProductQuantity(product.id, newQuantity);
+    }
+  };
   return (
     <div>
       <h1 className="h1-favorites">Favorites page</h1>
@@ -30,9 +42,7 @@ const FavoritesPageContainer = () => {
                 Price={product.price}
                 productColor={product.color}
                 productSize={product.size}
-                onClick={() => {
-                  console.log('Add to cart');
-                }}
+                onClick={addToCartHandler(product)}
                 isFavorite={false}
                 imageAlt={product.name}
               />

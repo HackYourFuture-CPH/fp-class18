@@ -4,10 +4,21 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
 import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 const MonthlyArrivalsPageContainer = () => {
   const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
+  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
+  const addToCartHandler = (product) => {
+    if (product) {
+      // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
+      const newQuantity = shoppingCart[product.id]
+        ? shoppingCart[product.id] + 1
+        : 1;
+      changeProductQuantity(product.id, newQuantity);
+    }
+  };
   return (
     <div>
       <h1>MONTHLY ARRIVALS</h1>
@@ -24,7 +35,7 @@ const MonthlyArrivalsPageContainer = () => {
               Price={product.price}
               productColor={product.color}
               productSize={product.size}
-              onClick={() => console.log(product)}
+              onClick={addToCartHandler(product)}
               isFavorite={true}
               imageAlt={product.name}
             />
