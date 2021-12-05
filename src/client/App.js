@@ -34,7 +34,7 @@ function App() {
           <LandingPageContainer />
         </Route>
         <Route exact path="/order-confirmation">
-          <ConfirmationPageContainer />
+          <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
         </Route>
         <Route exact path="/product/:id">
           <ProductPageContainer />
