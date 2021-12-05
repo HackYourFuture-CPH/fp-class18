@@ -53,9 +53,6 @@ function App() {
         <Route exact path="/cart/:id">
           <CartPageContainer />
         </Route>
-        {/* <Route exact path="/profile">
-          <ProfilePage isAuthenticated={isAuthenticated} />
-        </Route> */}
         {/*
          * All routes below are only shown when you are not authenticated - if the
          * user is logged in, if a user is logged in, they can't see the login page
