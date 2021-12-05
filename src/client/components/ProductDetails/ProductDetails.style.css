@@ -2,7 +2,7 @@
   width: 65rem;
   display: flex;
   padding: 3rem;
-  background-color: #F6F5F5;
+  background-color: #f6f5f5;
 }
 
 #product-details .product-name {
@@ -17,16 +17,16 @@
 }
 
 #product-details small {
-  color: #6D706C;
+  color: #6d706c;
 }
 
-#product-details .product-name button{
+#product-details .product-name button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-#product-details .heart{
+#product-details .heart {
   padding-top: 20%;
 }
 
@@ -49,11 +49,16 @@
   display: flex;
   margin-right: 2rem;
   position: relative;
+  margin-bottom: 1rem;
 }
 
-#product-details .inputs{
+#product-details .inputs {
   display: inline-flex;
   margin-bottom: 3.5rem;
+}
+
+#product-details .quantity {
+  margin-top: -0.5rem;
 }
 
 #product-details .input-row button {
@@ -65,7 +70,7 @@
   font-size: 1rem;
   width: 7rem;
   height: 2.5rem;
-  border: 1px solid #8E0EF2;
+  border: 1px solid #8e0ef2;
   padding: 0.3rem;
   cursor: pointer;
   font-weight: bold;
@@ -81,25 +86,14 @@
   display: block;
   width: 0.7rem;
   height: 0.7rem;
-  border-top: 2px solid #8E0EF2;
-  border-left: 2px solid #8E0EF2;
+  border-top: 2px solid #8e0ef2;
+  border-left: 2px solid #8e0ef2;
   z-index: 1;
-}
-
-#product-details .arrow-right {
   transform: rotate(225deg);
 }
 
-#product-details .select-item{
-  margin-bottom: 1rem;
-}
-
-#product-details .button-component{
-  margin-top: 1.5rem;
-}
-
-@media screen and (max-width: 768px) {
-  #product-details .product-image img{
+@media screen and (max-width: 754px) {
+  #product-details .product-image img {
     width: 100%;
   }
 
@@ -110,7 +104,7 @@
     height: auto;
   }
 
-  #product-details .details-column{
+  #product-details .details-column {
     margin-bottom: 4rem;
   }
 
@@ -122,7 +116,7 @@
     margin: 1rem 0;
   }
 
-  #product-details .inputs{
+  #product-details .inputs {
     flex-direction: column;
     margin-bottom: 0;
   }
@@ -133,14 +127,15 @@
   }
 
   #product-details .input-row button {
-    width: 9rem;
+    width: 8rem;
   }
 
-  #product-details .input-row .quantity{
-    padding: 2.7rem 3rem 0 1.2rem ;
+  #product-details .input-row .quantity {
+    padding: 4rem 3rem 0 1.2rem;
+    height: 0.7rem;
   }
 
-  #product-details .select-item{
+  #product-details .select-item {
     margin: 0;
   }
 
@@ -152,10 +147,16 @@
     left: 7.2rem;
     top: 1.4rem;
   }
-  #product-details .text{
+
+  #product-details .button-component {
+    margin-top: 1.5rem;
+  }
+
+  #product-details .text {
     font-size: 1.5rem;
   }
-  #product-details small{
+
+  #product-details small {
     font-size: 0.7rem;
   }
 }
