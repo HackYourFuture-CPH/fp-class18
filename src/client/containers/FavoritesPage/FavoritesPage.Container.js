@@ -12,15 +12,6 @@ const FavoritesPageContainer = () => {
   const favorites = useFetchApi(`/users/${id}/favorites`);
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
-  const addToCartHandler = (product) => {
-    if (product) {
-      // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
-      const newQuantity = shoppingCart[product.id]
-        ? shoppingCart[product.id] + 1
-        : 1;
-      changeProductQuantity(product.id, newQuantity);
-    }
-  };
   return (
     <div>
       <h1 className="h1-favorites">Favorites page</h1>
@@ -42,7 +33,15 @@ const FavoritesPageContainer = () => {
                 Price={product.price}
                 productColor={product.color}
                 productSize={product.size}
-                onClick={addToCartHandler(product)}
+                onClick={() => {
+                  if (product) {
+                    // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
+                    const newQuantity = shoppingCart[product.id]
+                      ? shoppingCart[product.id] + 1
+                      : 1;
+                    changeProductQuantity(product, newQuantity);
+                  }
+                }}
                 isFavorite={false}
                 imageAlt={product.name}
               />
