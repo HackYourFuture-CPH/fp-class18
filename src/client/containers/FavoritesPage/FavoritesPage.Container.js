@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { useParams } from 'react-router-dom';
 import React from 'react';
 import { useFetchApi } from '../../hooks/UseFetchApi';
@@ -29,7 +30,9 @@ const FavoritesPageContainer = () => {
                 Price={product.price}
                 productColor={product.color}
                 productSize={product.size}
-                onClick={() => {}}
+                onClick={() => {
+                  console.log('Add to cart');
+                }}
                 isFavorite={false}
                 imageAlt={product.name}
               />
