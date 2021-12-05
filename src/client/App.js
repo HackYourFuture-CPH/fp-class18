@@ -19,6 +19,7 @@ import reactRouterHistory from './router-history';
 import { useFirebase } from './firebase';
 import CategoryPage from './containers/CategoryPage/CategoryPage.Container';
 import Page404Container from './containers/404Page/404Page.Container';
+import ConfirmationPageContainer from './containers/ConfirmationPage/ConfirmationPage.Container';
 import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/MonthlyArrivalsPage.Container';
 import AboutpageContainer from './containers/AboutPage/AboutPage.Container';
 import ContactpageContainer from './containers/ContactPage/ContactPage.Container';
@@ -38,6 +39,9 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
+        <Route exact path="/order-confirmation">
+          <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
+             </Route>
         <Route exact path="/about-us">
           <AboutpageContainer />
         </Route>
