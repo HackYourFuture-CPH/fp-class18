@@ -66,12 +66,31 @@ const getUserFavorites = async (user_id) => {
   }
 };
 
+const saveFavorite = async (user_id, body) => {
+  checkIfCorrectId(user_id);
+  await knex('favorites').insert({
+    user_id,
+    product_id: body.product_id,
+  });
+};
+
+const deleteUserFavorite = (user_id, body) => {
+  return knex('favorites')
+    .where({
+      user_id,
+      product_id: body.product_id,
+    })
+    .del();
+};
+
 module.exports = {
   getUsers,
   getUsersById,
   editUser,
   saveUser,
   getUserFavorites,
+  deleteUserFavorite,
+  saveFavorite,
 };
 
 function checkIfCorrectId(id) {
