@@ -8,12 +8,15 @@ import './ProductPage.Style.css';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import Page404Container from '../404Page/404Page.Container';
 import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 const ProductPageContainer = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState({});
   const [category, setCategory] = React.useState('');
   const [similarProduct, setSimilarProduct] = React.useState([]);
+
+  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
   const productData = useFetchApi(`products/${id}`);
 
@@ -40,8 +43,13 @@ const ProductPageContainer = () => {
   }, [similarProductData]);
 
   const addToCartHandler = () => {
-    console.log('add to cart');
-    // if user is login, this product will add to cart but this functionality is not working now
+    if (product) {
+      // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
+      const newQuantity = shoppingCart[product.id]
+        ? shoppingCart[product.id] + 1
+        : 1;
+      changeProductQuantity(product.id, newQuantity);
+    }
   };
   const exploreCategoryHandler = () => {
     console.log('explore product category');
