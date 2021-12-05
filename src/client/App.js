@@ -41,7 +41,7 @@ function App() {
         </Route>
         <Route exact path="/order-confirmation">
           <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
-             </Route>
+        </Route>
         <Route exact path="/about-us">
           <AboutpageContainer />
         </Route>
@@ -58,7 +58,7 @@ function App() {
           <CategoryPage />
         </Route>
         <Route exact path="/cart/:id">
-          <CartPageContainer />
+          <CartPageContainer isAuthenticated={isAuthenticated} />
         </Route>
         {/*
          * All routes below are only shown when you are not authenticated - if the

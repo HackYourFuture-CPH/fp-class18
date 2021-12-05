@@ -8,14 +8,17 @@ import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component
 import ContactForm from '../../components/ContactForm/ContactForm.component';
 import ButtonComponent from '../../components/Button/Button.component';
 import { useFetchApi } from '../../hooks/UseFetchApi';
+import { useFirebase } from '../../firebase/FirebaseContext';
+import { PropTypes } from 'prop-types';
 
-const CartPageContainer = () => {
+const CartPageContainer = ({ isAuthenticated }) => {
   const [cartItem, setCartItem] = React.useState([]);
   const [user, setUser] = React.useState({});
   const [userId, setUserId] = React.useState('');
   const [total, setTotal] = React.useState(0);
   const [itemCost, setItemCost] = React.useState([]);
   const { id } = useParams();
+  const { auth } = useFirebase();
 
   const orderData = useFetchApi(`orders/${id}`);
 
@@ -88,7 +91,12 @@ const CartPageContainer = () => {
             <TotalPrice subTotal={total} />
           </div>
           <div className="contact">
-            <ContactForm fullName="Jon Doe" email="jdoe@gmail.com" />
+            <ContactForm
+              fullName={
+                isAuthenticated ? `${auth.currentUser.displayName}` : 'Guest'
+              }
+              email={isAuthenticated ? `${auth.currentUser.email}` : ''}
+            />
           </div>
           <div>
             <div className="review-btn">
@@ -102,6 +110,10 @@ const CartPageContainer = () => {
       </div>
     </div>
   );
+};
+
+CartPageContainer.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default CartPageContainer;
