@@ -63,6 +63,13 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/:id/favorites/', (req, res, next) => {
+  usersController
+    .getUserFavorites(req.params.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 /**
  * @swagger
  * /users/{ID}:

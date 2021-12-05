@@ -3,12 +3,14 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 import SignIn from './containers/SignIn';
 import SignUp from './containers/SignUp';
+
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
 import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 import Loader from './components/Loader/Loader.component';
+import FavoritesPageContainer from './containers/FavoritesPage/FavoritesPage.Container';
 import LandingPageContainer from './containers/LandingPage/LandingPage.Container';
 import { Menu } from './components/menu/Menu.component';
 import { Footer } from './components/Footer/Footer.component';
@@ -62,13 +64,15 @@ function App() {
           <SignIn />
         </NonAuthenticatedRoute>
 
-        <NonAuthenticatedRoute exact path="/sign-up">
-          <SignUp />
-        </NonAuthenticatedRoute>
+        {/* Favorites page */}
+        <AuthenticatedRoute exact path="/users/:id/favorites">
+          <FavoritesPageContainer />
+        </AuthenticatedRoute>
 
-        <NonAuthenticatedRoute exact path="/reset-password">
-          <ResetPassword />
-        </NonAuthenticatedRoute>
+        {/* Anonymous pages */}
+        <SignIn exact path="/sign-in" />
+        <SignUp exact path="/sign-up" />
+        <ResetPassword exact path="/reset-password" />
 
         {/* All routes below are authenticated routes - a user must login first */}
         <AuthenticatedRoute exact path="/order/:id">
@@ -78,6 +82,12 @@ function App() {
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage isAuthenticated={isAuthenticated} />
         </AuthenticatedRoute>
+
+        {/* Favorites page */}
+        <AuthenticatedRoute exact path="/users/:id/favorites">
+          <FavoritesPageContainer />
+        </AuthenticatedRoute>
+
         {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
         <Route path="*">
           <Page404Container />
