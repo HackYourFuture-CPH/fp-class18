@@ -135,7 +135,7 @@ exports.seed = function (knex) {
         },
         {
           id: 12,
-          name: 'Modern dinig table',
+          name: 'Modern dining table',
           price: 520,
           color: 'Blue',
           size: 'Medium',
@@ -161,7 +161,7 @@ exports.seed = function (knex) {
           id: 14,
           name: 'Dining table chair',
           price: 430,
-          color: 'Brown',
+          color: 'Black',
           size: 'Medium',
           status: 'out_of_stock',
           created_at: '2021-11-27 00:00:00',

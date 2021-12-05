@@ -135,7 +135,7 @@ exports.seed = function (knex) {
         },
         {
           id: 12,
-          name: 'Modern dinig table',
+          name: 'Modern dining table',
           price: 520,
           color: 'Blue',
           size: 'Medium',
