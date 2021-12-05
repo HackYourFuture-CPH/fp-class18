@@ -115,12 +115,17 @@ router.get('/user/:userid', (req, res, next) => {
  *        schema:
  *          type: object
  *          properties:
- *            status:
+ *            user_id:
  *              type: string
- *            created_at:
- *              type: string
- *            userid:
- *              type: integer
+ *            items:
+ *              type: array
+ *              items:
+ *                type: object
+ *                properties:
+ *                  product_id:
+ *                    type: integer
+ *                  quantity:
+ *                    type: integer
  *    responses:
  *      200:
  *        description: Successful request
