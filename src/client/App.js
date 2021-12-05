@@ -53,9 +53,9 @@ function App() {
         <Route exact path="/cart/:id">
           <CartPageContainer />
         </Route>
-        <Route exact path="/profile">
+        {/* <Route exact path="/profile">
           <ProfilePage isAuthenticated={isAuthenticated} />
-        </Route>
+        </Route> */}
         {/*
          * All routes below are only shown when you are not authenticated - if the
          * user is logged in, if a user is logged in, they can't see the login page
@@ -73,13 +73,8 @@ function App() {
         </NonAuthenticatedRoute>
 
         {/* All routes below are authenticated routes - a user must login first */}
-        <AuthenticatedRoute
-          exact
-          path="/profile"
-          isAuthenticated={isAuthenticated}
-          isLoading={isLoading}
-        >
-          <ProfilePage />
+        <AuthenticatedRoute exact path="/profile">
+          <ProfilePage isAuthenticated={isAuthenticated} />
         </AuthenticatedRoute>
         {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
         <Route path="*">
