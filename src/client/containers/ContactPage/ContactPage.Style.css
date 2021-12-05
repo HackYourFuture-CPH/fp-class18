@@ -15,3 +15,11 @@
   height: auto;
   color: crimson;
 }
+
+.ContactpageContainer h1 {
+  color: blueviolet;
+}
+
+.ContactpageContainer .boarder {
+  border-bottom: solid 1px;
+}
