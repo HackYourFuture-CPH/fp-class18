@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ButtonComponent from '../../components/Button/Button.component';
@@ -82,11 +82,13 @@ const ProductPageContainer = () => {
         )}
       </div>
       <div className="explore-btn">
-        <ButtonComponent
-          title="EXPLORE THIS CATEGORY"
-          onClick={exploreCategoryHandler}
-          backgroundColor="gray"
-        />
+        <Link to={`../category/${category.name}`}>
+          <ButtonComponent
+            title="EXPLORE THIS CATEGORY"
+            onClick={exploreCategoryHandler}
+            backgroundColor="gray"
+          />
+        </Link>
       </div>
       <div className="corner">
         <ButtonComponent2
