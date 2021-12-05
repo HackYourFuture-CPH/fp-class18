@@ -227,4 +227,51 @@ router.post('/:id/favorites', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /users/{user_id}/favorites:
+ *  delete:
+ *    tags:
+ *    - Users
+ *    summary: Delete a favorite product for user in database
+ *    description:
+ *      Will delete a product with a given user_id from favorites database.
+ *    produces: application/json
+ *    parameters:
+ *     - in: path
+ *       name: user_id
+ *       description: For eliminate to users favorite.
+ *     - in: body
+ *       name: user
+ *       description: delete a favorite item for user
+ *       schema:
+ *         type: object
+ *         required: true
+ *         description: user json object
+ *         properties:
+ *            product_id:
+ *              type: integer
+ *
+ *    responses:
+ *      200:
+ *        description: Favorite product deleted
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.delete('/:id/favorites', (req, res) => {
+  usersController
+    .deleteUserFavorite(req.params.id, req.body)
+    .then((result) => {
+      // If result is equal to 0, then that means the user or product id does not exist
+      if (result === 0) {
+        res
+          .status(404)
+          .send('The user or product ID you provided does not exist.');
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
+
 module.exports = router;
