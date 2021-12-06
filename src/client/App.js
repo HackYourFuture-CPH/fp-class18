@@ -49,10 +49,10 @@ function App() {
           <ContactpageContainer />
         </Route>
         <Route exact path="/product/:id">
-          <ProductPageContainer />
+          <ProductPageContainer isAuthenticated={isAuthenticated} />
         </Route>
         <Route exact path="/monthly-arrivals">
-          <MonthlyArrivalsPageContainer />
+          <MonthlyArrivalsPageContainer isAuthenticated={isAuthenticated} />
         </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
