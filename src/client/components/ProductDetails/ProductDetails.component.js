@@ -7,6 +7,8 @@ import Heart from './Heart';
 import ModalComponent from '../Modal/Modal.component';
 
 export const ProductDetails = ({
+  userId,
+  productId,
   imgSource,
   ProductName,
   RemainingUnit,
@@ -20,6 +22,41 @@ export const ProductDetails = ({
   const [checked, setChecked] = React.useState(isFavorite);
   const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
+    if (checked) {
+      fetch(`/api/users/${userId}/favorites`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          product_id: `${productId}`,
+        }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log('Success');
+        } else {
+          throw new Error(response.status);
+        }
+      });
+    } else {
+      fetch(`/api/users/${userId}/favorites`, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          product_id: `${productId}`,
+        }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log('Success');
+        } else {
+          throw new Error(response.status);
+        }
+      });
+    }
     setChecked(!checked);
   };
   const [isShown, setIsShown] = React.useState(false);
@@ -97,6 +134,8 @@ export const ProductDetails = ({
 };
 
 ProductDetails.propTypes = {
+  productId: PropTypes.number.isRequired,
+  userId: PropTypes.string.isRequired,
   imgSource: PropTypes.string.isRequired,
   ProductName: PropTypes.string.isRequired,
   RemainingUnit: PropTypes.number.isRequired,

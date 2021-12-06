@@ -59,7 +59,9 @@ export const Menu = ({ isAuthenticated }) => {
           <Link to={`/users/${getIdIfPresent()}/favorites`}>
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
-          <img className="icons" src={faShoppingCart} alt="shoppingcart" />
+          <Link to={`/cart/${getIdIfPresent()}`}>
+            <img className="icons" src={faShoppingCart} alt="shoppingcart" />
+          </Link>
         </div>
         <div className="navbar">
           <input type="checkbox" id="nav-check" />

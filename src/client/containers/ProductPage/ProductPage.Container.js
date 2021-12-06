@@ -9,13 +9,14 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import Page404Container from '../404Page/404Page.Container';
 import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
 import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
+import { useFirebase } from '../../firebase/FirebaseContext';
 
 const ProductPageContainer = () => {
+  const { auth } = useFirebase();
   const { id } = useParams();
   const [product, setProduct] = React.useState({});
   const [category, setCategory] = React.useState('');
   const [similarProduct, setSimilarProduct] = React.useState([]);
-
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
   const productData = useFetchApi(`products/${id}`);
@@ -64,6 +65,8 @@ const ProductPageContainer = () => {
           <>
             {product.id ? (
               <ProductDetails
+                userId={auth.currentUser.uid}
+                productId={product.id}
                 imgSource={product.picture}
                 ProductName={product.name}
                 RemainingUnit={parseInt(product.stock_amount, 10)}

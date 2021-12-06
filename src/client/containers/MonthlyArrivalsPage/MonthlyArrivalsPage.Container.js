@@ -20,6 +20,7 @@ const MonthlyArrivalsPageContainer = () => {
           monthlyArrivals.data.map((product) => (
             <ProductDetails
               key={product.id}
+              productId={product.id}
               imgSource={product.picture}
               ProductName={product.name}
               RemainingUnit={product.stock_amount}
