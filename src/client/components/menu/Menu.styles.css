@@ -84,6 +84,7 @@ header .login-btn {
   color: white;
   background-color: inherit;
   cursor: pointer;
+  width: 9em;
 }
 
 header .navbar button:hover,
