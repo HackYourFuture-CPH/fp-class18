@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 import './DeliveryInfo.styles.css';
 
 export default function DeliveryInfo({ editMode, vertDisplay, user }) {
-  const { address, city, zipcode, country } = user;
+  // const { address, city, zipcode, country } = user;
+  console.log(user);
+  const [address, setAddress] = React.useState(user.address);
+  const [city, setCity] = React.useState(user.city);
+  const [zipcode, setZipcode] = React.useState(user.zipcode);
+  const [country, setCountry] = React.useState(user.country);
   const [edit, setEdit] = React.useState(false);
-  const handleEdit = () => setEdit(!edit);
+
+  const handleEdit = () => {
+    setEdit(!edit);
+  };
+
   const handleSubmit = (event) => {
     fetch('/api/users', {
       method: 'post',
@@ -28,6 +37,7 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
       }
     });
   };
+
   return (
     <div className="wrapperDelivery">
       {edit ? (
@@ -35,37 +45,43 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
           <label className="titleDelivery">DELIVERY INFO:</label>
           <label className="addressInputLabel">Address:</label>
           <input
-            defaultValue={address}
+            value={address}
             className="addressInput"
             name="address"
             type="text"
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
           />
 
           <label className="cityInputLabel">City:</label>
           <input
-            defaultValue={city}
+            value={city}
             className="cityInput"
             name="city"
             type="text"
+            onChange={(e) => setCity(e.target.value)}
           />
 
           <label className="zipInputLabel">Zip code:</label>
           <input
-            defaultValue={zipcode}
+            value={zipcode}
             className="zipInput"
             name="zipcode"
             type="number"
+            onChange={(e) => setZipcode(e.target.value)}
           />
 
           <label className="countryInputLabel">Country:</label>
           <input
-            defaultValue={country}
+            value={country}
             className="countryInput"
             name="country"
+            onChange={(e) => setCountry(e.target.value)}
           />
 
           <div className="saveButtonDiv">
-            <button className="saveButton" type="submit">
+            <button className="saveButton" type="submit" onClick={handleEdit}>
               SAVE
             </button>
           </div>
@@ -82,7 +98,9 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             <span className="editLink text-right">
               <button
                 type="button"
-                onClick={handleEdit}
+                onClick={() => {
+                  setEdit(true);
+                }}
                 className="link-button"
               >
                 Edit
