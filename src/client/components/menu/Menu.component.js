@@ -37,13 +37,20 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
               <div id="login" className="dropdown-content">
                 {isAuthenticated ? (
-                  <button
-                    type="submit"
-                    className="login-btn"
-                    onClick={handleLogout}
-                  >
-                    LOGOUT
-                  </button>
+                  <div>
+                    <Link className="text-link" to="/profile">
+                      <button className="acc-btn" type="submit">
+                        MY ACCOUNT
+                      </button>
+                    </Link>
+                    <button
+                      type="submit"
+                      className="login-btn"
+                      onClick={handleLogout}
+                    >
+                      LOGOUT
+                    </button>
+                  </div>
                 ) : (
                   <button
                     type="submit"
