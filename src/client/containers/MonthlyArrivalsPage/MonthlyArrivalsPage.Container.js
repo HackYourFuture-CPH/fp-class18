@@ -11,7 +11,6 @@ const MonthlyArrivalsPageContainer = () => {
   const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const { auth } = useFirebase();
-  const favorites = useFetchApi(`/users/${auth.currentUser.uid}/favorites`);
 
   return (
     <div>
@@ -41,7 +40,7 @@ const MonthlyArrivalsPageContainer = () => {
                 }
               }}
               // eslint-disable-next-line eqeqeq
-              isFavorite={favorites.data.some((p) => p.id == product.id)}
+              isFavorite={true}
               imageAlt={product.name}
             />
           ))
