@@ -80,9 +80,9 @@ router.get('/:id', (req, res, next) => {
  *        description: Unexpected error.
  */
 
-router.post('/', (req, res, next) => {
-  ordersController
-    .updateStockAmount(req.body)
+router.patch('/:id', (req, res, next) => {
+  productsController
+    .updateStockAmount(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
