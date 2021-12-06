@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import './DeliveryInfo.styles.css';
 
 export default function DeliveryInfo({ editMode, vertDisplay, user }) {
-  // const { address, city, zipcode, country } = user;
-  console.log(user);
   const [address, setAddress] = React.useState(user.address);
   const [city, setCity] = React.useState(user.city);
   const [zipcode, setZipcode] = React.useState(user.zipcode);
   const [country, setCountry] = React.useState(user.country);
   const [edit, setEdit] = React.useState(false);
 
-  const handleEdit = () => {
+  const handleEdit = (e) => {
+    e.preventDefault();
     setEdit(!edit);
   };
 
@@ -60,7 +59,9 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             className="cityInput"
             name="city"
             type="text"
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => {
+              setCity(e.target.value);
+            }}
           />
 
           <label className="zipInputLabel">Zip code:</label>
@@ -69,7 +70,9 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             className="zipInput"
             name="zipcode"
             type="number"
-            onChange={(e) => setZipcode(e.target.value)}
+            onChange={(e) => {
+              setZipcode(e.target.value);
+            }}
           />
 
           <label className="countryInputLabel">Country:</label>
@@ -77,7 +80,9 @@ export default function DeliveryInfo({ editMode, vertDisplay, user }) {
             value={country}
             className="countryInput"
             name="country"
-            onChange={(e) => setCountry(e.target.value)}
+            onChange={(e) => {
+              setCountry(e.target.value);
+            }}
           />
 
           <div className="saveButtonDiv">
