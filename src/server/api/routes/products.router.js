@@ -63,4 +63,28 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /products:
+ *  get:
+ *    tags:
+ *    - Products
+ *    summary: Get quantity
+ *    description:
+ *     return quantity with product id.
+ *    produces: application/json
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.post('/', (req, res, next) => {
+  ordersController
+    .updateStockAmount(req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 module.exports = router;

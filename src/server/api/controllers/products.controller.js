@@ -38,7 +38,23 @@ const getProductById = async (id) => {
   }
 };
 
+const updateStockAmount = async (data) => {
+  const quantities = await knex('order_items')
+    .select('quantity')
+    .join('products', 'product_id', '=', 'products.id');
+  console.log(result);
+  return quantities;
+  // if (quantity) {
+  //   quantities.forEach(items => {
+  //     newStockAmount = await knex('products')
+  //     .update({stock_amount = stock_amount - quantity})
+  //   })
+
+  // }
+};
+
 module.exports = {
   getProducts,
   getProductById,
+  updateStockAmount,
 };
