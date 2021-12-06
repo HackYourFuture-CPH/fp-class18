@@ -4,6 +4,7 @@ import NumberInput from '../NumberInput/NumberInput.component';
 import ButtonComponent from '../Button/Button.component';
 import './ProductDetails.style.css';
 import Heart from './Heart';
+import ModalComponent from '../Modal/Modal.component';
 
 export const ProductDetails = ({
   imgSource,
@@ -20,6 +21,14 @@ export const ProductDetails = ({
   const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
     setChecked(!checked);
+  };
+  const [isShown, setIsShown] = React.useState(false);
+  const handleClick = () => {
+    setIsShown(!isShown);
+    onClick();
+  };
+  const handleLink = () => {
+    window.location.href = '/';
   };
 
   return (
@@ -74,7 +83,12 @@ export const ProductDetails = ({
           </div>
           <div className="input-row">
             <NumberInput initValue={1} maxAvailable={RemainingUnit} />
-            <ButtonComponent title="ADD TO CART" onClick={onClick} />
+            <ButtonComponent title="ADD TO CART" onClick={handleClick} />
+            <ModalComponent
+              show={isShown}
+              handleLink={handleLink}
+              handleCloseModal={handleClick}
+            />
           </div>
         </div>
       </div>
