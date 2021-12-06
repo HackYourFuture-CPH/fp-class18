@@ -1,8 +1,5 @@
-* {
-  text-align: center;
-}
-
 .modalView {
+  text-align: center;
   z-index: 999999;
   position: fixed;
   top: 0;
@@ -12,14 +9,14 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modalVisible {
+.modalView .modalVisible {
   background: #fff;
   width: 30%;
   padding: 1em;
   margin: 10% auto;
 }
 
-.btnCart {
+.modalView .btnCart {
   font-weight: 700;
   border: 0;
   cursor: pointer;
@@ -33,13 +30,13 @@
   margin: 3px;
 }
 
-.btnShopping {
+.modalView .btnShopping {
   color: #8e0ef2;
   background-color: white;
   border: 1px solid #8e0ef2;
 }
 
-.btn-close {
+.modalView .btn-close {
   color: #aaa;
   font-size: 50px;
   position: relative;
@@ -48,15 +45,15 @@
   background: none;
 }
 
-.btn-close:hover {
+.modalView .btn-close:hover {
   color: #919191;
   cursor: pointer;
 }
 
-.span {
+.modalView .span {
   text-align: right;
 }
 
-h2 {
+.modalView h2 {
   margin: 0;
 }
