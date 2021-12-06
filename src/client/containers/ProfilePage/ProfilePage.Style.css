@@ -9,24 +9,25 @@
 
 .wrapperContact .formContact {
   width: 30em;
-  height: 18em;
-  font-size: 1em;
-  margin-left: 8em;
+  height: 15em;
+  font-size: 1.3em;
+  margin-left: 6em;
   background-color: #f0eeeef3;
   border: 1px solid #c1c1c1;
 }
 
 .delivery .wrapperDelivery .titleDelivery {
   font-weight: bolder;
-  font-size: 1.4em;
+  font-size: 1.8em;
+  margin-left: 1em;
 }
 .delivery .wrapperDelivery {
-  height: 18em;
+  height: 20em;
+  width: 51em;
 }
 
 .wrapperDelivery .formDelivery {
-  font-size: 1em;
-  width: 40em;
+  width: 45em;
   height: 20em;
 }
 
@@ -36,26 +37,57 @@
 
 .purchases .container {
   margin-top: 3em;
-  column-gap: 4em;
+  column-gap: 5em;
 }
 
-@media screen and (max-width: 768px) {
-  .delivery-contact {
-    display: block;
+@media screen and (max-width: 90em) {
+  .wrapperContact .formContact {
+    height: 15em;
+    width: 25em;
   }
-
+  .wrapperDelivery .formDelivery {
+    font-size: 1em;
+    width: 40em;
+    height: 20em;
+  }
+  .delivery .wrapperDelivery {
+    height: 20em;
+    width: 40em;
+  }
   .delivery {
+    max-width: fit-content;
     margin-left: 8em;
   }
 
   .purchases .container {
     display: flexbox;
     max-width: fit-content;
-    column-gap: 4em;
+    column-gap: 1em;
+  }
+}
+@media screen and (max-width: 85em) {
+  .wrapperContact .formContact {
+    height: 15em;
+    width: 25em;
+  }
+  .wrapperDelivery .formDelivery {
+    font-size: 1em;
+    width: 40em;
+    height: 20em;
+  }
+  .delivery .wrapperDelivery {
+    height: 20em;
+    width: 40em;
+  }
+  .delivery {
+    max-width: fit-content;
+    margin-left: 8em;
   }
 
-  .purchases li {
-    flex-wrap: wrap;
+  .purchases .container {
+    display: flexbox;
+    max-width: fit-content;
+    column-gap: 1em;
   }
 }
 
@@ -63,20 +95,13 @@
   .delivery-contact {
     display: block;
   }
-
   .delivery {
     margin-left: 8em;
     max-width: fit-content;
   }
-
   .purchases .container {
     display: flexbox;
     max-width: fit-content;
-    column-gap: 4em;
-  }
-
-  .purchases li {
-    flex-wrap: wrap;
-    max-width: fit-content;
+    column-gap: 1em;
   }
 }

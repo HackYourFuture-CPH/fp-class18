@@ -1,7 +1,6 @@
 .wrapperDelivery .formDelivery {
   display: grid;
   padding: 1em;
-  margin: 0.5em auto 0 auto;
 }
 .wrapperDelivery form input {
   background: #fff;
@@ -30,7 +29,7 @@
   .wrapperDelivery .formDelivery {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     font-style: normal;
-    font-size: 14px;
+    font-size: 16px;
     grid-gap: 6px;
   }
 
