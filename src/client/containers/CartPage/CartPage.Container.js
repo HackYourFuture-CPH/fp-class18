@@ -40,11 +40,13 @@ const CartPageContainer = ({ isAuthenticated }) => {
           .then((res) => res.json())
           .then((data) => {
             const newsItem = {
+              // eslint-disable-next-line object-shorthand
               productId: productId,
               quantity: shoppingCart[productId],
               name: data[0].name,
               picture: data[0].picture,
               price: data[0].price,
+              // eslint-disable-next-line @typescript-eslint/camelcase
               stock_amount: data[0].stock_amount,
             };
             return newsItem;
