@@ -1,13 +1,13 @@
-.delivery-contact {
+.profilepage .delivery-contact {
   display: flex;
 }
 
-.wrapperContact .titleContact {
+.profilepage .wrapperContact .titleContact {
   font-weight: bolder;
   font-size: 1.4em;
 }
 
-.wrapperContact .formContact {
+.profilepage .wrapperContact .formContact {
   width: 30em;
   height: 15em;
   font-size: 1.3em;
@@ -16,75 +16,83 @@
   border: 1px solid #c1c1c1;
 }
 
-.delivery .wrapperDelivery .titleDelivery {
+.profilepage .delivery .wrapperDelivery .titleDelivery {
   font-weight: bolder;
   font-size: 1.8em;
   margin-left: 1em;
 }
-.delivery .wrapperDelivery {
+
+.profilepage .delivery .wrapperDelivery {
   height: 20em;
   width: 51em;
 }
 
-.wrapperDelivery .formDelivery {
+.profilepage .wrapperDelivery .formDelivery {
   width: 45em;
   height: 20em;
 }
 
-.delivery {
+.profilepage .delivery {
   margin: 1.6em 2em 0 5em;
 }
 
-.purchases .container {
+.profilepage .purchases .container {
   margin-top: 3em;
   column-gap: 5em;
 }
 
 @media screen and (max-width: 90em) {
-  .wrapperContact .formContact {
+  .profilepage .wrapperContact .formContact {
     height: 15em;
     width: 25em;
   }
-  .wrapperDelivery .formDelivery {
+
+  .profilepage .wrapperDelivery .formDelivery {
     font-size: 1em;
     width: 40em;
     height: 20em;
   }
-  .delivery .wrapperDelivery {
+
+  .profilepage .delivery .wrapperDelivery {
     height: 20em;
     width: 40em;
   }
-  .delivery {
+
+  .profilepage .delivery {
     max-width: fit-content;
     margin-left: 8em;
   }
 
-  .purchases .container {
+  .profilepage .purchases .container {
     display: flexbox;
     max-width: fit-content;
     column-gap: 1em;
   }
 }
+
 @media screen and (max-width: 85em) {
-  .wrapperContact .formContact {
+  .profilepage .wrapperContact .formContact {
     height: 15em;
     width: 25em;
   }
-  .wrapperDelivery .formDelivery {
+
+  .profilepage .wrapperDelivery .formDelivery {
     font-size: 1em;
     width: 40em;
     height: 20em;
   }
-  .delivery .wrapperDelivery {
+
+  .profilepage .delivery .wrapperDelivery {
     height: 20em;
     width: 40em;
   }
-  .delivery {
+
+  .profilepage .delivery {
     max-width: fit-content;
     margin-left: 8em;
   }
 
-  .purchases .container {
+  .profilepage .purchases .container {
     display: flexbox;
     max-width: fit-content;
     column-gap: 1em;
@@ -92,14 +100,16 @@
 }
 
 @media screen and (max-width: 70em) {
-  .delivery-contact {
+  .profilepage .delivery-contact {
     display: block;
   }
-  .delivery {
+
+  .profilepage .delivery {
     margin-left: 8em;
     max-width: fit-content;
   }
-  .purchases .container {
+
+  .profilepage .purchases .container {
     display: flexbox;
     max-width: fit-content;
     column-gap: 1em;
