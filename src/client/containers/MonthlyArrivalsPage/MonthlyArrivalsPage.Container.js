@@ -5,10 +5,13 @@ import { ProductDetails } from '../../components/ProductDetails/ProductDetails.c
 import Loader from '../../components/Loader/Loader.component';
 import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
 import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
+import { useFirebase } from '../../firebase/FirebaseContext';
 
 const MonthlyArrivalsPageContainer = () => {
   const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
+  const { auth } = useFirebase();
+  const favorites = useFetchApi(`/users/${auth.currentUser.uid}/favorites`);
 
   return (
     <div>
@@ -19,7 +22,9 @@ const MonthlyArrivalsPageContainer = () => {
         ) : (
           monthlyArrivals.data.map((product) => (
             <ProductDetails
+              userId={auth.currentUser.uid}
               key={product.id}
+              productId={product.id}
               imgSource={product.picture}
               ProductName={product.name}
               RemainingUnit={product.stock_amount}
@@ -35,7 +40,8 @@ const MonthlyArrivalsPageContainer = () => {
                   changeProductQuantity(product, newQuantity);
                 }
               }}
-              isFavorite={true}
+              // eslint-disable-next-line eqeqeq
+              isFavorite={favorites.data.some((p) => p.id == product.id)}
               imageAlt={product.name}
             />
           ))

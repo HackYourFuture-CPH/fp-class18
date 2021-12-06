@@ -4,6 +4,7 @@ import HeroImage from '../../components/HeroImage/HeroImage.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ProductView from '../../components/ProductView/ProductView.component';
 import { useFetchApi } from '../../hooks/UseFetchApi';
+import Loader from '../../components/Loader/Loader.component';
 
 const LandingPageContainer = () => {
   const products = useFetchApi('products');
@@ -25,7 +26,7 @@ const LandingPageContainer = () => {
       <h2>MONTHLY ARRIVALS</h2>
       <div>
         {products.isLoading ? (
-          <h2 className="loading">Loading...</h2>
+          <Loader />
         ) : (
           <Carousel
             imageArray={imageArray.map((product) => product.picture)}
@@ -36,7 +37,7 @@ const LandingPageContainer = () => {
       </div>
       <div>
         {categories.isLoading && products.isLoading ? (
-          <h2 className="loading">Loading...</h2>
+          <Loader />
         ) : (
           <ProductView
             products={products.data}
