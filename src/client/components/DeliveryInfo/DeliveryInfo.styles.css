@@ -1,40 +1,40 @@
-.formDelivery {
+.wrapperDelivery .formDelivery {
   display: grid;
   padding: 1em;
   margin: 0.5em auto 0 auto;
 }
-form input {
+.wrapperDelivery form input {
   background: #fff;
   border: 1px solid #9c9c9c;
 }
-form button {
+.wrapperDelivery form button {
   background: #8e0ef2;
   padding: 0.7em;
   width: 100%;
   border: 0;
 }
 
-label {
+.wrapperDelivery label {
   padding: 0.5em 0.5em 0.5em 0;
 }
 
-input {
+.wrapperDelivery input {
   padding: 0.7em;
   margin-bottom: 0.5em;
 }
-input:focus {
+.wrapperDelivery input:focus {
   outline: 3px solid #8e0ef2;
 }
 
 @media (min-width: 400px) {
-  .formDelivery {
+  .wrapperDelivery .formDelivery {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     font-style: normal;
     font-size: 14px;
     grid-gap: 6px;
   }
 
-  .titleDelivery {
+  .wrapperDelivery .titleDelivery {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 1;
@@ -43,73 +43,73 @@ input:focus {
     padding-bottom: 1em;
   }
 
-  .addressLabel {
+  .wrapperDelivery .addressLabel {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 2;
     margin-left: 30px;
   }
 
-  .addressVert {
+  .wrapperDelivery .addressVert {
     text-align: left;
     grid-column: 2 / span 2;
     grid-row: 2;
   }
-  .cityLabel {
+  .wrapperDelivery .cityLabel {
     text-align: left;
     grid-column: 3 / span 2;
     grid-row: 2;
     margin-left: 4em;
   }
-  .cityLabelVert {
+  .wrapperDelivery .cityLabelVert {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 4;
     margin-left: 30px;
   }
 
-  .zipLabel {
+  .wrapperDelivery .zipLabel {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 3;
     margin-left: 30px;
   }
 
-  .countryLabel {
+  .wrapperDelivery .countryLabel {
     text-align: left;
     grid-column: 3 / span 2;
     grid-row: 3;
     margin-left: 4em;
   }
-  .countryLabelVert {
+  .wrapperDelivery .countryLabelVert {
     text-align: left;
     grid-column: 1 / span 2;
     grid-row: 5;
     margin-left: 30px;
   }
 
-  .saveButtonDiv {
+  .wrapperDelivery .saveButtonDiv {
     grid-column: 2 / span 2;
     grid-row: 4;
     margin-left: 8em;
     width: 40%;
     padding-bottom: 1em;
   }
-  .saveButton {
+  .wrapperDelivery .saveButton {
     color: white;
   }
-  .cancelLink {
+  .wrapperDelivery .cancelLink {
     text-align: right;
     grid-column: 4 / span 1;
     grid-row: 4;
     width: 80%;
   }
-  .editLink {
+  .wrapperDelivery .editLink {
     text-align: right;
     grid-column: 4 / span 1;
     grid-row: 1;
   }
-  .link-button {
+  .wrapperDelivery .link-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -120,53 +120,55 @@ input:focus {
     text-align: left;
   }
 
-  .addressInputLabel {
+  .wrapperDelivery .addressInputLabel {
     text-align: right;
     grid-column: 1 / span 1;
     grid-row: 2;
   }
-  .addressInput {
+  .wrapperDelivery .addressInput {
     text-align: left;
     grid-column: 2 / span 1;
     grid-row: 2;
   }
-  .cityInputLabel {
+  .wrapperDelivery .cityInputLabel {
     text-align: right;
     grid-column: 3 / span 1;
     grid-row: 2;
   }
-  .cityInput {
+  .wrapperDelivery .cityInput {
     text-align: left;
     grid-column: 4 / span 1;
     grid-row: 2;
   }
-  .zipInputLabel {
+  .wrapperDelivery .zipInputLabel {
     text-align: right;
     grid-column: 1 / span 1;
     grid-row: 3;
   }
-  .zipInput {
+  .wrapperDelivery .zipInput {
     text-align: left;
     grid-column: 2 / span 1;
     grid-row: 3;
   }
-  .countryInputLabel {
+  .wrapperDelivery .countryInputLabel {
     text-align: right;
     grid-column: 3 / span 1;
     grid-row: 3;
   }
-  .countryInput {
+  .wrapperDelivery .countryInput {
     text-align: left;
     grid-column: 4 / span 1;
     grid-row: 3;
   }
 }
-.text-right {
+.wrapperDelivery .text-right {
   padding-right: 3em;
   text-align: right;
 }
 
 .wrapperDelivery {
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
   width: 36em;
   height: 14em;
 }

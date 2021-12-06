@@ -16,21 +16,22 @@
   border: 1px solid #c1c1c1;
 }
 
-.wrapperDelivery .titleDelivery {
+.delivery .wrapperDelivery .titleDelivery {
   font-weight: bolder;
   font-size: 1.4em;
+}
+.delivery .wrapperDelivery {
+  height: 18em;
 }
 
 .wrapperDelivery .formDelivery {
   font-size: 1em;
   width: 40em;
+  height: 20em;
 }
 
 .delivery {
   margin: 1.6em 2em 0 5em;
-  background-color: #f0eeeef3;
-  border: 1px solid #c1c1c1;
-  height: 18em;
 }
 
 .purchases .container {
