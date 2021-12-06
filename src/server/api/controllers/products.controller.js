@@ -38,19 +38,25 @@ const getProductById = async (id) => {
   }
 };
 
-const updateStockAmount = async (data) => {
-  const quantities = await knex('order_items')
-    .select('quantity')
-    .join('products', 'product_id', '=', 'products.id');
-  console.log(result);
-  return quantities;
-  // if (quantity) {
-  //   quantities.forEach(items => {
-  //     newStockAmount = await knex('products')
-  //     .update({stock_amount = stock_amount - quantity})
-  //   })
-
-  // }
+const updateStockAmount = async (productid) => {
+  try {
+    const quantities = await knex('order_items')
+      .select('quantity', 'products.stock_amount', 'products.id')
+      .join('products', 'product_id', '=', 'products.id')
+      .where('products.id', '=', productid);
+    if (quantities.length === 0) {
+      throw new Error(`Incorrect entry with the id of ${productid}`, 404);
+    } else {
+      const newStockAmount =
+        Number(quantities[0].stock_amount) - Number(quantities[0].quantity);
+      console.log(newStockAmount);
+      return knex('products').where({ id: productid }).update({
+        stock_amount: newStockAmount,
+      });
+    }
+  } catch (error) {
+    return error.message;
+  }
 };
 
 module.exports = {

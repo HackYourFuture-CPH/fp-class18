@@ -65,17 +65,22 @@ router.get('/:id', (req, res, next) => {
 
 /**
  * @swagger
- * /products:
- *  get:
+ * /products/{ID}:
+ *  patch:
  *    tags:
  *    - Products
- *    summary: Get quantity
+ *    summary: Update stock amount
  *    description:
- *     return quantity with product id.
+ *      Will update stock amount.
  *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the product to patch.
+ *
  *    responses:
  *      200:
- *        description: Successful request
+ *        description: stock amount was patched
  *      5XX:
  *        description: Unexpected error.
  */
