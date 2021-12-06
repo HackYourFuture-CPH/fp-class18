@@ -3,7 +3,8 @@ header {
   z-index: 5;
 }
 
-header #login {
+header .login-btn,
+.acc-btn {
   padding: 1em;
 }
 
@@ -67,6 +68,16 @@ header .navbar .dropbtn {
   text-transform: uppercase;
 }
 
+header .acc-btn {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  background-color: inherit;
+  padding-bottom: 1em;
+}
+
 header .login-btn {
   font-size: 1.2em;
   border: none;
@@ -77,8 +88,13 @@ header .login-btn {
 
 header .navbar button:hover,
 header .dropdown:hover .dropbtn:hover,
-header #login:hover {
+header .acc-btn:hover {
   background-color: #8e0ef2;
+}
+
+header .login-btn:hover {
+  background-color: #8e0ef2;
+  width: 9em;
 }
 
 /* Dropdown content (hidden by default) */
