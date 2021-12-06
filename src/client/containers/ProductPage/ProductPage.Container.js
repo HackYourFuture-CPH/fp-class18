@@ -11,7 +11,7 @@ import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
 import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 import { useFirebase } from '../../firebase/FirebaseContext';
 
-const ProductPageContainer = () => {
+const ProductPageContainer = ({ isAuthenticated }) => {
   const { auth } = useFirebase();
   const { id } = useParams();
   const [product, setProduct] = React.useState({});
@@ -43,15 +43,6 @@ const ProductPageContainer = () => {
     }
   }, [similarProductData]);
 
-  const addToCartHandler = () => {
-    if (product) {
-      // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
-      const newQuantity = shoppingCart[product.id]
-        ? shoppingCart[product.id] + 1
-        : 1;
-      changeProductQuantity(product.id, newQuantity);
-    }
-  };
   const exploreCategoryHandler = () => {
     console.log('explore product category');
   };
@@ -65,7 +56,7 @@ const ProductPageContainer = () => {
           <>
             {product.id ? (
               <ProductDetails
-                userId={auth.currentUser.uid}
+                userId={(isAuthenticated && auth.currentUser.uid) || 'Guest'}
                 productId={product.id}
                 imgSource={product.picture}
                 ProductName={product.name}
@@ -73,7 +64,15 @@ const ProductPageContainer = () => {
                 Price={parseInt(product.price, 10)}
                 productColor={product.color}
                 productSize={product.size}
-                onClick={addToCartHandler}
+                onClick={() => {
+                  if (product) {
+                    // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
+                    const newQuantity = shoppingCart[product.id]
+                      ? shoppingCart[product.id] + 1
+                      : 1;
+                    changeProductQuantity(product, newQuantity);
+                  }
+                }}
               />
             ) : (
               <Page404Container />

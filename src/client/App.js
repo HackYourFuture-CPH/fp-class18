@@ -41,7 +41,7 @@ function App() {
         </Route>
         <Route exact path="/order-confirmation">
           <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
-             </Route>
+        </Route>
         <Route exact path="/about-us">
           <AboutpageContainer />
         </Route>
@@ -49,10 +49,10 @@ function App() {
           <ContactpageContainer />
         </Route>
         <Route exact path="/product/:id">
-          <ProductPageContainer />
+          <ProductPageContainer isAuthenticated={isAuthenticated} />
         </Route>
         <Route exact path="/monthly-arrivals">
-          <MonthlyArrivalsPageContainer />
+          <MonthlyArrivalsPageContainer isAuthenticated={isAuthenticated} />
         </Route>
         <Route exact path="/category/:name">
           <CategoryPage />
