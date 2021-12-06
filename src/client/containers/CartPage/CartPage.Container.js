@@ -18,7 +18,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [IsLoading, setIsLoading] = React.useState(true);
   // const [user, setUser] = React.useState({});
   const [total, setTotal] = React.useState(0);
-  const [itemCost, setItemCost] = React.useState([]);
+  // const [itemCost, setItemCost] = React.useState([]);
   const { auth } = useFirebase();
 
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
@@ -59,29 +59,23 @@ const CartPageContainer = ({ isAuthenticated }) => {
   React.useEffect(() => {
     let totalCost = 0;
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < itemCost.length; i++) {
-      totalCost += itemCost[i];
+    for (let i = 0; i < cartItem.length; i++) {
+      // eslint-disable-next-line operator-assignment
+      totalCost = totalCost + cartItem[i].price * cartItem[i].quantity;
     }
     setTotal(totalCost);
-  }, [itemCost]);
+  }, [cartItem]);
 
   const getItemQuantity = (index, value) => {
     // eslint-disable-next-line prefer-destructuring
     const productId = cartItem[index].productId;
     changeProductQuantity(productId, value);
-
-    itemCost[index] = value * cartItem[index].price;
-    const newItemCost = [...itemCost];
-    setItemCost(newItemCost);
   };
 
   const handleOnDeleteItem = (index) => {
-    console.log(index);
+    // eslint-disable-next-line prefer-destructuring
     const productId = cartItem[index].productId;
-
     changeProductQuantity(productId, 0);
-    cartItem.splice(index, 1);
-    console.log(cartItem);
   };
   return (
     <div>
