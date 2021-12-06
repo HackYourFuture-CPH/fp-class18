@@ -75,6 +75,14 @@ const CartPageContainer = ({ isAuthenticated }) => {
     setItemCost(newItemCost);
   };
 
+  const handleOnDeleteItem = (index) => {
+    console.log(index);
+    const productId = cartItem[index].productId;
+
+    changeProductQuantity(productId, 0);
+    cartItem.splice(index, 1);
+    console.log(cartItem);
+  };
   return (
     <div>
       <h1>SHOPPING CART</h1>
@@ -95,6 +103,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
                     getQuantity={(value) => {
                       getItemQuantity(index, value);
                     }}
+                    onDelete={() => handleOnDeleteItem(index)}
                   />
                 );
               })

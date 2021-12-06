@@ -13,6 +13,7 @@ export default function ShoppingItem({
   initValue,
   isDisable,
   getQuantity,
+  onDelete,
 }) {
   const [itemValue, setItemValue] = useState(initValue);
   React.useEffect(() => {
@@ -41,7 +42,7 @@ export default function ShoppingItem({
             <button
               disabled={isDisable}
               type="button"
-              onCLick=""
+              onClick={onDelete}
               className="remove"
             >
               <Trash
@@ -86,6 +87,7 @@ ShoppingItem.propTypes = {
   initValue: PropTypes.number,
   isDisable: PropTypes.bool,
   getQuantity: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
 };
 
 ShoppingItem.defaultProps = {
