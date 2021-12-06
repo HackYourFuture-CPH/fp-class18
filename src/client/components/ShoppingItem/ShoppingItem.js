@@ -24,7 +24,13 @@ export default function ShoppingItem({
     <div className="shopping-item">
       <div className="product-picture">
         <div className="picture">
-          <img src={productImg} alt="" width="185px" height="145px" />
+          <img
+            // eslint-disable-next-line
+            src={require(`../../assets/images/${productImg.split('/')[4]}`)}
+            alt={productName}
+            width="185px"
+            height="145px"
+          />
         </div>
 
         <div className="item-settings">
