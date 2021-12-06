@@ -26,6 +26,7 @@ export default function ShoppingItem({
         <div className="picture">
           <img src={productImg} alt="" width="185px" height="145px" />
         </div>
+
         <div className="item-settings">
           <h2>{productName}</h2>
           <p style={{ color: textColor }}>({quantity} units left)</p>
@@ -56,15 +57,15 @@ export default function ShoppingItem({
             </button>
           </div>
         </div>
-        <div className="quantity-component">
-          <Numberinput
-            maxAvailable={quantity}
-            getQuantity={setItemValue}
-            initValue={initValue}
-            disabled={isDisable}
-          />
-          <p style={{ color: textColor }}>{itemValue * price} DKK</p>
-        </div>
+      </div>
+      <div className="quantity-component">
+        <Numberinput
+          maxAvailable={quantity}
+          getQuantity={setItemValue}
+          initValue={initValue}
+          disabled={isDisable}
+        />
+        <p style={{ color: textColor }}>{itemValue * price} DKK</p>
       </div>
     </div>
   );
