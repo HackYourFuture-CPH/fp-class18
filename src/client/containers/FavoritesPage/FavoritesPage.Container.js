@@ -29,6 +29,8 @@ const FavoritesPageContainer = () => {
             return (
               <ProductDetails
                 key={product.id}
+                userId={id || 'Guest'}
+                productId={product.id}
                 imgSource={product.picture}
                 ProductName={product.name}
                 RemainingUnit={product.stock_amount}
