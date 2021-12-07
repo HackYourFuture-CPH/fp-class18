@@ -3,11 +3,9 @@ import React from 'react';
 import './CartPage.Style.css';
 import Loader from '../../components/Loader/Loader.component';
 import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
-// import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
 import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
 import ContactForm from '../../components/ContactForm/ContactForm.component';
 import ButtonComponent from '../../components/Button/Button.component';
-// import { useFetchApi } from '../../hooks/UseFetchApi';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import { PropTypes } from 'prop-types';
 import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
@@ -16,23 +14,12 @@ import { useHistory } from 'react-router-dom';
 const CartPageContainer = ({ isAuthenticated }) => {
   const [cartItem, setCartItem] = React.useState([]);
   const [IsLoading, setIsLoading] = React.useState(true);
-  // const [user, setUser] = React.useState({});
   const [total, setTotal] = React.useState(0);
-  // const [itemCost, setItemCost] = React.useState([]);
   const { auth } = useFirebase();
 
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const history = useHistory();
 
-  /*
-  const userInfo = useFetchApi(`users/${userId}`);
-  
-  React.useEffect(() => {
-    if (!userInfo.isLoading) {
-      setUser(userInfo.data[0]);
-    }
-  }, [userInfo]);
- */
   React.useEffect(() => {
     Promise.all(
       Object.keys(shoppingCart).map((productId) => {
@@ -105,11 +92,6 @@ const CartPageContainer = ({ isAuthenticated }) => {
               })
             )}
           </div>
-
-          {
-            // eslint-disable-next-line spaced-comment
-            /*DeliveryInfo Component*/
-          }
         </div>
         <div className="right">
           <div className="total-price">
