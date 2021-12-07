@@ -57,7 +57,7 @@ function App() {
         <Route exact path="/category/:name">
           <CategoryPage />
         </Route>
-        <Route exact path="/cart/:id">
+        <Route exact path="/cart">
           <CartPageContainer isAuthenticated={isAuthenticated} />
         </Route>
         {/*
