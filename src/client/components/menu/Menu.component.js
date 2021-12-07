@@ -23,7 +23,8 @@ export const Menu = ({ isAuthenticated }) => {
       ? JSON.parse(localStorage.getItem('user')).uid
       : isAuthenticated && `${auth.currentUser.uid}`;
   }
-  const shoppingCart = window.localStorage.shoppingCart.split(',').length;
+  
+  const shoppingCart = window.localStorage.shoppingCart.length === 2 ? undefined : window.localStorage.shoppingCart.split(',').length
 
   return (
     <nav>
@@ -68,9 +69,9 @@ export const Menu = ({ isAuthenticated }) => {
           <Link to={`/users/${getIdIfPresent()}/favorites`}>
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
-          <Link to={`/cart/${getIdIfPresent()}`} className="badgeNumber">
-            <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
-            <span className="badge">
+          <div className="badgeNumber">
+            <Link to={`/cart/${getIdIfPresent()}`}>
+              <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
               {shoppingCart ? (
                 <button type="button" className="badge">
                   {shoppingCart}
@@ -78,8 +79,8 @@ export const Menu = ({ isAuthenticated }) => {
               ) : (
                 ''
               )}
-            </span>
-          </Link>
+            </Link>
+          </div>
         </div>
         <div className="navbar">
           <input type="checkbox" id="nav-check" />
