@@ -68,11 +68,6 @@ function App() {
           <SignIn />
         </NonAuthenticatedRoute>
 
-        {/* Favorites page */}
-        <AuthenticatedRoute exact path="/users/:id/favorites">
-          <FavoritesPageContainer />
-        </AuthenticatedRoute>
-
         {/* Anonymous pages */}
         <SignIn exact path="/sign-in" />
         <SignUp exact path="/sign-up" />

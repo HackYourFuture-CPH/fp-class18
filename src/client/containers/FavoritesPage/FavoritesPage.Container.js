@@ -16,7 +16,7 @@ const FavoritesPageContainer = () => {
 
   return (
     <div>
-      <h1 className="h1-favorites">Favorites page</h1>
+      <h1 className="h1-favorites">MY FAVORITES</h1>
       <div className="list">
         {favorites.isLoading ? (
           <Loader />
