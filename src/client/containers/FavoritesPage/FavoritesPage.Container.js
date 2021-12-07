@@ -9,12 +9,14 @@ import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartC
 
 const FavoritesPageContainer = () => {
   const { id } = useParams();
-  const favorites = useFetchApi(`/users/${id}/favorites`);
+  const favorites = useFetchApi(
+    `/users/${id || localStorage.getItem('user').uid}/favorites`,
+  );
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
   return (
     <div>
-      <h1 className="h1-favorites">Favorites page</h1>
+      <h1 className="h1-favorites">MY FAVORITES</h1>
       <div className="list">
         {favorites.isLoading ? (
           <Loader />
@@ -27,6 +29,8 @@ const FavoritesPageContainer = () => {
             return (
               <ProductDetails
                 key={product.id}
+                userId={id || 'Guest'}
+                productId={product.id}
                 imgSource={product.picture}
                 ProductName={product.name}
                 RemainingUnit={product.stock_amount}

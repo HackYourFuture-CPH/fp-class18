@@ -20,7 +20,7 @@ export const Menu = ({ isAuthenticated }) => {
   function getIdIfPresent() {
     return localStorage.getItem('user')
       ? JSON.parse(localStorage.getItem('user')).uid
-      : '';
+      : isAuthenticated && `${auth.currentUser.uid}`;
   }
 
   return (

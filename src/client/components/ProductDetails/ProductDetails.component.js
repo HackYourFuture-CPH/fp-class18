@@ -34,7 +34,7 @@ export const ProductDetails = ({
         }),
       }).then((response) => {
         if (response.ok) {
-          console.log('Success');
+          console.log('Success: added to favorites');
         } else {
           throw new Error(response.status);
         }
@@ -51,11 +51,12 @@ export const ProductDetails = ({
         }),
       }).then((response) => {
         if (response.ok) {
-          console.log('Success');
+          console.log('Success: deleted from favorites');
         } else {
           throw new Error(response.status);
         }
       });
+      window.location.reload(false);
     }
     setChecked(!checked);
   };
@@ -65,7 +66,7 @@ export const ProductDetails = ({
     onClick();
   };
   const handleLink = () => {
-    window.location.href = '/';
+    window.location.href = '/cart/';
   };
 
   return (
