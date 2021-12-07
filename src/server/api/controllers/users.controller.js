@@ -51,7 +51,8 @@ const getUserFavorites = async (user_id) => {
     const favorites = await knex('favorites')
       .join('products', 'products.id', 'product_id')
       .select('products.*')
-      .where({ user_id });
+      .where({ user_id })
+      .distinct();
     if (!Array.isArray(favorites) || favorites.length === 0) {
       throw new HttpError(
         `The favorite products for speecified user_id was not found : ${user_id}`,
