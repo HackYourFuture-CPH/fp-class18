@@ -49,7 +49,7 @@ const OrderPageContainer = ({ isAuthenticated }) => {
   }, [items]);
 
   return (
-    <div>
+    <div className="orderpage">
       <div className="header">
         <h1>ORDER SUMMARY</h1>
       </div>

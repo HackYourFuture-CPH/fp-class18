@@ -9,16 +9,13 @@ import DeliveryInfoV2 from '../../components/DeliveryInfo/DeliveryInfoV2.compone
 
 const ProfilePageContainer = ({ isAuthenticated }) => {
   const { auth } = useFirebase();
-  console.log(auth);
   const [user, setUser] = React.useState([]);
   const [orders, setOrders] = React.useState([]);
   const orderItems = useFetchApi(`orders/user/EVJOWMzhWTYdqNGkyaBnn3LpINl2`);
-  console.log(orderItems);
   React.useEffect(() => {
     if (!orderItems.isLoading) {
       // setItems(orderItems.data.items);
       setOrders(orderItems.data);
-      console.log(orderItems);
     }
   }, [orderItems]);
   const userInfo = useFetchApi(
@@ -32,7 +29,7 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
   }, [userInfo, user]);
 
   return (
-    <div>
+    <div className="profilepage">
       <h1>MY ACCOUNT</h1>
       <div className="delivery-contact">
         <div className="contact">
