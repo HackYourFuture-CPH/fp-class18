@@ -129,6 +129,19 @@ header .dropdown:hover .dropdown-content ul {
   padding: 0;
 }
 
+header .badgeNumber {
+  position: relative;
+}
+
+header button.badge {
+  position: absolute;
+  right: 0;
+  background-color: #f04040;
+  border: none;
+  color: #fff;
+  width: 1.5rem;
+}
+
 @media screen and (max-width: 728px) {
   header .navbar {
     display: block;
