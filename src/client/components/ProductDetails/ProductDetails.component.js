@@ -66,7 +66,7 @@ export const ProductDetails = ({
     onClick();
   };
   const handleLink = () => {
-    window.location.href = '/';
+    window.location.href = '/cart/';
   };
 
   return (
