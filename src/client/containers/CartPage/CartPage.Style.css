@@ -1,4 +1,4 @@
-.main {
+.cartPage .main {
   display: flex;
   padding: 10px;
   justify-content: space-around;
@@ -7,43 +7,43 @@
   width: 80%;
 }
 
-.left {
+.cartPage .left {
   display: flex;
   flex-direction: column;
 }
 
-.delivery-info {
+.cartPage .delivery-info {
   margin: 20px 0;
 }
 
-.right {
+.cartPage .right {
   display: flex;
   flex-direction: column;
 
   /* justify-content: space-evenly; */
 }
 
-h1 {
+.cartPage h1 {
   text-align: left;
   margin: 20px auto;
   width: 80%;
   color: black;
 }
 
-.total-price {
+.cartPage .total-price {
   margin: 20px 0;
 }
 
-.contact {
+.cartPage .contact {
   margin: 20px 0;
 }
 
-.review-btn {
+.cartPage .review-btn {
   text-align: center;
   margin: 20px 0;
 }
 
-.shopping-btn {
+.cartPage .shopping-btn {
   text-align: center;
   margin: 20px 0;
 }
