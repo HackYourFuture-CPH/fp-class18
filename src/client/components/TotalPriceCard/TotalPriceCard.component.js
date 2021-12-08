@@ -7,9 +7,9 @@ const TotalPrice = ({ subTotal }) => {
   const grandTotal = subTotal > 0 ? subTotal + delivering : 0;
   return (
     <>
-      <aside className="wrapper">
+      <aside className="wrapperTotalPrice">
         <h3>Total</h3>
-        <div className="wrapper-content">
+        <div className="wrapperContentTotalPrice">
           <div className="row">
             <div>Subtotal</div>
             <div className="text-right">{subTotal.toFixed(2)} DKK</div>
