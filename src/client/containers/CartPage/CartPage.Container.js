@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import './CartPage.Style.css';
@@ -15,7 +16,7 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 
 const CartPageContainer = ({ isAuthenticated }) => {
   const [cartItem, setCartItem] = React.useState([]);
-  const [IsLoading, setIsLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [total, setTotal] = React.useState(0);
 
   const [user, setUser] = React.useState({});
@@ -50,12 +51,11 @@ const CartPageContainer = ({ isAuthenticated }) => {
   }, [shoppingCart]);
 
   React.useEffect(() => {
-    let totalCost = 0;
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < cartItem.length; i++) {
-      // eslint-disable-next-line operator-assignment
-      totalCost = totalCost + cartItem[i].price * cartItem[i].quantity;
-    }
+    // eslint-disable-next-line no-return-assign
+    const totalCost = cartItem.reduce(
+      (acc, item) => (acc += item.price * item.quantity),
+      0,
+    );
     setTotal(totalCost);
   }, [cartItem]);
 
@@ -128,7 +128,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
         <div className="top">
           <div className="left">
             <div className="cart-items">
-              {IsLoading ? <Loader /> : showCartItems()}
+              {isLoading ? <Loader /> : showCartItems()}
             </div>
             <div className="delivery-info">
               {userId && userInfo.isLoading ? <Loader /> : showDeliveryInfo()}
