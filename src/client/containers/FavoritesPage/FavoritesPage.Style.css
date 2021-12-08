@@ -1,4 +1,4 @@
-.list {
+.favoritesPage .list {
   list-style: none;
   display: flex;
   width: 100%;
@@ -7,26 +7,26 @@
   padding: 1%;
 }
 
-.list #product-details {
+.favoritesPage .list #product-details {
   padding: 1px;
   flex: 1 0 35%;
   font-size: 1rem;
   margin: 1rem;
 }
 
-.list #product-details .details-column {
+.favoritesPage .list #product-details .details-column {
   padding: 2% 2%;
 }
 
-.list #product-details .select-item {
+.favoritesPage .list #product-details .select-item {
   margin-right: 1rem;
 }
 
-.list #product-details .input-row button {
+.favoritesPage .list #product-details .input-row button {
   width: 8rem;
 }
 
-.favorites-error {
+.favoritesPage .favorites-error {
   height: 10rem;
   text-align: center;
   margin: auto;
