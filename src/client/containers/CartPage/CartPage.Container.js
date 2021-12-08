@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/rules-of-hooks */
@@ -36,8 +37,6 @@ const CartPageContainer = ({ isAuthenticated }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
-
-  //const favInfo = useFetchApi(`users/${userId}/favorites`)
 
   React.useEffect(() => {
     if (userId) {
@@ -97,10 +96,9 @@ const CartPageContainer = ({ isAuthenticated }) => {
 
   const checkFavortie = (productId) => {
     if (favorite.length > 0) {
-      const fav =
-        favorite.filter((item) => item.id === parseInt(productId)).length > 0;
-      console.log(fav);
-      return fav;
+      return (
+        favorite.filter((item) => item.id === parseInt(productId)).length > 0
+      );
     }
     return false;
   };

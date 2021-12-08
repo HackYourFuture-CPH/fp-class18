@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Numberinput from '../NumberInput/NumberInput.component';
@@ -42,9 +43,7 @@ export default function ShoppingItem({
             product_id: `${productId}`,
           }),
         }).then((response) => {
-          if (response.ok) {
-            console.log('Success: added to favorites');
-          } else {
+          if (!response.ok) {
             throw new Error(response.status);
           }
         });
@@ -59,16 +58,12 @@ export default function ShoppingItem({
             product_id: `${productId}`,
           }),
         }).then((response) => {
-          if (response.ok) {
-            console.log('Success: deleted from favorites');
-          } else {
+          if (!response.ok) {
             throw new Error(response.status);
           }
         });
       }
       setChecked(!checked);
-    } else {
-      console.log('Please login to create Favorite list');
     }
   };
   const textColor = isDisable ? '#d3d3d3' : 'black';
