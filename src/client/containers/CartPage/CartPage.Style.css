@@ -1,41 +1,106 @@
-.main {
+.cart-page .cart-page-containter {
   display: flex;
+  flex-direction: column;
   padding: 10px;
   justify-content: space-around;
   background-color: #f7f5f5;
   margin: auto;
-  width: 80%;
+  width: 90%;
+}
+
+.cart-page .header {
+  margin: auto;
+  width: 90%;
+}
+
+.cart-page .header h1 {
+  color: black;
+  padding: 10px;
+  margin-left: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  height: 70%;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .left {
   display: flex;
   flex-direction: column;
+  margin: 5px 0;
+  width: 70%;
+  margin-right: 20px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 30%;
+  margin-left: 20px;
+}
+
+.cart-items {
+  background-color: #fff;
+  padding: 10px;
 }
 
 .delivery-info {
   margin: 20px 0;
 }
 
-.right {
-  display: flex;
-  flex-direction: column;
-
-  /* justify-content: space-evenly; */
+.total {
+  background-color: #fff;
 }
 
-h1 {
-  text-align: left;
-  margin: 20px auto;
-  width: 80%;
-  color: black;
+.total .wrapper .wrapper-content {
+  width: 90%;
+  font-size: 1.2rem;
+  padding: 2rem 0;
+  margin-left: auto;
+  background-color: #fff;
 }
 
-.total-price {
-  margin: 20px 0;
+.total .wrapper h3 {
+  margin-left: 1rem;
 }
 
 .contact {
+  width: 100%;
+  background-color: #fff;
   margin: 20px 0;
+}
+
+.contact .wrapperContact {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.contact .wrapperContact .titleContact {
+  font-size: medium;
+}
+
+.contact .wrapperContact .fullName {
+  font-size: 1.1rem;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.contact .wrapperContact .email {
+  font-size: 1.1rem;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.delivery-info .wrapperDelivery {
+  border: none;
+  background-color: #fff;
+  width: 100%;
 }
 
 .review-btn {
@@ -46,4 +111,13 @@ h1 {
 .shopping-btn {
   text-align: center;
   margin: 20px 0;
+}
+
+.shopping-btn button {
+  color: #8e0ef2;
+  border: 1px solid #8e0ef2;
+}
+
+.cart-page .cart-page-container .wrapperDelivery .form label {
+  width: 100%;
 }
