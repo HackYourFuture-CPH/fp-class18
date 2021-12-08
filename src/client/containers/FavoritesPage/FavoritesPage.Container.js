@@ -11,7 +11,6 @@ const FavoritesPageContainer = () => {
   const favorites = useFetchApi(
     `/users/${id || localStorage.getItem('user').uid}/favorites`,
   );
-  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
   return (
     <div>
