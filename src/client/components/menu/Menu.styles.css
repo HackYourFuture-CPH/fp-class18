@@ -62,7 +62,7 @@ header .navbar .dropbtn {
   cursor: pointer;
 }
 
-.name-span {
+header .name-span {
   font-size: 1.2em;
   padding: 0.8em 0.8em;
   text-transform: uppercase;
@@ -134,7 +134,7 @@ header .dropdown:hover .dropdown-content ul {
     display: block;
   }
 
-  .logo_container {
+  header .logo_container {
     margin-right: 40px;
   }
 

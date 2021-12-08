@@ -27,3 +27,16 @@ ExploreBtnComponent.args = {
   onClick: action('You have clicked the button'),
   backgroundColor: 'gray',
 };
+
+// storybook-controls works with spread, but `Prop spreading is forbidden eslint(react/jsx-props-no-spreading)`
+// eslint-disable-next-line
+export const KeepShoppingBtnComponent = (args) => (
+  <ButtonComponent2 {...args} />
+);
+KeepShoppingBtnComponent.args = {
+  title: 'KEEP SHOPPING',
+  onClick: action('You have clicked the button'),
+  backgroundColor: 'white',
+  color: '#8E0EF2',
+  border: 'solid 1px',
+};

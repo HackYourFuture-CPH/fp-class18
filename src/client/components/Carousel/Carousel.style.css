@@ -7,13 +7,13 @@
   column-gap: 4px;
 }
 
-.image {
+.slider .image {
   width: 350px;
   height: 300px;
 }
 
-.left-arrow,
-.right-arrow {
+.slider .left-arrow,
+.slider .right-arrow {
   position: absolute;
   z-index: 1;
   top: 50%;
@@ -26,20 +26,20 @@
   border: none;
 }
 
-.left-arrow {
+.slider .left-arrow {
   left: 1px;
 }
 
-.right-arrow {
+.slider .right-arrow {
   right: 1px;
 }
 
-.slide {
+.slider .slide {
   opacity: 0;
   transition-duration: 1s ease;
 }
 
-.slide.active {
+.slider .slide.active {
   opacity: 1;
   transition-duration: 1s;
   transform: scale(1.08);

@@ -4,18 +4,18 @@
   border: 1px solid rgb(245, 240, 240);
 }
 
-.wrapper-content {
+.wrapper .wrapper-content {
   padding: 0 1.2rem;
   font-size: 1rem;
 }
 
-.row {
+.wrapper .row {
   display: flex;
   justify-content: space-between;
   padding: 0.4rem 0;
 }
 
-.text-right {
+.wrapper .text-right {
   text-align: right;
 }
 
@@ -24,6 +24,6 @@
   padding-left: 1.2rem;
 }
 
-.wrapper-content .line {
+.wrapper .wrapper-content .line {
   border-top: 1px solid lightgray;
 }
