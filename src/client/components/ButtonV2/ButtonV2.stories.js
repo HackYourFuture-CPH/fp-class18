@@ -30,8 +30,7 @@ ExploreBtnComponent.args = {
 
 // storybook-controls works with spread, but `Prop spreading is forbidden eslint(react/jsx-props-no-spreading)`
 // eslint-disable-next-line
-export const KeepShoppingBtnComponent = (args) => (
-  <ButtonComponent2 {...args} />
+export const KeepShoppingBtnComponent = (args) => (<ButtonComponent2 {...args} />
 );
 KeepShoppingBtnComponent.args = {
   title: 'KEEP SHOPPING',
