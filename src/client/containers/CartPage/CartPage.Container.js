@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
@@ -51,7 +52,6 @@ const CartPageContainer = ({ isAuthenticated }) => {
   }, [shoppingCart]);
 
   React.useEffect(() => {
-    // eslint-disable-next-line no-return-assign
     const totalCost = cartItem.reduce(
       (acc, item) => (acc += item.price * item.quantity),
       0,
