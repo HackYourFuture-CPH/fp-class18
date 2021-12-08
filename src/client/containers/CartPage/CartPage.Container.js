@@ -21,10 +21,34 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [total, setTotal] = React.useState(0);
 
   const [user, setUser] = React.useState({});
+  const [favorite, setFavorite] = React.useState([]);
   const { auth } = useFirebase();
 
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const history = useHistory();
+
+  const userId = (isAuthenticated && auth.currentUser.uid) || '';
+
+  const userInfo = useFetchApi(`users/${userId}`);
+  React.useEffect(() => {
+    if (!userInfo.isLoading) {
+      setUser(userInfo.data[0]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInfo]);
+
+  //const favInfo = useFetchApi(`users/${userId}/favorites`)
+
+  React.useEffect(() => {
+    if (userId) {
+      fetch(`/api/users/${userId}/favorites`)
+        .then((res) => res.json())
+        .then((data) => {
+          setFavorite(data);
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
 
   React.useEffect(() => {
     Promise.all(
@@ -71,16 +95,15 @@ const CartPageContainer = ({ isAuthenticated }) => {
     changeProductQuantity(productId, 0);
   };
 
-  const userId = (isAuthenticated && auth.currentUser.uid) || '';
-
-  const userInfo = useFetchApi(`users/${userId}`);
-
-  React.useEffect(() => {
-    if (!userInfo.isLoading) {
-      setUser(userInfo.data[0]);
+  const checkFavortie = (productId) => {
+    if (favorite.length > 0) {
+      const fav =
+        favorite.filter((item) => item.id === parseInt(productId)).length > 0;
+      console.log(fav);
+      return fav;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInfo]);
+    return false;
+  };
 
   const showCartItems = () => {
     if (cartItem.length === 0) {
@@ -90,6 +113,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
     return cartItem.map((item, index) => {
       return (
         <ShoppingItem
+          productId={item.productId}
           productName={item.name}
           quantity={item.stock_amount}
           price={item.price}
@@ -99,6 +123,8 @@ const CartPageContainer = ({ isAuthenticated }) => {
             getItemQuantity(index, value);
           }}
           onDelete={() => handleOnDeleteItem(index)}
+          userId={userId}
+          isFavorite={checkFavortie(item.productId)}
         />
       );
     });
