@@ -49,7 +49,7 @@ const updateStockAmount = async (productid, quantity) => {
     }
     const stockAmount = Number(quantities[0].stock_amount);
     if (stockAmount < quantity || stockAmount === 0) {
-      throw new Error(`Incorrect entry with the id of ${id}`, 404);
+      throw new Error(`Incorrect entry with the id of ${productid}`, 404);
     } else {
       const newStockAmount = stockAmount - quantity;
       return knex('products').where({ id: productid }).update({
