@@ -69,25 +69,40 @@ router.get('/:id', (req, res, next) => {
  *  patch:
  *    tags:
  *    - Products
- *    summary: Update stock amount
+ *    summary: Get product by ID
  *    description:
- *      Will update stock amount.
+ *      Will return single product with a matching ID.
  *    produces: application/json
  *    parameters:
- *      - in: path
- *        name: ID
- *        description: ID of the product to patch.
- *
+ *     - in: path
+ *       name: ID
+ *       schema:
+ *         type: integer
+ *         required: true
+ *         description: The ID of the product to get
+ *     - in: body
+ *       name: quantity
+ *       description: The quantity of the product to get
+ *       schema:
+ *         type: object
+ *         properties:
+ *           quantity:
+ *             type: integer
+ *       required: true
  *    responses:
  *      200:
- *        description: stock amount was patched
+ *        description: Successful request
  *      5XX:
  *        description: Unexpected error.
+ *      400:
+ *        description: ID is not a number.
+ *      404:
+ *        description: ID not found.
  */
 
 router.patch('/:id', (req, res, next) => {
   productsController
-    .updateStockAmount(req.params.id)
+    .updateStockAmount(req.params.id, req.body.quantity)
     .then((result) => res.json(result))
     .catch(next);
 });
