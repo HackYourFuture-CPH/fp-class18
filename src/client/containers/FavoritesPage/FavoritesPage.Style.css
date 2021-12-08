@@ -26,7 +26,7 @@
   width: 8rem;
 }
 
-.favorites-error {
+.list .favorites-error {
   height: 10rem;
   text-align: center;
   margin: auto;

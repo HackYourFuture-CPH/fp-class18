@@ -22,6 +22,17 @@ export const Menu = ({ isAuthenticated }) => {
       ? JSON.parse(localStorage.getItem('user')).uid
       : isAuthenticated && `${auth.currentUser.uid}`;
   }
+  React.useEffect(() => {
+    document.querySelector('.nav-links').addEventListener('click', function () {
+      document.getElementById('nav-check').checked = !document.getElementById(
+        'nav-check',
+      ).checked;
+    });
+  }, []);
+
+  // const hideMenu = () =>{
+  //   document.addEventListener(onClick, );
+  // }
 
   return (
     <nav>
@@ -87,39 +98,45 @@ export const Menu = ({ isAuthenticated }) => {
               <div className="dropdown-content">
                 <ul>
                   <li>
-                    <Link className="text-link" to="/category/furniture">
+                    <Link
+                      className="text-link text-link2"
+                      to="/category/furniture"
+                    >
                       FURNITURE
                     </Link>
                   </li>
                   <li>
-                    <Link className="text-link" to="/category/lamps">
+                    <Link className="text-link text-link2" to="/category/lamps">
                       LAMPS
                     </Link>
                   </li>
                   <li>
-                    <Link className="text-link" to="/category/home decor">
+                    <Link
+                      className="text-link text-link2"
+                      to="/category/home decor"
+                    >
                       HOME DECOR
                     </Link>
                   </li>
                   <li>
-                    <Link className="text-link" to="/category/linen">
+                    <Link className="text-link text-link2" to="/category/linen">
                       LINEN
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
-            <Link to="/monthly-arrivals">
+            <Link to="/monthly-arrivals" className="text-link2">
               <button type="submit" className="dropbtn">
                 MONTHLY ARRIVALS
               </button>
             </Link>
-            <Link to="/about-us">
+            <Link to="/about-us" className="text-link2">
               <button type="submit" className="dropbtn">
                 ABOUT
               </button>
             </Link>
-            <Link to="/contact-us">
+            <Link to="/contact-us" className="text-link2">
               <button type="submit" className="dropbtn">
                 CONTACT US
               </button>
