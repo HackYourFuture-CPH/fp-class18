@@ -1,9 +1,9 @@
-.wrapperTotalPrice {
+.wrapper-total-price {
   width: 17rem;
   height: 11.5rem;
 }
 
-.wrapperContentTotalPrice {
+.wrapper-content-total-price {
   padding: 0 1.2rem;
   font-size: 1rem;
 }
@@ -14,15 +14,16 @@
   padding: 0.4rem 0;
 }
 
-.text-right {
+.total-amount {
   text-align: right;
 }
 
-.wrapperTotalPrice h3 {
+.wrapper-total-price h3 {
   font-size: 1.3rem;
   padding-left: 1.2rem;
 }
 
-.wrapperContentTotalPrice .line {
+.wrapper-content-total-price .border{
   border-top: 1px solid lightgray;
 }
+
