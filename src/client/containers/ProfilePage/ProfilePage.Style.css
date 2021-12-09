@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.profilepage h1 {
+  padding-left: 2%;
+}
+
 .profilepage .wrapperContact .titleContact {
   font-weight: bolder;
   font-size: 1.4em;

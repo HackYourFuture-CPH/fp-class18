@@ -63,9 +63,10 @@ header .navbar .dropbtn {
 }
 
 header .name-span {
-  font-size: 1.2em;
+  font-size: 1.6em;
   padding: 0.8em 0.8em;
   text-transform: uppercase;
+  vertical-align: top;
 }
 
 header .acc-btn {
