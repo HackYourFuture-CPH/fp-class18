@@ -1,65 +1,78 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import './CartPage.Style.css';
-import { useParams } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader.component';
 import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
-import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
 import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
 import ContactForm from '../../components/ContactForm/ContactForm.component';
 import ButtonComponent from '../../components/Button/Button.component';
-import { useFetchApi } from '../../hooks/UseFetchApi';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import { PropTypes } from 'prop-types';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
+import { useHistory } from 'react-router-dom';
 
 const CartPageContainer = ({ isAuthenticated }) => {
   const [cartItem, setCartItem] = React.useState([]);
-  const [user, setUser] = React.useState({});
-  const [userId, setUserId] = React.useState('');
+  const [IsLoading, setIsLoading] = React.useState(true);
   const [total, setTotal] = React.useState(0);
-  const [itemCost, setItemCost] = React.useState([]);
-  const { id } = useParams();
   const { auth } = useFirebase();
 
-  const orderData = useFetchApi(`orders/${id}`);
+  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
+  const history = useHistory();
+
+  React.useEffect(() => {
+    Promise.all(
+      Object.keys(shoppingCart).map((productId) => {
+        return fetch(`api/products/${productId}`)
+          .then((res) => res.json())
+          .then((data) => {
+            const newsItem = {
+              // eslint-disable-next-line object-shorthand
+              productId: productId,
+              quantity: shoppingCart[productId],
+              name: data[0].name,
+              picture: data[0].picture,
+              price: data[0].price,
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              stock_amount: data[0].stock_amount,
+            };
+            return newsItem;
+          });
+      }),
+    ).then((data) => {
+      setCartItem(data);
+      setIsLoading(false);
+    });
+  }, [shoppingCart]);
 
   React.useEffect(() => {
     let totalCost = 0;
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < itemCost.length; i++) {
-      totalCost += itemCost[i];
+    for (let i = 0; i < cartItem.length; i++) {
+      // eslint-disable-next-line operator-assignment
+      totalCost = totalCost + cartItem[i].price * cartItem[i].quantity;
     }
     setTotal(totalCost);
-  }, [itemCost]);
+  }, [cartItem]);
 
-  const getItemCost = (index, value) => {
-    itemCost[index] = value;
-    const newItemCost = [...itemCost];
-    setItemCost(newItemCost);
+  const getItemQuantity = (index, value) => {
+    // eslint-disable-next-line prefer-destructuring
+    const productId = cartItem[index].productId;
+    changeProductQuantity(productId, value);
   };
 
-  React.useEffect(() => {
-    if (!orderData.isLoading) {
-      setCartItem(orderData.data.items);
-      setUserId(orderData.data.order.userId);
-    }
-  }, [orderData]);
-
-  const userInfo = useFetchApi(`users/${userId}`);
-
-  React.useEffect(() => {
-    if (!userInfo.isLoading) {
-      setUser(userInfo.data[0]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInfo]);
-
+  const handleOnDeleteItem = (index) => {
+    // eslint-disable-next-line prefer-destructuring
+    const productId = cartItem[index].productId;
+    changeProductQuantity(productId, 0);
+  };
   return (
     <div>
       <h1>SHOPPING CART</h1>
       <div className="main">
         <div className="left">
           <div className="item-list">
-            {orderData.isLoading ? (
+            {IsLoading ? (
               <Loader />
             ) : (
               cartItem.map((item, index) => {
@@ -70,19 +83,13 @@ const CartPageContainer = ({ isAuthenticated }) => {
                     price={item.price}
                     productImg={item.picture}
                     initValue={item.quantity}
-                    getCost={(value) => {
-                      getItemCost(index, value);
+                    getQuantity={(value) => {
+                      getItemQuantity(index, value);
                     }}
+                    onDelete={() => handleOnDeleteItem(index)}
                   />
                 );
               })
-            )}
-          </div>
-          <div className="delivery-info">
-            {userInfo.isLoading ? (
-              <Loader />
-            ) : (
-              <DeliveryInfo editMode={true} vertDisplay={false} user={user} />
             )}
           </div>
         </div>
@@ -103,7 +110,10 @@ const CartPageContainer = ({ isAuthenticated }) => {
               <ButtonComponent title="REVIEW ORDER" />
             </div>
             <div className="shopping-btn">
-              <ButtonComponent title="KEEP SHOPPING" />
+              <ButtonComponent
+                title="KEEP SHOPPING"
+                onClick={() => history.push('/')}
+              />
             </div>
           </div>
         </div>

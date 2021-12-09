@@ -12,13 +12,15 @@ export default function ShoppingItem({
   price,
   initValue,
   isDisable,
-  getCost,
+  getQuantity,
+  onDelete,
 }) {
   const [itemValue, setItemValue] = useState(initValue);
   React.useEffect(() => {
-    getCost(itemValue * price);
+    getQuantity(itemValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemValue]);
+
   const textColor = isDisable ? '#d3d3d3' : 'black';
   return (
     <div className="shopping-item">
@@ -40,7 +42,7 @@ export default function ShoppingItem({
             <button
               disabled={isDisable}
               type="button"
-              onCLick=""
+              onClick={onDelete}
               className="remove"
             >
               <Trash
@@ -84,11 +86,12 @@ ShoppingItem.propTypes = {
   price: PropTypes.number.isRequired,
   initValue: PropTypes.number,
   isDisable: PropTypes.bool,
-  getCost: PropTypes.func,
+  getQuantity: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
 };
 
 ShoppingItem.defaultProps = {
   initValue: 1,
   isDisable: false,
-  getCost: (value) => value,
+  getQuantity: (value) => value,
 };
