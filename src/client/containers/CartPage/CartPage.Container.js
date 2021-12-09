@@ -111,6 +111,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
     return cartItem.map((item, index) => {
       return (
         <ShoppingItem
+          key={item.productId}
           productId={item.productId}
           productName={item.name}
           quantity={item.stock_amount}
