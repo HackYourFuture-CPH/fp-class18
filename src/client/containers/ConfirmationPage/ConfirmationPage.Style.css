@@ -1,4 +1,4 @@
-.wrapper {
+.confirmationPage .wrapper {
   width: 90%;
   height: 20%;
   display: flex;
@@ -6,11 +6,11 @@
   border: none;
 }
 
-.wrapper h3 {
+.confirmationPage .wrapper h3 {
   margin-left: 6rem;
 }
 
-.wrapper-content {
+.confirmationPage .wrapper-content {
   width: 90%;
   font-size: 1.2rem;
   padding: 2rem 0 2rem 4rem;
@@ -18,7 +18,7 @@
   background-color: lightgray;
 }
 
-.btn {
+.confirmationPage .btn {
   margin-top: 1rem;
   margin-left: 40%;
 }

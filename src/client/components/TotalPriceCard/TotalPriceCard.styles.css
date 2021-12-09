@@ -1,29 +1,29 @@
-.wrapper {
+.wrapper-total-price {
   width: 17rem;
   height: 11.5rem;
-  border: 1px solid rgb(245, 240, 240);
 }
 
-.wrapper-content {
+.wrapper-total-price .wrapper-content-total-price {
   padding: 0 1.2rem;
   font-size: 1rem;
 }
 
-.row {
+.wrapper-total-price .row {
   display: flex;
   justify-content: space-between;
   padding: 0.4rem 0;
 }
 
-.text-right {
+.wrapper-total-price .total-amount {
   text-align: right;
 }
 
-.wrapper h3 {
+.wrapper-total-price h3 {
   font-size: 1.3rem;
   padding-left: 1.2rem;
 }
 
-.wrapper-content .line {
+.wrapper-total-price .wrapper-content-total-price .border{
   border-top: 1px solid lightgray;
 }
+

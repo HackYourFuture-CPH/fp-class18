@@ -23,7 +23,7 @@ const LandingPageContainer = () => {
       <div className="hero-image">
         <HeroImage heroText="WELCOME" />
       </div>
-      <h2>MONTHLY ARRIVALS</h2>
+      <h1>MONTHLY ARRIVALS</h1>
       <div>
         {products.isLoading ? (
           <Loader />

@@ -18,7 +18,7 @@ const FavoritesPageContainer = (isAuthenticated) => {
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
   return (
-    <div>
+    <div className="favoritesPage">
       <h1 className="h1-favorites">MY FAVORITES</h1>
       <div className="list">
         {favorites.isLoading ? (

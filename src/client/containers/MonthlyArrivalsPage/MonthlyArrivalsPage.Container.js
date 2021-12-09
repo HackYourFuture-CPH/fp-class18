@@ -13,7 +13,7 @@ const MonthlyArrivalsPageContainer = ({ isAuthenticated }) => {
   const { auth } = useFirebase();
 
   return (
-    <div>
+    <div className="monthlyArrivalsPage">
       <h1>MONTHLY ARRIVALS</h1>
       <div className="list">
         {monthlyArrivals.isLoading ? (

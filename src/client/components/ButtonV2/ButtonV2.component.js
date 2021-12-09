@@ -7,6 +7,8 @@ export default function ButtonComponent2({
   backgroundColor,
   onClick,
   size = 'md',
+  color,
+  border,
 }) {
   let scale = 1;
   if (size === 'sm') scale = 0.75;
@@ -14,25 +16,14 @@ export default function ButtonComponent2({
   const style = {
     backgroundColor,
     padding: `${scale * 0.5}rem ${scale * 1}rem`,
-    border: 'none',
+    border,
+    color,
   };
   return (
     <button type="button" onClick={onClick} style={style} className="button2">
       {title}
     </button>
   );
-  // return (
-  //   <div className="button-component">
-  //     <button
-  //       type="button"
-  //       onClick={onClick}
-  //       className="button2"
-  //       style={{ backgroundColor }}
-  //     >
-  //       {title}
-  //     </button>
-  //   </div>
-  // );
 }
 
 ButtonComponent2.propTypes = {
@@ -40,6 +31,8 @@ ButtonComponent2.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   onClick: PropTypes.func,
   backgroundColor: PropTypes.string,
+  color: PropTypes.string,
+  border: PropTypes.string,
 };
 
 ButtonComponent2.defaultProps = {
@@ -48,4 +41,6 @@ ButtonComponent2.defaultProps = {
   },
   backgroundColor: '#8E0EF2',
   size: 'md',
+  color: 'white',
+  border: 'none',
 };
