@@ -36,7 +36,7 @@
   margin-right: 20px;
 }
 
-.cartPage .right {
+.right {
   display: flex;
   flex-direction: column;
   margin: 5px 0;
@@ -108,12 +108,12 @@
   margin: 20px 0;
 }
 
-.cartPage .shopping-btn {
+.shopping-btn {
   text-align: center;
   margin: 20px 0;
 }
 
-.shopping-btn button {
+.shopping-btn .button-component button {
   color: #8e0ef2;
   border: 1px solid #8e0ef2;
 }
