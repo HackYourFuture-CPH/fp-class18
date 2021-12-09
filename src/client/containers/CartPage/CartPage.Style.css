@@ -36,7 +36,7 @@
   margin-right: 20px;
 }
 
-.right {
+.cartPage .right {
   display: flex;
   flex-direction: column;
   margin: 5px 0;
@@ -108,7 +108,7 @@
   margin: 20px 0;
 }
 
-.shopping-btn {
+.cartPage .shopping-btn {
   text-align: center;
   margin: 20px 0;
 }
