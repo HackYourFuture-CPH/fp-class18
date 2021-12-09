@@ -126,3 +126,22 @@
 .orderpage .order-page-container .wrapperDelivery .form label {
   width: 100%;
 }
+
+.wrapperContact .formContact {
+  background-color: #fff;
+  border: 1px solid #fff;
+  font-size: 16px;
+  grid-gap: 16px;
+}
+
+.wrapperDelivery .formDelivery {
+  grid-gap: 2px;
+}
+
+.wrapperDelivery {
+  border: 1px solid #fff;
+}
+
+.wrapper-content {
+background-color: white;
+}
