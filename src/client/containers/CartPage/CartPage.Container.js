@@ -67,7 +67,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
     changeProductQuantity(productId, 0);
   };
   return (
-    <div>
+    <div className="cartPage">
       <h1>SHOPPING CART</h1>
       <div className="main">
         <div className="left">

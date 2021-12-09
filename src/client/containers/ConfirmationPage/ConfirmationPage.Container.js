@@ -7,7 +7,7 @@ import { useFirebase } from '../../firebase/FirebaseContext';
 const ConfirmationPageContainer = ({ isAuthenticated, id }) => {
   const { auth } = useFirebase();
   return (
-    <>
+    <div className="confirmationPage">
       <div className="wrapper">
         <div>
           <h3>ORDER CONFIRMATION</h3>
@@ -31,7 +31,7 @@ const ConfirmationPageContainer = ({ isAuthenticated, id }) => {
           }}
         />
       </div>
-    </>
+    </div>
   );
 };
 ConfirmationPageContainer.propTypes = {
