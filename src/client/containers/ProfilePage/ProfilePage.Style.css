@@ -1,17 +1,17 @@
-.profilepage .delivery-contact {
+.profilePage .delivery-contact {
   display: flex;
 }
 
-.profilepage h1 {
+.profilePage h1 {
   padding-left: 2%;
 }
 
-.profilepage .wrapperContact .titleContact {
+.profilePage .wrapperContact .titleContact {
   font-weight: bolder;
   font-size: 1.4em;
 }
 
-.profilepage .wrapperContact .formContact {
+.profilePage .wrapperContact .formContact {
   width: 30em;
   height: 15em;
   font-size: 1.3em;
@@ -20,54 +20,54 @@
   border: 1px solid #c1c1c1;
 }
 
-.profilepage .delivery .wrapperDelivery .titleDelivery {
+.profilePage .delivery .wrapperDelivery .titleDelivery {
   font-weight: bolder;
   font-size: 1.8em;
   margin-left: 1em;
 }
 
-.profilepage .delivery .wrapperDelivery {
+.profilePage .delivery .wrapperDelivery {
   height: 20em;
   width: 51em;
 }
 
-.profilepage .wrapperDelivery .formDelivery {
+.profilePage .wrapperDelivery .formDelivery {
   width: 45em;
   height: 20em;
 }
 
-.profilepage .delivery {
+.profilePage .delivery {
   margin: 1.6em 2em 0 5em;
 }
 
-.profilepage .purchases .container {
+.profilePage .purchases .container {
   margin-top: 3em;
   column-gap: 5em;
 }
 
 @media screen and (max-width: 90em) {
-  .profilepage .wrapperContact .formContact {
+  .profilePage .wrapperContact .formContact {
     height: 15em;
     width: 25em;
   }
 
-  .profilepage .wrapperDelivery .formDelivery {
+  .profilePage .wrapperDelivery .formDelivery {
     font-size: 1em;
     width: 40em;
     height: 20em;
   }
 
-  .profilepage .delivery .wrapperDelivery {
+  .profilePage .delivery .wrapperDelivery {
     height: 20em;
     width: 40em;
   }
 
-  .profilepage .delivery {
+  .profilePage .delivery {
     max-width: fit-content;
     margin-left: 8em;
   }
 
-  .profilepage .purchases .container {
+  .profilePage .purchases .container {
     display: flexbox;
     max-width: fit-content;
     column-gap: 1em;
@@ -75,28 +75,28 @@
 }
 
 @media screen and (max-width: 85em) {
-  .profilepage .wrapperContact .formContact {
+  .profilePage .wrapperContact .formContact {
     height: 15em;
     width: 25em;
   }
 
-  .profilepage .wrapperDelivery .formDelivery {
+  .profilePage .wrapperDelivery .formDelivery {
     font-size: 1em;
     width: 40em;
     height: 20em;
   }
 
-  .profilepage .delivery .wrapperDelivery {
+  .profilePage .delivery .wrapperDelivery {
     height: 20em;
     width: 40em;
   }
 
-  .profilepage .delivery {
+  .profilePage .delivery {
     max-width: fit-content;
     margin-left: 8em;
   }
 
-  .profilepage .purchases .container {
+  .profilePage .purchases .container {
     display: flexbox;
     max-width: fit-content;
     column-gap: 1em;
@@ -104,16 +104,16 @@
 }
 
 @media screen and (max-width: 70em) {
-  .profilepage .delivery-contact {
+  .profilePage .delivery-contact {
     display: block;
   }
 
-  .profilepage .delivery {
+  .profilePage .delivery {
     margin-left: 8em;
     max-width: fit-content;
   }
 
-  .profilepage .purchases .container {
+  .profilePage .purchases .container {
     display: flexbox;
     max-width: fit-content;
     column-gap: 1em;
