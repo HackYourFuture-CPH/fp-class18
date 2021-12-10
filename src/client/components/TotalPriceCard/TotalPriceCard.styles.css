@@ -1,6 +1,7 @@
 .wrapper-total-price {
-  width: 17rem;
+  width: 20rem;
   height: 11.5rem;
+  background: white;
 }
 
 .wrapper-total-price .wrapper-content-total-price {
@@ -27,3 +28,19 @@
   border-top: 1px solid lightgray;
 }
 
+/* @media screen and (max-width: 850px) {
+  .wrapper-total-price{
+    width: auto;
+    max-width: 17rem;
+    text-align: center;
+  }
+  .wrapper-total-price .row {
+    flex-direction: column;
+  }
+  .wrapper-total-price .label{
+    font-weight: bold;
+  }
+  .wrapper-total-price .total-amount{
+    text-align: center;
+  }
+} */

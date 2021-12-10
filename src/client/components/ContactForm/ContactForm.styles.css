@@ -2,7 +2,7 @@
   display: grid;
   padding: 1em;
   margin: 0.5em auto 0 auto;
-  max-width: 400em;
+  max-width: 20rem;
   padding-bottom: 1.4em;
 }
 
@@ -36,5 +36,8 @@
     grid-row: 3;
     text-align: left;
     padding-bottom: inherit;
+  }
+  .wrapperContact label{
+    word-wrap: break-word;
   }
 }

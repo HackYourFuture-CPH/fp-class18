@@ -19,8 +19,6 @@
 .cartPage .right {
   display: flex;
   flex-direction: column;
-
-  /* justify-content: space-evenly; */
 }
 
 .cartPage h1 {
@@ -46,4 +44,22 @@
 .cartPage .shopping-btn {
   text-align: center;
   margin: 20px 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .cartPage .main {
+    width: 100%;
+  }
+  .cartPage .right{
+    margin-left: 1em;
+  }
+}
+
+@media screen and (max-width: 870px){
+  .cartPage .main{
+    flex-direction: column;
+  }
+  .cartPage .right {
+    align-items: center;
+  }
 }

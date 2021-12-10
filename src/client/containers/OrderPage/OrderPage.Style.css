@@ -30,7 +30,7 @@
   flex-direction: column;
   background-color: #fff;
   margin: 5px 0;
-  width: 30%;
+  width: auto;
   margin-left: 20px;
 }
 
@@ -116,11 +116,8 @@
 }
 
 .orderpage .total {
-  margin-top: 50px;
-  margin-left: 30px;
-  margin-right: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 50px 30px 0 30px;
+  padding: 0 20px;
 }
 
 .orderpage .order-page-container .wrapperDelivery .form label {
@@ -143,5 +140,83 @@
 }
 
 .wrapper-content {
-background-color: white;
+  background-color: white;
+}
+
+@media screen and (max-width: 1400px) {
+  .orderpage .total {
+    margin: 5px 5px 0 5px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .orderpage .shopping-item .quantity-component {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .orderpage .top {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  .orderpage .left {
+    width: 100%;
+  }
+
+  .orderpage .right {
+    margin-left: 0;
+    align-items: center;
+    padding-bottom: 1em;
+  }
+
+  .orderpage .botton {
+    margin-left: -1em;
+  }
+
+  .orderpage .delivery {
+    width: 50%;
+  }
+
+  .orderpage .contact {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .orderpage .botton {
+    flex-direction: column;
+  }
+
+  .orderpage .delivery {
+    width: 109%;
+  }
+
+  .orderpage .contact {
+    width: 109%;
+    margin-left: 0;
+  }
+
+  .orderpage .right {
+    margin-left: 0;
+    align-items: center;
+    padding-bottom: 1em;
+  }
+
+  .orderpage .wrapperDelivery {
+    width: fit-content;
+    font-size: 14px;
+    height: fit-content;
+  }
+
+  .orderpage .wrapperDelivery .formDelivery{
+    width: 100%;
+  }
+
+  .orderpage .formContact {
+    grid-template-columns: 0;
+    margin: 3rem 0 0 0;
+  }
 }
