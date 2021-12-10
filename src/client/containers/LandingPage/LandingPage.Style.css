@@ -15,3 +15,8 @@ main .footer {
 main .product-view h3 {
   text-align: center;
 }
+
+main h1 {
+  text-align: center;
+  padding-bottom: 1%;
+}

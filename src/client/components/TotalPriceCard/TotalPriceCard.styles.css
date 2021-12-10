@@ -3,18 +3,18 @@
   height: 11.5rem;
 }
 
-.wrapper-content-total-price {
+.wrapper-total-price .wrapper-content-total-price {
   padding: 0 1.2rem;
   font-size: 1rem;
 }
 
-.row {
+.wrapper-total-price .row {
   display: flex;
   justify-content: space-between;
   padding: 0.4rem 0;
 }
 
-.total-amount {
+.wrapper-total-price .total-amount {
   text-align: right;
 }
 
@@ -23,7 +23,6 @@
   padding-left: 1.2rem;
 }
 
-.wrapper-content-total-price .border{
+.wrapper-total-price .wrapper-content-total-price .border {
   border-top: 1px solid lightgray;
 }
-

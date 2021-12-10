@@ -62,10 +62,11 @@ header .navbar .dropbtn {
   cursor: pointer;
 }
 
-.name-span {
-  font-size: 1.2em;
+header .name-span {
+  font-size: 1.6em;
   padding: 0.8em 0.8em;
   text-transform: uppercase;
+  vertical-align: top;
 }
 
 header .acc-btn {
@@ -149,7 +150,7 @@ header .badge {
     display: block;
   }
 
-  .logo_container {
+  header .logo_container {
     margin-right: 40px;
   }
 

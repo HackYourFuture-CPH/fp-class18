@@ -5,17 +5,17 @@ import './404Page.Style.css';
 const Page404Container = () => {
   return (
     <>
-      <section className="page_404">
-        <div className="page_bg">
+      <section className="page404">
+        <div className="pageBg">
           <h1>404: NOT FOUND</h1>
         </div>
 
-        <div className="page_deatails">
+        <div className="pageDetails">
           <h3>Looks like... you are lost</h3>
 
           <p>the page you are looking for is not available!</p>
 
-          <Link to="/" className="link_404">
+          <Link to="/" className="link404">
             Go to Home
           </Link>
         </div>

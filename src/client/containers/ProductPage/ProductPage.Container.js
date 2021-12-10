@@ -8,7 +8,6 @@ import './ProductPage.Style.css';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import Page404Container from '../404Page/404Page.Container';
 import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
-import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 import { useFirebase } from '../../firebase/FirebaseContext';
 
 const ProductPageContainer = ({ isAuthenticated }) => {
@@ -17,7 +16,6 @@ const ProductPageContainer = ({ isAuthenticated }) => {
   const [product, setProduct] = React.useState({});
   const [category, setCategory] = React.useState('');
   const [similarProduct, setSimilarProduct] = React.useState([]);
-  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
   const productData = useFetchApi(`products/${id}`);
 
@@ -64,15 +62,6 @@ const ProductPageContainer = ({ isAuthenticated }) => {
                 Price={parseInt(product.price, 10)}
                 productColor={product.color}
                 productSize={product.size}
-                onClick={() => {
-                  if (product) {
-                    // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
-                    const newQuantity = shoppingCart[product.id]
-                      ? shoppingCart[product.id] + 1
-                      : 1;
-                    changeProductQuantity(product, newQuantity);
-                  }
-                }}
               />
             ) : (
               <Page404Container />
