@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable radix */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
@@ -23,11 +24,11 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [user, setUser] = React.useState({});
   const [favorite, setFavorite] = React.useState([]);
   const { auth } = useFirebase();
-
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const history = useHistory();
   const userId = (isAuthenticated && auth.currentUser.uid) || '';
   const userInfo = useFetchApi(`users/${userId}`);
+
   const handleReviewOrder = () => {
     fetch(`/api/orders`, {
       method: 'POST',
@@ -41,7 +42,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
       }),
     }).then((response) => {
       if (response.ok) {
-        console.log('Success: added to orders');
+        console.log('Success: Order created successfully');
       } else {
         throw new Error(response.status);
       }
@@ -54,12 +55,11 @@ const CartPageContainer = ({ isAuthenticated }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const newId = data[data.length - 1].id;
-        console.log(newId);
         window.location.href = `/order/${newId}`;
       });
   };
+
   React.useEffect(() => {
     if (!userInfo.isLoading) {
       setUser(userInfo.data[0]);
