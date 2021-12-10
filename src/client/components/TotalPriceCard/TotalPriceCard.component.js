@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './TotalPriceCard.styles.css';
 
 const TotalPrice = ({ subTotal }) => {
-  const delivering = subTotal >= 1000 ? 0 : 49.99;
+  const delivering = subTotal === 0 || subTotal >= 1000 ? 0 : 49.99;
   const grandTotal = subTotal > 0 ? subTotal + delivering : 0;
   return (
     <>
