@@ -20,17 +20,46 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [cartItem, setCartItem] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [total, setTotal] = React.useState(0);
-
   const [user, setUser] = React.useState({});
   const [favorite, setFavorite] = React.useState([]);
   const { auth } = useFirebase();
 
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const history = useHistory();
-
   const userId = (isAuthenticated && auth.currentUser.uid) || '';
-
   const userInfo = useFetchApi(`users/${userId}`);
+  const handleReviewOrder = () => {
+    fetch(`/api/orders`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user_id: `${userId}`,
+        items: cartItem,
+      }),
+    }).then((response) => {
+      if (response.ok) {
+        console.log('Success: added to orders');
+      } else {
+        throw new Error(response.status);
+      }
+    });
+    fetch(`api/orders/user/${userId}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json, text/plain, */*',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const newId = data[data.length - 1].id;
+        console.log(newId);
+        window.location.href = `/order/${newId}`;
+      });
+  };
   React.useEffect(() => {
     if (!userInfo.isLoading) {
       setUser(userInfo.data[0]);
@@ -168,7 +197,10 @@ const CartPageContainer = ({ isAuthenticated }) => {
             </div>
             <div className="buttons">
               <div className="review-btn">
-                <ButtonComponent title="REVIEW ORDER" />
+                <ButtonComponent
+                  title="REVIEW ORDER"
+                  onClick={handleReviewOrder}
+                />
               </div>
               <div className="shopping-btn">
                 <ButtonComponent

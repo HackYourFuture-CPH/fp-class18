@@ -29,7 +29,12 @@ const OrderPageContainer = ({ isAuthenticated }) => {
     }
   }, [newItems]);
 
-  const userInfo = useFetchApi(`users/${order.userId}`);
+  const userInfo = useFetchApi(
+    `users/${
+      (isAuthenticated && auth.currentUser.uid) ||
+      localStorage.getItem('user').uid
+    }`,
+  );
 
   React.useEffect(() => {
     if (!userInfo.isLoading && !newItems.isLoading) {
