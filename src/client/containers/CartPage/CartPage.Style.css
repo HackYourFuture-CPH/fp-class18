@@ -1,49 +1,123 @@
-.cartPage .main {
+.cart-page .cart-page-containter {
   display: flex;
+  flex-direction: column;
   padding: 10px;
   justify-content: space-around;
   background-color: #f7f5f5;
   margin: auto;
-  width: 80%;
+  width: 90%;
 }
 
-.cartPage .left {
-  display: flex;
-  flex-direction: column;
+.cart-page .header {
+  margin: auto;
+  width: 90%;
 }
 
-.cartPage .delivery-info {
-  margin: 20px 0;
-}
-
-.cartPage .right {
-  display: flex;
-  flex-direction: column;
-
-  /* justify-content: space-evenly; */
-}
-
-.cartPage h1 {
-  text-align: left;
-  margin: 20px auto;
-  width: 80%;
+.cart-page .header h1 {
   color: black;
+  padding: 10px;
+  margin-left: 0;
 }
 
-.cartPage .total-price {
+.cart-page .top {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  height: 70%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.cart-page .left {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 70%;
+  margin-right: 20px;
+}
+
+.cart-page .right {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 30%;
+  margin-left: 20px;
+}
+
+.cart-page .cart-items {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.cart-page .delivery-info {
   margin: 20px 0;
 }
 
-.cartPage .contact {
+.cart-page .total {
+  background-color: #fff;
+}
+
+.cart-page .total .wrapper .wrapper-content {
+  width: 90%;
+  font-size: 1.2rem;
+  padding: 2rem 0;
+  margin-left: auto;
+  background-color: #fff;
+}
+
+.cart-page .total .wrapper h3 {
+  margin-left: 1rem;
+}
+
+.cart-page .contact {
+  width: 100%;
+  background-color: #fff;
   margin: 20px 0;
 }
 
-.cartPage .review-btn {
+.cart-page .contact .wrapperContact {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.cart-page .contact .wrapperContact .titleContact {
+  font-size: medium;
+}
+
+.cart-page .contact .wrapperContact .fullName {
+  font-size: 1.1rem;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.cart-page .contact .wrapperContact .email {
+  font-size: 1.1rem;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.cart-page .delivery-info .wrapperDelivery {
+  border: none;
+  background-color: #fff;
+  width: 100%;
+}
+
+.cart-page .review-btn {
   text-align: center;
   margin: 20px 0;
 }
 
-.cartPage .shopping-btn {
+.cart-page .shopping-btn {
   text-align: center;
   margin: 20px 0;
+}
+
+.cart-page .shopping-btn .button-component button {
+  color: #8e0ef2;
+  border: 1px solid #8e0ef2;
+}
+
+.cart-page .cart-page-container .wrapperDelivery .form label {
+  width: 100%;
 }
