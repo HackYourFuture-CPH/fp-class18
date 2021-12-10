@@ -135,13 +135,13 @@ header .badgeNumber {
 
 header .badge {
   position: absolute;
-  right: 5.5em;
-  top: 1.3em;
-  background-color: #8E0EF2;
+  right: 4.5em;
+  background-color: #8e0ef2;
   border: none;
+  font-weight: bold;
   border-radius: 100%;
   color: #fff;
-  width: 1.5rem;
+  width: 1.2rem;
 }
 
 @media screen and (max-width: 728px) {

@@ -73,7 +73,7 @@ export const Menu = ({ isAuthenticated }) => {
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
           <div className="badgeNumber">
-            <Link to={'/cart'}>
+            <Link to="/cart">
               <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
               {shoppingCart ? (
                 <button type="button" className="badge">
