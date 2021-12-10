@@ -5,6 +5,7 @@ import ButtonComponent from '../Button/Button.component';
 import './ProductDetails.style.css';
 import Heart from './Heart';
 import ModalComponent from '../Modal/Modal.component';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 export const ProductDetails = ({
   userId,
@@ -15,11 +16,18 @@ export const ProductDetails = ({
   Price,
   productColor,
   productSize,
-  onClick,
   isFavorite,
   imageAlt,
+  getQuantity,
 }) => {
+  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const [checked, setChecked] = React.useState(isFavorite);
+  const [itemValue, setItemValue] = React.useState(1);
+  React.useEffect(() => {
+    getQuantity(itemValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemValue]);
+
   const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
     if (checked) {
@@ -61,9 +69,17 @@ export const ProductDetails = ({
     setChecked(!checked);
   };
   const [isShown, setIsShown] = React.useState(false);
+
+  const handleAddToCart = () => {
+    const newQuantity = shoppingCart[productId]
+      ? shoppingCart[productId] + itemValue
+      : itemValue;
+    changeProductQuantity(productId, newQuantity);
+    setIsShown(!isShown);
+  };
+
   const handleClick = () => {
     setIsShown(!isShown);
-    onClick();
   };
   const handleLink = () => {
     window.location.href = '/cart/';
@@ -120,8 +136,12 @@ export const ProductDetails = ({
             </div>
           </div>
           <div className="input-row">
-            <NumberInput initValue={1} maxAvailable={RemainingUnit} />
-            <ButtonComponent title="ADD TO CART" onClick={handleClick} />
+            <NumberInput
+              initValue={1}
+              maxAvailable={RemainingUnit}
+              getQuantity={setItemValue}
+            />
+            <ButtonComponent title="ADD TO CART" onClick={handleAddToCart} />
             <ModalComponent
               show={isShown}
               handleLink={handleLink}
@@ -143,12 +163,13 @@ ProductDetails.propTypes = {
   Price: PropTypes.number.isRequired,
   productColor: PropTypes.string.isRequired,
   productSize: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   isFavorite: PropTypes.bool,
   imageAlt: PropTypes.string,
+  getQuantity: PropTypes.func,
 };
 
 ProductDetails.defaultProps = {
   imageAlt: 'Product Image',
   isFavorite: true,
+  getQuantity: (value) => value,
 };

@@ -66,7 +66,7 @@ export const Menu = ({ isAuthenticated }) => {
           <Link to={`/users/${getIdIfPresent()}/favorites`}>
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
-          <Link to={`/cart/${getIdIfPresent()}`}>
+          <Link to="/cart">
             <img className="icons" src={faShoppingCart} alt="shoppingcart" />
           </Link>
         </div>
