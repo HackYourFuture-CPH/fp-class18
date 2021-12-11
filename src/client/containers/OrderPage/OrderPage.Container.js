@@ -7,30 +7,31 @@ import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
 import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
 import { useParams, useHistory } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
-import { useFirebase } from '../../firebase/FirebaseContext';
 import { PropTypes } from 'prop-types';
 import './OrderPage.Style.css';
 
-const OrderPageContainer = ({ isAuthenticated }) => {
+const OrderPageContainer = () => {
   const [items, setItems] = React.useState([]);
   const [order, setOrder] = React.useState({});
   const [user, setUser] = React.useState({});
   const [total, setTotal] = React.useState(0);
-  const { id } = useParams();
+  const { id: orderId } = useParams();
   const history = useHistory();
-  const { auth } = useFirebase();
 
-  const newItems = useFetchApi(`orders/${id}`);
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const newItems = useFetchApi(`orders/${orderId}`);
 
   React.useEffect(() => {
     if (!newItems.isLoading) {
+      if (currentUser.uid !== newItems.data.order.userId) {
+        history.push('/order-not-found');
+      }
       setItems(newItems.data.items);
       setOrder(newItems.data.order);
     }
-  }, [newItems]);
+  }, [newItems, order, currentUser, history]);
 
-  const userInfo = useFetchApi(`users/${order.userId}`);
-
+  const userInfo = useFetchApi(`users/${currentUser.uid}`);
   React.useEffect(() => {
     if (!userInfo.isLoading && !newItems.isLoading) {
       setUser(userInfo.data[0]);
@@ -48,6 +49,43 @@ const OrderPageContainer = ({ isAuthenticated }) => {
     setTotal(cost);
   }, [items]);
 
+  const handlePaymentSuccess = () => {
+    fetch(`api/orders/${orderId}`, {
+      method: 'PATCH',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: orderId, status: 'payed' }),
+    })
+      .then(() => {
+        history.push(`/order-confirmation/${orderId}`);
+      })
+      .catch((e) => {
+        throw new Error('Could not change order status', e.message);
+      });
+  };
+
+  function renderDependingOnStatus() {
+    switch (order.orderStatus) {
+      case 'confirmed':
+        return (
+          <Paypal
+            orderId={orderId}
+            totalSum={total}
+            userName={currentUser.displayName}
+            onSuccess={handlePaymentSuccess}
+            onError={() => history.push('/payment-error')}
+          />
+        );
+      case 'created':
+        return <div>Order was not confirmed</div>;
+      case 'payed':
+        return <div>Order already payed</div>;
+      default:
+        return <div>Order status {order.orderStatus}</div>;
+    }
+  }
   return (
     <div className="orderpage">
       <div className="header">
@@ -57,7 +95,7 @@ const OrderPageContainer = ({ isAuthenticated }) => {
         <div className="top">
           <div className="left">
             <div className="orderInfo">
-              <div className="orderId">ORDER ID: {id}</div>
+              <div className="orderId">ORDER ID: {orderId}</div>
               <div className="orderStatus">
                 ORDER STATUS: {order.orderStatus}
               </div>
@@ -85,15 +123,7 @@ const OrderPageContainer = ({ isAuthenticated }) => {
             <div className="total">
               <TotalPrice subTotal={total} />
             </div>
-            <div className="payment-btn">
-              <Paypal
-                orderId={id}
-                totalSum={total}
-                userName={isAuthenticated && `${auth.currentUser.displayName}`}
-                onSuccess={() => history.push(`/order-confirmation/${id}`)}
-                onError={() => history.push('/')}
-              />
-            </div>
+            <div className="payment-btn">{renderDependingOnStatus()}</div>
           </div>
         </div>
         <div className="botton">
@@ -106,18 +136,14 @@ const OrderPageContainer = ({ isAuthenticated }) => {
           </div>
           <div className="contact">
             <ContactForm
-              fullName={isAuthenticated && `${auth.currentUser.displayName}`}
-              email={isAuthenticated && `${auth.currentUser.email}`}
+              fullName={currentUser.displayName}
+              email={currentUser.email}
             />
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-OrderPageContainer.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default OrderPageContainer;

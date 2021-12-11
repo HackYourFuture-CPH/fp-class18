@@ -92,9 +92,14 @@ const storeNewOrder = async (data) => {
     });
 };
 
+const updateOrderStatus = async (id, status) => {
+  return knex('orders').where({ id }).update({ status });
+};
+
 module.exports = {
   getOrders,
   getOrderById,
   getOrderByUserId,
   storeNewOrder,
+  updateOrderStatus,
 };
