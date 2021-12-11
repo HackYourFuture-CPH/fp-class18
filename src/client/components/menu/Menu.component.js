@@ -6,6 +6,7 @@ import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import PropTypes from 'prop-types';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
@@ -24,10 +25,7 @@ export const Menu = ({ isAuthenticated }) => {
       : isAuthenticated && `${auth.currentUser.uid}`;
   }
 
-  const shoppingCart =
-    window.localStorage.shoppingCart.length === 2
-      ? undefined
-      : window.localStorage.shoppingCart.split(',').length;
+  const shoppingCart = Object.keys(useShoppingCartContext().shoppingCart).length
 
   return (
     <nav>
