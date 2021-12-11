@@ -5,12 +5,8 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
-<<<<<<< HEAD
-import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 import Page404Container from '../404Page/404Page.Container';
 import { useFirebase } from '../../firebase/FirebaseContext';
-=======
->>>>>>> develop
 
 const FavoritesPageContainer = (isAuthenticated) => {
   const { auth } = useFirebase();
