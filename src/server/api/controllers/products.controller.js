@@ -38,7 +38,31 @@ const getProductById = async (id) => {
   }
 };
 
+const updateStockAmount = async (productid, quantity) => {
+  try {
+    const quantities = await knex('order_items')
+      .select('order_items.quantity', 'products.stock_amount', 'products.id')
+      .join('products', 'product_id', '=', 'products.id')
+      .where('products.id', '=', productid);
+    if (quantities.length === 0) {
+      throw new Error(`Incorrect entry with the id of ${productid}`, 404);
+    }
+    const stockAmount = Number(quantities[0].stock_amount);
+    if (stockAmount < quantity || stockAmount === 0) {
+      throw new Error(`Incorrect entry with the id of ${productid}`, 404);
+    } else {
+      const newStockAmount = stockAmount - quantity;
+      return knex('products').where({ id: productid }).update({
+        stock_amount: newStockAmount,
+      });
+    }
+  } catch (error) {
+    return error.message;
+  }
+};
+
 module.exports = {
   getProducts,
   getProductById,
+  updateStockAmount,
 };
