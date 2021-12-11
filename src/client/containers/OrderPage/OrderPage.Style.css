@@ -173,7 +173,8 @@
   }
 
   .orderpage .botton {
-    margin-left: -1em;
+    margin: 0;
+    padding: 0;
   }
 
   .orderpage .delivery {
@@ -188,14 +189,15 @@
 @media screen and (max-width: 700px) {
   .orderpage .botton {
     flex-direction: column;
+    align-items: center;
   }
 
   .orderpage .delivery {
-    width: 109%;
+    width: 100%;
   }
 
   .orderpage .contact {
-    width: 109%;
+    width: 100%;
     margin-left: 0;
   }
 

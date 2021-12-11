@@ -57,6 +57,10 @@
   background-color: #fff;
 }
 
+.cart-page .wrapper-total-price{
+  width: 100%;
+}
+
 .cart-page .total .wrapper .wrapper-content {
   width: 90%;
   font-size: 1.2rem;
@@ -140,6 +144,7 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 0;
   }
   .cart-page .left{
     width: 100%;
@@ -152,6 +157,10 @@
   }
   .cart-page .buttons{
     width: 100%;
+  }
+  .cart-page .contact .wrapperContact{
+    padding-top: 0;
+    padding-bottom: 24px;
   }
 }
 
