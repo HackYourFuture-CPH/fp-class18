@@ -1,4 +1,4 @@
-.sort-options {
+.sorting-div .sort-options {
   width: 130px;
   z-index: 1800;
   background: #fff;
@@ -7,7 +7,7 @@
   outline: none;
 }
 
-.input-button {
+.sorting-div .input-button {
   cursor: pointer;
   border: 0;
   line-height: 2;
@@ -20,16 +20,16 @@
   width: 130px;
 }
 
-.input-button:hover {
+.sorting-div .input-button:hover {
   background: #ff9500 -webkit-linear-gradient(bottom, #ff9500 0%, #ff9500 100%);
   color: #fff;
 }
 
-.sort-list {
+.sorting-div .sort-list {
   list-style-type: none;
 }
 
-.input-div {
+.sorting-div .input-div {
   width: 130px;
   border-bottom: solid black 1px;
   border-left: solid black 1px;

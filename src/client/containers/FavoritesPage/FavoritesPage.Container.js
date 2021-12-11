@@ -5,9 +5,12 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
+<<<<<<< HEAD
 import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 import Page404Container from '../404Page/404Page.Container';
 import { useFirebase } from '../../firebase/FirebaseContext';
+=======
+>>>>>>> develop
 
 const FavoritesPageContainer = (isAuthenticated) => {
   const { auth } = useFirebase();
@@ -15,10 +18,9 @@ const FavoritesPageContainer = (isAuthenticated) => {
   const favorites = useFetchApi(
     `/users/${id || localStorage.getItem('user').uid}/favorites`,
   );
-  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
 
   return (
-    <div>
+    <div className="favoritesPage">
       <h1 className="h1-favorites">MY FAVORITES</h1>
       <div className="list">
         {favorites.isLoading ? (
@@ -37,15 +39,6 @@ const FavoritesPageContainer = (isAuthenticated) => {
                 Price={product.price}
                 productColor={product.color}
                 productSize={product.size}
-                onClick={() => {
-                  if (product) {
-                    // TODO: change the quantity to be the real one from the NumberInput instead of a randomly set one
-                    const newQuantity = shoppingCart[product.id]
-                      ? shoppingCart[product.id] + 1
-                      : 1;
-                    changeProductQuantity(product, newQuantity);
-                  }
-                }}
                 isFavorite={false}
                 imageAlt={product.name}
               />

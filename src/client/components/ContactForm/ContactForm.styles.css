@@ -1,4 +1,4 @@
-.formContact {
+.wrapperContact .formContact {
   display: grid;
   padding: 1em;
   margin: 0.5em auto 0 auto;
@@ -7,15 +7,15 @@
 }
 
 @media (min-width: 400px) {
-  .formContact {
+  .wrapperContact .formContact {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    font-family: Inter;
     font-style: normal;
     font-size: 14px;
     font-weight: 400;
     grid-gap: 6px;
   }
-  .titleContact {
+
+  .wrapperContact .titleContact {
     margin-left: 1em;
     font-weight: bolder;
     grid-column: 1 / span 4;
@@ -23,18 +23,18 @@
     text-align: left;
   }
 
-  .fullName {
+  .wrapperContact .fullName {
     margin-left: 1.5em;
     grid-column: 1 / span 4;
     grid-row: 2;
     text-align: left;
   }
-  .email {
+
+  .wrapperContact .email {
     margin-left: 1.5em;
     grid-column: 1 / span 4;
     grid-row: 3;
     text-align: left;
     padding-bottom: inherit;
   }
-
 }

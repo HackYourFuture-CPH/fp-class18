@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Numberinput from '../NumberInput/NumberInput.component';
@@ -12,13 +13,59 @@ export default function ShoppingItem({
   price,
   initValue,
   isDisable,
-  getCost,
+  getQuantity,
+  onDelete,
+  isFavorite,
+  userId,
+  productId,
 }) {
+  const [checked, setChecked] = React.useState(isFavorite);
+  React.useEffect(() => {
+    setChecked(isFavorite);
+  }, [isFavorite]);
+
   const [itemValue, setItemValue] = useState(initValue);
   React.useEffect(() => {
-    getCost(itemValue * price);
+    getQuantity(itemValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemValue]);
+
+  const onClickFavorite = () => {
+    if (userId) {
+      if (!checked) {
+        fetch(`/api/users/${userId}/favorites`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            product_id: `${productId}`,
+          }),
+        }).then((response) => {
+          if (!response.ok) {
+            throw new Error(response.status);
+          }
+        });
+      } else {
+        fetch(`/api/users/${userId}/favorites`, {
+          method: 'DELETE',
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            product_id: `${productId}`,
+          }),
+        }).then((response) => {
+          if (!response.ok) {
+            throw new Error(response.status);
+          }
+        });
+      }
+      setChecked(!checked);
+    }
+  };
   const textColor = isDisable ? '#d3d3d3' : 'black';
   return (
     <div className="shopping-item">
@@ -40,7 +87,7 @@ export default function ShoppingItem({
             <button
               disabled={isDisable}
               type="button"
-              onCLick=""
+              onClick={onDelete}
               className="remove"
             >
               <Trash
@@ -55,11 +102,20 @@ export default function ShoppingItem({
             <button
               disabled={isDisable}
               type="button"
-              onClick=""
+              onClick={onClickFavorite}
               className="add"
             >
-              <Heart height="20" stroke={isDisable ? '#d3d3d3' : 'black'} /> Add
-              to favorites
+              {checked ? (
+                <Heart
+                  height="20"
+                  fill="#8E0EF2"
+                  strokeWidth="0"
+                  stroke={isDisable ? '#d3d3d3' : 'black'}
+                />
+              ) : (
+                <Heart height="20" stroke={isDisable ? '#d3d3d3' : 'black'} />
+              )}
+              Add to favorites
             </button>
           </div>
         </div>
@@ -84,11 +140,18 @@ ShoppingItem.propTypes = {
   price: PropTypes.number.isRequired,
   initValue: PropTypes.number,
   isDisable: PropTypes.bool,
-  getCost: PropTypes.func,
+  getQuantity: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
+  isFavorite: PropTypes.bool,
+  userId: PropTypes.string,
+  productId: PropTypes.number,
 };
 
 ShoppingItem.defaultProps = {
   initValue: 1,
   isDisable: false,
-  getCost: (value) => value,
+  getQuantity: (value) => value,
+  isFavorite: false,
+  userId: '',
+  productId: 0,
 };

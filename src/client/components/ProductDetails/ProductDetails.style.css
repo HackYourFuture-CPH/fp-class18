@@ -58,7 +58,7 @@
 }
 
 #product-details .quantity {
-  margin-top: -0.5rem;
+  margin: 0.5rem 0 1.2rem 0.5rem;
 }
 
 #product-details .input-row button {
@@ -131,7 +131,7 @@
   }
 
   #product-details .input-row .quantity {
-    padding: 4rem 3rem 0 1.2rem;
+    margin: 3rem 3rem 0 1.2rem;
     height: 0.7rem;
   }
 

@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-.hero-text {
+.hero-image .hero-text {
   text-align: center;
   position: absolute;
   top: 40%;
@@ -16,6 +16,6 @@
   color: white;
 }
 
-.title-text {
+.hero-image .title-text {
   font-size: 50px;
 }

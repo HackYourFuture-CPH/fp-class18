@@ -2,8 +2,8 @@ footer {
   margin-top: 2em;
 }
 
-.product-view h3 {
-  padding-left: 5em;
+.product-container .product-view h3 {
+  padding-left: 2em;
 }
 
 .product-container {

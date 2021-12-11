@@ -1,28 +1,28 @@
-.page_404 {
+.page404 {
   text-align: center;
   padding: 40px 0;
   background: #fff;
 }
 
-.page_404 img {
+.page404 img {
   width: 100%;
 }
 
-.page_bg {
+.page404 .pageBg {
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
   height: 400px;
   background-position: center;
 }
 
-.page_bg h1 {
+.page404 .pageBg h1 {
   font-size: 80px;
 }
 
-.page_bg h3 {
+.page404 .pageBg h3 {
   font-size: 80px;
 }
 
-.link_404 {
+.page404 .link404 {
   color: #fff !important;
   padding: 10px 20px;
   background: #39ac31;
@@ -30,6 +30,6 @@
   display: inline-block;
 }
 
-.page_deatails {
+.page404 .pageDetails {
   margin-top: -50px;
 }
