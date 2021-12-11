@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonComponent from '../../components/Button/Button.component';
+import Paypal from '../../components/Paypal/Paypal.component';
 import ContactForm from '../../components/ContactForm/ContactForm.component';
 import DeliveryInfo from '../../components/DeliveryInfo/DeliveryInfo.component';
 import Loader from '../../components/Loader/Loader.component';
@@ -86,10 +86,12 @@ const OrderPageContainer = ({ isAuthenticated }) => {
               <TotalPrice subTotal={total} />
             </div>
             <div className="payment-btn">
-              <ButtonComponent
-                title="PAYMENT"
-                backgroundColor="blueviolet"
-                onClick={() => history.push(`payment/${id}`)}
+              <Paypal
+                orderId={id}
+                totalSum={total}
+                userName={isAuthenticated && `${auth.currentUser.displayName}`}
+                onSuccess={() => history.push(`/order-confirmation/${id}`)}
+                onError={() => history.push('/')}
               />
             </div>
           </div>

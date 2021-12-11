@@ -11,43 +11,36 @@ export default function Paypal({
 }) {
   const paypalRef = useRef();
   useEffect(() => {
-    window.paypal
-      .Buttons({
-        style: {
-          color: 'white',
-          shape: 'rect',
-        },
-        createOrder: (data, actions) => {
-          return actions.order.create({
-            intent: 'CAPTURE',
-            payer: {
-              name: {
-                given_name: userName.split(' ')[0],
-                surname: userName.split(' ')[1],
+    if (window.payButton) window.payButton.close();
+    window.payButton = window.paypal.Buttons({
+      style: {
+        color: 'white',
+        shape: 'rect',
+      },
+      createOrder: (data, actions) => {
+        return actions.order.create({
+          intent: 'CAPTURE',
+          purchase_units: [
+            {
+              description: orderId,
+              amount: {
+                currency_code: 'DKK',
+                value: totalSum,
               },
-              email_address: 'sb-ip8so8858167@personal.example.com',
             },
-            purchase_units: [
-              {
-                description: orderId,
-                amount: {
-                  currency_code: 'DKK',
-                  value: totalSum,
-                },
-              },
-            ],
-          });
-        },
-        onApprove: async (data, actions) => {
-          await actions.order.capture().then((details) => {
-            onSuccess(details);
-          });
-        },
-        onError: (err) => {
-          onError(err);
-        },
-      })
-      .render(paypalRef.current);
+          ],
+        });
+      },
+      onApprove: async (data, actions) => {
+        await actions.order.capture().then((details) => {
+          onSuccess(details);
+        });
+      },
+      onError: (err) => {
+        onError(err);
+      },
+    });
+    window.payButton.render(paypalRef.current);
   }, [orderId, totalSum, userName, onSuccess, onError]);
 
   return <div ref={paypalRef}></div>;
