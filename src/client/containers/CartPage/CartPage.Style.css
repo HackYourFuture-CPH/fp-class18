@@ -174,4 +174,7 @@
   .cart-page .total{
     width: fit-content;
   }
+  .cart-page .wrapper-total-price{
+    min-width: 20em;
+  }
 }
