@@ -7,7 +7,6 @@ import ShoppingItem from '../../components/ShoppingItem/ShoppingItem';
 import TotalPrice from '../../components/TotalPriceCard/TotalPriceCard.component';
 import { useParams, useHistory } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
-import { PropTypes } from 'prop-types';
 import './OrderPage.Style.css';
 
 const OrderPageContainer = () => {
