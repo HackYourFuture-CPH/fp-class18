@@ -1,5 +1,6 @@
 .profilePage .delivery-contact {
   display: flex;
+  flex-direction: row;
 }
 
 .profilePage h1 {
@@ -12,110 +13,103 @@
 }
 
 .profilePage .wrapperContact .formContact {
-  max-width: 400em;
-  height: 15em;
+  height: 17em;
   font-size: 1.3em;
-  margin-left: 6em;
+  margin: 0 2em 0 6em;
+  max-width: 300em;
   background-color: #f0eeeef3;
   border: 1px solid #c1c1c1;
 }
 
 .profilePage .delivery .wrapperDelivery .titleDelivery {
   font-weight: bolder;
-  font-size: 1.8em;
-  margin-left: 1em;
+  font-size: 1.5em;
 }
 
 .profilePage .delivery .wrapperDelivery {
-  height: 20em;
-  width: 51em;
+  height: fit-content;
+  border: 1px solid #c1c1c1;
 }
 
 .profilePage .wrapperDelivery .formDelivery {
-  width: 45em;
-  height: 20em;
+  font-size: 1.2em;
+  grid-gap: 0.5px;
 }
 
 .profilePage .delivery {
-  margin: 1.6em 2em 0 5em;
+  margin: 0 6em 1.8em 4em;
 }
 
 .profilePage .purchases .container {
   margin-top: 3em;
-  column-gap: 5em;
+  column-gap: 2em;
 }
 
-@media screen and (max-width: 90em) {
-  .profilePage .wrapperContact .formContact {
-    height: 15em;
-    width: 25em;
-  }
-
-  .profilePage .wrapperDelivery .formDelivery {
-    font-size: 1em;
-    width: 40em;
-    height: 20em;
-  }
-
-  .profilePage .delivery .wrapperDelivery {
-    height: 20em;
-    width: 40em;
-  }
-
-  .profilePage .delivery {
-    max-width: fit-content;
-    margin-left: 8em;
-  }
-
-  .profilePage .purchases .container {
-    display: flexbox;
-    max-width: fit-content;
-    column-gap: 1em;
-  }
-}
-
-@media screen and (max-width: 85em) {
-  .profilePage .wrapperContact .formContact {
-    height: 15em;
-    width: 25em;
-  }
-
-  .profilePage .wrapperDelivery .formDelivery {
-    font-size: 1em;
-    width: 40em;
-    height: 20em;
-  }
-
-  .profilePage .delivery .wrapperDelivery {
-    height: 20em;
-    width: 40em;
-  }
-
-  .profilePage .delivery {
-    max-width: fit-content;
-    margin-left: 8em;
-  }
-
-  .profilePage .purchases .container {
-    display: flexbox;
-    max-width: fit-content;
-    column-gap: 1em;
-  }
-}
-
-@media screen and (max-width: 70em) {
+@media screen and (max-width: 1400px) {
   .profilePage .delivery-contact {
-    display: block;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .profilePage .delivery .wrapperDelivery {
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .profilePage .purchases li {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .profilePage .delivery-contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profilePage .wrapperContact .formContact {
+    max-width: fit-content;
+  }
+
+  .profilePage .delivery .wrapperDelivery {
+    margin: 2em 0 0 4em;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .profilePage .purchases li {
+    font-size: 1em;
+    max-width: fit-content;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profilePage .delivery-contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profilePage .wrapperContact .formContact {
+    margin: 1em 1em;
+    width: fit-content;
   }
 
   .profilePage .delivery {
-    margin-left: 8em;
-    max-width: fit-content;
+    margin: 1em 1em;
+  }
+
+  .profilePage .delivery .wrapperDelivery {
+    width: fit-content;
+    margin: 1em 1em;
   }
 
   .profilePage .purchases .container {
-    display: flexbox;
+    margin: 1em 1em;
+    width: fit-content;
+  }
+
+  .profilePage .purchases li {
+    font-size: 1em;
     max-width: fit-content;
-    column-gap: 1em;
   }
 }
