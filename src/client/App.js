@@ -82,7 +82,7 @@ function App() {
         </AuthenticatedRoute>
 
         {/* Favorites page */}
-        <AuthenticatedRoute exact path="/users/:id/favorites">
+        <AuthenticatedRoute exact path="/favorites">
           <FavoritesPageContainer />
         </AuthenticatedRoute>
 

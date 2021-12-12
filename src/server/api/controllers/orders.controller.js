@@ -15,7 +15,7 @@ const getOrderById = async (id) => {
   }
 
   try {
-    let orders = await knex('orders AS o')
+    let orders = await knex('orders as o')
       .select(
         'o.id as orderId',
         'o.status as orderStatus',
@@ -32,9 +32,9 @@ const getOrderById = async (id) => {
         'p.price',
         'p.status',
       )
-      .join('order_items AS oi ', 'o.id', '=', 'oi.order_id')
-      .join('products AS p', 'p.id', '=', 'oi.product_id')
-      .where('o.id', '=', id);
+      .where('o.id', '=', id)
+      .leftJoin('order_items AS oi ', 'o.id', '=', 'oi.order_id')
+      .leftJoin('products AS p', 'p.id', '=', 'oi.product_id');
 
     if (orders.length === 0) {
       throw new Error(
@@ -78,18 +78,21 @@ const getOrderByUserId = async (userid) => {
 };
 
 const storeNewOrder = async (data) => {
+  let orderId;
   await knex('orders')
     .insert({ user_id: data.user_id })
     .returning('id')
     .then((id) => {
+      [orderId] = id;
       data.items.forEach(async (item) => {
         await knex('order_items').insert({
           order_id: id[0],
-          product_id: item.product_id,
+          product_id: item.productId,
           quantity: item.quantity,
         });
       });
     });
+  return orderId;
 };
 
 const updateOrderStatus = async (id, status) => {

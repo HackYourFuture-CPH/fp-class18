@@ -28,9 +28,10 @@ const OrderPageContainer = () => {
       setItems(newItems.data.items);
       setOrder(newItems.data.order);
     }
-  }, [newItems, order, currentUser, history]);
+  }, [newItems, currentUser, history]);
 
   const userInfo = useFetchApi(`users/${currentUser.uid}`);
+
   React.useEffect(() => {
     if (!userInfo.isLoading && !newItems.isLoading) {
       setUser(userInfo.data[0]);
