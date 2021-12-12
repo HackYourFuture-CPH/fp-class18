@@ -4,11 +4,11 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
 import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
-import { useFirebase } from '../../firebase/FirebaseContext';
 
 const MonthlyArrivalsPageContainer = ({ isAuthenticated }) => {
   const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
-  const { auth } = useFirebase();
+  const id =
+    (isAuthenticated && JSON.parse(localStorage.getItem('user')).uid) || ' ';
 
   return (
     <div className="monthlyArrivalsPage">
@@ -20,7 +20,7 @@ const MonthlyArrivalsPageContainer = ({ isAuthenticated }) => {
           monthlyArrivals.data.map((product) => (
             <ProductDetails
               key={product.id}
-              userId={(isAuthenticated && auth.currentUser.uid) || 'Guest'}
+              userId={id}
               productId={product.id}
               imgSource={product.picture}
               ProductName={product.name}

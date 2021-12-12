@@ -122,7 +122,7 @@ router.get('/user/:userid', (req, res, next) => {
  *              items:
  *                type: object
  *                properties:
- *                  product_id:
+ *                  productId:
  *                    type: integer
  *                  quantity:
  *                    type: integer

@@ -30,7 +30,7 @@
   width: 8rem;
 }
 
-.favoritesPage .favorites-error {
+.favoritesPage .list .favorites-error {
   height: 10rem;
   text-align: center;
   margin: auto;

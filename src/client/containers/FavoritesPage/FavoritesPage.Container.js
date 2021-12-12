@@ -1,16 +1,15 @@
 /* eslint-disable no-nested-ternary */
-import { useParams } from 'react-router-dom';
 import React from 'react';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
+import Page404Container from '../404Page/404Page.Container';
 
 const FavoritesPageContainer = () => {
-  const { id } = useParams();
-  const favorites = useFetchApi(
-    `/users/${id || localStorage.getItem('user').uid}/favorites`,
-  );
+  const id = JSON.parse(localStorage.getItem('user')).uid;
+  const favorites = useFetchApi(`users/${id}/favorites`);
+  console.log(id);
 
   return (
     <div className="favoritesPage">
@@ -18,16 +17,12 @@ const FavoritesPageContainer = () => {
       <div className="list">
         {favorites.isLoading ? (
           <Loader />
-        ) : favorites.data.error ? (
-          <div className="favorites-error">
-            You don`t have any favorite products yet
-          </div>
-        ) : (
+        ) : !favorites.data.error ? (
           favorites.data.map((product) => {
             return (
               <ProductDetails
                 key={product.id}
-                userId={id || 'Guest'}
+                userId={id}
                 productId={product.id}
                 imgSource={product.picture}
                 ProductName={product.name}
@@ -40,6 +35,13 @@ const FavoritesPageContainer = () => {
               />
             );
           })
+        ) : (
+          <>
+            <div className="favorites-error">
+              <h1>You don`t have any favorite products yet</h1>
+            </div>
+            <Page404Container />
+          </>
         )}
       </div>
     </div>
