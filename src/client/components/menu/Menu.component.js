@@ -22,7 +22,6 @@ export const Menu = ({ isAuthenticated }) => {
 
   const handleLogout = async () => {
     clearShoppingCart();
-    localStorage.removeItem('shoppingCart');
     await signOut();
     window.location.href = '/';
   };
