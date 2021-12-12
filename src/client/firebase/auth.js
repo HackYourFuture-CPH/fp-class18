@@ -66,6 +66,7 @@ export function signOut(auth) {
     .signOut()
     .then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('shoppingCart');
     })
     .catch((error) => {
       handleAuthErrors(error);
