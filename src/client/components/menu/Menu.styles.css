@@ -27,9 +27,14 @@ header .logo_container {
 }
 
 header .homeBtn {
-  position: absolute;
+  position: fixed;
   text-decoration: none;
   font-size: 1.2em;
+  width: 500px;
+  height: 100px;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
 header img {
