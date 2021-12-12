@@ -29,8 +29,8 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const userId = (isAuthenticated && auth.currentUser.uid) || '';
   const userInfo = useFetchApi(`users/${userId}`);
 
-  const handleReviewOrder = () => {
-    fetch(`/api/orders`, {
+  const handleReviewOrder = async () => {
+    await fetch(`/api/orders`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -40,24 +40,15 @@ const CartPageContainer = ({ isAuthenticated }) => {
         user_id: `${userId}`,
         items: cartItem,
       }),
-    }).then((response) => {
+    }).then(async (response) => {
       if (response.ok) {
-        console.log('Success: Order created successfully');
+        const newId = await response.text();
+        const path = `/order/${newId}`;
+        history.push(path);
       } else {
         throw new Error(response.status);
       }
     });
-    fetch(`api/orders/user/${userId}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json, text/plain, */*',
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const newId = data[data.length - 1].id;
-        window.location.href = `/order/${newId}`;
-      });
   };
 
   React.useEffect(() => {
