@@ -31,6 +31,41 @@ router.get('/', (req, res, next) => {
 /**
  * @swagger
  * /orders/{ID}:
+ *  patch:
+ *    tags:
+ *    - Orders
+ *    summary: Update orders status
+ *    description:
+ *      Will update order status
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the order to patch.
+ *      - in: body
+ *        name: New status
+ *        description: [created, confirmed, payed]
+ *        schema:
+ *          type: object
+ *          properties:
+ *            status:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.patch('/:id', (req, res, next) => {
+  ordersController
+    .updateOrderStatus(req.params.id, req.body.status)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /orders/{ID}:
  *  get:
  *    tags:
  *    - Orders

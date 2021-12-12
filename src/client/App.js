@@ -39,9 +39,6 @@ function App() {
         <Route exact path="/">
           <LandingPageContainer />
         </Route>
-        <Route exact path="/order-confirmation">
-          <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
-        </Route>
         <Route exact path="/about-us">
           <AboutpageContainer />
         </Route>
@@ -77,7 +74,9 @@ function App() {
         <AuthenticatedRoute exact path="/order/:id">
           <OrderPageContainer isAuthenticated={isAuthenticated} />
         </AuthenticatedRoute>
-
+        <AuthenticatedRoute exact path="/order-confirmation/:id">
+          <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
+        </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage isAuthenticated={isAuthenticated} />
         </AuthenticatedRoute>

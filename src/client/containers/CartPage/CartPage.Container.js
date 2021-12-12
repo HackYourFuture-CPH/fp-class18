@@ -24,7 +24,11 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [user, setUser] = React.useState({});
   const [favorite, setFavorite] = React.useState([]);
   const { auth } = useFirebase();
-  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
+  const {
+    shoppingCart,
+    changeProductQuantity,
+    clearShoppingCart,
+  } = useShoppingCartContext();
   const history = useHistory();
   const userId = (isAuthenticated && auth.currentUser.uid) || '';
   const userInfo = useFetchApi(`users/${userId}`);
@@ -44,6 +48,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
       if (response.ok) {
         const newId = await response.text();
         const path = `/order/${newId}`;
+        clearShoppingCart();
         history.push(path);
       } else {
         throw new Error(response.status);
