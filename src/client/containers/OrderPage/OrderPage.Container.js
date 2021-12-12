@@ -65,26 +65,6 @@ const OrderPageContainer = () => {
       });
   };
 
-  function renderDependingOnStatus() {
-    switch (order.orderStatus) {
-      case 'confirmed':
-        return (
-          <Paypal
-            orderId={orderId}
-            totalSum={total}
-            userName={currentUser.displayName}
-            onSuccess={handlePaymentSuccess}
-            onError={() => history.push('/payment-error')}
-          />
-        );
-      case 'created':
-        return <div>Order was not confirmed</div>;
-      case 'payed':
-        return <div>Order already payed</div>;
-      default:
-        return <div>Order status {order.orderStatus}</div>;
-    }
-  }
   return (
     <div className="orderpage">
       <div className="header">
@@ -122,7 +102,19 @@ const OrderPageContainer = () => {
             <div className="total">
               <TotalPrice subTotal={total} />
             </div>
-            <div className="payment-btn">{renderDependingOnStatus()}</div>
+            <div className="payment-btn">
+              {order.orderStatus === 'created' ? (
+                <Paypal
+                  orderId={orderId}
+                  totalSum={total}
+                  userName={currentUser.displayName}
+                  onSuccess={handlePaymentSuccess}
+                  onError={() => history.push('/payment-error')}
+                />
+              ) : (
+                <div>Order already payed</div>
+              )}
+            </div>
           </div>
         </div>
         <div className="botton">
