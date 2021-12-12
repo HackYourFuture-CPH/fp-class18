@@ -9,19 +9,17 @@
 
 .sorting-div .input-button {
   cursor: pointer;
-  border: 0;
+  border: none;
   line-height: 2;
-  padding: 0 20px;
+  padding: 0;
   font-size: 1rem;
   text-align: center;
-  color: rgb(39, 23, 23);
-  border-radius: 5px;
   background-color: transparent;
   width: 130px;
 }
 
 .sorting-div .input-button:hover {
-  background: #ff9500 -webkit-linear-gradient(bottom, #ff9500 0%, #ff9500 100%);
+  background: #8e0ef2 -webkit-linear-gradient(bottom, #8e0ef2 0%, #8e0ef2 100%);
   color: #fff;
 }
 
