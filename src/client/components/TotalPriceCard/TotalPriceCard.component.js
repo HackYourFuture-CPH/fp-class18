@@ -11,11 +11,11 @@ const TotalPrice = ({ subTotal }) => {
         <h3>Total</h3>
         <div className="wrapper-content-total-price">
           <div className="row">
-            <div>Subtotal</div>
+            <div className='label'>Subtotal</div>
             <div>{subTotal.toFixed(2)} DKK</div>
           </div>
           <div className="row">
-            <div>Delivering</div>
+            <div className='label'>Delivering</div>
             <div>{delivering.toFixed(2)} DKK</div>
           </div>
           <hr className="border" />

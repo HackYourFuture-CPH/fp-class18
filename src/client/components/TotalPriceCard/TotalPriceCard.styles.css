@@ -1,6 +1,7 @@
 .wrapper-total-price {
-  width: 17rem;
+  width: 20rem;
   height: 11.5rem;
+  background: white;
 }
 
 .wrapper-total-price .wrapper-content-total-price {
