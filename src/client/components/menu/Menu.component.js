@@ -58,12 +58,7 @@ export const Menu = ({ isAuthenticated }) => {
                 <span className="name-span">
                   {isAuthenticated && `${auth.currentUser.displayName}`}
                 </span>
-                <Link to="/" className='homeBtn'>HOME</Link>
               </div>
-              
-              
-            
-              
               <div id="login" className="dropdown-content">
                 {isAuthenticated ? (
                   <div>
@@ -90,16 +85,18 @@ export const Menu = ({ isAuthenticated }) => {
                   </button>
                 )}
               </div>
-              
             </div>
-           
           </div>
-          
-          
-          <Link to="/favorites">
-            <img className="icons" src={faHeart} alt="favorite" />
-          </Link>
+          <p>
+            <Link to="/" className="homeBtn">
+              HOME
+            </Link>
+          </p>
+
           <div className="badgeNumber">
+            <Link to="/favorites">
+              <img className="icons" src={faHeart} alt="favorite" />
+            </Link>
             <Link to="/cart">
               <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
               {shoppingCartLength ? (
