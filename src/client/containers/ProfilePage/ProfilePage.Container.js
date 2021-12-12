@@ -9,18 +9,16 @@ import DeliveryInfoV2 from '../../components/DeliveryInfo/DeliveryInfoV2.compone
 
 const ProfilePageContainer = ({ isAuthenticated }) => {
   const { auth } = useFirebase();
+  const id = JSON.parse(localStorage.getItem('user')).uid;
   const [user, setUser] = React.useState([]);
   const [orders, setOrders] = React.useState([]);
-  const orderItems = useFetchApi(`orders/user/EVJOWMzhWTYdqNGkyaBnn3LpINl2`);
+  const orderItems = useFetchApi(`orders/user/${id}`);
   React.useEffect(() => {
     if (!orderItems.isLoading) {
-      // setItems(orderItems.data.items);
       setOrders(orderItems.data);
     }
   }, [orderItems]);
-  const userInfo = useFetchApi(
-    isAuthenticated && `users/${auth.currentUser.uid}`,
-  );
+  const userInfo = useFetchApi(`users/${id}`);
 
   React.useEffect(() => {
     if (!userInfo.isLoading) {

@@ -4,12 +4,10 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
-import Page404Container from '../404Page/404Page.Container';
 
 const FavoritesPageContainer = () => {
   const id = JSON.parse(localStorage.getItem('user')).uid;
   const favorites = useFetchApi(`users/${id}/favorites`);
-  console.log(id);
 
   return (
     <div className="favoritesPage">
@@ -40,7 +38,6 @@ const FavoritesPageContainer = () => {
             <div className="favorites-error">
               <h1>You don`t have any favorite products yet</h1>
             </div>
-            <Page404Container />
           </>
         )}
       </div>
