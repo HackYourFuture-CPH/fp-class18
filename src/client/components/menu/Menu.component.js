@@ -10,12 +10,15 @@ import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartC
 
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
+  const { shoppingCart, clearShoppingCart } = useShoppingCartContext();
 
   const handleLogin = async () => {
     await signInWithGoogle();
   };
 
   const handleLogout = async () => {
+    clearShoppingCart();
+    localStorage.removeItem('shoppingCart');
     await signOut();
   };
 
@@ -25,7 +28,7 @@ export const Menu = ({ isAuthenticated }) => {
       : isAuthenticated && `${auth.currentUser.uid}`;
   }
 
-  const shoppingCart = Object.keys(useShoppingCartContext().shoppingCart).length
+  const shoppingCartLength = Object.keys(shoppingCart).length;
 
   return (
     <nav>
@@ -73,9 +76,9 @@ export const Menu = ({ isAuthenticated }) => {
           <div className="badgeNumber">
             <Link to="/cart">
               <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
-              {shoppingCart ? (
+              {shoppingCartLength ? (
                 <button type="button" className="badge">
-                  {shoppingCart}
+                  {shoppingCartLength}
                 </button>
               ) : (
                 ''

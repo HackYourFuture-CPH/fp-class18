@@ -27,12 +27,15 @@ export function ShoppingCartProvider({ children }) {
     });
   }, []);
 
+  const clearShoppingCart = React.useCallback(() => setShoppingCart({}), []);
+
   const contextValue = React.useMemo(() => {
     return {
       shoppingCart,
       changeProductQuantity,
+      clearShoppingCart,
     };
-  }, [shoppingCart, changeProductQuantity]);
+  }, [shoppingCart, changeProductQuantity, clearShoppingCart]);
 
   return <Provider value={contextValue}>{children}</Provider>;
 }
