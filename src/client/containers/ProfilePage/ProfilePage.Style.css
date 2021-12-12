@@ -12,7 +12,7 @@
 }
 
 .profilePage .wrapperContact .formContact {
-  width: 30em;
+  max-width: 400em;
   height: 15em;
   font-size: 1.3em;
   margin-left: 6em;
