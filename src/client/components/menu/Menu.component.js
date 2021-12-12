@@ -13,10 +13,12 @@ export const Menu = ({ isAuthenticated }) => {
 
   const handleLogin = async () => {
     await signInWithGoogle();
+    window.location.href = '/';
   };
 
   const handleLogout = async () => {
     await signOut();
+    window.location.href = '/';
   };
 
   function getIdIfPresent() {
