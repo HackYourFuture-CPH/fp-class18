@@ -168,7 +168,6 @@ const CartPageContainer = ({ isAuthenticated }) => {
       );
     }
   };
-
   return (
     <div className="cart-page">
       <div className="header">
@@ -193,10 +192,10 @@ const CartPageContainer = ({ isAuthenticated }) => {
             </div>
             <div className="buttons">
               <div className="review-btn">
-                <ButtonComponent
+              {cartItem.length ? <ButtonComponent
                   title="REVIEW ORDER"
                   onClick={handleReviewOrder}
-                />
+                /> : ''}
               </div>
               <div className="shopping-btn">
                 <ButtonComponent
