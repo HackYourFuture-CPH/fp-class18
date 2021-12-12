@@ -9,6 +9,9 @@ import { useFirebase } from '../../firebase/FirebaseContext';
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
 
+  const menuRef = React.useRef();
+  const navCheckRef = React.useRef();
+
   const handleLogin = async () => {
     await signInWithGoogle();
     window.location.href = '/';
@@ -25,11 +28,17 @@ export const Menu = ({ isAuthenticated }) => {
       : isAuthenticated && `${auth.currentUser.uid}`;
   }
   React.useEffect(() => {
-    document.querySelector('.nav-links').addEventListener('click', function () {
-      document.getElementById('nav-check').checked = !document.getElementById(
-        'nav-check',
-      ).checked;
-    });
+    const menuNode = menuRef.current;
+    const navCheckNode = navCheckRef.current;
+    if (!navCheckNode || !menuNode) return;
+
+    const handler = () => {
+      navCheckNode.checked = !navCheckNode.checked;
+    };
+    menuNode.addEventListener('click', handler);
+    return () => {
+      menuNode.removeEventListener('click', handler);
+    };
   }, []);
 
   return (
@@ -80,7 +89,7 @@ export const Menu = ({ isAuthenticated }) => {
           </Link>
         </div>
         <div className="navbar">
-          <input type="checkbox" id="nav-check" />
+          <input ref={navCheckRef} type="checkbox" id="nav-check" />
           <div className="nav-btn">
             <label htmlFor="nav-check">
               <span />
@@ -88,7 +97,7 @@ export const Menu = ({ isAuthenticated }) => {
               <span />
             </label>
           </div>
-          <div className="nav-links">
+          <div ref={menuRef} className="nav-links">
             <div className="dropdown">
               <button type="submit" className="dropbtn">
                 CATEGORIES
