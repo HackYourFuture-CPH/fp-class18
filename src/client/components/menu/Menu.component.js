@@ -5,6 +5,8 @@ import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
 import { useFirebase } from '../../firebase/FirebaseContext';
+import PropTypes from 'prop-types';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
@@ -22,6 +24,8 @@ export const Menu = ({ isAuthenticated }) => {
       ? JSON.parse(localStorage.getItem('user')).uid
       : isAuthenticated && `${auth.currentUser.uid}`;
   }
+
+  const shoppingCart = Object.keys(useShoppingCartContext().shoppingCart).length
 
   return (
     <nav>
@@ -66,9 +70,18 @@ export const Menu = ({ isAuthenticated }) => {
           <Link to={`/users/${getIdIfPresent()}/favorites`}>
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
-          <Link to="/cart">
-            <img className="icons" src={faShoppingCart} alt="shoppingcart" />
-          </Link>
+          <div className="badgeNumber">
+            <Link to="/cart">
+              <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
+              {shoppingCart ? (
+                <button type="button" className="badge">
+                  {shoppingCart}
+                </button>
+              ) : (
+                ''
+              )}
+            </Link>
+          </div>
         </div>
         <div className="navbar">
           <input type="checkbox" id="nav-check" />
@@ -129,4 +142,8 @@ export const Menu = ({ isAuthenticated }) => {
       </header>
     </nav>
   );
+};
+
+Menu.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
 };
