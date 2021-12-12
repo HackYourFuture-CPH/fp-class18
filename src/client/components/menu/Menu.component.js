@@ -11,6 +11,9 @@ import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartC
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
 
+  const menuRef = React.useRef();
+  const navCheckRef = React.useRef();
+
   const handleLogin = async () => {
     await signInWithGoogle();
     window.location.href = '/';
@@ -21,11 +24,24 @@ export const Menu = ({ isAuthenticated }) => {
     window.location.href = '/';
   };
 
-  function getIdIfPresent() {
-    return localStorage.getItem('user')
-      ? JSON.parse(localStorage.getItem('user')).uid
-      : isAuthenticated && `${auth.currentUser.uid}`;
-  }
+  // function getIdIfPresent() {
+  //   return localStorage.getItem('user')
+  //     ? JSON.parse(localStorage.getItem('user')).uid
+  //     : isAuthenticated && `${auth.currentUser.uid}`;
+  // }
+  React.useEffect(() => {
+    const menuNode = menuRef.current;
+    const navCheckNode = navCheckRef.current;
+    if (!navCheckNode || !menuNode) return;
+
+    const handler = () => {
+      navCheckNode.checked = !navCheckNode.checked;
+    };
+    menuNode.addEventListener('click', handler);
+    return () => {
+      menuNode.removeEventListener('click', handler);
+    };
+  }, []);
 
   const shoppingCart = Object.keys(useShoppingCartContext().shoppingCart).length
 
@@ -69,7 +85,7 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          <Link to={`/users/${getIdIfPresent()}/favorites`}>
+          <Link to="/favorites">
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
           <div className="badgeNumber">
@@ -86,7 +102,7 @@ export const Menu = ({ isAuthenticated }) => {
           </div>
         </div>
         <div className="navbar">
-          <input type="checkbox" id="nav-check" />
+          <input ref={navCheckRef} type="checkbox" id="nav-check" />
           <div className="nav-btn">
             <label htmlFor="nav-check">
               <span />
@@ -94,7 +110,7 @@ export const Menu = ({ isAuthenticated }) => {
               <span />
             </label>
           </div>
-          <div className="nav-links">
+          <div ref={menuRef} className="nav-links">
             <div className="dropdown">
               <button type="submit" className="dropbtn">
                 CATEGORIES
@@ -102,39 +118,45 @@ export const Menu = ({ isAuthenticated }) => {
               <div className="dropdown-content">
                 <ul>
                   <li>
-                    <Link className="text-link" to="/category/furniture">
+                    <Link
+                      className="text-link text-link2"
+                      to="/category/furniture"
+                    >
                       FURNITURE
                     </Link>
                   </li>
                   <li>
-                    <Link className="text-link" to="/category/lamps">
+                    <Link className="text-link text-link2" to="/category/lamps">
                       LAMPS
                     </Link>
                   </li>
                   <li>
-                    <Link className="text-link" to="/category/home decor">
+                    <Link
+                      className="text-link text-link2"
+                      to="/category/home decor"
+                    >
                       HOME DECOR
                     </Link>
                   </li>
                   <li>
-                    <Link className="text-link" to="/category/linen">
+                    <Link className="text-link text-link2" to="/category/linen">
                       LINEN
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
-            <Link to="/monthly-arrivals">
+            <Link to="/monthly-arrivals" className="text-link2">
               <button type="submit" className="dropbtn">
                 MONTHLY ARRIVALS
               </button>
             </Link>
-            <Link to="/about-us">
+            <Link to="/about-us" className="text-link2">
               <button type="submit" className="dropbtn">
                 ABOUT
               </button>
             </Link>
-            <Link to="/contact-us">
+            <Link to="/contact-us" className="text-link2">
               <button type="submit" className="dropbtn">
                 CONTACT US
               </button>
