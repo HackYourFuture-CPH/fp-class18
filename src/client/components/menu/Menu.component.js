@@ -10,6 +10,7 @@ import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartC
 
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
+  const { shoppingCart, clearShoppingCart } = useShoppingCartContext();
 
   const menuRef = React.useRef();
   const navCheckRef = React.useRef();
@@ -20,6 +21,7 @@ export const Menu = ({ isAuthenticated }) => {
   };
 
   const handleLogout = async () => {
+    clearShoppingCart();
     await signOut();
     window.location.href = '/';
   };
@@ -43,7 +45,7 @@ export const Menu = ({ isAuthenticated }) => {
     };
   }, []);
 
-  const shoppingCart = Object.keys(useShoppingCartContext().shoppingCart).length
+  const shoppingCartLength = Object.keys(shoppingCart).length;
 
   return (
     <nav>
@@ -91,9 +93,9 @@ export const Menu = ({ isAuthenticated }) => {
           <div className="badgeNumber">
             <Link to="/cart">
               <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
-              {shoppingCart ? (
+              {shoppingCartLength ? (
                 <button type="button" className="badge">
-                  {shoppingCart}
+                  {shoppingCartLength}
                 </button>
               ) : (
                 ''
