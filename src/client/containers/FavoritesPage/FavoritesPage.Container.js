@@ -1,19 +1,15 @@
 /* eslint-disable no-nested-ternary */
-import { useParams } from 'react-router-dom';
 import React from 'react';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
 import Page404Container from '../404Page/404Page.Container';
-import { useFirebase } from '../../firebase/FirebaseContext';
 
-const FavoritesPageContainer = (isAuthenticated) => {
-  const { auth } = useFirebase();
-  const { id } = useParams();
-  const favorites = useFetchApi(
-    `/users/${id || localStorage.getItem('user').uid}/favorites`,
-  );
+const FavoritesPageContainer = () => {
+  const id = JSON.parse(localStorage.getItem('user')).uid;
+  const favorites = useFetchApi(`users/${id}/favorites`);
+  console.log(id);
 
   return (
     <div className="favoritesPage">
@@ -21,13 +17,12 @@ const FavoritesPageContainer = (isAuthenticated) => {
       <div className="list">
         {favorites.isLoading ? (
           <Loader />
-        ) : !favorites.data.error &&
-          (isAuthenticated && auth.currentUser.uid) === id ? (
+        ) : !favorites.data.error ? (
           favorites.data.map((product) => {
             return (
               <ProductDetails
                 key={product.id}
-                userId={id || 'Guest'}
+                userId={id}
                 productId={product.id}
                 imgSource={product.picture}
                 ProductName={product.name}

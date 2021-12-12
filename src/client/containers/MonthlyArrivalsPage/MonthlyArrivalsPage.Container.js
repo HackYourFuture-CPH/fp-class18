@@ -20,7 +20,10 @@ const MonthlyArrivalsPageContainer = ({ isAuthenticated }) => {
           monthlyArrivals.data.map((product) => (
             <ProductDetails
               key={product.id}
-              userId={(isAuthenticated && auth.currentUser.uid) || 'Guest'}
+              userId={
+                (isAuthenticated && auth.currentUser.uid) ||
+                localStorage.getItem('user').uid
+              }
               productId={product.id}
               imgSource={product.picture}
               ProductName={product.name}

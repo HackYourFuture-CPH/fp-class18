@@ -83,8 +83,8 @@ function App() {
         </AuthenticatedRoute>
 
         {/* Favorites page */}
-        <AuthenticatedRoute exact path="/users/:id/favorites">
-          <FavoritesPageContainer isAuthenticated={isAuthenticated} />
+        <AuthenticatedRoute exact path="/favorites">
+          <FavoritesPageContainer />
         </AuthenticatedRoute>
 
         {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}

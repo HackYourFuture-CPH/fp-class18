@@ -19,11 +19,11 @@ export const Menu = ({ isAuthenticated }) => {
     window.location.href = '/';
   };
 
-  function getIdIfPresent() {
-    return localStorage.getItem('user')
-      ? JSON.parse(localStorage.getItem('user')).uid
-      : isAuthenticated && `${auth.currentUser.uid}`;
-  }
+  // function getIdIfPresent() {
+  //   return localStorage.getItem('user')
+  //     ? JSON.parse(localStorage.getItem('user')).uid
+  //     : isAuthenticated && `${auth.currentUser.uid}`;
+  // }
   React.useEffect(() => {
     document.querySelector('.nav-links').addEventListener('click', function () {
       document.getElementById('nav-check').checked = !document.getElementById(
@@ -72,7 +72,7 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          <Link to={`/users/${getIdIfPresent()}/favorites`}>
+          <Link to="/favorites">
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
           <Link to="/cart">
