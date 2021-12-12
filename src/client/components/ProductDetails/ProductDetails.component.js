@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import PropTypes from 'prop-types';
 import NumberInput from '../NumberInput/NumberInput.component';
 import ButtonComponent from '../Button/Button.component';
@@ -23,11 +24,11 @@ export const ProductDetails = ({
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const [checked, setChecked] = React.useState(isFavorite);
   const [itemValue, setItemValue] = React.useState(1);
+  const history = useHistory();
   React.useEffect(() => {
     getQuantity(itemValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemValue]);
-
   const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
     if (checked) {
@@ -82,7 +83,7 @@ export const ProductDetails = ({
     setIsShown(!isShown);
   };
   const handleLink = () => {
-    window.location.href = '/cart/';
+    history.push('/cart')
   };
 
   return (

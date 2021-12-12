@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
@@ -11,19 +11,19 @@ import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartC
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
   const { shoppingCart, clearShoppingCart } = useShoppingCartContext();
-
+  const history = useHistory();
   const menuRef = React.useRef();
   const navCheckRef = React.useRef();
 
   const handleLogin = async () => {
+    history.push('/');
     await signInWithGoogle();
-    window.location.href = '/';
   };
 
   const handleLogout = async () => {
     clearShoppingCart();
+    history.push('/');
     await signOut();
-    window.location.href = '/';
   };
 
   // function getIdIfPresent() {
@@ -58,7 +58,12 @@ export const Menu = ({ isAuthenticated }) => {
                 <span className="name-span">
                   {isAuthenticated && `${auth.currentUser.displayName}`}
                 </span>
+                <Link to="/" className='homeBtn'>HOME</Link>
               </div>
+              
+              
+            
+              
               <div id="login" className="dropdown-content">
                 {isAuthenticated ? (
                   <div>
@@ -85,8 +90,12 @@ export const Menu = ({ isAuthenticated }) => {
                   </button>
                 )}
               </div>
+              
             </div>
+           
           </div>
+          
+          
           <Link to="/favorites">
             <img className="icons" src={faHeart} alt="favorite" />
           </Link>
