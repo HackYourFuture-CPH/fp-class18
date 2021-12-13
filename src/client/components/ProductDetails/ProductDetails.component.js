@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NumberInput from '../NumberInput/NumberInput.component';
 import ButtonComponent from '../Button/Button.component';
@@ -88,11 +89,13 @@ export const ProductDetails = ({
   return (
     <div id="product-details">
       <div className="product-image">
-        <img
-          // eslint-disable-next-line
-          src={require(`../../assets/images/${imgSource.split('/')[4]}`)}
-          alt={imageAlt}
-        />
+        <Link to={`/product/${productId}`}>
+          <img
+            // eslint-disable-next-line
+            src={require(`../../assets/images/${imgSource.split('/')[4]}`)}
+            alt={imageAlt}
+          />
+        </Link>
       </div>
       <div className="details-column">
         <div>
