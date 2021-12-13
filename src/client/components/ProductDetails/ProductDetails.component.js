@@ -5,30 +5,84 @@ import ButtonComponent from '../Button/Button.component';
 import './ProductDetails.style.css';
 import Heart from './Heart';
 import ModalComponent from '../Modal/Modal.component';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 export const ProductDetails = ({
+  userId,
+  productId,
   imgSource,
   ProductName,
   RemainingUnit,
   Price,
   productColor,
   productSize,
-  onClick,
   isFavorite,
   imageAlt,
+  getQuantity,
 }) => {
+  const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const [checked, setChecked] = React.useState(isFavorite);
+  const [itemValue, setItemValue] = React.useState(1);
+  React.useEffect(() => {
+    getQuantity(itemValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemValue]);
+
   const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
+    if (checked) {
+      fetch(`/api/users/${userId}/favorites`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          product_id: `${productId}`,
+        }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log('Success: added to favorites');
+        } else {
+          throw new Error(response.status);
+        }
+      });
+    } else {
+      fetch(`/api/users/${userId}/favorites`, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          product_id: `${productId}`,
+        }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log('Success: deleted from favorites');
+        } else {
+          throw new Error(response.status);
+        }
+      });
+      window.location.reload(false);
+    }
     setChecked(!checked);
   };
   const [isShown, setIsShown] = React.useState(false);
+
+  const handleAddToCart = () => {
+    const newQuantity = shoppingCart[productId]
+      ? shoppingCart[productId] + itemValue
+      : itemValue;
+    changeProductQuantity(productId, newQuantity);
+    setIsShown(!isShown);
+  };
+
   const handleClick = () => {
     setIsShown(!isShown);
-    onClick();
   };
   const handleLink = () => {
-    window.location.href = '/';
+    window.location.href = '/cart/';
   };
 
   return (
@@ -82,8 +136,26 @@ export const ProductDetails = ({
             </div>
           </div>
           <div className="input-row">
-            <NumberInput initValue={1} maxAvailable={RemainingUnit} />
-            <ButtonComponent title="ADD TO CART" onClick={handleClick} />
+            {RemainingUnit !== 0 ? (
+              <NumberInput
+                initValue={1}
+                maxAvailable={RemainingUnit}
+                getQuantity={setItemValue}
+              />
+            ) : (
+              <NumberInput
+                initValue={1}
+                maxAvailable={RemainingUnit}
+                getQuantity={setItemValue}
+                disabled={true}
+              />
+            )}
+
+            {RemainingUnit !== 0 ? (
+              <ButtonComponent title="ADD TO CART" onClick={handleAddToCart} />
+            ) : (
+              <ButtonComponent title="ADD TO CART" disabled={true} />
+            )}
             <ModalComponent
               show={isShown}
               handleLink={handleLink}
@@ -97,18 +169,21 @@ export const ProductDetails = ({
 };
 
 ProductDetails.propTypes = {
+  productId: PropTypes.number.isRequired,
+  userId: PropTypes.string.isRequired,
   imgSource: PropTypes.string.isRequired,
   ProductName: PropTypes.string.isRequired,
   RemainingUnit: PropTypes.number.isRequired,
   Price: PropTypes.number.isRequired,
   productColor: PropTypes.string.isRequired,
   productSize: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   isFavorite: PropTypes.bool,
   imageAlt: PropTypes.string,
+  getQuantity: PropTypes.func,
 };
 
 ProductDetails.defaultProps = {
   imageAlt: 'Product Image',
   isFavorite: true,
+  getQuantity: (value) => value,
 };

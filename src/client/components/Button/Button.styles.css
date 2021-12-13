@@ -9,3 +9,15 @@
   font-size: 14px;
   padding: 11px 20px;
 }
+
+.button-component .disableBt {
+  font-weight: 700;
+  border: 0;
+  cursor: none;
+  display: inline-block;
+  line-height: 1;
+  color: white;
+  background-color: #d3d3d3;
+  font-size: 14px;
+  padding: 11px 20px;
+}
