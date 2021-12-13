@@ -6,7 +6,7 @@ import { ProductDetails } from '../../components/ProductDetails/ProductDetails.c
 import Loader from '../../components/Loader/Loader.component';
 import Page404Container from '../404Page/404Page.Container';
 
-const FavoritesPageContainer = () => {
+const FavoritesPageContainer = ({ isAuthenticated }) => {
   const id = JSON.parse(localStorage.getItem('user')).uid;
   const favorites = useFetchApi(`users/${id}/favorites`);
   console.log(id);
@@ -32,6 +32,7 @@ const FavoritesPageContainer = () => {
                 productSize={product.size}
                 isFavorite={false}
                 imageAlt={product.name}
+                isAuthenticated={isAuthenticated}
               />
             );
           })
