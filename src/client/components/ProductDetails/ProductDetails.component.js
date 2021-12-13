@@ -22,15 +22,20 @@ export const ProductDetails = ({
 }) => {
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const [checked, setChecked] = React.useState(isFavorite);
+
   const [itemValue, setItemValue] = React.useState(1);
   React.useEffect(() => {
     getQuantity(itemValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemValue]);
 
+  React.useEffect(() => {
+    setChecked(isFavorite);
+  }, [isFavorite, productId]);
+
   const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
-    if (checked) {
+    if (!checked) {
       fetch(`/api/users/${userId}/favorites`, {
         method: 'POST',
         headers: {
@@ -64,7 +69,6 @@ export const ProductDetails = ({
           throw new Error(response.status);
         }
       });
-      window.location.reload(false);
     }
     setChecked(!checked);
   };
@@ -100,12 +104,11 @@ export const ProductDetails = ({
             <span className="text">{ProductName}</span>
             <button type="button" onClick={checkFavoriteHandler}>
               <div className="heart">
-                {' '}
                 {checked ? (
-                  <Heart height="30" />
-                ) : (
                   <Heart height="30" fill="#8E0EF2" strokeWidth="0" />
-                )}{' '}
+                ) : (
+                  <Heart height="30" />
+                )}
               </div>
             </button>
           </div>

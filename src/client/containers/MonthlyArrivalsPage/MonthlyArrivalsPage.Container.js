@@ -28,7 +28,7 @@ const MonthlyArrivalsPageContainer = ({ isAuthenticated }) => {
               Price={product.price}
               productColor={product.color}
               productSize={product.size}
-              isFavorite={true}
+              isFavorite={false}
               imageAlt={product.name}
             />
           ))
