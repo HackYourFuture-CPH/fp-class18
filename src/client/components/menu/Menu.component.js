@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
+import faHome from '../../assets/images/home.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import PropTypes from 'prop-types';
@@ -87,13 +88,11 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          <p>
-            <Link to="/" className="homeBtn">
-              HOME
-            </Link>
-          </p>
 
           <div className="badgeNumber">
+            <Link to="/" className="homeBtn">
+              <img className="icons" src={faHome} alt="home" />
+            </Link>
             <Link to="/favorites">
               <img className="icons" src={faHeart} alt="favorite" />
             </Link>
