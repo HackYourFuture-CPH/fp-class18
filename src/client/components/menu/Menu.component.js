@@ -48,7 +48,7 @@ export const Menu = ({ isAuthenticated }) => {
   const shoppingCartLength = Object.keys(shoppingCart).length;
 
   return (
-    <nav>
+    <nav className="menu">
       <header>
         <div className="logo_container">
           <div className="user-icon">
