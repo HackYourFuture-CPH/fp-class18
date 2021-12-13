@@ -23,7 +23,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [total, setTotal] = React.useState(0);
   const [user, setUser] = React.useState({});
   const [favorite, setFavorite] = React.useState([]);
-  const { auth } = useFirebase();
+  const { signInWithGoogle, auth } = useFirebase();
   const {
     shoppingCart,
     changeProductQuantity,
@@ -119,6 +119,10 @@ const CartPageContainer = ({ isAuthenticated }) => {
     changeProductQuantity(productId, 0);
   };
 
+  const handleLogin = async () => {
+    await signInWithGoogle();
+  };
+
   const checkFavortie = (productId) => {
     if (favorite.length > 0) {
       return (
@@ -194,7 +198,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
               <div className="review-btn">
               {cartItem.length ? <ButtonComponent
                   title="REVIEW ORDER"
-                  onClick={handleReviewOrder}
+                  onClick={userId ? handleReviewOrder : handleLogin}
                 /> : ''}
               </div>
               <div className="shopping-btn">
