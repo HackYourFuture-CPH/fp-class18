@@ -30,6 +30,7 @@ const MonthlyArrivalsPageContainer = ({ isAuthenticated }) => {
               productSize={product.size}
               isFavorite={true}
               imageAlt={product.name}
+              isAuthenticated={isAuthenticated}
             />
           ))
         )}

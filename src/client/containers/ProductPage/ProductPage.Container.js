@@ -62,6 +62,7 @@ const ProductPageContainer = ({ isAuthenticated }) => {
                 Price={parseInt(product.price, 10)}
                 productColor={product.color}
                 productSize={product.size}
+                isAuthenticated={isAuthenticated}
               />
             ) : (
               <Page404Container />

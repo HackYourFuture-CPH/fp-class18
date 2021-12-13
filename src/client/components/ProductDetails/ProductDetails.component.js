@@ -19,6 +19,7 @@ export const ProductDetails = ({
   isFavorite,
   imageAlt,
   getQuantity,
+  isAuthenticated,
 }) => {
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const [checked, setChecked] = React.useState(isFavorite);
@@ -98,16 +99,18 @@ export const ProductDetails = ({
         <div>
           <div className="product-name">
             <span className="text">{ProductName}</span>
-            <button type="button" onClick={checkFavoriteHandler}>
-              <div className="heart">
-                {' '}
-                {checked ? (
-                  <Heart height="30" />
-                ) : (
-                  <Heart height="30" fill="#8E0EF2" strokeWidth="0" />
-                )}{' '}
-              </div>
-            </button>
+            {isAuthenticated && (
+              <button type="button" onClick={checkFavoriteHandler}>
+                <div className="heart">
+                  {' '}
+                  {checked ? (
+                    <Heart height="30" />
+                  ) : (
+                    <Heart height="30" fill="#8E0EF2" strokeWidth="0" />
+                  )}{' '}
+                </div>
+              </button>
+            )}
           </div>
           <small>({RemainingUnit} units left)</small>
         </div>
@@ -166,6 +169,7 @@ ProductDetails.propTypes = {
   isFavorite: PropTypes.bool,
   imageAlt: PropTypes.string,
   getQuantity: PropTypes.func,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 ProductDetails.defaultProps = {

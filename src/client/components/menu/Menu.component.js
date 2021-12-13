@@ -87,9 +87,11 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          <Link to="/favorites">
-            <img className="icons" src={faHeart} alt="favorite" />
-          </Link>
+          {isAuthenticated && (
+            <Link to="/favorites">
+              <img className="icons" src={faHeart} alt="favorite" />
+            </Link>
+          )}
           <div className="badgeNumber">
             <Link to="/cart">
               <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
