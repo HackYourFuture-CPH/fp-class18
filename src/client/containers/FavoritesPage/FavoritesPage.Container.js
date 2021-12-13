@@ -37,12 +37,9 @@ const FavoritesPageContainer = ({ isAuthenticated }) => {
             );
           })
         ) : (
-          <>
-            <div className="favorites-error">
-              <h1>You don`t have any favorite products yet</h1>
-            </div>
-            <Page404Container />
-          </>
+          <div className="favorites-error">
+            <h1>You don`t have any favorite products yet</h1>
+          </div>
         )}
       </div>
     </div>
