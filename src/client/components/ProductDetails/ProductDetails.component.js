@@ -136,12 +136,26 @@ export const ProductDetails = ({
             </div>
           </div>
           <div className="input-row">
-            <NumberInput
-              initValue={1}
-              maxAvailable={RemainingUnit}
-              getQuantity={setItemValue}
-            />
-            <ButtonComponent title="ADD TO CART" onClick={handleAddToCart} />
+            {RemainingUnit !== 0 ? (
+              <NumberInput
+                initValue={1}
+                maxAvailable={RemainingUnit}
+                getQuantity={setItemValue}
+              />
+            ) : (
+              <NumberInput
+                initValue={1}
+                maxAvailable={RemainingUnit}
+                getQuantity={setItemValue}
+                disabled={true}
+              />
+            )}
+
+            {RemainingUnit !== 0 ? (
+              <ButtonComponent title="ADD TO CART" onClick={handleAddToCart} />
+            ) : (
+              <ButtonComponent title="ADD TO CART" disabled={true} />
+            )}
             <ModalComponent
               show={isShown}
               handleLink={handleLink}

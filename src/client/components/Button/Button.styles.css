@@ -1,4 +1,4 @@
-.button-component .button {
+.button {
   font-weight: 700;
   border: 0;
   cursor: pointer;
@@ -6,6 +6,18 @@
   line-height: 1;
   color: white;
   background-color: #1ea7fd;
+  font-size: 14px;
+  padding: 11px 20px;
+}
+
+.button-component .disableBt {
+  font-weight: 700;
+  border: 0;
+  cursor: none;
+  display: inline-block;
+  line-height: 1;
+  color: white;
+  background-color: #d3d3d3;
   font-size: 14px;
   padding: 11px 20px;
 }
