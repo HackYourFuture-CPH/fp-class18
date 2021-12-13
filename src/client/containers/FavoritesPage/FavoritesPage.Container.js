@@ -4,7 +4,6 @@ import { useFetchApi } from '../../hooks/UseFetchApi';
 import './FavoritesPage.Style.css';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Loader from '../../components/Loader/Loader.component';
-import Page404Container from '../404Page/404Page.Container';
 
 const FavoritesPageContainer = ({ isAuthenticated }) => {
   const id = JSON.parse(localStorage.getItem('user')).uid;
