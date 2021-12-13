@@ -76,8 +76,6 @@
   font-weight: bold;
   appearance: none;
   background: transparent;
-
-  /* z-index: 3; */
 }
 
 #product-details .arrow-right {
@@ -89,8 +87,6 @@
   height: 0.7rem;
   border-top: 2px solid #8e0ef2;
   border-left: 2px solid #8e0ef2;
-
-  /* z-index: 2; */
   transform: rotate(225deg);
 }
 

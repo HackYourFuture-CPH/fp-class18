@@ -15,8 +15,6 @@
 .slider .left-arrow,
 .slider .right-arrow {
   position: absolute;
-
-  /* z-index: 4; */
   top: 50%;
   transform: translateY(-50%);
   color: blueviolet;
