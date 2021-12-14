@@ -90,12 +90,6 @@ export const Menu = ({ isAuthenticated }) => {
           </div>
 
           <div className="badgeNumber">
-            <Link to="/" className="homeBtn">
-              <img className="icons" src={faHome} alt="home" />
-            </Link>
-            <Link to="/favorites">
-              <img className="icons" src={faHeart} alt="favorite" />
-            </Link>
             <Link to="/cart">
               <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
               {shoppingCartLength ? (
@@ -105,6 +99,12 @@ export const Menu = ({ isAuthenticated }) => {
               ) : (
                 ''
               )}
+            </Link>
+            <Link to="/favorites">
+              <img className="icons" src={faHeart} alt="favorite" />
+            </Link>
+            <Link to="/" className="homeBtn">
+              <img className="icons" src={faHome} alt="home" />
             </Link>
           </div>
         </div>

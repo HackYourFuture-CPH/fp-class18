@@ -137,7 +137,7 @@ header .badgeNumber {
 
 header .badge {
   position: absolute;
-  right: 8em;
+  right: 0.5em;
   background-color: #8e0ef2;
   border: none;
   font-weight: bold;
