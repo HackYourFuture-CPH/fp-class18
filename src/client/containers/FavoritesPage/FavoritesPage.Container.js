@@ -8,7 +8,6 @@ import Loader from '../../components/Loader/Loader.component';
 const FavoritesPageContainer = ({ isAuthenticated }) => {
   const id = JSON.parse(localStorage.getItem('user')).uid;
   const favorites = useFetchApi(`users/${id}/favorites`);
-  console.log(id);
 
   return (
     <div className="favoritesPage">
