@@ -57,3 +57,11 @@
 .modalView h2 {
   margin: 0;
 }
+
+.modalView .warning {
+  margin-bottom: 10%;
+}
+
+.modalView .warningText {
+  margin-bottom: 10%;
+}
