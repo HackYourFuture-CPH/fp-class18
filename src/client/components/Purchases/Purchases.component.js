@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Purchases.styles.css';
+import { Link } from 'react-router-dom';
 
 export default function Purchases({ orders }) {
   return (
@@ -9,10 +10,13 @@ export default function Purchases({ orders }) {
         <h1 className="title">PURCHASES:</h1>
         {orders.map((order) => {
           return (
-            <ul key={order.orderId}>
-              <li> ORDERID:{order.id}</li>
-              <li> DATE: {order.created_at}</li>
-            </ul>
+            <Link to={`/order/${order.id}`}>
+              <ul key={order.orderId}>
+                <li> ORDERID:{order.id}</li>
+                <li> STATUS: {order.status}</li>
+                <li> DATE: {order.created_at}</li>
+              </ul>
+            </Link>
           );
         })}
       </div>
