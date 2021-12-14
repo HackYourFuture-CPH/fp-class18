@@ -155,10 +155,10 @@ const CartPageContainer = ({ isAuthenticated }) => {
   };
   console.log(user);
   const editDeliveryInfo = () => {
-    if (!user) {
+    if (!user.address) {
       alert('Please enter the Delivery infomation details');
     } else {
-      return handleReviewOrder;
+      return handleReviewOrder();
     }
   };
   const showDeliveryInfo = () => {
