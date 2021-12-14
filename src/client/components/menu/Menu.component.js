@@ -87,14 +87,10 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          {isAuthenticated && (
-            <Link to="/favorites">
-              <img className="icons" src={faHeart} alt="favorite" />
-            </Link>
-          )}
+
           <div className="badgeNumber">
             <Link to="/cart">
-              <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
+              <img className="icons" src={faShoppingCart} alt="shoppingcart" />
               {shoppingCartLength ? (
                 <button type="button" className="badge">
                   {shoppingCartLength}
@@ -104,6 +100,11 @@ export const Menu = ({ isAuthenticated }) => {
               )}
             </Link>
           </div>
+          {isAuthenticated && (
+            <Link to="/favorites">
+              <img className="icons" src={faHeart} alt="favorite" />
+            </Link>
+          )}
         </div>
         <div className="navbar">
           <input ref={navCheckRef} type="checkbox" id="nav-check" />
