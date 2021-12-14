@@ -15,7 +15,9 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
   const orderItems = useFetchApi(`orders/user/${id}`);
   React.useEffect(() => {
     if (!orderItems.isLoading) {
-      setOrders(orderItems.data);
+      if (!orderItems.data.error) {
+        setOrders(orderItems.data);
+      }
     }
   }, [orderItems]);
   const userInfo = useFetchApi(`users/${id}`);
@@ -23,6 +25,7 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
   React.useEffect(() => {
     if (!userInfo.isLoading) {
       setUser(userInfo.data[0]);
+      console.log(userInfo.data[0]);
     }
   }, [userInfo, user]);
 
@@ -49,7 +52,11 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
         </div>
       </div>
       <div className="purchases">
-        <Purchases orders={orders} />
+        {!orderItems.data.error ? (
+          <Purchases orders={orders} />
+        ) : (
+          <h2>You don`t have any orders yet</h2>
+        )}
       </div>
     </div>
   );

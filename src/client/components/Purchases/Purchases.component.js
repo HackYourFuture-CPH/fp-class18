@@ -8,17 +8,21 @@ export default function Purchases({ orders }) {
     <div className="purchases">
       <div className="container">
         <h1 className="title">PURCHASES:</h1>
-        {orders.map((order) => {
-          return (
-            <ul key={order.orderId}>
-              <Link to={`/order/${order.id}`}>
-                <li> ORDERID:{order.id}</li>
-              </Link>
-              <li> STATUS: {order.status}</li>
-              <li> DATE: {order.created_at}</li>
-            </ul>
-          );
-        })}
+        {!orders.length === 0 ? (
+          orders.map((order) => {
+            return (
+              <ul key={order.orderId}>
+                <Link to={`/order/${order.id}`}>
+                  <li> ORDERID:{order.id}</li>
+                </Link>
+                <li> STATUS: {order.status}</li>
+                <li> DATE: {order.created_at}</li>
+              </ul>
+            );
+          })
+        ) : (
+          <h2>You don`t have any orders yet</h2>
+        )}
       </div>
     </div>
   );
