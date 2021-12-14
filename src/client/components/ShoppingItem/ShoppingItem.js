@@ -127,7 +127,7 @@ export default function ShoppingItem({
           initValue={initValue}
           disabled={isDisable}
         />
-        <p style={{ color: textColor }}>{itemValue * price} DKK</p>
+        <p style={{ color: textColor }}>{price} DKK</p>
       </div>
     </div>
   );
