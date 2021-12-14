@@ -10,13 +10,13 @@ export default function Purchases({ orders }) {
         <h1 className="title">PURCHASES:</h1>
         {orders.map((order) => {
           return (
-            <Link to={`/order/${order.id}`}>
-              <ul key={order.orderId}>
+            <ul key={order.orderId}>
+              <Link to={`/order/${order.id}`}>
                 <li> ORDERID:{order.id}</li>
-                <li> STATUS: {order.status}</li>
-                <li> DATE: {order.created_at}</li>
-              </ul>
-            </Link>
+              </Link>
+              <li> STATUS: {order.status}</li>
+              <li> DATE: {order.created_at}</li>
+            </ul>
           );
         })}
       </div>
