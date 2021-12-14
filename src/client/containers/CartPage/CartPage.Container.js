@@ -25,7 +25,6 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [user, setUser] = React.useState({});
   const [favorite, setFavorite] = React.useState([]);
   const [isShown, setIsShown] = React.useState(false);
-  const { auth } = useFirebase();
   const { signInWithGoogle, auth } = useFirebase();
   const {
     shoppingCart,
@@ -209,10 +208,14 @@ const CartPageContainer = ({ isAuthenticated }) => {
             </div>
             <div className="buttons">
               <div className="review-btn">
-              {cartItem.length ? <ButtonComponent
-                  title="REVIEW ORDER"
-                  onClick={editDeliveryInfo}
-                />
+                {cartItem.length ? (
+                  <ButtonComponent
+                    title="REVIEW ORDER"
+                    onClick={userId ? editDeliveryInfo : handleLogin}
+                  />
+                ) : (
+                  ''
+                )}
               </div>
               <div className="shopping-btn">
                 <ButtonComponent
