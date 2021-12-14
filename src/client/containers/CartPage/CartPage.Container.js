@@ -155,7 +155,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
   };
   console.log(user);
   const editDeliveryInfo = () => {
-    if (!user.address) {
+    if (!user.address || !user.zipcode || !user.city || !user.country) {
       alert('Please enter the Delivery infomation details');
     } else {
       return handleReviewOrder();
