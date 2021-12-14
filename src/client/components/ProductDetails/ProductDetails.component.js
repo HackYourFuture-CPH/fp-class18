@@ -70,6 +70,7 @@ export const ProductDetails = ({
         }
       });
     }
+    window.location.reload(false);
     setChecked(!checked);
   };
   const [isShown, setIsShown] = React.useState(false);

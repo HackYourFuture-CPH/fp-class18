@@ -19,14 +19,15 @@ const ProductPageContainer = ({ isAuthenticated }) => {
   const [fav, setFav] = React.useState(false);
 
   const productData = useFetchApi(`products/${id}`);
-  const favsData = useFetchApi(`users/${auth.currentUser.uid}/${id}/favorites`);
+  const userUid = JSON.parse(localStorage.getItem('user')).uid;
+  const favsData = useFetchApi(`users/${userUid}/${id}/favorites`);
 
   React.useEffect(() => {
     if (!productData.isLoading && !favsData.isLoading) {
       setProduct(productData.data[0]);
-      if (!favsData.data.error) {
+      if (favsData.data && !favsData.data.error) {
         const result = favsData.data.some((item) => {
-          return item.id == id;
+          return item.id === parseInt(id, 10);
         });
         setFav(result);
       }
