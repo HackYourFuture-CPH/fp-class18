@@ -153,6 +153,14 @@ const CartPageContainer = ({ isAuthenticated }) => {
       );
     });
   };
+  console.log(user);
+  const editDeliveryInfo = () => {
+    if (!user) {
+      alert('Please enter the Delivery infomation details');
+    } else {
+      return handleReviewOrder;
+    }
+  };
   const showDeliveryInfo = () => {
     if (userId) {
       return <DeliveryInfoV2 editMode={true} vertDisplay={false} user={user} />;
@@ -195,7 +203,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
               <div className="review-btn">
                 <ButtonComponent
                   title="REVIEW ORDER"
-                  onClick={handleReviewOrder}
+                  onClick={editDeliveryInfo}
                 />
               </div>
               <div className="shopping-btn">
