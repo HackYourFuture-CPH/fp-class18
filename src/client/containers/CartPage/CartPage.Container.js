@@ -163,7 +163,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
     setIsShown(!isShown);
   };
   const editDeliveryInfo = () => {
-    if (!user.address || !user.zipcode || !user.city || !user.country) {
+    if (!user.address || !user.zipcode || !user.city || !user.country || user.address===null || user.zipcode===null || user.city===null || user.country===null) {
       setIsShown(!isShown);
     } else {
       return handleReviewOrder();
