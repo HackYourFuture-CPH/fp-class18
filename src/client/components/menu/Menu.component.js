@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
+import faHome from '../../assets/images/home.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import PropTypes from 'prop-types';
@@ -11,19 +12,19 @@ import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartC
 export const Menu = ({ isAuthenticated }) => {
   const { signInWithGoogle, signOut, auth } = useFirebase();
   const { shoppingCart, clearShoppingCart } = useShoppingCartContext();
-
+  const history = useHistory();
   const menuRef = React.useRef();
   const navCheckRef = React.useRef();
 
   const handleLogin = async () => {
+    history.push('/');
     await signInWithGoogle();
-    window.location.href = '/';
   };
 
   const handleLogout = async () => {
     clearShoppingCart();
+    history.push('/');
     await signOut();
-    window.location.href = '/';
   };
 
   // function getIdIfPresent() {
@@ -87,9 +88,7 @@ export const Menu = ({ isAuthenticated }) => {
               </div>
             </div>
           </div>
-          <Link to="/favorites">
-            <img className="icons" src={faHeart} alt="favorite" />
-          </Link>
+
           <div className="badgeNumber">
             <Link to="/cart">
               <img className="icons" src={faShoppingCart} alt="shoppingcart" />{' '}
@@ -100,6 +99,12 @@ export const Menu = ({ isAuthenticated }) => {
               ) : (
                 ''
               )}
+            </Link>
+            <Link to="/favorites">
+              <img className="icons" src={faHeart} alt="favorite" />
+            </Link>
+            <Link to="/" className="homeBtn">
+              <img className="icons" src={faHome} alt="home" />
             </Link>
           </div>
         </div>
