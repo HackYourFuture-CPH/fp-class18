@@ -196,10 +196,14 @@ const CartPageContainer = ({ isAuthenticated }) => {
             </div>
             <div className="buttons">
               <div className="review-btn">
-              {cartItem.length ? <ButtonComponent
-                  title="REVIEW ORDER"
-                  onClick={userId ? handleReviewOrder : handleLogin}
-                /> : ''}
+                {cartItem.length ? (
+                  <ButtonComponent
+                    title="REVIEW ORDER"
+                    onClick={userId ? handleReviewOrder : handleLogin}
+                  />
+                ) : (
+                  ''
+                )}
               </div>
               <div className="shopping-btn">
                 <ButtonComponent
