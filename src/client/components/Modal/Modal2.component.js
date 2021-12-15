@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Modal.styles.css';
-import warning from '../../assets/images/warning.png';
 
 export default function Modal2Component({ show, handleCloseModal }) {
   if (show) {
@@ -18,10 +17,7 @@ export default function Modal2Component({ show, handleCloseModal }) {
               &times;
             </button>
           </div>
-          <div className="warning">
-            {' '}
-            <img src={warning} alt="success" width="20%" />
-          </div>
+          <div className="warning"> </div>
           <div>
             <h2 className="warningText">PLEASE FILL DELIVERY INFO</h2>
           </div>
