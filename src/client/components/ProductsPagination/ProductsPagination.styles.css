@@ -21,7 +21,7 @@ nav {
 }
 
 .pagination button.active {
-  background-color: blue;
+  background-color: #8e0ef2;
   color: white;
 }
 

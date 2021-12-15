@@ -59,6 +59,18 @@ const OrderPageContainer = () => {
       body: JSON.stringify({ id: orderId, status: 'payed' }),
     })
       .then(() => {
+        items.forEach((item) => {
+          fetch(`api/products/${item.productId}`, {
+            method: 'PATCH',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              quantity: item.quantity,
+            }),
+          });
+        });
         history.push(`/order-confirmation/${orderId}`);
       })
       .catch((e) => {
