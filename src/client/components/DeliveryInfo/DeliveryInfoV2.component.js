@@ -24,9 +24,7 @@ export default function DeliveryInfoV2({ editMode, vertDisplay, user }) {
         country: `${newCountry === undefined ? country : newCountry}`,
       }),
     }).then((response) => {
-      if (response.ok) {
-        console.log('Success');
-      } else {
+      if (!response.ok) {
         throw new Error(response.status);
       }
     });

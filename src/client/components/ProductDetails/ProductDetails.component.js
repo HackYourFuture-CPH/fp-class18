@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NumberInput from '../NumberInput/NumberInput.component';
 import ButtonComponent from '../Button/Button.component';
@@ -42,9 +42,7 @@ export const ProductDetails = ({
           product_id: `${productId}`,
         }),
       }).then((response) => {
-        if (response.ok) {
-          console.log('Success: added to favorites');
-        } else {
+        if (!response.ok) {
           throw new Error(response.status);
         }
       });
@@ -59,9 +57,7 @@ export const ProductDetails = ({
           product_id: `${productId}`,
         }),
       }).then((response) => {
-        if (response.ok) {
-          console.log('Success: deleted from favorites');
-        } else {
+        if (!response.ok) {
           throw new Error(response.status);
         }
       });
@@ -83,7 +79,7 @@ export const ProductDetails = ({
     setIsShown(!isShown);
   };
   const handleLink = () => {
-    history.push('/cart')
+    history.push('/cart');
   };
 
   return (
