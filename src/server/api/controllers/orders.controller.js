@@ -68,9 +68,9 @@ const getOrderByUserId = async (userid) => {
   }
   try {
     const orders = await knex('orders').where({ user_id: userid });
-    if (orders.length === 0) {
-      throw new Error(` order with the specified userid was not found`, 404);
-    }
+    // if (orders.length === 0) {
+    //   throw new Error(` order with the specified userid was not found`, 404);
+    // }
     return orders;
   } catch (error) {
     return error.message;
