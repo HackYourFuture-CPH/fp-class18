@@ -30,7 +30,7 @@ const FavoritesPageContainer = () => {
                 Price={product.price}
                 productColor={product.color}
                 productSize={product.size}
-                isFavorite={false}
+                isFavorite={true}
                 imageAlt={product.name}
               />
             );

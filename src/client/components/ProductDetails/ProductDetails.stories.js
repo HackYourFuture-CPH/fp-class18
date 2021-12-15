@@ -17,6 +17,6 @@ export const Product = () => (
     Price={number('Price', '200')}
     productColor={text('Color', 'Black')}
     productSize={text('Size', 'XL')}
-    isFavorite={boolean('Change Favorite Heart', true)}
+    isFavorite={boolean('Change Favorite Heart', false)}
   />
 );

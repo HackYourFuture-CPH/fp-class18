@@ -182,7 +182,7 @@ router.post('/', (req, res, next) => {
  *      404:
  *        description: The favorite products for the specified user_id did not found
  */
-router.get('/:id/favorites/', (req, res, next) => {
+router.get('/:id/:productId/favorites/', (req, res, next) => {
   usersController
     .getUserFavorites(req.params.id)
     .then((result) => res.json(result))

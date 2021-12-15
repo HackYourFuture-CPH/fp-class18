@@ -16,14 +16,23 @@ const ProductPageContainer = ({ isAuthenticated }) => {
   const [product, setProduct] = React.useState({});
   const [category, setCategory] = React.useState('');
   const [similarProduct, setSimilarProduct] = React.useState([]);
+  const [fav, setFav] = React.useState(false);
 
   const productData = useFetchApi(`products/${id}`);
+  const userUid = JSON.parse(localStorage.getItem('user')).uid;
+  const favsData = useFetchApi(`users/${userUid}/${id}/favorites`);
 
   React.useEffect(() => {
-    if (!productData.isLoading) {
+    if (!productData.isLoading && !favsData.isLoading) {
       setProduct(productData.data[0]);
+      if (favsData.data && !favsData.data.error) {
+        const result = favsData.data.some((item) => {
+          return item.id === parseInt(id, 10);
+        });
+        setFav(result);
+      }
     }
-  }, [id, productData]);
+  }, [id, productData, favsData]);
 
   const categoryData = useFetchApi(`categories/${product.category_id}`);
 
@@ -62,6 +71,7 @@ const ProductPageContainer = ({ isAuthenticated }) => {
                 Price={parseInt(product.price, 10)}
                 productColor={product.color}
                 productSize={product.size}
+                isFavorite={fav}
               />
             ) : (
               <Page404Container />
