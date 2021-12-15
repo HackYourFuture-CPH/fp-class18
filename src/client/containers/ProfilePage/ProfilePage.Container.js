@@ -9,22 +9,23 @@ import DeliveryInfoV2 from '../../components/DeliveryInfo/DeliveryInfoV2.compone
 
 const ProfilePageContainer = ({ isAuthenticated }) => {
   const { auth } = useFirebase();
+  const id = JSON.parse(localStorage.getItem('user')).uid;
   const [user, setUser] = React.useState([]);
   const [orders, setOrders] = React.useState([]);
-  const orderItems = useFetchApi(`orders/user/EVJOWMzhWTYdqNGkyaBnn3LpINl2`);
+  const orderItems = useFetchApi(`orders/user/${id}`);
   React.useEffect(() => {
     if (!orderItems.isLoading) {
-      // setItems(orderItems.data.items);
-      setOrders(orderItems.data);
+      if (!orderItems.data.error) {
+        setOrders(orderItems.data);
+      }
     }
   }, [orderItems]);
-  const userInfo = useFetchApi(
-    isAuthenticated && `users/${auth.currentUser.uid}`,
-  );
+  const userInfo = useFetchApi(`users/${id}`);
 
   React.useEffect(() => {
     if (!userInfo.isLoading) {
       setUser(userInfo.data[0]);
+      console.log(userInfo.data[0]);
     }
   }, [userInfo, user]);
 
@@ -51,7 +52,11 @@ const ProfilePageContainer = ({ isAuthenticated }) => {
         </div>
       </div>
       <div className="purchases">
-        <Purchases orders={orders} />
+        {!orderItems.data.error ? (
+          <Purchases orders={orders} />
+        ) : (
+          <h2>You don`t have any orders yet</h2>
+        )}
       </div>
     </div>
   );
