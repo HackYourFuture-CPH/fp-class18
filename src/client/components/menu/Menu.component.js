@@ -100,9 +100,6 @@ export const Menu = ({ isAuthenticated }) => {
                 ''
               )}
             </Link>
-            <Link to="/favorites">
-              <img className="icons" src={faHeart} alt="favorite" />
-            </Link>
             <Link to="/" className="homeBtn">
               <img className="icons" src={faHome} alt="home" />
             </Link>
