@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NumberInput from '../NumberInput/NumberInput.component';
 import ButtonComponent from '../Button/Button.component';
@@ -19,15 +20,16 @@ export const ProductDetails = ({
   isFavorite,
   imageAlt,
   getQuantity,
+  isAuthenticated,
 }) => {
   const { shoppingCart, changeProductQuantity } = useShoppingCartContext();
   const [checked, setChecked] = React.useState(isFavorite);
   const [itemValue, setItemValue] = React.useState(1);
+  const history = useHistory();
   React.useEffect(() => {
     getQuantity(itemValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemValue]);
-
   const checkFavoriteHandler = () => {
     // This function need to be change database for add or remove from favorite.
     if (checked) {
@@ -41,9 +43,7 @@ export const ProductDetails = ({
           product_id: `${productId}`,
         }),
       }).then((response) => {
-        if (response.ok) {
-          console.log('Success: added to favorites');
-        } else {
+        if (!response.ok) {
           throw new Error(response.status);
         }
       });
@@ -58,9 +58,7 @@ export const ProductDetails = ({
           product_id: `${productId}`,
         }),
       }).then((response) => {
-        if (response.ok) {
-          console.log('Success: deleted from favorites');
-        } else {
+        if (!response.ok) {
           throw new Error(response.status);
         }
       });
@@ -82,32 +80,36 @@ export const ProductDetails = ({
     setIsShown(!isShown);
   };
   const handleLink = () => {
-    window.location.href = '/cart/';
+    history.push('/cart');
   };
 
   return (
     <div id="product-details">
       <div className="product-image">
-        <img
-          // eslint-disable-next-line
-          src={require(`../../assets/images/${imgSource.split('/')[4]}`)}
-          alt={imageAlt}
-        />
+        <Link to={`/product/${productId}`}>
+          <img
+            // eslint-disable-next-line
+            src={require(`../../assets/images/${imgSource.split('/')[4]}`)}
+            alt={imageAlt}
+          />
+        </Link>
       </div>
       <div className="details-column">
         <div>
           <div className="product-name">
             <span className="text">{ProductName}</span>
-            <button type="button" onClick={checkFavoriteHandler}>
-              <div className="heart">
-                {' '}
-                {checked ? (
-                  <Heart height="30" />
-                ) : (
-                  <Heart height="30" fill="#8E0EF2" strokeWidth="0" />
-                )}{' '}
-              </div>
-            </button>
+            {isAuthenticated && (
+              <button type="button" onClick={checkFavoriteHandler}>
+                <div className="heart">
+                  {' '}
+                  {checked ? (
+                    <Heart height="30" />
+                  ) : (
+                    <Heart height="30" fill="#8E0EF2" strokeWidth="0" />
+                  )}{' '}
+                </div>
+              </button>
+            )}
           </div>
           <small>({RemainingUnit} units left)</small>
         </div>
@@ -166,6 +168,7 @@ ProductDetails.propTypes = {
   isFavorite: PropTypes.bool,
   imageAlt: PropTypes.string,
   getQuantity: PropTypes.func,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 ProductDetails.defaultProps = {
