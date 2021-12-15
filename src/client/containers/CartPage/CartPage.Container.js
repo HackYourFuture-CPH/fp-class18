@@ -16,6 +16,7 @@ import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartC
 import { useHistory } from 'react-router-dom';
 import DeliveryInfoV2 from '../../components/DeliveryInfo/DeliveryInfoV2.component';
 import { useFetchApi } from '../../hooks/UseFetchApi';
+import Modal2Component from '../../components/Modal/Modal2.component';
 
 const CartPageContainer = ({ isAuthenticated }) => {
   const [cartItem, setCartItem] = React.useState([]);
@@ -23,6 +24,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
   const [total, setTotal] = React.useState(0);
   const [user, setUser] = React.useState({});
   const [favorite, setFavorite] = React.useState([]);
+  const [isShown, setIsShown] = React.useState(false);
   const { signInWithGoogle, auth } = useFirebase();
   const {
     shoppingCart,
@@ -157,6 +159,16 @@ const CartPageContainer = ({ isAuthenticated }) => {
       );
     });
   };
+  const handleClick = () => {
+    setIsShown(!isShown);
+  };
+  const editDeliveryInfo = () => {
+    if (!user.address || !user.zipcode || !user.city || !user.country) {
+      setIsShown(!isShown);
+    } else {
+      return handleReviewOrder();
+    }
+  };
   const showDeliveryInfo = () => {
     if (userId) {
       return <DeliveryInfoV2 editMode={true} vertDisplay={false} user={user} />;
@@ -199,7 +211,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
                 {cartItem.length ? (
                   <ButtonComponent
                     title="REVIEW ORDER"
-                    onClick={userId ? handleReviewOrder : handleLogin}
+                    onClick={userId ? editDeliveryInfo : handleLogin}
                   />
                 ) : (
                   ''
@@ -212,6 +224,7 @@ const CartPageContainer = ({ isAuthenticated }) => {
                   onClick={() => history.push('/')}
                 />
               </div>
+              <Modal2Component show={isShown} handleCloseModal={handleClick} />
             </div>
           </div>
         </div>
