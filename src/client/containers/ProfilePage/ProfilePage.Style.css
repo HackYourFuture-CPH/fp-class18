@@ -1,3 +1,115 @@
-h1 {
-  color: aqua;
+.profilePage .delivery-contact {
+  display: flex;
+  flex-direction: row;
+}
+
+.profilePage h1 {
+  padding-left: 2%;
+}
+
+.profilePage .wrapperContact .titleContact {
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+.profilePage .wrapperContact .formContact {
+  height: 17em;
+  font-size: 1.3em;
+  margin: 0 2em 0 6em;
+  max-width: 300em;
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
+}
+
+.profilePage .delivery .wrapperDelivery .titleDelivery {
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+.profilePage .delivery .wrapperDelivery {
+  height: fit-content;
+  border: 1px solid #c1c1c1;
+}
+
+.profilePage .wrapperDelivery .formDelivery {
+  font-size: 1.2em;
+  grid-gap: 0.5px;
+}
+
+.profilePage .delivery {
+  margin: 0 6em 1.8em 4em;
+}
+
+.profilePage .purchases .container {
+  margin-top: 3em;
+  column-gap: 2em;
+}
+
+@media screen and (max-width: 1400px) {
+  .profilePage .delivery-contact {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .profilePage .delivery .wrapperDelivery {
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .profilePage .purchases li {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .profilePage .delivery-contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profilePage .wrapperContact .formContact {
+    max-width: fit-content;
+  }
+
+  .profilePage .delivery .wrapperDelivery {
+    margin: 2em 0 0 4em;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .profilePage .purchases li {
+    font-size: 1em;
+    max-width: fit-content;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profilePage .delivery-contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profilePage .wrapperContact .formContact {
+    margin: 1em 1em;
+    width: fit-content;
+  }
+
+  .profilePage .delivery {
+    margin: 1em 1em;
+  }
+
+  .profilePage .delivery .wrapperDelivery {
+    width: fit-content;
+    margin: 1em 1em;
+  }
+
+  .profilePage .purchases .container {
+    margin: 1em 1em;
+    width: fit-content;
+  }
+
+  .profilePage .purchases li {
+    font-size: 1em;
+    max-width: fit-content;
+  }
 }

@@ -1,3 +1,37 @@
-h1 {
-  color: aqua;
+.favoritesPage .list {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 1%;
+}
+
+.favoritesPage .h1-favorites {
+  padding-left: 2%;
+}
+
+.favoritesPage .list #product-details {
+  padding: 1px;
+  flex: 1 0 35%;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.favoritesPage .list #product-details .details-column {
+  padding: 2% 2%;
+}
+
+.favoritesPage .list #product-details .select-item {
+  margin-right: 1rem;
+}
+
+.favoritesPage .list #product-details .input-row button {
+  width: 8rem;
+}
+
+.favoritesPage .list .favorites-error {
+  height: 10rem;
+  text-align: center;
+  margin: auto;
 }

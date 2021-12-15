@@ -1,0 +1,29 @@
+.purchases .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
+  margin: 0 6em 0 8em;
+  padding: 1.5em 0 2em 1em;
+}
+
+.purchases li {
+  justify-content: flex-start;
+  font-size: 1.3em;
+  list-style: none;
+}
+
+.purchases .title {
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: left;
+  flex-basis: 100%;
+  padding-left: 1.2em;
+}
+
+.purchases h2 {
+  text-align: left;
+  flex-basis: 100%;
+  padding-left: 1.2em;
+}

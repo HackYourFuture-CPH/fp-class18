@@ -1,0 +1,173 @@
+.wrapperDelivery .formDelivery {
+  display: grid;
+  padding: 1em;
+}
+.wrapperDelivery form input {
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+.wrapperDelivery form button {
+  background: #8e0ef2;
+  padding: 0.7em;
+  width: 100%;
+  border: 0;
+}
+
+.wrapperDelivery label {
+  padding: 0.5em 0.5em 0.5em 0;
+}
+
+.wrapperDelivery input {
+  padding: 0.7em;
+  margin-bottom: 0.5em;
+}
+.wrapperDelivery input:focus {
+  outline: 3px solid #8e0ef2;
+}
+
+@media (min-width: 400px) {
+  .wrapperDelivery .formDelivery {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-style: normal;
+    font-size: 16px;
+    grid-gap: 6px;
+  }
+
+  .wrapperDelivery .titleDelivery {
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    font-weight: 600;
+    margin-left: 2em;
+    padding-bottom: 1em;
+  }
+
+  .wrapperDelivery .addressLabel {
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin-left: 30px;
+  }
+
+  .wrapperDelivery .addressVert {
+    text-align: left;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+  .wrapperDelivery .cityLabel {
+    text-align: left;
+    grid-column: 3 / span 2;
+    grid-row: 2;
+    margin-left: 4em;
+  }
+  .wrapperDelivery .cityLabelVert {
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 4;
+    margin-left: 30px;
+  }
+
+  .wrapperDelivery .zipLabel {
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    margin-left: 30px;
+  }
+
+  .wrapperDelivery .countryLabel {
+    text-align: left;
+    grid-column: 3 / span 2;
+    grid-row: 3;
+    margin-left: 4em;
+  }
+  .wrapperDelivery .countryLabelVert {
+    text-align: left;
+    grid-column: 1 / span 2;
+    grid-row: 5;
+    margin-left: 30px;
+  }
+
+  .wrapperDelivery .saveButtonDiv {
+    grid-column: 2 / span 2;
+    grid-row: 4;
+    margin-left: 8em;
+    width: 40%;
+    padding-bottom: 1em;
+  }
+  .wrapperDelivery .saveButton {
+    color: white;
+  }
+  .wrapperDelivery .cancelLink {
+    text-align: right;
+    grid-column: 4 / span 1;
+    grid-row: 4;
+    width: 80%;
+  }
+  .wrapperDelivery .editLink {
+    text-align: right;
+    grid-column: 4 / span 1;
+    grid-row: 1;
+  }
+  .wrapperDelivery .link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0.7em 0;
+    text-align: left;
+  }
+
+  .wrapperDelivery .addressInputLabel {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 2;
+  }
+  .wrapperDelivery .addressInput {
+    text-align: left;
+    grid-column: 2 / span 1;
+    grid-row: 2;
+  }
+  .wrapperDelivery .cityInputLabel {
+    text-align: right;
+    grid-column: 3 / span 1;
+    grid-row: 2;
+  }
+  .wrapperDelivery .cityInput {
+    text-align: left;
+    grid-column: 4 / span 1;
+    grid-row: 2;
+  }
+  .wrapperDelivery .zipInputLabel {
+    text-align: right;
+    grid-column: 1 / span 1;
+    grid-row: 3;
+  }
+  .wrapperDelivery .zipInput {
+    text-align: left;
+    grid-column: 2 / span 1;
+    grid-row: 3;
+  }
+  .wrapperDelivery .countryInputLabel {
+    text-align: right;
+    grid-column: 3 / span 1;
+    grid-row: 3;
+  }
+  .wrapperDelivery .countryInput {
+    text-align: left;
+    grid-column: 4 / span 1;
+    grid-row: 3;
+  }
+}
+.wrapperDelivery .text-right {
+  padding-right: 3em;
+  text-align: right;
+}
+
+.wrapperDelivery {
+  background-color: #f0eeeef3;
+  border: 1px solid #c1c1c1;
+  width: 36em;
+  height: 14em;
+}

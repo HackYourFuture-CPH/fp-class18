@@ -1,77 +1,182 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Menu.styles.css';
 import faUser from '../../assets/images/user-login.png';
 import faHeart from '../../assets/images/favorite-icon.png';
+import faHome from '../../assets/images/home.png';
 import faShoppingCart from '../../assets/images/shopping-cart.png';
+import { useFirebase } from '../../firebase/FirebaseContext';
+import PropTypes from 'prop-types';
+import { useShoppingCartContext } from '../../context/shoppingCart/shoppingCartContext';
 
 export const Menu = ({ isAuthenticated }) => {
+  const { signInWithGoogle, signOut, auth } = useFirebase();
+  const { shoppingCart, clearShoppingCart } = useShoppingCartContext();
+  const history = useHistory();
+  const menuRef = React.useRef();
+  const navCheckRef = React.useRef();
+
+  const handleLogin = async () => {
+    history.push('/');
+    await signInWithGoogle();
+  };
+
+  const handleLogout = async () => {
+    clearShoppingCart();
+    history.push('/');
+    await signOut();
+  };
+
+  // function getIdIfPresent() {
+  //   return localStorage.getItem('user')
+  //     ? JSON.parse(localStorage.getItem('user')).uid
+  //     : isAuthenticated && `${auth.currentUser.uid}`;
+  // }
+  React.useEffect(() => {
+    const menuNode = menuRef.current;
+    const navCheckNode = navCheckRef.current;
+    if (!navCheckNode || !menuNode) return;
+
+    const handler = () => {
+      navCheckNode.checked = !navCheckNode.checked;
+    };
+    menuNode.addEventListener('click', handler);
+    return () => {
+      menuNode.removeEventListener('click', handler);
+    };
+  }, []);
+
+  const shoppingCartLength = Object.keys(shoppingCart).length;
+
   return (
-    <nav>
+    <nav className="menu">
       <header>
         <div className="logo_container">
           <div className="user-icon">
             <div className="dropdown">
-              <img src={faUser} alt="logout" />
+              <div className="name-div">
+                <img src={faUser} alt="logout" />
+                <span className="name-span">
+                  {isAuthenticated && `${auth.currentUser.displayName}`}
+                </span>
+              </div>
               <div id="login" className="dropdown-content">
                 {isAuthenticated ? (
-                  <Link className="text-link" to="/logout">
-                    LOGOUT
-                  </Link>
+                  <div>
+                    <Link className="text-link" to="/profile">
+                      <button className="acc-btn" type="submit">
+                        MY ACCOUNT
+                      </button>
+                    </Link>
+                    <button
+                      type="submit"
+                      className="login-btn"
+                      onClick={handleLogout}
+                    >
+                      LOGOUT
+                    </button>
+                  </div>
                 ) : (
-                  <Link className="text-link" to="/sign-in">
+                  <button
+                    type="submit"
+                    className="login-btn"
+                    onClick={handleLogin}
+                  >
                     LOGIN / SIGNUP
-                  </Link>
+                  </button>
                 )}
               </div>
             </div>
           </div>
-          <img className="icons" src={faHeart} alt="favorite" />
-          <img className="icons" src={faShoppingCart} alt="shoppingcart" />
+
+          <div className="badgeNumber">
+            <Link to="/cart">
+              <img className="icons" src={faShoppingCart} alt="shoppingcart" />
+              {shoppingCartLength ? (
+                <button type="button" className="badge">
+                  {shoppingCartLength}
+                </button>
+              ) : (
+                ''
+              )}
+            </Link>
+            <Link to="/" className="homeBtn">
+              <img className="icons" src={faHome} alt="home" />
+            </Link>
+          </div>
+          {isAuthenticated && (
+            <Link to="/favorites">
+              <img className="icons" src={faHeart} alt="favorite" />
+            </Link>
+          )}
         </div>
         <div className="navbar">
-          <div className="dropdown">
-            <button type="submit" className="dropbtn">
-              CATEGORIES
-            </button>
-
-            <div className="dropdown-content">
-              <ul>
-                <li>
-                  <Link className="text-link" to="/furniture">
-                    FURNITURE
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-link" to="/lamps">
-                    LAMPS
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-link" to="/homedecor">
-                    HOME DECOR
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-link" to="/linen">
-                    LINEN
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <input ref={navCheckRef} type="checkbox" id="nav-check" />
+          <div className="nav-btn">
+            <label htmlFor="nav-check">
+              <span />
+              <span />
+              <span />
+            </label>
           </div>
-          <button type="submit" className="dropbtn">
-            MONTHLY ARIVALS
-          </button>
-          <button type="submit" className="dropbtn">
-            ABOUT
-          </button>
-          <button type="submit" className="dropbtn">
-            CONTACT US
-          </button>
+          <div ref={menuRef} className="nav-links">
+            <div className="dropdown">
+              <button type="submit" className="dropbtn">
+                CATEGORIES
+              </button>
+              <div className="dropdown-content">
+                <ul>
+                  <li>
+                    <Link
+                      className="text-link text-link2"
+                      to="/category/furniture"
+                    >
+                      FURNITURE
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-link text-link2" to="/category/lamps">
+                      LAMPS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="text-link text-link2"
+                      to="/category/home decor"
+                    >
+                      HOME DECOR
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-link text-link2" to="/category/linen">
+                      LINEN
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <Link to="/monthly-arrivals" className="text-link2">
+              <button type="submit" className="dropbtn">
+                MONTHLY ARRIVALS
+              </button>
+            </Link>
+            <Link to="/about-us" className="text-link2">
+              <button type="submit" className="dropbtn">
+                ABOUT
+              </button>
+            </Link>
+            <Link to="/contact-us" className="text-link2">
+              <button type="submit" className="dropbtn">
+                CONTACT US
+              </button>
+            </Link>
+          </div>
         </div>
       </header>
     </nav>
   );
+};
+
+Menu.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
 };

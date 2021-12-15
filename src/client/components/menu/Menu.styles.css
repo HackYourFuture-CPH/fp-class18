@@ -1,9 +1,17 @@
+.menu {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 header {
   width: 100vw;
   z-index: 5;
 }
 
-header #login {
+header .login-btn,
+.acc-btn {
   padding: 1em;
 }
 
@@ -21,7 +29,8 @@ header .icons {
 header .logo_container {
   background-color: white;
   display: block;
-  padding: 0.3em 0 2.5em 0;
+  padding: 0 0 2.5em 0;
+  text-align: center;
 }
 
 header img {
@@ -52,7 +61,7 @@ header .dropdown {
 }
 
 /* Dropdown button */
-header .dropbtn {
+header .navbar .dropbtn {
   font-size: 1.2em;
   border: none;
   color: white;
@@ -61,10 +70,41 @@ header .dropbtn {
   cursor: pointer;
 }
 
+header .name-span {
+  font-size: 1.6em;
+  padding: 0.8em 0.8em;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+header .acc-btn {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  background-color: inherit;
+  padding-bottom: 1em;
+}
+
+header .login-btn {
+  font-size: 1.2em;
+  border: none;
+  color: white;
+  background-color: inherit;
+  cursor: pointer;
+  width: 9em;
+}
+
 header .navbar button:hover,
-header .dropdown:hover .dropbtn,
-header #login:hover {
+header .dropdown:hover .dropbtn:hover,
+header .acc-btn:hover {
   background-color: #8e0ef2;
+}
+
+header .login-btn:hover {
+  background-color: #8e0ef2;
+  width: 9em;
 }
 
 /* Dropdown content (hidden by default) */
@@ -98,12 +138,118 @@ header .dropdown:hover .dropdown-content ul {
   padding: 0;
 }
 
-@media screen and (max-width: 700px) {
+header .badgeNumber {
+  position: relative;
+}
+
+header .badge {
+  position: absolute;
+  right: 0.5em;
+  background-color: #8e0ef2;
+  border: none;
+  font-weight: bold;
+  border-radius: 100%;
+  color: #fff;
+  width: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 728px) {
   header .navbar {
     display: block;
   }
 
+  header .logo_container {
+    margin-right: 40px;
+  }
+
+  header .dropdown {
+    overflow: visible;
+    padding: 13px 10px 13px 10px;
+  }
+
   header .dropdown:hover .dropdown-content ul {
     display: block;
+  }
+}
+
+.navbar > .nav-btn {
+  display: none;
+}
+
+.navbar > .nav-links {
+  overflow: hidden;
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.navbar > .nav-links > a {
+  display: inline-block;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.navbar > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar > #nav-check {
+  display: none;
+}
+
+@media (max-width: 728px) {
+  .navbar > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .navbar > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+    background-color: rgba(133, 78, 157, 0.79);
+  }
+
+  .navbar > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(131, 32, 174, 0.79);
+  }
+
+  .navbar > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid rgb(255, 255, 255);
+  }
+
+  .navbar > .nav-links {
+    position: absolute;
+    display: inline-grid;
+    width: 100%;
+    background-color: #333;
+    height: 0;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 53px;
+    left: 0;
+  }
+
+  .navbar > .nav-links > a {
+    display: block;
+    width: 100%;
+    padding: 13px 10px 13px 10px;
+  }
+
+  .navbar > #nav-check:not(:checked) ~ .nav-links {
+    height: 0;
+  }
+
+  .navbar > #nav-check:checked ~ .nav-links {
+    height: calc(60vh - 50px);
+    overflow-y: auto;
   }
 }

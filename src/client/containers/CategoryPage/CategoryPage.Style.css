@@ -1,3 +1,17 @@
-h1 {
-  color: aqua;
+footer {
+  margin-top: 2em;
+}
+
+.product-container .product-view h3 {
+  padding-left: 2em;
+}
+
+.product-container {
+  padding-right: 2rem;
+}
+
+.corner {
+  width: fit-content;
+  margin-right: 2%;
+  margin-left: auto;
 }

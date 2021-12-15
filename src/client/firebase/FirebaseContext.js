@@ -8,13 +8,20 @@ import React, {
 } from 'react';
 import { useAuthentication } from '../hooks/useAuthentication';
 
-import { resetPassword, signIn, signOut, signUp } from './auth';
+import {
+  resetPassword,
+  signIn,
+  signOut,
+  signUp,
+  signInWithGoogle,
+} from './auth';
 import { initFirebase } from './configure';
 
 const FirebaseContext = createContext();
 
 export function FirebaseProvider({ children, initialAuth }) {
   const [auth, setAuth] = useState(initialAuth);
+  const [googleProvider, setGoogleProvider] = useState();
 
   const { isAuthenticated, isLoading } = useAuthentication({ auth });
 
@@ -27,6 +34,7 @@ export function FirebaseProvider({ children, initialAuth }) {
     try {
       const r = initFirebase();
       setAuth(r.auth);
+      setGoogleProvider(r.googleProvider);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(
@@ -46,8 +54,9 @@ export function FirebaseProvider({ children, initialAuth }) {
       signUp: (data) => signUp(auth, data),
       signOut: () => signOut(auth),
       resetPassword: (data) => resetPassword(auth, data),
+      signInWithGoogle: () => signInWithGoogle(auth, googleProvider),
     }),
-    [auth, isLoading, isAuthenticated],
+    [auth, isLoading, isAuthenticated, googleProvider],
   );
 
   return (
@@ -78,6 +87,7 @@ FirebaseProvider.defaultProps = {
  * @property {({email, password}) => Promise<void>} signUp - Signs in the user
  * @property {() => Promise<void>} signOut - Signs out the user
  * @property {({email}) => Promise<void>} resetPassword - Resets the password for the user with the specified e-mail
+ * @property {() => Promise<void>} signInWithGoogle - Signs in the user with Google account
  *
  * @returns {FirebaseContextType}
  */

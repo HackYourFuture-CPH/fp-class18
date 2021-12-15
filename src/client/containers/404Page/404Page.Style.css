@@ -1,3 +1,35 @@
-h1 {
-  color: aqua;
+.page404 {
+  text-align: center;
+  padding: 40px 0;
+  background: #fff;
+}
+
+.page404 img {
+  width: 100%;
+}
+
+.page404 .pageBg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+
+.page404 .pageBg h1 {
+  font-size: 80px;
+}
+
+.page404 .pageBg h3 {
+  font-size: 80px;
+}
+
+.page404 .link404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.page404 .pageDetails {
+  margin-top: -50px;
 }

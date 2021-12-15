@@ -1,4 +1,4 @@
-.sort-options {
+.sorting-div .sort-options {
   width: 130px;
   z-index: 1800;
   background: #fff;
@@ -7,29 +7,27 @@
   outline: none;
 }
 
-.input-button {
+.sorting-div .input-button {
   cursor: pointer;
-  border: 0;
+  border: none;
   line-height: 2;
-  padding: 0 20px;
+  padding: 0;
   font-size: 1rem;
   text-align: center;
-  color: rgb(39, 23, 23);
-  border-radius: 5px;
   background-color: transparent;
   width: 130px;
 }
 
-.input-button:hover {
-  background: #ff9500 -webkit-linear-gradient(bottom, #ff9500 0%, #ff9500 100%);
+.sorting-div .input-button:hover {
+  background: #8e0ef2 -webkit-linear-gradient(bottom, #8e0ef2 0%, #8e0ef2 100%);
   color: #fff;
 }
 
-.sort-list {
+.sorting-div .sort-list {
   list-style-type: none;
 }
 
-.input-div {
+.sorting-div .input-div {
   width: 130px;
   border-bottom: solid black 1px;
   border-left: solid black 1px;
