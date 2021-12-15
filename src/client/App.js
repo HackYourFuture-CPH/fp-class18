@@ -1,12 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-
-import SignIn from './containers/SignIn';
-import SignUp from './containers/SignUp';
-
-import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
-import NonAuthenticatedRoute from './components/Auth/NonAuthenticatedRoute.js';
 import ProfilePage from './containers/ProfilePage/ProfilePage.Container';
 import OrderPageContainer from './containers/OrderPage/OrderPage.Container';
 import Loader from './components/Loader/Loader.component';
@@ -57,18 +51,6 @@ function App() {
         <Route exact path="/cart">
           <CartPageContainer isAuthenticated={isAuthenticated} />
         </Route>
-        {/*
-         * All routes below are only shown when you are not authenticated - if the
-         * user is logged in, if a user is logged in, they can't see the login page
-         */}
-        <NonAuthenticatedRoute exact path="/sign-in">
-          <SignIn />
-        </NonAuthenticatedRoute>
-
-        {/* Anonymous pages */}
-        <SignIn exact path="/sign-in" />
-        <SignUp exact path="/sign-up" />
-        <ResetPassword exact path="/reset-password" />
 
         {/* All routes below are authenticated routes - a user must login first */}
         <AuthenticatedRoute exact path="/order/:id">
@@ -83,7 +65,7 @@ function App() {
 
         {/* Favorites page */}
         <AuthenticatedRoute exact path="/favorites">
-          <FavoritesPageContainer />
+          <FavoritesPageContainer isAuthenticated={isAuthenticated} />
         </AuthenticatedRoute>
 
         {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './CategoryPage.Style.css';
 import ProductView from '../../components/ProductView/ProductView.component';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useFetchApi } from '../../hooks/UseFetchApi';
 import Loader from '../../components/Loader/Loader.component';
 import Page404Container from '../404Page/404Page.Container';
@@ -10,6 +10,8 @@ import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
 const CategoryPageContainer = () => {
   const { name } = useParams();
   const products = useFetchApi(`products?category=${name}`);
+  const history = useHistory();
+
   return (
     <>
       <div className="product-container">
@@ -34,7 +36,7 @@ const CategoryPageContainer = () => {
       <div className="corner">
         <ButtonComponent2
           onClick={() => {
-            window.location.href = '/';
+            history.push('/')
           }}
           title="GO TO HOME"
         />

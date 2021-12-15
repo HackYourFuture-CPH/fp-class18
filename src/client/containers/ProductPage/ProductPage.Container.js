@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails.component';
 import Carousel from '../../components/Carousel/Carousel.component';
 import ButtonComponent from '../../components/Button/Button.component';
@@ -16,7 +16,7 @@ const ProductPageContainer = ({ isAuthenticated }) => {
   const [product, setProduct] = React.useState({});
   const [category, setCategory] = React.useState('');
   const [similarProduct, setSimilarProduct] = React.useState([]);
-
+  const history = useHistory();
   const productData = useFetchApi(`products/${id}`);
 
   React.useEffect(() => {
@@ -62,6 +62,7 @@ const ProductPageContainer = ({ isAuthenticated }) => {
                 Price={parseInt(product.price, 10)}
                 productColor={product.color}
                 productSize={product.size}
+                isAuthenticated={isAuthenticated}
               />
             ) : (
               <Page404Container />
@@ -92,7 +93,7 @@ const ProductPageContainer = ({ isAuthenticated }) => {
       <div className="corner">
         <ButtonComponent2
           onClick={() => {
-            window.location.href = '/';
+            history.push('/');
           }}
           title="GO TO HOME"
         />
