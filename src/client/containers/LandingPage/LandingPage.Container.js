@@ -19,8 +19,7 @@ const LandingPageContainer = () => {
   //   return new Date().getMonth() === new Date(date).getMonth();
   // };
   // const imageArray = products.data.filter((product) =>
-  //   // compareMonth(product.created_at) ? product : false,
-  //   product
+  //   compareMonth(product.created_at) ? product : false,
   // );
 
   return (
