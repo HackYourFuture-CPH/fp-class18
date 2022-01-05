@@ -9,6 +9,10 @@ import Loader from '../../components/Loader/Loader.component';
 const LandingPageContainer = () => {
   const products = useFetchApi('products');
   const categories = useFetchApi('categories');
+
+  // Monthly arrival removed from frontend.
+  // Because the database will not update anymore with new products.
+
   // const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
 
   // const compareMonth = (date) => {
