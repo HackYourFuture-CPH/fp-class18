@@ -9,14 +9,15 @@ import Loader from '../../components/Loader/Loader.component';
 const LandingPageContainer = () => {
   const products = useFetchApi('products');
   const categories = useFetchApi('categories');
-  const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
+  // const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
 
-  const compareMonth = (date) => {
-    return new Date().getMonth() === new Date(date).getMonth();
-  };
-  const imageArray = monthlyArrivals.data.filter((product) =>
-    compareMonth(product.created_at) ? product : false,
-  );
+  // const compareMonth = (date) => {
+  //   return new Date().getMonth() === new Date(date).getMonth();
+  // };
+  // const imageArray = products.data.filter((product) =>
+  //   // compareMonth(product.created_at) ? product : false,
+  //   product
+  // );
 
   return (
     <main>
@@ -29,7 +30,7 @@ const LandingPageContainer = () => {
           <Loader />
         ) : (
           <Carousel
-            imageArray={imageArray.map((product) => product.picture)}
+            imageArray={products.data.map((product) => product.picture)}
             products={products.data}
             show={3}
           />
