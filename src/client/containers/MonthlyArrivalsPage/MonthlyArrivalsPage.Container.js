@@ -7,10 +7,14 @@ import Loader from '../../components/Loader/Loader.component';
 import ButtonComponent2 from '../../components/ButtonV2/ButtonV2.component';
 
 const MonthlyArrivalsPageContainer = ({ isAuthenticated }) => {
-  const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
+  // Monthly arrival removed from frontend.
+  // Because the database will not update anymore with new products.
+  // const monthlyArrivals = useFetchApi('products?daysBeforeToday=30');
+  const monthlyArrivals = useFetchApi('products');
+
   const id =
     (isAuthenticated && JSON.parse(localStorage.getItem('user')).uid) || ' ';
-    const history = useHistory();
+  const history = useHistory();
   return (
     <div className="monthlyArrivalsPage">
       <h1>MONTHLY ARRIVALS</h1>

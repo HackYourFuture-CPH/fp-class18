@@ -18,6 +18,7 @@ import MonthlyArrivalsPageContainer from './containers/MonthlyArrivalsPage/Month
 import AboutpageContainer from './containers/AboutPage/AboutPage.Container';
 import ContactpageContainer from './containers/ContactPage/ContactPage.Container';
 import CartPageContainer from './containers/CartPage/CartPage.Container';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   const { isLoading, isAuthenticated } = useFirebase();
@@ -29,50 +30,52 @@ function App() {
   return (
     <Router history={reactRouterHistory}>
       <Menu isAuthenticated={isAuthenticated} />
-      <Switch>
-        <Route exact path="/">
-          <LandingPageContainer />
-        </Route>
-        <Route exact path="/about-us">
-          <AboutpageContainer />
-        </Route>
-        <Route exact path="/contact-us">
-          <ContactpageContainer />
-        </Route>
-        <Route exact path="/product/:id">
-          <ProductPageContainer isAuthenticated={isAuthenticated} />
-        </Route>
-        <Route exact path="/monthly-arrivals">
-          <MonthlyArrivalsPageContainer isAuthenticated={isAuthenticated} />
-        </Route>
-        <Route exact path="/category/:name">
-          <CategoryPage />
-        </Route>
-        <Route exact path="/cart">
-          <CartPageContainer isAuthenticated={isAuthenticated} />
-        </Route>
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/">
+            <LandingPageContainer />
+          </Route>
+          <Route exact path="/about-us">
+            <AboutpageContainer />
+          </Route>
+          <Route exact path="/contact-us">
+            <ContactpageContainer />
+          </Route>
+          <Route exact path="/product/:id">
+            <ProductPageContainer isAuthenticated={isAuthenticated} />
+          </Route>
+          <Route exact path="/monthly-arrivals">
+            <MonthlyArrivalsPageContainer isAuthenticated={isAuthenticated} />
+          </Route>
+          <Route exact path="/category/:name">
+            <CategoryPage />
+          </Route>
+          <Route exact path="/cart">
+            <CartPageContainer isAuthenticated={isAuthenticated} />
+          </Route>
 
-        {/* All routes below are authenticated routes - a user must login first */}
-        <AuthenticatedRoute exact path="/order/:id">
-          <OrderPageContainer isAuthenticated={isAuthenticated} />
-        </AuthenticatedRoute>
-        <AuthenticatedRoute exact path="/order-confirmation/:id">
-          <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
-        </AuthenticatedRoute>
-        <AuthenticatedRoute exact path="/profile">
-          <ProfilePage isAuthenticated={isAuthenticated} />
-        </AuthenticatedRoute>
+          {/* All routes below are authenticated routes - a user must login first */}
+          <AuthenticatedRoute exact path="/order/:id">
+            <OrderPageContainer isAuthenticated={isAuthenticated} />
+          </AuthenticatedRoute>
+          <AuthenticatedRoute exact path="/order-confirmation/:id">
+            <ConfirmationPageContainer isAuthenticated={isAuthenticated} />
+          </AuthenticatedRoute>
+          <AuthenticatedRoute exact path="/profile">
+            <ProfilePage isAuthenticated={isAuthenticated} />
+          </AuthenticatedRoute>
 
-        {/* Favorites page */}
-        <AuthenticatedRoute exact path="/favorites">
-          <FavoritesPageContainer isAuthenticated={isAuthenticated} />
-        </AuthenticatedRoute>
+          {/* Favorites page */}
+          <AuthenticatedRoute exact path="/favorites">
+            <FavoritesPageContainer isAuthenticated={isAuthenticated} />
+          </AuthenticatedRoute>
 
-        {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
-        <Route path="*">
-          <Page404Container />
-        </Route>
-      </Switch>
+          {/* Make sure to keep wildcard "*" routes in the bottom of the Switch */}
+          <Route path="*">
+            <Page404Container />
+          </Route>
+        </Switch>
+      </ScrollToTop>
       <Footer />
     </Router>
   );
